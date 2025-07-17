@@ -1,0 +1,42 @@
+﻿@page "/register"
+@inject HttpClient Http
+@inject NavigationManager Nav
+
+<h3>Register</h3>
+
+<EditForm Model="model" OnValidSubmit="HandleRegister">
+    <InputText @bind-Value="model.Email" placeholder="Email" />
+    <InputText @bind-Value="model.Password" type="password" placeholder="Password" />
+    <InputText @bind-Value="model.ConfirmPassword" type="password" placeholder="Confirm Password" />
+    <button type="submit" class="btn btn-primary">Register</button>
+</EditForm>
+
+@if (!string.IsNullOrEmpty(message))
+{
+    <p>@message</p>
+}
+
+@code {
+    private RegisterModel model = new();
+    private string message;
+
+    private async Task HandleRegister()
+    {
+        var response = await Http.PostAsJsonAsync("register", model);
+        if (response.IsSuccessStatusCode)
+        {
+            message = "Registration successful. You may now log in.";
+        }
+        else
+        {
+            message = "Registration failed.";
+        }
+    }
+
+    public class RegisterModel
+    {
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public string ConfirmPassword { get; set; }
+    }
+}

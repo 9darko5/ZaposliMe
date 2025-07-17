@@ -1,0 +1,11 @@
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\bin\Debug\net8.0\ZaposliMe.Infrastructure.deps.json
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\bin\Debug\net8.0\ZaposliMe.Infrastructure.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\bin\Debug\net8.0\ZaposliMe.Infrastructure.pdb
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\ZaposliMe.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\ZaposliMe.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\ZaposliMe.Infrastructure.AssemblyInfo.cs
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\ZaposliMe.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\ZaposliMe.Infrastructure.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\refint\ZaposliMe.Infrastructure.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\ZaposliMe.Infrastructure.pdb
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\ref\ZaposliMe.Infrastructure.dll

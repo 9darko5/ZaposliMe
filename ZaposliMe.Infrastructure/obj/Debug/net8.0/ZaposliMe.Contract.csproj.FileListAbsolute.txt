@@ -1,0 +1,17 @@
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\bin\Debug\net8.0\ZaposliMe.Contract.deps.json
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\bin\Debug\net8.0\ZaposliMe.Contract.runtimeconfig.json
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\bin\Debug\net8.0\ZaposliMe.Contract.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\bin\Debug\net8.0\ZaposliMe.Contract.pdb
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\bin\Debug\net8.0\ZaposliMe.Domain.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\bin\Debug\net8.0\ZaposliMe.Domain.pdb
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\ZaposliMe.Contract.csproj.AssemblyReference.cache
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\ZaposliMe.Contract.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\ZaposliMe.Contract.AssemblyInfoInputs.cache
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\ZaposliMe.Contract.AssemblyInfo.cs
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\ZaposliMe.Contract.csproj.CoreCompileInputs.cache
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\ZaposliM.65DD909C.Up2Date
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\ZaposliMe.Contract.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\refint\ZaposliMe.Contract.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\ZaposliMe.Contract.pdb
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\ZaposliMe.Contract.genruntimeconfig.cache
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\ref\ZaposliMe.Contract.dll
