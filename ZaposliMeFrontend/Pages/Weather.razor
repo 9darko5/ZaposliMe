@@ -1,11 +1,10 @@
 ﻿@page "/weather"
-@inject HttpClient Http
+@using Microsoft.AspNetCore.Authorization
+@using ZaposliMe.Frontend.Models
+@using ZaposliMe.Frontend.Services
+@inject WeatherForecastService WeatherService
 
-<PageTitle>Weather</PageTitle>
-
-<h1>Weather</h1>
-
-<p>This component demonstrates fetching data from the server.</p>
+<h3>Weather Forecast</h3>
 
 @if (forecasts == null)
 {
@@ -13,12 +12,12 @@
 }
 else
 {
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
+                <th>Temp. (°C)</th>
+                <th>Temp. (°F)</th>
                 <th>Summary</th>
             </tr>
         </thead>
@@ -26,7 +25,7 @@ else
             @foreach (var forecast in forecasts)
             {
                 <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
+                    <td>@forecast.Date.ToString("yyyy-MM-dd")</td>
                     <td>@forecast.TemperatureC</td>
                     <td>@forecast.TemperatureF</td>
                     <td>@forecast.Summary</td>
@@ -37,21 +36,10 @@ else
 }
 
 @code {
-    private WeatherForecast[]? forecasts;
+    private List<WeatherForecast>? forecasts;
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
-    }
-
-    public class WeatherForecast
-    {
-        public DateOnly Date { get; set; }
-
-        public int TemperatureC { get; set; }
-
-        public string? Summary { get; set; }
-
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+        forecasts = await WeatherService.GetForecastsAsync();
     }
 }

@@ -10,24 +10,13 @@
         <div class="top-row px-4">
             <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
         </div>
-        @if (IsAuthenticated())
-        {
-            <div class="top-row px-4">
-                <a href="https://localhost:7097/logout" target="_blank">Logout</a>
-            </div>
-        }
-
+        
+        @* <div class="top-row px-4">
+            <a href="https://localhost:7097/logout" target="_blank">Logout</a>
+        </div> *@
+        
         <article class="content px-4">
             @Body
         </article>
     </main>
 </div>
-
-@code{
-    public bool isAuth = false;
-    private async bool IsAuthenticated()
-    {
-        var result = authService.GetCurrentUser();
-        return result.IsAuthenticated;
-    }
-}

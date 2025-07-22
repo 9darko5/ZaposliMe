@@ -177,3 +177,4 @@ C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\bin\Debug\net8.0\Mic
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\bin\Debug\net8.0\ZaposliMe.Domain.dll
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\bin\Debug\net8.0\ZaposliMe.Domain.pdb
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\obj\Debug\net8.0\ZaposliMe.WebAPI.sourcelink.json

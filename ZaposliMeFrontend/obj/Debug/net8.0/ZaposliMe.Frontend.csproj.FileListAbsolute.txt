@@ -1038,6 +1038,7 @@ C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\bin\Debug\net8.0\w
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Authorization.dll
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Components.Authorization.wasm
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\uj39pdgvpv-0g3kfip6uj.gz
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\uihesmjodk-teuvn5xdm7.gz
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\vamh2yex1y-53ghovmijb.gz
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\ndalbka7ju-yl6mdtx8em.gz
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\ZaposliMe.Frontend.sourcelink.json
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\uihesmjodk-6bt3av2rim.gz
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\vamh2yex1y-wvvnur4fyf.gz
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\ndalbka7ju-0eb7pbhkfj.gz

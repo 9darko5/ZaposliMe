@@ -14,8 +14,15 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Add authentication and authorization
+builder.Services.AddAuthentication().AddBearerToken(IdentityConstants.BearerScheme)
+    .AddCookie(IdentityConstants.ApplicationScheme, options =>
+    {
+        options.Cookie.HttpOnly = true;
+        options.Cookie.SameSite = SameSiteMode.None;
+        options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    });
+
 builder.Services.AddAuthorization();
-builder.Services.AddAuthentication().AddBearerToken(IdentityConstants.BearerScheme);
 
 builder.Services.AddIdentityCore<User>()
     .AddEntityFrameworkStores<UserManagementDbContext>()
@@ -34,6 +41,13 @@ builder.Services.AddDbContext<ZaposliMeDbContext>(options =>
         builder.Configuration.GetConnectionString("ZaposliMeConnection"),
         b => b.MigrationsAssembly("ZaposliMe.WebAPI"));
 });
+
+//builder.Services.ConfigureApplicationCookie(options =>
+//{
+//    options.Cookie.HttpOnly = true;
+//    options.Cookie.SameSite = SameSiteMode.None;
+//    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+//});
 
 builder.Services.AddCors(options =>
 {
@@ -55,9 +69,11 @@ if (app.Environment.IsDevelopment())
 }
 
 //app.ApplyMigrations();
+app.UseHttpsRedirection();
+
 app.UseCors("AllowBlazor");
 
-app.UseHttpsRedirection();
+app.UseAuthentication();
 
 app.UseAuthorization();
 

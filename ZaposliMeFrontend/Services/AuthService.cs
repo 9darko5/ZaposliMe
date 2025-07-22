@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Authorization;
+﻿using Microsoft.AspNetCore.Components.Authorization;
 using System.Net.Http.Json;
 
 namespace ZaposliMe.Frontend.Services
@@ -7,70 +6,44 @@ namespace ZaposliMe.Frontend.Services
     public class AuthService
     {
         private readonly HttpClient _httpClient;
-        private readonly NavigationManager _navigationManager;
         private readonly AuthenticationStateProvider _authStateProvider;
 
-        public AuthService(HttpClient httpClient, NavigationManager navigationManager, AuthenticationStateProvider authStateProvider)
+        public AuthService(HttpClient httpClient, AuthenticationStateProvider authStateProvider)
         {
             _httpClient = httpClient;
-            _navigationManager = navigationManager;
             _authStateProvider = authStateProvider;
         }
 
-        public async Task<bool> Login(string email, string password)
+        public async Task<bool> LoginAsync(string email, string password)
         {
-            var response = await _httpClient.PostAsJsonAsync("login", new { Email = email, Password = password });
+            var loginData = new { email = email, password = password };
+            var response = await _httpClient.PostAsJsonAsync("/login", loginData);
 
             if (response.IsSuccessStatusCode)
             {
-                (_authStateProvider as CookieAuthStateProvider)?.NotifyAuthChanged();
+                // Notify auth state changed so UI updates
+                ((CookieAuthStateProvider)_authStateProvider).NotifyUserAuthentication();
                 return true;
             }
 
             return false;
         }
 
-        public async Task<bool> Register(string email, string password, string confirmPassword)
+        public async Task<bool> RegisterAsync(string email, string password)
         {
-            var response = await _httpClient.PostAsJsonAsync("register", new
-            {
-                Email = email,
-                Password = password,
-                ConfirmPassword = confirmPassword
-            });
+            var registerData = new { email = email, password = password };
+            var response = await _httpClient.PostAsJsonAsync("/register", registerData);
 
             return response.IsSuccessStatusCode;
         }
 
-        public async Task Logout()
+        public async Task LogoutAsync()
         {
-            await _httpClient.PostAsync("logout", null);
-            (_authStateProvider as CookieAuthStateProvider)?.NotifyAuthChanged();
-            _navigationManager.NavigateTo("/");
-        }
+            // If your API has a logout endpoint, call it here
+            // Or clear cookies server-side when session ends
 
-        public async Task<bool> RefreshToken()
-        {
-            var response = await _httpClient.PostAsync("refresh", null);
-            if (response.IsSuccessStatusCode)
-            {
-                (_authStateProvider as CookieAuthStateProvider)?.NotifyAuthChanged();
-                return true;
-            }
-
-            return false;
-        }
-
-        public async Task<UserInfo?> GetCurrentUser()
-        {
-            try
-            {
-                return await _httpClient.GetFromJsonAsync<UserInfo>("user");
-            }
-            catch
-            {
-                return null;
-            }
+            // Notify auth state changed for UI update
+            ((CookieAuthStateProvider)_authStateProvider).NotifyUserLogout();
         }
     }
 }

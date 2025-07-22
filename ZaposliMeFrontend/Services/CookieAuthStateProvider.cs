@@ -8,6 +8,8 @@ namespace ZaposliMe.Frontend.Services
     {
         private readonly HttpClient _httpClient;
 
+        private ClaimsPrincipal _anonymous = new ClaimsPrincipal(new ClaimsIdentity());
+
         public CookieAuthStateProvider(HttpClient httpClient)
         {
             _httpClient = httpClient;
@@ -17,33 +19,37 @@ namespace ZaposliMe.Frontend.Services
         {
             try
             {
-                var userInfo = await _httpClient.GetFromJsonAsync<UserInfo>("user");
-                if (userInfo?.IsAuthenticated ?? false)
+                // Call /manage/info GET endpoint to get user info from cookie-based auth
+                var userInfo = await _httpClient.GetFromJsonAsync<UserInfo>("/manage/info");
+
+                if (userInfo?.IsAuthenticated == true)
                 {
-                    var identity = new ClaimsIdentity(userInfo.Claims.Select(c => new Claim(c.Type, c.Value)), "cookies");
-                    return new AuthenticationState(new ClaimsPrincipal(identity));
+                    var claimsPrincipal = new ClaimsPrincipal(new ClaimsIdentity(userInfo.Claims, "Cookies"));
+                    return new AuthenticationState(claimsPrincipal);
                 }
             }
             catch
             {
-                // fallback to anonymous
+                // ignored — user not authenticated or error
             }
 
-            return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
+            return new AuthenticationState(_anonymous);
         }
 
-        public void NotifyAuthChanged() => NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
+        public void NotifyUserAuthentication()
+        {
+            NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
+        }
+
+        public void NotifyUserLogout()
+        {
+            NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(_anonymous)));
+        }
     }
 
     public class UserInfo
     {
         public bool IsAuthenticated { get; set; }
-        public List<UserClaim> Claims { get; set; } = new();
-    }
-
-    public class UserClaim
-    {
-        public string Type { get; set; }
-        public string Value { get; set; }
+        public Claim[] Claims { get; set; }
     }
 }
