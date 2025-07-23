@@ -1,17 +1,8 @@
-<<<<<<< HEAD
 ﻿using Microsoft.AspNetCore.Components.Authorization;
 using System.Net.Http.Json;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
-=======
-﻿using System.Net.Http.Json;
-using System.Net;
-using System.Security.Claims;
-using System.Text.Json;
-using Microsoft.AspNetCore.Components.Authorization;
-using System.Text;
->>>>>>> 6019270bc2c63e59e470447404f6ff876fb33b88
 using ZaposliMe.Frontend.Identity.Models;
 
 namespace ZaposliMe.Frontend.Identity
@@ -232,11 +223,7 @@ namespace ZaposliMe.Frontend.Identity
             }
             catch (Exception ex) when (ex is HttpRequestException exception)
             {
-<<<<<<< HEAD
                 if (exception.StatusCode != System.Net.HttpStatusCode.Unauthorized)
-=======
-                if (exception.StatusCode != HttpStatusCode.Unauthorized)
->>>>>>> 6019270bc2c63e59e470447404f6ff876fb33b88
                 {
                     logger.LogError(ex, "App error");
                 }
