@@ -10,13 +10,13 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddScoped<FetchWithCredentialsHttpHandler>();
+//builder.Services.AddScoped<FetchWithCredentialsHttpHandler>();
 
 builder.Services.AddScoped(sp => {
-    var jsRuntime = sp.GetRequiredService<IJSRuntime>();
-    var handler = new FetchWithCredentialsHttpHandler(jsRuntime);
+    //var jsRuntime = sp.GetRequiredService<IJSRuntime>();
+    //var handler = new FetchWithCredentialsHttpHandler(jsRuntime);
 
-    return new HttpClient(handler)
+    return new HttpClient(/*handler*/)
     {
         BaseAddress = new Uri("https://localhost:7097/")
     };

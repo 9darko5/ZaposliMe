@@ -9,3 +9,15 @@ C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Service\obj\Debug\net8.0\Z
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Service\obj\Debug\net8.0\refint\ZaposliMe.Service.dll
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Service\obj\Debug\net8.0\ZaposliMe.Service.pdb
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Service\obj\Debug\net8.0\ref\ZaposliMe.Service.dll
+D:\Projects\ZaposliMe\ZaposliMe.Service\bin\Debug\net8.0\ZaposliMe.Service.deps.json
+D:\Projects\ZaposliMe\ZaposliMe.Service\bin\Debug\net8.0\ZaposliMe.Service.dll
+D:\Projects\ZaposliMe\ZaposliMe.Service\bin\Debug\net8.0\ZaposliMe.Service.pdb
+D:\Projects\ZaposliMe\ZaposliMe.Service\obj\Debug\net8.0\ZaposliMe.Service.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\ZaposliMe\ZaposliMe.Service\obj\Debug\net8.0\ZaposliMe.Service.AssemblyInfoInputs.cache
+D:\Projects\ZaposliMe\ZaposliMe.Service\obj\Debug\net8.0\ZaposliMe.Service.AssemblyInfo.cs
+D:\Projects\ZaposliMe\ZaposliMe.Service\obj\Debug\net8.0\ZaposliMe.Service.csproj.CoreCompileInputs.cache
+D:\Projects\ZaposliMe\ZaposliMe.Service\obj\Debug\net8.0\ZaposliMe.Service.sourcelink.json
+D:\Projects\ZaposliMe\ZaposliMe.Service\obj\Debug\net8.0\ZaposliMe.Service.dll
+D:\Projects\ZaposliMe\ZaposliMe.Service\obj\Debug\net8.0\refint\ZaposliMe.Service.dll
+D:\Projects\ZaposliMe\ZaposliMe.Service\obj\Debug\net8.0\ZaposliMe.Service.pdb
+D:\Projects\ZaposliMe\ZaposliMe.Service\obj\Debug\net8.0\ref\ZaposliMe.Service.dll

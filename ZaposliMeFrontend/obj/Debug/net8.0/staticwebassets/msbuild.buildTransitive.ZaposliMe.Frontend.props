@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\ZaposliMe.Frontend.props" />
+</Project>

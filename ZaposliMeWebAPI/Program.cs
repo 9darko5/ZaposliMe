@@ -14,13 +14,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Add authentication and authorization
-builder.Services.AddAuthentication().AddBearerToken(IdentityConstants.BearerScheme)
-    .AddCookie(IdentityConstants.ApplicationScheme, options =>
-    {
-        options.Cookie.HttpOnly = true;
-        options.Cookie.SameSite = SameSiteMode.None;
-        options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-    });
+builder.Services.AddAuthentication(IdentityConstants.ApplicationScheme)
+    .AddIdentityCookies();
 
 builder.Services.AddAuthorization();
 

@@ -17,7 +17,7 @@ namespace ZaposliMe.Frontend.Services
         public async Task<bool> LoginAsync(string email, string password)
         {
             var loginData = new { email = email, password = password };
-            var response = await _httpClient.PostAsJsonAsync("/login", loginData);
+            var response = await _httpClient.PostAsJsonAsync("/login?useCookies=true", loginData);
 
             if (response.IsSuccessStatusCode)
             {
