@@ -4,9 +4,23 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using ZaposliMe.Frontend.Components;
 using ZaposliMe.Frontend.Identity;
 
+<<<<<<< HEAD
 internal class Program
 {
     private static async Task Main(string[] args)
+=======
+var builder = WebAssemblyHostBuilder.CreateDefault(args);
+builder.RootComponents.Add<App>("#app");
+builder.RootComponents.Add<HeadOutlet>("head::after");
+
+//builder.Services.AddScoped<FetchWithCredentialsHttpHandler>();
+
+builder.Services.AddScoped(sp => {
+    //var jsRuntime = sp.GetRequiredService<IJSRuntime>();
+    //var handler = new FetchWithCredentialsHttpHandler(jsRuntime);
+
+    return new HttpClient(/*handler*/)
+>>>>>>> 6019270bc2c63e59e470447404f6ff876fb33b88
     {
         var builder = WebAssemblyHostBuilder.CreateDefault(args);
         builder.RootComponents.Add<App>("#app");

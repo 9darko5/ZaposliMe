@@ -15,8 +15,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Add authentication and authorization
+<<<<<<< HEAD
 
 // establish cookie authentication
+=======
+>>>>>>> 6019270bc2c63e59e470447404f6ff876fb33b88
 builder.Services.AddAuthentication(IdentityConstants.ApplicationScheme)
     .AddIdentityCookies();
 

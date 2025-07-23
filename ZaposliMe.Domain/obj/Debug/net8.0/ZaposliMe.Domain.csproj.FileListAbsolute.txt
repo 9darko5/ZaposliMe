@@ -11,3 +11,20 @@ C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Domain\obj\Debug\net8.0\Za
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Domain\obj\Debug\net8.0\refint\ZaposliMe.Domain.dll
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Domain\obj\Debug\net8.0\ZaposliMe.Domain.pdb
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Domain\obj\Debug\net8.0\ref\ZaposliMe.Domain.dll
+<<<<<<< HEAD
+=======
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Domain\obj\Debug\net8.0\ZaposliMe.Domain.csproj.AssemblyReference.cache
+D:\Projects\ZaposliMe\ZaposliMe.Domain\bin\Debug\net8.0\ZaposliMe.Domain.deps.json
+D:\Projects\ZaposliMe\ZaposliMe.Domain\bin\Debug\net8.0\ZaposliMe.Domain.dll
+D:\Projects\ZaposliMe\ZaposliMe.Domain\bin\Debug\net8.0\ZaposliMe.Domain.pdb
+D:\Projects\ZaposliMe\ZaposliMe.Domain\obj\Debug\net8.0\ZaposliMe.Domain.csproj.AssemblyReference.cache
+D:\Projects\ZaposliMe\ZaposliMe.Domain\obj\Debug\net8.0\ZaposliMe.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\ZaposliMe\ZaposliMe.Domain\obj\Debug\net8.0\ZaposliMe.Domain.AssemblyInfoInputs.cache
+D:\Projects\ZaposliMe\ZaposliMe.Domain\obj\Debug\net8.0\ZaposliMe.Domain.AssemblyInfo.cs
+D:\Projects\ZaposliMe\ZaposliMe.Domain\obj\Debug\net8.0\ZaposliMe.Domain.csproj.CoreCompileInputs.cache
+D:\Projects\ZaposliMe\ZaposliMe.Domain\obj\Debug\net8.0\ZaposliMe.Domain.sourcelink.json
+D:\Projects\ZaposliMe\ZaposliMe.Domain\obj\Debug\net8.0\ZaposliMe.Domain.dll
+D:\Projects\ZaposliMe\ZaposliMe.Domain\obj\Debug\net8.0\refint\ZaposliMe.Domain.dll
+D:\Projects\ZaposliMe\ZaposliMe.Domain\obj\Debug\net8.0\ZaposliMe.Domain.pdb
+D:\Projects\ZaposliMe\ZaposliMe.Domain\obj\Debug\net8.0\ref\ZaposliMe.Domain.dll
+>>>>>>> 6019270bc2c63e59e470447404f6ff876fb33b88
