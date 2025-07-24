@@ -1,9 +1,8 @@
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
 using ZaposliMe.Domain;
 using ZaposliMe.Domain.Entities.Identity;
+using ZaposliMe.WebAPI.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,10 +14,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Add authentication and authorization
-
-// establish cookie authentication
-builder.Services.AddAuthentication(IdentityConstants.ApplicationScheme)
-    .AddIdentityCookies();
+builder.Services.AddAuthentication().AddBearerToken(IdentityConstants.BearerScheme)
+    .AddCookie(IdentityConstants.ApplicationScheme, options =>
+    {
+        options.Cookie.HttpOnly = true;
+        options.Cookie.SameSite = SameSiteMode.None;
+        options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    });
 
 builder.Services.AddAuthorization();
 
@@ -40,6 +42,13 @@ builder.Services.AddDbContext<ZaposliMeDbContext>(options =>
         b => b.MigrationsAssembly("ZaposliMe.WebAPI"));
 });
 
+//builder.Services.ConfigureApplicationCookie(options =>
+//{
+//    options.Cookie.HttpOnly = true;
+//    options.Cookie.SameSite = SameSiteMode.None;
+//    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+//});
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowBlazor",
@@ -59,53 +68,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-//app.MapPost("/logout", async (SignInManager<User> signInManager, [FromBody] object empty) =>
-//{
-//    if (empty is not null)
-//    {
-//        await signInManager.SignOutAsync();
-
-//        return Results.Ok();
-//    }
-
-//    return Results.Unauthorized();
-//}).RequireAuthorization();
-
 //app.ApplyMigrations();
 app.UseHttpsRedirection();
-
-//// provide an endpoint for user roles
-//app.MapGet("/roles", (ClaimsPrincipal user) =>
-//{
-//    if (user.Identity is not null && user.Identity.IsAuthenticated)
-//    {
-//        var identity = (ClaimsIdentity)user.Identity;
-//        var roles = identity.FindAll(identity.RoleClaimType)
-//            .Select(c =>
-//                new
-//                {
-//                    c.Issuer,
-//                    c.OriginalIssuer,
-//                    c.Type,
-//                    c.Value,
-//                    c.ValueType
-//                });
-
-//        return TypedResults.Json(roles);
-//    }
-
-//    return Results.Unauthorized();
-//}).RequireAuthorization();
-
-//// provide an endpoint example that requires authorization
-//app.MapPost("/data-processing-1", ([FromBody] FormModel model) =>
-//    Results.Text($"{model.Message.Length} characters"))
-//        .RequireAuthorization();
-
-//// provide an endpoint example that requires authorization with a policy
-//app.MapPost("/data-processing-2", ([FromBody] FormModel model) =>
-//    Results.Text($"{model.Message.Length} characters"))
-//        .RequireAuthorization(policy => policy.RequireRole("Manager"));
 
 app.UseCors("AllowBlazor");
 
@@ -118,10 +82,3 @@ app.MapControllers();
 app.MapIdentityApi<User>();
 
 app.Run();
-
-
-// example form model
-class FormModel
-{
-    public string Message { get; set; } = string.Empty;
-}

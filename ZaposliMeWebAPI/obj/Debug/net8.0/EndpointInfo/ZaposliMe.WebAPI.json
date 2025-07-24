@@ -44,82 +44,6 @@
         }
       }
     },
-    "/logout": {
-      "post": {
-        "tags": [
-          "ZaposliMe.WebAPI"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": { }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/roles": {
-      "get": {
-        "tags": [
-          "ZaposliMe.WebAPI"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/data-processing-1": {
-      "post": {
-        "tags": [
-          "ZaposliMe.WebAPI"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FormModel"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/data-processing-2": {
-      "post": {
-        "tags": [
-          "ZaposliMe.WebAPI"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FormModel"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
     "/register": {
       "post": {
         "tags": [
@@ -528,16 +452,6 @@
         "type": "object",
         "properties": {
           "email": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "FormModel": {
-        "type": "object",
-        "properties": {
-          "message": {
             "type": "string",
             "nullable": true
           }

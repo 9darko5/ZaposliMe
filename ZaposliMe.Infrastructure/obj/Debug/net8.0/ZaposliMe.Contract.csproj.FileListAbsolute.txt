@@ -9,7 +9,6 @@ C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\n
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\ZaposliMe.Contract.AssemblyInfoInputs.cache
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\ZaposliMe.Contract.AssemblyInfo.cs
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\ZaposliMe.Contract.csproj.CoreCompileInputs.cache
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\ZaposliMe.Contract.sourcelink.json
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\ZaposliM.65DD909C.Up2Date
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\ZaposliMe.Contract.dll
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Infrastructure\obj\Debug\net8.0\refint\ZaposliMe.Contract.dll
