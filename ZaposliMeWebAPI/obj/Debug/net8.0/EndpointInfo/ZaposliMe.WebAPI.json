@@ -5,12 +5,24 @@
     "version": "1.0"
   },
   "paths": {
+    "/Account/user": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/WeatherForecast": {
       "get": {
         "tags": [
           "WeatherForecast"
         ],
-        "operationId": "GetWeatherForecast",
+        "operationId": "WeatherForecast",
         "responses": {
           "200": {
             "description": "Success",
@@ -374,6 +386,18 @@
           },
           "404": {
             "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/logout": {
+      "post": {
+        "tags": [
+          "ZaposliMe.WebAPI"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
           }
         }
       }

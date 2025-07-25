@@ -1,0 +1,9 @@
+﻿@inject NavigationManager Navigation
+
+@code {
+    protected override void OnInitialized()
+    {
+        // Adjust the login url if needed
+        Navigation.NavigateTo("login", forceLoad: true);
+    }
+}

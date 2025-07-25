@@ -1,0 +1,16 @@
+﻿@inject NavigationManager Navigation
+@inject AuthenticationStateProvider AuthProvider
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (!user.Identity?.IsAuthenticated ?? true)
+        {
+            var returnUrl = Uri.EscapeDataString(Navigation.Uri.Replace(Navigation.BaseUri, "/"));
+            Navigation.NavigateTo($"login?returnUrl={returnUrl}", forceLoad: true);
+        }
+    }
+}

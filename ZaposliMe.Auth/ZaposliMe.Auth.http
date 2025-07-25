@@ -1,0 +1,6 @@
+@ZaposliMe.Auth_HostAddress = http://localhost:5147
+
+GET {{ZaposliMe.Auth_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

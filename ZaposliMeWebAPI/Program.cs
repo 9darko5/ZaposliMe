@@ -1,30 +1,38 @@
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ZaposliMe.Domain;
 using ZaposliMe.Domain.Entities.Identity;
-using ZaposliMe.WebAPI.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+    options.SuppressMapClientErrors = true;
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Add authentication and authorization
-builder.Services.AddAuthentication().AddBearerToken(IdentityConstants.BearerScheme)
-    .AddCookie(IdentityConstants.ApplicationScheme, options =>
-    {
-        options.Cookie.HttpOnly = true;
-        options.Cookie.SameSite = SameSiteMode.None;
-        options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-    });
-
+builder.Services.AddAuthentication(IdentityConstants.ApplicationScheme).AddIdentityCookies();
 builder.Services.AddAuthorization();
 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/login"; // ✅ correct minimal API login endpoint
+    options.AccessDeniedPath = "/access-denied"; // optional
+    options.Events.OnRedirectToLogin = context =>
+    {
+        // Return 401 to Blazor instead of redirecting
+        context.Response.StatusCode = 401;
+        return Task.CompletedTask;
+    };
+});
+
 builder.Services.AddIdentityCore<User>()
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<UserManagementDbContext>()
     .AddApiEndpoints();
 
@@ -41,13 +49,6 @@ builder.Services.AddDbContext<ZaposliMeDbContext>(options =>
         builder.Configuration.GetConnectionString("ZaposliMeConnection"),
         b => b.MigrationsAssembly("ZaposliMe.WebAPI"));
 });
-
-//builder.Services.ConfigureApplicationCookie(options =>
-//{
-//    options.Cookie.HttpOnly = true;
-//    options.Cookie.SameSite = SameSiteMode.None;
-//    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-//});
 
 builder.Services.AddCors(options =>
 {
@@ -80,5 +81,25 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.MapIdentityApi<User>();
+
+app.MapPost("/logout", async (HttpContext httpContext, SignInManager<User> signInManager) =>
+{
+    await signInManager.SignOutAsync();
+    return Results.NoContent();
+});
+
+app.UseStatusCodePages(async context =>
+{
+    var response = context.HttpContext.Response;
+
+    if (response.StatusCode == 403)
+    {
+        await response.WriteAsync("Access denied: You are not in the required role.");
+    }
+    else if (response.StatusCode == 404)
+    {
+        await response.WriteAsync("Resource not found.");
+    }
+});
 
 app.Run();

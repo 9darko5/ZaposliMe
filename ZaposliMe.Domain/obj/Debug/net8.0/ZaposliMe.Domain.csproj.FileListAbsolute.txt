@@ -10,3 +10,4 @@ C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Domain\obj\Debug\net8.0\re
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Domain\obj\Debug\net8.0\ZaposliMe.Domain.pdb
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Domain\obj\Debug\net8.0\ref\ZaposliMe.Domain.dll
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Domain\obj\Debug\net8.0\ZaposliMe.Domain.csproj.AssemblyReference.cache
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Domain\obj\Debug\net8.0\ZaposliMe.Domain.sourcelink.json
