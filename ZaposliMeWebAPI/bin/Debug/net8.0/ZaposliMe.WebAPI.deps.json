@@ -13,7 +13,8 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.7",
           "Microsoft.EntityFrameworkCore.Tools": "9.0.7",
           "Swashbuckle.AspNetCore": "6.4.0",
-          "ZaposliMe.Domain": "1.0.0"
+          "ZaposliMe.Application": "1.0.0",
+          "ZaposliMe.Persistance": "1.0.0"
         },
         "runtime": {
           "ZaposliMe.WebAPI.dll": {}
@@ -1153,16 +1154,34 @@
           }
         }
       },
+      "ZaposliMe.Application/1.0.0": {
+        "runtime": {
+          "ZaposliMe.Application.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "ZaposliMe.Domain/1.0.0": {
         "dependencies": {
           "FluentValidation": "12.0.0",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.18",
-          "Microsoft.EntityFrameworkCore": "9.0.7",
-          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.7"
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.18"
         },
         "runtime": {
           "ZaposliMe.Domain.dll": {
-            "assemblyVersion": "1.0.0.0",
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "ZaposliMe.Persistance/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.7",
+          "ZaposliMe.Domain": "1.0.0"
+        },
+        "runtime": {
+          "ZaposliMe.Persistance.dll": {
+            "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -1812,7 +1831,17 @@
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
     },
+    "ZaposliMe.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "ZaposliMe.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ZaposliMe.Persistance/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ZaposliMe.Application.Shared;
 
 namespace ZaposliMeWebAPI.Controllers
 {
@@ -20,7 +21,7 @@ namespace ZaposliMeWebAPI.Controllers
         }
 
         [HttpGet(Name = "WeatherForecast")]
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "Admin")]
         public IEnumerable<WeatherForecast> Get()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast

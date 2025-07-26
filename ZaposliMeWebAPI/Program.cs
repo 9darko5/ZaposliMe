@@ -1,16 +1,13 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using ZaposliMe.Domain;
+using ZaposliMe.Persistance;
 using ZaposliMe.Domain.Entities.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers(options =>
-{
-    options.SuppressMapClientErrors = true;
-});
+builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -91,7 +88,6 @@ app.MapPost("/logout", async (HttpContext httpContext, SignInManager<User> signI
 app.UseStatusCodePages(async context =>
 {
     var response = context.HttpContext.Response;
-
     if (response.StatusCode == 403)
     {
         await response.WriteAsync("Access denied: You are not in the required role.");

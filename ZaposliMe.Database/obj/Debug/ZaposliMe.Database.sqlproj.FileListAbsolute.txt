@@ -8,3 +8,9 @@ C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\obj\Debug\Model.x
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\obj\Debug\refactor.xml
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\obj\Debug\postdeploy.sql
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\obj\Debug\predeploy.sql
+D:\Projects\ZaposliMe\ZaposliMe.Database\bin\Debug\ZaposliMe.Database.dacpac
+D:\Projects\ZaposliMe\ZaposliMe.Database\bin\Debug\ZaposliMe.Database.dll
+D:\Projects\ZaposliMe\ZaposliMe.Database\bin\Debug\ZaposliMe.Database.pdb
+D:\Projects\ZaposliMe\ZaposliMe.Database\obj\Debug\ZaposliMe.Database.sqlproj.AssemblyReference.cache
+D:\Projects\ZaposliMe\ZaposliMe.Database\obj\Debug\ZaposliMe.Database.dll
+D:\Projects\ZaposliMe\ZaposliMe.Database\obj\Debug\ZaposliMe.Database.pdb

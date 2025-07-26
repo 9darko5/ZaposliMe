@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ZaposliMe.Service\ZaposliMe.Service.csproj" />
+    <ProjectReference Include="..\Application\ZaposliMe.Application.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ZaposliMe.Domain;
+using ZaposliMe.Persistance;
 
 namespace ZaposliMe.WebAPI.Extensions
 {

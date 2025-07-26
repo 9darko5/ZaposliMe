@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using ZaposliMe.Frontend.Components;
 using ZaposliMe.Frontend.Identity;
-using ZaposliMe.Service.Services.Weather;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -11,7 +10,6 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 // register the cookie handler
 builder.Services.AddTransient<CookieHandler>();
-builder.Services.AddScoped<WeatherForecastService>();
 
 // set up authorization
 builder.Services.AddAuthorizationCore();
@@ -28,5 +26,11 @@ builder.Services.AddHttpClient(
     "Backend",
     opt => opt.BaseAddress = new Uri("https://localhost:7097"))
     .AddHttpMessageHandler<CookieHandler>();
+
+builder.Services.AddScoped(sp =>
+{
+    var factory = sp.GetRequiredService<IHttpClientFactory>();
+    return factory.CreateClient("Backend");
+});
 
 await builder.Build().RunAsync();
