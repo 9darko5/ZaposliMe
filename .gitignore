@@ -1,3 +1,4 @@
 *.gz
 /.vs
 *.dll
+*.bin
