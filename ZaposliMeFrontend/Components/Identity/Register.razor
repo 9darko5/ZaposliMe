@@ -35,6 +35,28 @@
                             <h2>Register as a new user.</h2>
                             <hr />
                             <div class="form-floating mb-3">
+                                <InputText @bind-Value="Input.FirstName"
+                                           id="Input.FirstName"
+                                           class="form-control"
+                                           aria-required="true"/>
+                                <label for="Input.FirstName" class="form-label">
+                                    First name
+                                </label>
+                                <ValidationMessage For="() => Input.FirstName"
+                                                   class="text-danger" />
+                            </div>
+                            <div class="form-floating mb-3">
+                                <InputText @bind-Value="Input.LastName"
+                                           id="Input.LastName"
+                                           class="form-control"
+                                           aria-required="true"/>
+                                <label for="Input.LastName" class="form-label">
+                                    Last name
+                                </label>
+                                <ValidationMessage For="() => Input.LastName"
+                                                   class="text-danger" />
+                            </div>
+                            <div class="form-floating mb-3">
                                 <InputText @bind-Value="Input.Email"
                                            id="Input.Email"
                                            class="form-control"
@@ -75,6 +97,29 @@
                                 <ValidationMessage For="() => Input.ConfirmPassword"
                                                    class="text-danger" />
                             </div>
+                            <div class="form-floating mb-3">
+                                <InputNumber
+                                    @bind-Value="Input.Age"
+                                           id="Input.Age"
+                                           class="form-control"
+                                           aria-required="true"/>
+                                <label for="Input.Age" class="form-label">
+                                    Age
+                                </label>
+                                <ValidationMessage For="() => Input.Age"
+                                                   class="text-danger" />
+                            </div>
+                            <div class="form-floating mb-3">
+                                <InputText @bind-Value="Input.PhoneNumber"
+                                           id="Input.PhoneNumber"
+                                           class="form-control"
+                                           aria-required="true" />
+                                <label for="Input.PhoneNumber" class="form-label">
+                                    Phone number
+                                </label>
+                                <ValidationMessage For="() => Input.PhoneNumber"
+                                                   class="text-danger" />
+                            </div>
                             <div>
                                 <button type="submit" class="w-100 btn btn-lg btn-primary">
                                     Register
@@ -96,11 +141,19 @@
 
     public async Task RegisterUserAsync()
     {
-        formResult = await Acct.RegisterAsync(Input.Email, Input.Password);
+        formResult = await Acct.RegisterAsync(Input.FirstName, Input.LastName, Input.Email, Input.Password, Input.Age, Input.PhoneNumber);
     }
 
     private sealed class InputModel
     {
+        [Required]
+        [Display(Name = "FirstName")]
+        public string FirstName { get; set; } = string.Empty;
+
+        [Required]
+        [Display(Name = "LastName")]
+        public string LastName { get; set; } = string.Empty;
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -116,5 +169,12 @@
         [Compare("Password")]
         [Display(Name = "Confirm Password")]
         public string ConfirmPassword { get; set; } = string.Empty;
+
+        [Display(Name = "Age")]
+        public long Age { get; set; }
+
+        [DataType(DataType.PhoneNumber)]
+        [Display(Name = "PhoneNumber")]
+        public string PhoneNumber { get; set; } = string.Empty;
     }
 }

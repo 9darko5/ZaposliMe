@@ -48,7 +48,7 @@ namespace ZaposliMe.Frontend.Identity
         /// <param name="password">The user's password.</param>
         /// <returns>The result serialized to a <see cref="FormResult"/>.
         /// </returns>
-        public async Task<FormResult> RegisterAsync(string email, string password)
+        public async Task<FormResult> RegisterAsync(string firstName, string lastName, string email, string password, long? age, string? phoneNumber)
         {
             string[] defaultDetail = ["An unknown error prevented registration from succeeding."];
 
@@ -56,10 +56,14 @@ namespace ZaposliMe.Frontend.Identity
             {
                 // make the request
                 var result = await httpClient.PostAsJsonAsync(
-                    "register", new
+                    "account/register", new
                     {
+                        firstName,
+                        lastName,
                         email,
-                        password
+                        password,
+                        age,
+                        phoneNumber
                     });
 
                 // successful?
@@ -121,7 +125,7 @@ namespace ZaposliMe.Frontend.Identity
             {
                 // login with cookies
                 var result = await httpClient.PostAsJsonAsync(
-                    "login?useCookies=true", new
+                    "account/login?useCookies=true", new
                     {
                         email,
                         password

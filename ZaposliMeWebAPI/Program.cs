@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using ZaposliMe.Persistance;
 using ZaposliMe.Domain.Entities.Identity;
+using ZaposliMe.Service.User;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,8 +19,7 @@ builder.Services.AddAuthorization();
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.LoginPath = "/login"; // ✅ correct minimal API login endpoint
-    options.AccessDeniedPath = "/access-denied"; // optional
+    options.LoginPath = "Account/login"; // ✅ correct minimal API login endpoint
     options.Events.OnRedirectToLogin = context =>
     {
         // Return 401 to Blazor instead of redirecting
@@ -57,6 +57,8 @@ builder.Services.AddCors(options =>
             .AllowCredentials()); // MUST for cookies
 });
 
+builder.Services.AddScoped<IUserService,  UserService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -77,9 +79,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapIdentityApi<User>();
-
-app.MapPost("/logout", async (HttpContext httpContext, SignInManager<User> signInManager) =>
+app.MapPost("account/logout", async (HttpContext httpContext, SignInManager<User> signInManager) =>
 {
     await signInManager.SignOutAsync();
     return Results.NoContent();

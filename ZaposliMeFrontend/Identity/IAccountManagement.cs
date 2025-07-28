@@ -27,7 +27,7 @@ namespace ZaposliMe.Frontend.Identity
         /// <param name="email">User's email.</param>
         /// <param name="password">User's password.</param>
         /// <returns>The result of the request serialized to <see cref="FormResult"/>.</returns>
-        public Task<FormResult> RegisterAsync(string email, string password);
+        public Task<FormResult> RegisterAsync(string firstName, string lastName, string email, string password, long? age, string? phoneNumber);
 
         public Task<bool> CheckAuthenticatedAsync();
     }

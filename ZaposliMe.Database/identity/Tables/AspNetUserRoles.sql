@@ -1,0 +1,5 @@
+﻿CREATE TABLE [identity].[AspNetUserRoles]
+(
+	[UserId] NVARCHAR(450) NOT NULL PRIMARY KEY,
+	[RoleId] NVARCHAR(450) NOT NULL PRIMARY KEY,
+)

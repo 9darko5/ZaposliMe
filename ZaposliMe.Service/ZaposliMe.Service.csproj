@@ -16,4 +16,8 @@
     <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.7" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ZaposliMe.Persistance\ZaposliMe.Persistance.csproj" />
+  </ItemGroup>
+
 </Project>

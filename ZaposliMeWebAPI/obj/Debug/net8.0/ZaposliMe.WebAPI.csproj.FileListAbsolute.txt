@@ -14,7 +14,6 @@ C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\obj\Debug\net8.0\Zap
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\obj\Debug\net8.0\ZaposliMe.WebAPI.AssemblyInfoInputs.cache
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\obj\Debug\net8.0\ZaposliMe.WebAPI.AssemblyInfo.cs
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\obj\Debug\net8.0\ZaposliMe.WebAPI.csproj.CoreCompileInputs.cache
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\obj\Debug\net8.0\ZaposliMe.WebAPI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\obj\Debug\net8.0\ZaposliMe.WebAPI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\obj\Debug\net8.0\staticwebassets.development.json
@@ -359,3 +358,16 @@ D:\Projects\ZaposliMe\ZaposliMeWebAPI\bin\Debug\net8.0\ZaposliMe.Application.dll
 D:\Projects\ZaposliMe\ZaposliMeWebAPI\bin\Debug\net8.0\ZaposliMe.Persistance.dll
 D:\Projects\ZaposliMe\ZaposliMeWebAPI\bin\Debug\net8.0\ZaposliMe.Application.pdb
 D:\Projects\ZaposliMe\ZaposliMeWebAPI\bin\Debug\net8.0\ZaposliMe.Persistance.pdb
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\bin\Debug\net8.0\Microsoft.Extensions.Http.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\bin\Debug\net8.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\bin\Debug\net8.0\ZaposliMe.Application.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\bin\Debug\net8.0\ZaposliMe.Persistance.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\bin\Debug\net8.0\ZaposliMe.Service.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\bin\Debug\net8.0\ZaposliMe.Application.pdb
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\bin\Debug\net8.0\ZaposliMe.Persistance.pdb
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\bin\Debug\net8.0\ZaposliMe.Service.pdb
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\obj\Debug\net8.0\ZaposliMe.WebAPI.MvcApplicationPartsAssemblyInfo.cs

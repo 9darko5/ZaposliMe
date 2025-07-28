@@ -10,3 +10,15 @@ D:\Projects\ZaposliMe\Application\obj\Debug\net8.0\ZaposliMe.Application.dll
 D:\Projects\ZaposliMe\Application\obj\Debug\net8.0\refint\ZaposliMe.Application.dll
 D:\Projects\ZaposliMe\Application\obj\Debug\net8.0\ZaposliMe.Application.pdb
 D:\Projects\ZaposliMe\Application\obj\Debug\net8.0\ref\ZaposliMe.Application.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\bin\Debug\net8.0\ZaposliMe.Application.deps.json
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\bin\Debug\net8.0\ZaposliMe.Application.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\bin\Debug\net8.0\ZaposliMe.Application.pdb
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Debug\net8.0\ZaposliMe.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Debug\net8.0\ZaposliMe.Application.AssemblyInfoInputs.cache
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Debug\net8.0\ZaposliMe.Application.AssemblyInfo.cs
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Debug\net8.0\ZaposliMe.Application.csproj.CoreCompileInputs.cache
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Debug\net8.0\ZaposliMe.Application.sourcelink.json
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Debug\net8.0\ZaposliMe.Application.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Debug\net8.0\refint\ZaposliMe.Application.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Debug\net8.0\ZaposliMe.Application.pdb
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Debug\net8.0\ref\ZaposliMe.Application.dll

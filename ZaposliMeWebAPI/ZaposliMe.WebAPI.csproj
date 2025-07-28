@@ -23,6 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Application\ZaposliMe.Application.csproj" />
     <ProjectReference Include="..\ZaposliMe.Persistance\ZaposliMe.Persistance.csproj" />
+    <ProjectReference Include="..\ZaposliMe.Service\ZaposliMe.Service.csproj" />
   </ItemGroup>
 
 </Project>

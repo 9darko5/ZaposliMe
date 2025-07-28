@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ZaposliMe.Domain.Entities;
 
 namespace ZaposliMe.Persistance
 {
@@ -10,7 +11,7 @@ namespace ZaposliMe.Persistance
         {
         }
 
-
+        public DbSet<UserProfile> UserProfiles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
