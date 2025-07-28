@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using ZaposliMe.Persistance;
 using ZaposliMe.Domain.Entities.Identity;
-using ZaposliMe.Service.User;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +18,7 @@ builder.Services.AddAuthorization();
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.LoginPath = "Account/login"; // ✅ correct minimal API login endpoint
+    options.LoginPath = "/account/login"; // ✅ correct minimal API login endpoint
     options.Events.OnRedirectToLogin = context =>
     {
         // Return 401 to Blazor instead of redirecting
@@ -36,7 +35,7 @@ builder.Services.AddIdentityCore<User>()
 builder.Services.AddDbContext<UserManagementDbContext>(options =>
 {
     options.UseSqlServer(
-        builder.Configuration.GetConnectionString("IdentityConnection"),
+        builder.Configuration.GetConnectionString("ZaposliMeConnection"),
         b => b.MigrationsAssembly("ZaposliMe.WebAPI"));
 });
 
@@ -56,8 +55,6 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod()
             .AllowCredentials()); // MUST for cookies
 });
-
-builder.Services.AddScoped<IUserService,  UserService>();
 
 var app = builder.Build();
 
@@ -79,11 +76,11 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapPost("account/logout", async (HttpContext httpContext, SignInManager<User> signInManager) =>
-{
-    await signInManager.SignOutAsync();
-    return Results.NoContent();
-});
+//app.MapPost("account/logout", async (HttpContext httpContext, SignInManager<User> signInManager) =>
+//{
+//    await signInManager.SignOutAsync();
+//    return Results.NoContent();
+//});
 
 app.UseStatusCodePages(async context =>
 {

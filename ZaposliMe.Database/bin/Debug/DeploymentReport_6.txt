@@ -1,0 +1,32 @@
+﻿** Highlights
+     Tables that will be recreated with data migrated
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       The column [identity].[AspNetUsers].[AccountState] is being dropped, data loss could occur.
+       The column [identity].[AspNetUsers].[Language] is being dropped, data loss could occur.
+       The column [identity].[AspNetUsers].[FirstName] on table [identity].[AspNetUsers] must be added, but the column has no
+         default value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this
+         issue you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of
+         smart-defaults as a deployment option.
+       The column [identity].[AspNetUsers].[LastName] on table [identity].[AspNetUsers] must be added, but the column has no
+         default value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this
+         issue you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of
+         smart-defaults as a deployment option.
+
+** User actions
+     Drop
+       unnamed constraint on [identity].[AspNetUsers] (Default Constraint)
+     Alter
+       [identity].[AspNetUsers] (Table)
+
+** Supporting actions
+
+The column [identity].[AspNetUsers].[AccountState] is being dropped, data loss could occur.
+The column [identity].[AspNetUsers].[Language] is being dropped, data loss could occur.
+The column [identity].[AspNetUsers].[FirstName] on table [identity].[AspNetUsers] must be added, but the column has no default value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The column [identity].[AspNetUsers].[LastName] on table [identity].[AspNetUsers] must be added, but the column has no default value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+

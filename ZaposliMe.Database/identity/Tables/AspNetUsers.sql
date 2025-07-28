@@ -16,7 +16,8 @@
     [LockoutEnd]           DATETIME       NULL,
     [LockoutEnabled]       BIT            NOT NULL,
     [AccessFailedCount]    INT            NOT NULL,
-    [AccountState]         INT NOT NULL DEFAULT 1, 
-    [Language]             NVARCHAR(50) NULL, 
+    [FirstName] NVARCHAR(50) NOT NULL,
+	[LastName] NVARCHAR(50) NOT NULL,
+	[Age] BIGINT NULL,
     CONSTRAINT [PK_user.AspNetUsers] PRIMARY KEY CLUSTERED ([Id] ASC)
 )

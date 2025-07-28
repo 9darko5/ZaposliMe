@@ -2,7 +2,7 @@
   {
     "ContainingType": "ZaposliMe.WebAPI.Controllers.AccountController",
     "Method": "Login",
-    "RelativePath": "Account/login",
+    "RelativePath": "login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -16,25 +16,19 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Program\u002B\u003C\u003Ec",
-    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_4",
-    "RelativePath": "account/logout",
+    "ContainingType": "ZaposliMe.WebAPI.Controllers.AccountController",
+    "Method": "Logout",
+    "RelativePath": "logout",
     "HttpMethod": "POST",
-    "IsController": false,
+    "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "ZaposliMe.WebAPI.Controllers.AccountController",
     "Method": "Register",
-    "RelativePath": "Account/register",
+    "RelativePath": "register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -50,7 +44,7 @@
   {
     "ContainingType": "ZaposliMe.WebAPI.Controllers.AccountController",
     "Method": "GetUser",
-    "RelativePath": "Account/user",
+    "RelativePath": "user",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

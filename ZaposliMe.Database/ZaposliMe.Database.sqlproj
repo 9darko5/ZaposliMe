@@ -71,7 +71,6 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Security\zaposlime.sql" />
-    <Build Include="zaposlime\Tables\UserProfile.sql" />
     <Build Include="identity\Tables\AspNetRoles.sql" />
     <Build Include="identity\Tables\AspNetRoleClaims.sql" />
     <Build Include="identity\Tables\AspNetUserClaims.sql" />
@@ -82,6 +81,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ZaposliMe.Database.publish.xml" />
-    <None Include="Security\identity.sql" />
+    <Build Include="Security\identity.sql" />
   </ItemGroup>
 </Project>

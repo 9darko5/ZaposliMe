@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/Account/user": {
+    "/user": {
       "get": {
         "tags": [
           "Account"
@@ -17,7 +17,7 @@
         }
       }
     },
-    "/Account/register": {
+    "/register": {
       "post": {
         "tags": [
           "Account"
@@ -48,7 +48,7 @@
         }
       }
     },
-    "/Account/login": {
+    "/login": {
       "post": {
         "tags": [
           "Account"
@@ -72,6 +72,18 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/logout": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
         "responses": {
           "200": {
             "description": "Success"
@@ -114,18 +126,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/account/logout": {
-      "post": {
-        "tags": [
-          "ZaposliMe.WebAPI"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
           }
         }
       }
@@ -204,7 +204,8 @@
           },
           "age": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "nullable": true
           },
           "phoneNumber": {
             "type": "string",

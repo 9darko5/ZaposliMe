@@ -3,106 +3,30 @@
   "WorkspaceRootPath": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlimewebapi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|solutionrelative:zaposlimewebapi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A9B4DE7-59E1-4B9F-91BA-F2449B65EB17}|ZaposliMeFrontend\\ZaposliMe.Frontend.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlimefrontend\\identity\\cookieauthenticationstateprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A9B4DE7-59E1-4B9F-91BA-F2449B65EB17}|ZaposliMeFrontend\\ZaposliMe.Frontend.csproj|solutionrelative:zaposlimefrontend\\identity\\cookieauthenticationstateprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A9B4DE7-59E1-4B9F-91BA-F2449B65EB17}|ZaposliMeFrontend\\ZaposliMe.Frontend.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlimefrontend\\identity\\iaccountmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A9B4DE7-59E1-4B9F-91BA-F2449B65EB17}|ZaposliMeFrontend\\ZaposliMe.Frontend.csproj|solutionrelative:zaposlimefrontend\\identity\\iaccountmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A9B4DE7-59E1-4B9F-91BA-F2449B65EB17}|ZaposliMeFrontend\\ZaposliMe.Frontend.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlimefrontend\\components\\identity\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4A9B4DE7-59E1-4B9F-91BA-F2449B65EB17}|ZaposliMeFrontend\\ZaposliMe.Frontend.csproj|solutionrelative:zaposlimefrontend\\components\\identity\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A9B4DE7-59E1-4B9F-91BA-F2449B65EB17}|ZaposliMeFrontend\\ZaposliMe.Frontend.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlimefrontend\\components\\identity\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4A9B4DE7-59E1-4B9F-91BA-F2449B65EB17}|ZaposliMeFrontend\\ZaposliMe.Frontend.csproj|solutionrelative:zaposlimefrontend\\components\\identity\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED7FA0A7-FB45-443B-9B23-8392C9FB8B15}|Application\\ZaposliMe.Application.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\application\\shared\\account\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED7FA0A7-FB45-443B-9B23-8392C9FB8B15}|Application\\ZaposliMe.Application.csproj|solutionrelative:application\\shared\\account\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlimewebapi\\models\\account\\userinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|solutionrelative:zaposlimewebapi\\models\\account\\userinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlimewebapi\\migrations\\usermanagement\\20250714073956_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|solutionrelative:zaposlimewebapi\\migrations\\usermanagement\\20250714073956_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlimewebapi\\migrations\\usermanagement\\usermanagementdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|solutionrelative:zaposlimewebapi\\migrations\\usermanagement\\usermanagementdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlimewebapi\\zaposlime.webapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|solutionrelative:zaposlimewebapi\\zaposlime.webapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlimewebapi\\extensions\\migrateextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|solutionrelative:zaposlimewebapi\\extensions\\migrateextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4A9B4DE7-59E1-4B9F-91BA-F2449B65EB17}|ZaposliMeFrontend\\ZaposliMe.Frontend.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlimefrontend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4A9B4DE7-59E1-4B9F-91BA-F2449B65EB17}|ZaposliMeFrontend\\ZaposliMe.Frontend.csproj|solutionrelative:zaposlimefrontend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlimewebapi\\migrations\\zaposlime\\zaposlimedbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|solutionrelative:zaposlimewebapi\\migrations\\zaposlime\\zaposlimedbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlimewebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|solutionrelative:zaposlimewebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlimewebapi\\migrations\\zaposlime\\20250714074027_initialcreate.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|solutionrelative:zaposlimewebapi\\migrations\\zaposlime\\20250714074027_initialcreate.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlimewebapi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|solutionrelative:zaposlimewebapi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A9B4DE7-59E1-4B9F-91BA-F2449B65EB17}|ZaposliMeFrontend\\ZaposliMe.Frontend.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlimefrontend\\components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4A9B4DE7-59E1-4B9F-91BA-F2449B65EB17}|ZaposliMeFrontend\\ZaposliMe.Frontend.csproj|solutionrelative:zaposlimefrontend\\components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlimewebapi\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|solutionrelative:zaposlimewebapi\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED7FA0A7-FB45-443B-9B23-8392C9FB8B15}|Application\\ZaposliMe.Application.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\application\\shared\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED7FA0A7-FB45-443B-9B23-8392C9FB8B15}|Application\\ZaposliMe.Application.csproj|solutionrelative:application\\shared\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED7FA0A7-FB45-443B-9B23-8392C9FB8B15}|Application\\ZaposliMe.Application.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\application\\zaposlime.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{ED7FA0A7-FB45-443B-9B23-8392C9FB8B15}|Application\\ZaposliMe.Application.csproj|solutionrelative:application\\zaposlime.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{57E81EAF-9193-4E62-B266-43F804390E3D}|ZaposliMe.Persistance\\ZaposliMe.Persistance.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlime.persistance\\zaposlime.persistance.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{57E81EAF-9193-4E62-B266-43F804390E3D}|ZaposliMe.Persistance\\ZaposliMe.Persistance.csproj|solutionrelative:zaposlime.persistance\\zaposlime.persistance.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlimewebapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|solutionrelative:zaposlimewebapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A9B4DE7-59E1-4B9F-91BA-F2449B65EB17}|ZaposliMeFrontend\\ZaposliMe.Frontend.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlimefrontend\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4A9B4DE7-59E1-4B9F-91BA-F2449B65EB17}|ZaposliMeFrontend\\ZaposliMe.Frontend.csproj|solutionrelative:zaposlimefrontend\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A9B4DE7-59E1-4B9F-91BA-F2449B65EB17}|ZaposliMeFrontend\\ZaposliMe.Frontend.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlimefrontend\\identity\\models\\formresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A9B4DE7-59E1-4B9F-91BA-F2449B65EB17}|ZaposliMeFrontend\\ZaposliMe.Frontend.csproj|solutionrelative:zaposlimefrontend\\identity\\models\\formresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A9B4DE7-59E1-4B9F-91BA-F2449B65EB17}|ZaposliMeFrontend\\ZaposliMe.Frontend.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlimefrontend\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4A9B4DE7-59E1-4B9F-91BA-F2449B65EB17}|ZaposliMeFrontend\\ZaposliMe.Frontend.csproj|solutionrelative:zaposlimefrontend\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{57E81EAF-9193-4E62-B266-43F804390E3D}|ZaposliMe.Persistance\\ZaposliMe.Persistance.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlime.persistance\\zaposlimedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57E81EAF-9193-4E62-B266-43F804390E3D}|ZaposliMe.Persistance\\ZaposliMe.Persistance.csproj|solutionrelative:zaposlime.persistance\\zaposlimedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 0,
+      "Orientation": 1,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "DockedHeight": 308,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -122,295 +46,70 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "LoginDto.cs",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\Application\\Shared\\Account\\LoginDto.cs",
-              "RelativeDocumentMoniker": "Application\\Shared\\Account\\LoginDto.cs",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\Application\\Shared\\Account\\LoginDto.cs",
-              "RelativeToolTip": "Application\\Shared\\Account\\LoginDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T09:55:25.338Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UserInfo.cs",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\Models\\Account\\UserInfo.cs",
-              "RelativeDocumentMoniker": "ZaposliMeWebAPI\\Models\\Account\\UserInfo.cs",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\Models\\Account\\UserInfo.cs",
-              "RelativeToolTip": "ZaposliMeWebAPI\\Models\\Account\\UserInfo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T09:51:45.443Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "ZaposliMeWebAPI\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "ZaposliMeWebAPI\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAgwEIAAAB4AAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeFrontend\\Program.cs",
+              "RelativeDocumentMoniker": "ZaposliMeFrontend\\Program.cs",
+              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeFrontend\\Program.cs*",
+              "RelativeToolTip": "ZaposliMeFrontend\\Program.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-25T10:00:44.5Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Login.razor",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeFrontend\\Components\\Identity\\Login.razor",
-              "RelativeDocumentMoniker": "ZaposliMeFrontend\\Components\\Identity\\Login.razor",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeFrontend\\Components\\Identity\\Login.razor",
-              "RelativeToolTip": "ZaposliMeFrontend\\Components\\Identity\\Login.razor",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAAFsAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-24T10:45:21.93Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IAccountManagement.cs",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeFrontend\\Identity\\IAccountManagement.cs",
-              "RelativeDocumentMoniker": "ZaposliMeFrontend\\Identity\\IAccountManagement.cs",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeFrontend\\Identity\\IAccountManagement.cs",
-              "RelativeToolTip": "ZaposliMeFrontend\\Identity\\IAccountManagement.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAhwA8AAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-24T10:43:26.605Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CookieAuthenticationStateProvider.cs",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeFrontend\\Identity\\CookieAuthenticationStateProvider.cs",
-              "RelativeDocumentMoniker": "ZaposliMeFrontend\\Identity\\CookieAuthenticationStateProvider.cs",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeFrontend\\Identity\\CookieAuthenticationStateProvider.cs",
-              "RelativeToolTip": "ZaposliMeFrontend\\Identity\\CookieAuthenticationStateProvider.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAIAwwEEAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-24T10:43:54.591Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "20250714073956_InitialCreate.cs",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\Migrations\\UserManagement\\20250714073956_InitialCreate.cs",
-              "RelativeDocumentMoniker": "ZaposliMeWebAPI\\Migrations\\UserManagement\\20250714073956_InitialCreate.cs",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\Migrations\\UserManagement\\20250714073956_InitialCreate.cs",
-              "RelativeToolTip": "ZaposliMeWebAPI\\Migrations\\UserManagement\\20250714073956_InitialCreate.cs",
-              "ViewState": "AgIAAM4AAAAAAAAAAAAmwOwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T09:33:48.588Z",
+              "WhenOpened": "2025-07-28T13:05:52.138Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Register.razor",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeFrontend\\Components\\Identity\\Register.razor",
-              "RelativeDocumentMoniker": "ZaposliMeFrontend\\Components\\Identity\\Register.razor",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeFrontend\\Components\\Identity\\Register.razor",
-              "RelativeToolTip": "ZaposliMeFrontend\\Components\\Identity\\Register.razor",
-              "ViewState": "AgIAAIEAAAAAAAAAAAAQwI8AAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-24T10:46:11.346Z",
+              "Title": "ZaposliMeDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Persistance\\ZaposliMeDbContext.cs",
+              "RelativeDocumentMoniker": "ZaposliMe.Persistance\\ZaposliMeDbContext.cs",
+              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Persistance\\ZaposliMeDbContext.cs",
+              "RelativeToolTip": "ZaposliMe.Persistance\\ZaposliMeDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T12:42:13.26Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "UserManagementDbContextModelSnapshot.cs",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\Migrations\\UserManagement\\UserManagementDbContextModelSnapshot.cs",
-              "RelativeDocumentMoniker": "ZaposliMeWebAPI\\Migrations\\UserManagement\\UserManagementDbContextModelSnapshot.cs",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\Migrations\\UserManagement\\UserManagementDbContextModelSnapshot.cs",
-              "RelativeToolTip": "ZaposliMeWebAPI\\Migrations\\UserManagement\\UserManagementDbContextModelSnapshot.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAgwAQAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "ZaposliMeWebAPI\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "ZaposliMeWebAPI\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAwwEwAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T14:30:11.922Z",
+              "WhenOpened": "2025-07-28T11:54:04.08Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ZaposliMe.WebAPI.csproj",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj",
-              "RelativeDocumentMoniker": "ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj",
-              "RelativeToolTip": "ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-07-26T14:26:27.971Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "MigrateExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\Extensions\\MigrateExtensions.cs",
-              "RelativeDocumentMoniker": "ZaposliMeWebAPI\\Extensions\\MigrateExtensions.cs",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\Extensions\\MigrateExtensions.cs",
-              "RelativeToolTip": "ZaposliMeWebAPI\\Extensions\\MigrateExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T14:31:03.975Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "20250714074027_InitialCreate.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\Migrations\\ZaposliMe\\20250714074027_InitialCreate.Designer.cs",
-              "RelativeDocumentMoniker": "ZaposliMeWebAPI\\Migrations\\ZaposliMe\\20250714074027_InitialCreate.Designer.cs",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\Migrations\\ZaposliMe\\20250714074027_InitialCreate.Designer.cs",
-              "RelativeToolTip": "ZaposliMeWebAPI\\Migrations\\ZaposliMe\\20250714074027_InitialCreate.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T14:30:23.916Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "WeatherForecast.cs",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\Application\\Shared\\WeatherForecast.cs",
-              "RelativeDocumentMoniker": "Application\\Shared\\WeatherForecast.cs",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\Application\\Shared\\WeatherForecast.cs",
-              "RelativeToolTip": "Application\\Shared\\WeatherForecast.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAzwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T14:26:44.208Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeFrontend\\Program.cs",
-              "RelativeDocumentMoniker": "ZaposliMeFrontend\\Program.cs",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeFrontend\\Program.cs",
-              "RelativeToolTip": "ZaposliMeFrontend\\Program.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAQAAAAiAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\Program.cs",
+              "RelativeDocumentMoniker": "ZaposliMeWebAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\Program.cs",
+              "RelativeToolTip": "ZaposliMeWebAPI\\Program.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAE0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T11:36:10.688Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ZaposliMeDbContextModelSnapshot.cs",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\Migrations\\ZaposliMe\\ZaposliMeDbContextModelSnapshot.cs",
-              "RelativeDocumentMoniker": "ZaposliMeWebAPI\\Migrations\\ZaposliMe\\ZaposliMeDbContextModelSnapshot.cs",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\Migrations\\ZaposliMe\\ZaposliMeDbContextModelSnapshot.cs",
-              "RelativeToolTip": "ZaposliMeWebAPI\\Migrations\\ZaposliMe\\ZaposliMeDbContextModelSnapshot.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T14:30:33.384Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "ZaposliMe.Application.csproj",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\Application\\ZaposliMe.Application.csproj",
-              "RelativeDocumentMoniker": "Application\\ZaposliMe.Application.csproj",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\Application\\ZaposliMe.Application.csproj",
-              "RelativeToolTip": "Application\\ZaposliMe.Application.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-07-26T14:26:28.005Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "WeatherForecastController.cs",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\Controllers\\WeatherForecastController.cs",
-              "RelativeDocumentMoniker": "ZaposliMeWebAPI\\Controllers\\WeatherForecastController.cs",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\Controllers\\WeatherForecastController.cs",
-              "RelativeToolTip": "ZaposliMeWebAPI\\Controllers\\WeatherForecastController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBcAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-24T13:18:00.944Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Weather.razor",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeFrontend\\Components\\Pages\\Weather.razor",
-              "RelativeDocumentMoniker": "ZaposliMeFrontend\\Components\\Pages\\Weather.razor",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeFrontend\\Components\\Pages\\Weather.razor",
-              "RelativeToolTip": "ZaposliMeFrontend\\Components\\Pages\\Weather.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-24T12:05:57.209Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "ZaposliMe.Persistance.csproj",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Persistance\\ZaposliMe.Persistance.csproj",
-              "RelativeDocumentMoniker": "ZaposliMe.Persistance\\ZaposliMe.Persistance.csproj",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Persistance\\ZaposliMe.Persistance.csproj",
-              "RelativeToolTip": "ZaposliMe.Persistance\\ZaposliMe.Persistance.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-07-26T14:26:27.067Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "FormResult.cs",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeFrontend\\Identity\\Models\\FormResult.cs",
-              "RelativeDocumentMoniker": "ZaposliMeFrontend\\Identity\\Models\\FormResult.cs",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeFrontend\\Identity\\Models\\FormResult.cs",
-              "RelativeToolTip": "ZaposliMeFrontend\\Identity\\Models\\FormResult.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-24T10:43:58.705Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\appsettings.json",
-              "RelativeDocumentMoniker": "ZaposliMeWebAPI\\appsettings.json",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\appsettings.json",
-              "RelativeToolTip": "ZaposliMeWebAPI\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-26T11:33:41.332Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "App.razor",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeFrontend\\Components\\App.razor",
-              "RelativeDocumentMoniker": "ZaposliMeFrontend\\Components\\App.razor",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeFrontend\\Components\\App.razor",
-              "RelativeToolTip": "ZaposliMeFrontend\\Components\\App.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-25T07:04:54.898Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "index.html",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeFrontend\\wwwroot\\index.html",
-              "RelativeDocumentMoniker": "ZaposliMeFrontend\\wwwroot\\index.html",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeFrontend\\wwwroot\\index.html",
-              "RelativeToolTip": "ZaposliMeFrontend\\wwwroot\\index.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-07-23T11:28:05.692Z"
+              "WhenOpened": "2025-07-28T11:41:58.275Z",
+              "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedWidth": 343,
+          "DockedHeight": 308,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{007a3a6b-b5b2-454d-a2bd-cf929f989be2}"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 98,
           "SelectedChildIndex": -1,
           "Children": [
             {
@@ -424,10 +123,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{007a3a6b-b5b2-454d-a2bd-cf929f989be2}"
             },
             {
               "$type": "Bookmark",
