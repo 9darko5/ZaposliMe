@@ -56,7 +56,7 @@ namespace ZaposliMe.Frontend.Identity
             {
                 // make the request
                 var result = await httpClient.PostAsJsonAsync(
-                    "account/register", new
+                    "/register", new
                     {
                         firstName,
                         lastName,
@@ -125,7 +125,7 @@ namespace ZaposliMe.Frontend.Identity
             {
                 // login with cookies
                 var result = await httpClient.PostAsJsonAsync(
-                    "account/login?useCookies=true", new
+                    "/login?useCookies=true", new
                     {
                         email,
                         password
@@ -171,14 +171,7 @@ namespace ZaposliMe.Frontend.Identity
 
             try
             {
-                // the user info endpoint is secured, so if the user isn't logged in this will fail
-                using var userResponse = await httpClient.GetAsync("manage/info");
-
-                // throw if user info wasn't retrieved
-                userResponse.EnsureSuccessStatusCode();
-
-                // user is authenticated,so let's build their authenticated identity
-                var userInfoResponse = await httpClient.GetAsync("account/user");
+                var userInfoResponse = await httpClient.GetAsync("/info");
                 userInfoResponse.EnsureSuccessStatusCode();
 
                 var userInfoJson = await userInfoResponse.Content.ReadAsStringAsync();

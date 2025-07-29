@@ -370,3 +370,4 @@ C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\obj\Debug\net8.0\ref
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\obj\Debug\net8.0\ZaposliMe.WebAPI.pdb
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\obj\Debug\net8.0\ZaposliMe.WebAPI.genruntimeconfig.cache
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\obj\Debug\net8.0\ref\ZaposliMe.WebAPI.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

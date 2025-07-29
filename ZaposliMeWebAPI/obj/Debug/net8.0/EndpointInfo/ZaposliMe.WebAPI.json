@@ -80,7 +80,19 @@
       }
     },
     "/logout": {
-      "post": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/info": {
+      "get": {
         "tags": [
           "Account"
         ],

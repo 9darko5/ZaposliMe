@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using ZaposliMe.Applicatiom.Shared.Account;
 using ZaposliMe.Application.Shared.Account;
 using ZaposliMe.Domain.Entities.Identity;
 using ZaposliMe.WebAPI.Models.Account;
@@ -88,6 +90,26 @@ namespace ZaposliMe.WebAPI.Controllers
             await _signInManager.SignOutAsync();
 
             return Ok("Logout successful");
+        }
+
+        [Authorize]
+        [HttpGet("/info")]
+        public async Task<IActionResult> GetUserInfo()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+                return Unauthorized();
+
+            var roles = await _userManager.GetRolesAsync(user);
+
+            var userInfo = new UserInfoDto
+            {
+                IsAuthenticated = true,
+                Email = user.Email,
+                Roles = roles.ToList(),
+            };
+
+            return Ok(userInfo);
         }
     }
 }

@@ -2131,9 +2131,9 @@ C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\Z
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\refint\ZaposliMe.Frontend.dll
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\ZaposliMe.Frontend.pdb
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\ref\ZaposliMe.Frontend.dll
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\pzkgwomxa5-hrlyjl3snp.gz
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\ofbz4h6mjo-pbtil5kzc1.gz
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\uihesmjodk-slnm34t8es.gz
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\vamh2yex1y-80xofla8cn.gz
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\ndalbka7ju-yyuukir8s0.gz
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\pzkgwomxa5-pa6a62m1av.gz
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\ofbz4h6mjo-2z6d0wav50.gz
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\uihesmjodk-vuh1s1jz0b.gz
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\vamh2yex1y-k3hx98pr8d.gz
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\ndalbka7ju-kwjv24hn8f.gz

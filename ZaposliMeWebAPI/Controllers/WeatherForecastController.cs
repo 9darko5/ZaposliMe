@@ -21,7 +21,7 @@ namespace ZaposliMeWebAPI.Controllers
         }
 
         [HttpGet(Name = "WeatherForecast")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "User")]
         public IEnumerable<WeatherForecast> Get()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
