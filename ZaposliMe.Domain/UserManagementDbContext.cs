@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ZaposliMe.Domain.Entities.Identity;
+using ZaposliMe.Domain.ViewModels;
 
 namespace ZaposliMe.Persistance
 {
@@ -11,6 +12,8 @@ namespace ZaposliMe.Persistance
             : base(options)
         {
         }
+
+        public DbSet<UserGridView> UserGridViews { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -30,3 +30,5 @@ C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Persistance\obj\Debug\net8
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Persistance\obj\Debug\net8.0\refint\ZaposliMe.Persistance.dll
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Persistance\obj\Debug\net8.0\ZaposliMe.Persistance.pdb
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Persistance\obj\Debug\net8.0\ref\ZaposliMe.Persistance.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Persistance\bin\Debug\net8.0\ZaposliMe.Application.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Persistance\bin\Debug\net8.0\ZaposliMe.Application.pdb

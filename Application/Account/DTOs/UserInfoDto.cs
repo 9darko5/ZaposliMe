@@ -1,4 +1,4 @@
-﻿namespace ZaposliMe.Applicatiom.Shared.Account
+﻿namespace ZaposliMe.Application.Account.DTOs
 {
     public class UserInfoDto
     {

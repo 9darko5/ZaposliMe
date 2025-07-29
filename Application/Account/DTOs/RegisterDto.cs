@@ -1,4 +1,4 @@
-﻿namespace ZaposliMe.Application.Shared.Account
+﻿namespace ZaposliMe.Application.Account.DTOs
 {
     public class RegisterDto
     {

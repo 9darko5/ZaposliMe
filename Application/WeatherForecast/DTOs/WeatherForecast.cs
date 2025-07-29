@@ -1,4 +1,4 @@
-namespace ZaposliMe.Application.Shared
+namespace ZaposliMe.Application.WeatherForecast.DTOs
 {
     public class WeatherForecast
     {

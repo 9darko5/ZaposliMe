@@ -1,7 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using ZaposliMe.Persistance;
+using ZaposliMe.Application.Common.Interfaces;
+using ZaposliMe.Application.User.GetUserByEmail;
+using ZaposliMe.Domain;
 using ZaposliMe.Domain.Entities.Identity;
+using ZaposliMe.Domain.Generic;
+using ZaposliMe.Domain.Repository;
+using ZaposliMe.Persistance;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,6 +51,12 @@ builder.Services.AddDbContext<ZaposliMeDbContext>(options =>
         b => b.MigrationsAssembly("ZaposliMe.WebAPI"));
 });
 
+builder.Services.AddMediatR(configuration =>
+{
+    configuration.RegisterServicesFromAssemblies(typeof(Program).Assembly);
+    configuration.RegisterServicesFromAssemblies(typeof(GetUserByEmailQuery).Assembly);
+});
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowBlazor",
@@ -55,6 +66,9 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod()
             .AllowCredentials()); // MUST for cookies
 });
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 

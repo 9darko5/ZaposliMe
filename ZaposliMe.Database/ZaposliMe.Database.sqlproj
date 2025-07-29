@@ -78,6 +78,7 @@
     <Build Include="identity\Tables\AspNetUsers.sql" />
     <Build Include="identity\Tables\AspNetUserLogins.sql" />
     <Build Include="identity\Tables\AspNetUserTokens.sql" />
+    <Build Include="identity\Views\UserGridView.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ZaposliMe.Database.publish.xml" />

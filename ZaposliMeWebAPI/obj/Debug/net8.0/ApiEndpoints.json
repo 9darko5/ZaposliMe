@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "ZaposliMe.WebAPI.Controllers.UserController",
+    "Method": "GetUser",
+    "RelativePath": "getUser",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ZaposliMe.WebAPI.Controllers.AccountController",
     "Method": "GetUserInfo",
     "RelativePath": "info",
@@ -19,7 +35,7 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "ZaposliMe.Application.Shared.Account.LoginDto",
+        "Type": "ZaposliMe.Application.Account.DTOs.LoginDto",
         "IsRequired": true
       }
     ],
@@ -45,7 +61,7 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "ZaposliMe.Application.Shared.Account.RegisterDto",
+        "Type": "ZaposliMe.Application.Account.DTOs.RegisterDto",
         "IsRequired": true
       }
     ],
@@ -71,7 +87,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[ZaposliMe.Application.Shared.WeatherForecast, ZaposliMe.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ZaposliMe.Application.WeatherForecast.DTOs.WeatherForecast, ZaposliMe.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

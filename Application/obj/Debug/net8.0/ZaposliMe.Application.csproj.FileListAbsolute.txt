@@ -22,3 +22,7 @@ C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Debug\net8.0\Zaposli
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Debug\net8.0\refint\ZaposliMe.Application.dll
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Debug\net8.0\ZaposliMe.Application.pdb
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Debug\net8.0\ref\ZaposliMe.Application.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\bin\Debug\net8.0\ZaposliMe.Domain.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\bin\Debug\net8.0\ZaposliMe.Domain.pdb
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Debug\net8.0\ZaposliMe.Application.csproj.AssemblyReference.cache
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Debug\net8.0\ZaposliM.ACA22F80.Up2Date
