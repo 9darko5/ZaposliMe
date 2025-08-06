@@ -1,0 +1,30 @@
+﻿** Highlights
+     Tables that will be recreated with data migrated
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [identity] (Schema)
+       [zaposlime] (Schema)
+       [identity].[AspNetUserTokens] (Table)
+       [identity].[AspNetUserLogins] (Table)
+       [identity].[AspNetUsers] (Table)
+       [identity].[AspNetUserRoles] (Table)
+       [identity].[AspNetUserClaims] (Table)
+       [identity].[AspNetRoleClaims] (Table)
+       [identity].[AspNetRoles] (Table)
+       [identity].[FK_AspNetUserTokens_AspNetUsers_UserId] (Foreign Key)
+       [identity].[FK_user.AspNetUserLogins_user.AspNetUsers_UserId] (Foreign Key)
+       [identity].[FK_user.AspNetUserRoles_user.AspNetRoles_RoleId] (Foreign Key)
+       [identity].[FK_user.AspNetUserRoles_user.AspNetUsers_UserId] (Foreign Key)
+       [identity].[FK_user.AspNetUserClaims_user.AspNetUsers_UserId] (Foreign Key)
+       [identity].[FK_AspNetRoleClaims_AspNetRoles_RoleId] (Foreign Key)
+       [identity].[UserGridView] (View)
+
+** Supporting actions

@@ -1,0 +1,13 @@
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Domain\bin\Release\net8.0\ZaposliMe.Domain.deps.json
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Domain\bin\Release\net8.0\ZaposliMe.Domain.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Domain\bin\Release\net8.0\ZaposliMe.Domain.pdb
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Domain\obj\Release\net8.0\ZaposliMe.Domain.csproj.AssemblyReference.cache
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Domain\obj\Release\net8.0\ZaposliMe.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Domain\obj\Release\net8.0\ZaposliMe.Domain.AssemblyInfoInputs.cache
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Domain\obj\Release\net8.0\ZaposliMe.Domain.AssemblyInfo.cs
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Domain\obj\Release\net8.0\ZaposliMe.Domain.csproj.CoreCompileInputs.cache
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Domain\obj\Release\net8.0\ZaposliMe.Domain.sourcelink.json
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Domain\obj\Release\net8.0\ZaposliMe.Domain.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Domain\obj\Release\net8.0\refint\ZaposliMe.Domain.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Domain\obj\Release\net8.0\ZaposliMe.Domain.pdb
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Domain\obj\Release\net8.0\ref\ZaposliMe.Domain.dll

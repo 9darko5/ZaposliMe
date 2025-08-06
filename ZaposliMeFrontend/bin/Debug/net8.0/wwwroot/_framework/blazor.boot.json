@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "ZaposliMe.Frontend",
   "resources": {
-    "hash": "sha256-zwW70myTo1S3wbwCBnqzJQzP1hMhCW3g9qikLYo/7d4=",
+    "hash": "sha256-OPrEVidp1IRUgLmobY4BpvoulOUQMS03JzHsZR0s+6U=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-1QpKPnxEuRCElzcp+e3MrovJeAJkuzqKmRQay/6Aa08="
     },
@@ -231,14 +231,14 @@
       "mscorlib.wasm": "sha256-UnQd0YPXNpwbXsKqO8RAqgUVuwZsSpprfAIPpdV/y1Q=",
       "netstandard.wasm": "sha256-/QbD8JDZyYwfyk89W3qJL3HTAINDCVziZIySHIZcDhw=",
       "System.Private.CoreLib.wasm": "sha256-oBqNgH7R24FqGbaL3XnfQDqn3rk28jERFosgAryKT6U=",
-      "ZaposliMe.Application.wasm": "sha256-2VZ5HyWyFYSEAFC9CHchG4ek2lVgPEma84g8UQZi4AA=",
-      "ZaposliMe.Domain.wasm": "sha256-OzwZiIE/RKR0+OTmaC7QyNegPzfjvqlezJv6Wz8rbAE=",
-      "ZaposliMe.Frontend.wasm": "sha256-60KaFd3tbu8iqNGLi/zEOlW/JOOdC748qdO1nUTf0FI="
+      "ZaposliMe.Application.wasm": "sha256-H2azw4kkk8dBxfyp4tpB6We9JcuRNlDPUky+941sXvM=",
+      "ZaposliMe.Domain.wasm": "sha256-eoe7IBD19hAvvGkslBk3Qde87nbA4SA/wKMmW/ZQFvE=",
+      "ZaposliMe.Frontend.wasm": "sha256-7BYzRlP7hj8djpUpyAdodZBzi4j0hFSVmoxWeucDn+I="
     },
     "pdb": {
-      "ZaposliMe.Application.pdb": "sha256-e57WuuqRWmfnXhyjEpEWkgwxV71aozjH3QNl1tVG634=",
-      "ZaposliMe.Domain.pdb": "sha256-ftg6/gLbIQ0GorfZTVlrRWMSs+sXlauOwLyJJEsnuCw=",
-      "ZaposliMe.Frontend.pdb": "sha256-a3saxXuLsiM+CwpBBvNOwgQlh87EE5Wd/39aweFiMNA="
+      "ZaposliMe.Application.pdb": "sha256-tP8iDAmRZj0k3/CP2mABeQcBOM/xrqOXyGashsbVJYc=",
+      "ZaposliMe.Domain.pdb": "sha256-J5cdM+HkElz9lPUsBAN++0T79JiDuwIiKIEqLQepi/4=",
+      "ZaposliMe.Frontend.pdb": "sha256-jz6uIqN8YxECjjpJ9Ec1hS8Hl2oRONc6xjYGq0ZnP8c="
     }
   },
   "cacheBootResources": true,

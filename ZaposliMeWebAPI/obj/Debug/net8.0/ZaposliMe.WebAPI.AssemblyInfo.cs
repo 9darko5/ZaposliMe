@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("b28ee3b5-8af1-402b-a5ad-cd814743c146")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("ZaposliMe.WebAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d59c12b50760116f2cf975b7b708e4a1d5576d00")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a0d444b11530d77b05896a785fb1b42becdd566")]
 [assembly: System.Reflection.AssemblyProductAttribute("ZaposliMe.WebAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ZaposliMe.WebAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -2224,10 +2224,10 @@ C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\c
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\7pq7bhyg9i-4bc22sueuf.gz
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\sznh2qvt50-90ns27xxgz.gz
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\le54cw4s17-7r2s6fdmqt.gz
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\pzkgwomxa5-fihmfesad4.gz
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\45s1ocmgbi-758gbldmrn.gz
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\ofbz4h6mjo-h11t7curds.gz
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\0ox0pmtfgb-6es7d0ysl5.gz
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\uihesmjodk-r0p94y53t4.gz
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\vamh2yex1y-rgtdhlk1ep.gz
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\ndalbka7ju-4bvtzjb85m.gz
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\pzkgwomxa5-zbno2u6sqn.gz
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\45s1ocmgbi-2uksvc00xn.gz
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\ofbz4h6mjo-cen1fpqz95.gz
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\0ox0pmtfgb-d36cn63pzi.gz
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\uihesmjodk-0vl1i4hkxb.gz
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\vamh2yex1y-nmyp3wy5fh.gz
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\ndalbka7ju-jcjy0nds2i.gz

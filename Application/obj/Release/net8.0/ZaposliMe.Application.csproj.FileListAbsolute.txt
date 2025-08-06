@@ -1,0 +1,16 @@
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\bin\Release\net8.0\ZaposliMe.Application.deps.json
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\bin\Release\net8.0\ZaposliMe.Application.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\bin\Release\net8.0\ZaposliMe.Application.pdb
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\bin\Release\net8.0\ZaposliMe.Domain.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\bin\Release\net8.0\ZaposliMe.Domain.pdb
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Release\net8.0\ZaposliMe.Application.csproj.AssemblyReference.cache
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Release\net8.0\ZaposliMe.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Release\net8.0\ZaposliMe.Application.AssemblyInfoInputs.cache
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Release\net8.0\ZaposliMe.Application.AssemblyInfo.cs
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Release\net8.0\ZaposliMe.Application.csproj.CoreCompileInputs.cache
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Release\net8.0\ZaposliMe.Application.sourcelink.json
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Release\net8.0\ZaposliM.ACA22F80.Up2Date
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Release\net8.0\ZaposliMe.Application.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Release\net8.0\refint\ZaposliMe.Application.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Release\net8.0\ZaposliMe.Application.pdb
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\Application\obj\Release\net8.0\ref\ZaposliMe.Application.dll

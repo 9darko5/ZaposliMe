@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\obj\Release\net8.0\PubTmp\Out\" />
+  <dbfullsql path="C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\obj\Release\net8.0\PubTmp\EFSQLScripts\ZaposliMe.Persistance.UserManagementDbContext.sql" />
+  <dbfullsql path="C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeWebAPI\obj\Release\net8.0\PubTmp\EFSQLScripts\ZaposliMe.Persistance.ZaposliMeDbContext.sql" />
+</sitemanifest>

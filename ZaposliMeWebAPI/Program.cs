@@ -61,7 +61,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowBlazor",
         policy => policy
-            .WithOrigins("https://localhost:7005") // your Blazor WASM client port
+            .WithOrigins("https://zaposlimefrontend-c8bxghhvaagfgza7.westeurope-01.azurewebsites.net") // your Blazor WASM client port
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials()); // MUST for cookies
@@ -73,11 +73,11 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 //app.ApplyMigrations();
 app.UseHttpsRedirection();

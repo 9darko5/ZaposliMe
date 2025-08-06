@@ -24,7 +24,7 @@ builder.Services.AddScoped(
 // configure client for auth interactions
 builder.Services.AddHttpClient(
     "Backend",
-    opt => opt.BaseAddress = new Uri("https://localhost:7097"))
+    opt => opt.BaseAddress = new Uri("https://zaposlimewebapi-fve6d0hpckb7fgep.westeurope-01.azurewebsites.net/"))
     .AddHttpMessageHandler<CookieHandler>();
 
 builder.Services.AddScoped(sp =>

@@ -1,0 +1,66 @@
+﻿** Highlights
+     Tables that will be recreated with data migrated
+       [identity].[AspNetUsers]
+       [identity].[AspNetRoles]
+       [identity].[AspNetUserClaims]
+       [identity].[AspNetUserLogins]
+       [identity].[AspNetUserRoles]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       The column [identity].[AspNetUsers].[FirstName] on table [identity].[AspNetUsers] must be added, but the column has no
+         default value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this
+         issue you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of
+         smart-defaults as a deployment option.
+       The column [identity].[AspNetUsers].[LastName] on table [identity].[AspNetUsers] must be added, but the column has no
+         default value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this
+         issue you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of
+         smart-defaults as a deployment option.
+       The type for column LockoutEnd in table [identity].[AspNetUsers] is currently  DATETIMEOFFSET (7) NULL but is being
+         changed to  DATETIME NULL. Data loss could occur and deployment may fail if the column contains data that is
+         incompatible with type  DATETIME NULL.
+
+** User actions
+     Drop
+       [identity].[AspNetUsers].[UserNameIndex] (Index)
+       [identity].[AspNetRoleClaims].[IX_AspNetRoleClaims_RoleId] (Index)
+       [identity].[AspNetRoles].[RoleNameIndex] (Index)
+       [identity].[AspNetUserClaims].[IX_AspNetUserClaims_UserId] (Index)
+       [identity].[AspNetUserLogins].[IX_AspNetUserLogins_UserId] (Index)
+       [identity].[AspNetUserRoles].[IX_AspNetUserRoles_RoleId] (Index)
+       [identity].[AspNetUsers].[EmailIndex] (Index)
+       [identity].[FK_AspNetUserRoles_AspNetRoles_RoleId] (Foreign Key)
+       [identity].[FK_AspNetUserClaims_AspNetUsers_UserId] (Foreign Key)
+       [identity].[FK_AspNetUserLogins_AspNetUsers_UserId] (Foreign Key)
+       [identity].[FK_AspNetUserRoles_AspNetUsers_UserId] (Foreign Key)
+     Create
+       [zaposlime] (Schema)
+       [identity].[FK_user.AspNetUserClaims_user.AspNetUsers_UserId] (Foreign Key)
+       [identity].[FK_user.AspNetUserLogins_user.AspNetUsers_UserId] (Foreign Key)
+       [identity].[FK_user.AspNetUserRoles_user.AspNetRoles_RoleId] (Foreign Key)
+       [identity].[FK_user.AspNetUserRoles_user.AspNetUsers_UserId] (Foreign Key)
+       [identity].[UserGridView] (View)
+     Recreate table
+       [identity].[AspNetUsers] (Table)
+       [identity].[AspNetRoles] (Table)
+       [identity].[AspNetUserClaims] (Table)
+       [identity].[AspNetUserLogins] (Table)
+       [identity].[AspNetUserRoles] (Table)
+
+** Supporting actions
+     Drop
+       [identity].[FK_AspNetRoleClaims_AspNetRoles_RoleId] (Foreign Key)
+       [identity].[FK_AspNetUserTokens_AspNetUsers_UserId] (Foreign Key)
+     Create
+       [identity].[FK_AspNetRoleClaims_AspNetRoles_RoleId] (Foreign Key)
+       [identity].[FK_AspNetUserTokens_AspNetUsers_UserId] (Foreign Key)
+
+The compatibility level of the target schema 170 is not supported, which may result in undefined behavior. Please upgrade to a later version which supports this compatibility level.
+The column [identity].[AspNetUsers].[FirstName] on table [identity].[AspNetUsers] must be added, but the column has no default value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The column [identity].[AspNetUsers].[LastName] on table [identity].[AspNetUsers] must be added, but the column has no default value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The type for column LockoutEnd in table [identity].[AspNetUsers] is currently  DATETIMEOFFSET (7) NULL but is being changed to  DATETIME NULL. Data loss could occur and deployment may fail if the column contains data that is incompatible with type  DATETIME NULL.
+The column NormalizedUserName on table [identity].[AspNetUsers] must be changed from NULL to NOT NULL. If the table contains data, the ALTER script may not work. To avoid this issue, you must add values to this column for all rows or mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The column UserName on table [identity].[AspNetUsers] must be changed from NULL to NOT NULL. If the table contains data, the ALTER script may not work. To avoid this issue, you must add values to this column for all rows or mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+
