@@ -2216,13 +2216,6 @@ C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\c
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\bk0a2t1y58-tptq2av103.gz
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\4o5tf6k2d3-lfu7j35m59.gz
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\ilmkgg0fqy-oyz0vx2fzb.gz
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\pzkgwomxa5-7sneun5pom.gz
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\45s1ocmgbi-4y1f4e8zkv.gz
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\ofbz4h6mjo-vqihplj756.gz
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\0ox0pmtfgb-39cl4hef4j.gz
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\uihesmjodk-x74phhlard.gz
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\vamh2yex1y-53n6o7u3ee.gz
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\ndalbka7ju-x5vyxps2n1.gz
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\staticwebassets.development.json
@@ -2233,3 +2226,10 @@ C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\Z
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\refint\ZaposliMe.Frontend.dll
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\ZaposliMe.Frontend.pdb
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\ref\ZaposliMe.Frontend.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\45s1ocmgbi-b6qhbx9yg2.gz
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\0ox0pmtfgb-w57tbq0a6m.gz
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\pzkgwomxa5-g8gvf6t3vi.gz
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\ofbz4h6mjo-1bkyudmb3y.gz
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\uihesmjodk-3681ecfxud.gz
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\vamh2yex1y-zq9crxldpz.gz
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\ndalbka7ju-pjk3pzx9tc.gz

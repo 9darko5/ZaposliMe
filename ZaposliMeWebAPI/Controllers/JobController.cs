@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ZaposliMe.Application.Commands.Job.CreateJob;
 using ZaposliMe.Application.Commands.Job.DeleteJob;
@@ -19,6 +20,7 @@ namespace ZaposliMe.WebAPI.Controllers
         }
 
         [HttpPost("/create")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateJob(JobDto model)
         {
             var createdJobCommand = new CreateJobCommand(model.Title, model.Description, model.NumberOfWorkers);
@@ -28,8 +30,9 @@ namespace ZaposliMe.WebAPI.Controllers
             return Ok(id);
         }
 
-        [HttpPost("/delete")]
-        public async Task<IActionResult> DeleteJob(string id)
+        [HttpDelete("/delete/{id:guid}")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> DeleteJob(Guid id)
         {
             var deleteJobCommand = new DeleteJobCommand(id);
 
@@ -38,7 +41,8 @@ namespace ZaposliMe.WebAPI.Controllers
             return Ok();
         }
 
-        [HttpPost("/update")]
+        [HttpPut("/update")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateJob(JobDto model)
         {
             var updateJobCommand = new UpdateJobCommand(model.Id, model.Title, model.Description, model.NumberOfWorkers);
@@ -49,6 +53,7 @@ namespace ZaposliMe.WebAPI.Controllers
         }
 
         [HttpGet("/all")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllJobs()
         {
             var getAllJobsQuery = new GetAllJobsQuery();

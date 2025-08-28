@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4A9B4DE7-59E1-4B9F-91BA-F2449B65EB17}|ZaposliMeFrontend\\ZaposliMe.Frontend.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlimefrontend\\components\\pages\\job\\jobs.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4A9B4DE7-59E1-4B9F-91BA-F2449B65EB17}|ZaposliMeFrontend\\ZaposliMe.Frontend.csproj|solutionrelative:zaposlimefrontend\\components\\pages\\job\\jobs.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{ED7FA0A7-FB45-443B-9B23-8392C9FB8B15}|Application\\ZaposliMe.Application.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\application\\commands\\job\\deletejob\\deletejobcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ED7FA0A7-FB45-443B-9B23-8392C9FB8B15}|Application\\ZaposliMe.Application.csproj|solutionrelative:application\\commands\\job\\deletejob\\deletejobcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -25,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{851E2C61-C080-41EB-9660-60B14747B6FE}|ZaposliMe.Domain\\ZaposliMe.Domain.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlime.domain\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{851E2C61-C080-41EB-9660-60B14747B6FE}|ZaposliMe.Domain\\ZaposliMe.Domain.csproj|solutionrelative:zaposlime.domain\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{851E2C61-C080-41EB-9660-60B14747B6FE}|ZaposliMe.Domain\\ZaposliMe.Domain.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlime.domain\\primitives\\entityaudit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{851E2C61-C080-41EB-9660-60B14747B6FE}|ZaposliMe.Domain\\ZaposliMe.Domain.csproj|solutionrelative:zaposlime.domain\\primitives\\entityaudit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{28DDFC8E-20BA-4A14-8269-5D5F11C6BFAB}|ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj|c:\\users\\djuricd\\documents\\github\\zaposlime\\zaposlimewebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -94,21 +94,8 @@
       "DocumentGroups": [
         {
           "DockedHeight": 308,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 5,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DeleteJobCommand.cs",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\Application\\Commands\\Job\\DeleteJob\\DeleteJobCommand.cs",
-              "RelativeDocumentMoniker": "Application\\Commands\\Job\\DeleteJob\\DeleteJobCommand.cs",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\Application\\Commands\\Job\\DeleteJob\\DeleteJobCommand.cs",
-              "RelativeToolTip": "Application\\Commands\\Job\\DeleteJob\\DeleteJobCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T11:57:30.212Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:12:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
@@ -131,7 +118,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "Jobs.razor",
+              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeFrontend\\Components\\Pages\\Job\\Jobs.razor",
+              "RelativeDocumentMoniker": "ZaposliMeFrontend\\Components\\Pages\\Job\\Jobs.razor",
+              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeFrontend\\Components\\Pages\\Job\\Jobs.razor",
+              "RelativeToolTip": "ZaposliMeFrontend\\Components\\Pages\\Job\\Jobs.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-28T13:21:17.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DeleteJobCommand.cs",
+              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\Application\\Commands\\Job\\DeleteJob\\DeleteJobCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Commands\\Job\\DeleteJob\\DeleteJobCommand.cs",
+              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\Application\\Commands\\Job\\DeleteJob\\DeleteJobCommand.cs",
+              "RelativeToolTip": "Application\\Commands\\Job\\DeleteJob\\DeleteJobCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T11:57:30.212Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "CreateJobCommandHandler.cs",
               "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\Application\\Commands\\Job\\CreateJob\\CreateJobCommandHandler.cs",
               "RelativeDocumentMoniker": "Application\\Commands\\Job\\CreateJob\\CreateJobCommandHandler.cs",
@@ -139,25 +151,24 @@
               "RelativeToolTip": "Application\\Commands\\Job\\CreateJob\\CreateJobCommandHandler.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T11:30:19.832Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-28T11:30:19.832Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "DeleteJobCommandHandler.cs",
               "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\Application\\Commands\\Job\\DeleteJob\\DeleteJobCommandHandler.cs",
               "RelativeDocumentMoniker": "Application\\Commands\\Job\\DeleteJob\\DeleteJobCommandHandler.cs",
               "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\Application\\Commands\\Job\\DeleteJob\\DeleteJobCommandHandler.cs",
               "RelativeToolTip": "Application\\Commands\\Job\\DeleteJob\\DeleteJobCommandHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-28T11:28:06.593Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "UnitOfWork.cs",
               "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Domain\\UnitOfWork.cs",
               "RelativeDocumentMoniker": "ZaposliMe.Domain\\UnitOfWork.cs",
@@ -165,21 +176,7 @@
               "RelativeToolTip": "ZaposliMe.Domain\\UnitOfWork.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAewDkAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T10:54:40.96Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "EntityAudit.cs",
-              "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Domain\\Primitives\\EntityAudit.cs",
-              "RelativeDocumentMoniker": "ZaposliMe.Domain\\Primitives\\EntityAudit.cs",
-              "ToolTip": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Domain\\Primitives\\EntityAudit.cs",
-              "RelativeToolTip": "ZaposliMe.Domain\\Primitives\\EntityAudit.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T10:54:31.233Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-28T10:54:40.96Z"
             },
             {
               "$type": "Document",
@@ -204,12 +201,11 @@
               "RelativeToolTip": "ZaposliMeFrontend\\Components\\Pages\\Weather.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-28T10:38:27.481Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-28T10:38:27.481Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "JobController.cs",
               "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\Controllers\\JobController.cs",
               "RelativeDocumentMoniker": "ZaposliMeWebAPI\\Controllers\\JobController.cs",
@@ -217,8 +213,7 @@
               "RelativeToolTip": "ZaposliMeWebAPI\\Controllers\\JobController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T09:33:00.685Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-28T09:33:00.685Z"
             },
             {
               "$type": "Document",
@@ -230,12 +225,11 @@
               "RelativeToolTip": "ZaposliMeWebAPI\\Controllers\\UserController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T09:32:18.557Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-28T09:32:18.557Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "JobRepository.cs",
               "DocumentMoniker": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Domain\\Repository\\JobRepository.cs",
               "RelativeDocumentMoniker": "ZaposliMe.Domain\\Repository\\JobRepository.cs",
@@ -243,8 +237,7 @@
               "RelativeToolTip": "ZaposliMe.Domain\\Repository\\JobRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T08:00:48.596Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-28T08:00:48.596Z"
             },
             {
               "$type": "Document",
@@ -256,8 +249,7 @@
               "RelativeToolTip": "ZaposliMe.Domain\\Interfaces\\IJobRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T08:00:02.776Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-28T08:00:02.776Z"
             },
             {
               "$type": "Document",
@@ -269,8 +261,7 @@
               "RelativeToolTip": "ZaposliMe.Domain\\Interfaces\\IUserRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T08:00:26.768Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-28T08:00:26.768Z"
             },
             {
               "$type": "Document",
@@ -282,8 +273,7 @@
               "RelativeToolTip": "ZaposliMe.Domain\\Repository\\UserRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T07:59:44.169Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-28T07:59:44.169Z"
             },
             {
               "$type": "Document",
@@ -295,8 +285,7 @@
               "RelativeToolTip": "ZaposliMeFrontend\\appsettings.Production.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-27T12:50:22.546Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-27T12:50:22.546Z"
             },
             {
               "$type": "Document",
@@ -308,8 +297,7 @@
               "RelativeToolTip": "ZaposliMeWebAPI\\Program.cs",
               "ViewState": "AgIAAC0AAAAAAAAAAAAAAD4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T13:24:36.694Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-19T13:24:36.694Z"
             },
             {
               "$type": "Document",
@@ -321,8 +309,7 @@
               "RelativeToolTip": "ZaposliMeWebAPI\\appsettings.Development.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-27T12:50:04.878Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-27T12:50:04.878Z"
             },
             {
               "$type": "Document",
@@ -334,8 +321,7 @@
               "RelativeToolTip": "ZaposliMeFrontend\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-27T12:50:25.57Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-27T12:50:25.57Z"
             },
             {
               "$type": "Document",
@@ -347,8 +333,7 @@
               "RelativeToolTip": "ZaposliMeWebAPI\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-27T12:49:58.933Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-27T12:49:58.933Z"
             },
             {
               "$type": "Document",
@@ -382,8 +367,7 @@
               "RelativeToolTip": "ZaposliMeWebAPI\\appsettings.Production.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABrAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-19T13:35:57.338Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-19T13:35:57.338Z"
             }
           ]
         },

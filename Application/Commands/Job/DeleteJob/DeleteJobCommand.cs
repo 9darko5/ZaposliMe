@@ -2,7 +2,7 @@
 
 namespace ZaposliMe.Application.Commands.Job.DeleteJob
 {
-    public record DeleteJobCommand(string Id) : IRequest
+    public record DeleteJobCommand(Guid Id) : IRequest
     {
     }
 }

@@ -28,15 +28,15 @@
   {
     "ContainingType": "ZaposliMe.WebAPI.Controllers.JobController",
     "Method": "DeleteJob",
-    "RelativePath": "delete",
-    "HttpMethod": "POST",
+    "RelativePath": "delete/{id}",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.String",
-        "IsRequired": false
+        "Type": "System.Guid",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -113,7 +113,7 @@
     "ContainingType": "ZaposliMe.WebAPI.Controllers.JobController",
     "Method": "UpdateJob",
     "RelativePath": "update",
-    "HttpMethod": "POST",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [

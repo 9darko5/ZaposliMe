@@ -1,0 +1,133 @@
+﻿@page "/jobs"
+@using ZaposliMe.Application.DTOs.Job
+@inject HttpClient Http
+
+<h3 class="mb-4 d-flex justify-content-between align-items-center">
+    Available Jobs
+    <button class="btn btn-success" @onclick="OpenAdd">+ Add Job</button>
+</h3>
+
+@if (jobs == null)
+{
+    <p><em>Loading...</em></p>
+}
+else if (!jobs.Any())
+{
+    <p>No jobs available.</p>
+}
+else
+{
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var job in jobs)
+        {
+            <div class="col">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">@job.Title</h3>
+                        <p class="card-text">@job.Description</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <small class="text-muted">Workers needed: @job.NumberOfWorkers</small>
+                        <div>
+                            <button class="btn btn-sm btn-primary me-1">Apply</button>
+                            <button class="btn btn-sm btn-warning me-1" @onclick="() => OpenEdit(job)">Edit</button>
+                            <button class="btn btn-sm btn-danger" @onclick="() => OpenDelete(job)">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+<!-- Modals -->
+<EditJobModal Job="editingJob" Show="showEditModal" OnClose="CloseEdit" OnSave="HandleSave" />
+<DeleteJobModal Job="deletingJob" Show="showDeleteModal" OnClose="CloseDelete" OnConfirm="HandleDelete" />
+
+@code {
+    private List<JobDto>? jobs;
+    private JobDto? editingJob;
+    private JobDto? deletingJob;
+
+    private bool showEditModal = false;
+    private bool showDeleteModal = false;
+    private bool isAdding = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        jobs = await Http.GetFromJsonAsync<List<JobDto>>("https://localhost:7097/all");
+    }
+
+    private void OpenAdd()
+    {
+        editingJob = new JobDto(); // empty model
+        isAdding = true;
+        showEditModal = true;
+    }
+
+    private void OpenEdit(JobDto job)
+    {
+        editingJob = new JobDto
+        {
+            Id = job.Id,
+            Title = job.Title,
+            Description = job.Description,
+            NumberOfWorkers = job.NumberOfWorkers
+        };
+        isAdding = false;
+        showEditModal = true;
+    }
+
+    private void CloseEdit()
+    {
+        showEditModal = false;
+        editingJob = null;
+        isAdding = false;
+    }
+
+    private async Task HandleSave(JobDto job)
+    {
+        if (isAdding)
+        {
+            // POST new job
+            var response = await Http.PostAsJsonAsync("https://localhost:7097/create", job);
+            if (response.IsSuccessStatusCode)
+            {
+                jobs = await Http.GetFromJsonAsync<List<JobDto>>("https://localhost:7097/all");
+            }
+        }
+        else
+        {
+            // PUT update job
+            var response = await Http.PutAsJsonAsync($"https://localhost:7097/update", job);
+            if (response.IsSuccessStatusCode)
+            {
+                var index = jobs!.FindIndex(j => j.Id == job.Id);
+                if (index >= 0) jobs[index] = job;
+            }
+        }
+        CloseEdit();
+    }
+
+    private void OpenDelete(JobDto job)
+    {
+        deletingJob = job;
+        showDeleteModal = true;
+    }
+
+    private void CloseDelete()
+    {
+        showDeleteModal = false;
+        deletingJob = null;
+    }
+
+    private async Task HandleDelete(Guid id)
+    {
+        var response = await Http.DeleteAsync($"https://localhost:7097/delete/{id}");
+        if (response.IsSuccessStatusCode)
+        {
+            jobs!.RemoveAll(j => j.Id == id);
+        }
+        CloseDelete();
+    }
+}

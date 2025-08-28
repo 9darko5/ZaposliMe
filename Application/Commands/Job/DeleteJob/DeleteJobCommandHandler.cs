@@ -15,13 +15,8 @@ namespace ZaposliMe.Application.Commands.Job.DeleteJob
         {
             try
             {
-                if (!Guid.TryParse(request.Id, out var jobId))
-                {
-                    throw new ArgumentException($"Invalid GUID format: {request.Id}");
-                }
-
                 var job = (await _unitOfWork.Repository<Domain.Entities.Job>()
-                    .FindAsync(j => j.Id == jobId))
+                    .FindAsync(j => j.Id == request.Id))
                     .FirstOrDefault();
 
                 if (job == null)
