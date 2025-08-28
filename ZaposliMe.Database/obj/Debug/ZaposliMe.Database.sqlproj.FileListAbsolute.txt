@@ -5,11 +5,11 @@ D:\Projects\ZaposliMe\ZaposliMe.Database\obj\Debug\ZaposliMe.Database.sqlproj.As
 D:\Projects\ZaposliMe\ZaposliMe.Database\obj\Debug\ZaposliMe.Database.dll
 D:\Projects\ZaposliMe\ZaposliMe.Database\obj\Debug\ZaposliMe.Database.pdb
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\bin\Debug\ZaposliMe.Database.dacpac
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\bin\Debug\ZaposliMe.Database.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\bin\Debug\ZaposliMe.Database.pdb
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\obj\Debug\ZaposliMe.Database.sqlproj.AssemblyReference.cache
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\obj\Debug\ZaposliMe.Database.dll
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\obj\Debug\ZaposliMe.Database.pdb
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\bin\Debug\ZaposliMe.Database.dll
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\bin\Debug\ZaposliMe.Database.pdb
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\obj\Debug\Model.xml
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\obj\Debug\refactor.xml
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\obj\Debug\postdeploy.sql

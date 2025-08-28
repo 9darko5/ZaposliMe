@@ -1,0 +1,20 @@
+﻿** Highlights
+     Tables that will be recreated with data migrated
+       [zaposlime].[Job]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       The type for column Id in table [zaposlime].[Job] is currently  NVARCHAR (450) NOT NULL but is being changed to 
+         UNIQUEIDENTIFIER NOT NULL. Data loss could occur and deployment may fail if the column contains data that is
+         incompatible with type  UNIQUEIDENTIFIER NOT NULL.
+
+** User actions
+     Recreate table
+       [zaposlime].[Job] (Table)
+
+** Supporting actions
+
+The type for column Id in table [zaposlime].[Job] is currently  NVARCHAR (450) NOT NULL but is being changed to  UNIQUEIDENTIFIER NOT NULL. Data loss could occur and deployment may fail if the column contains data that is incompatible with type  UNIQUEIDENTIFIER NOT NULL.
+

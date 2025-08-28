@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using ZaposliMe.Application.User.GetUserByEmail;
+using ZaposliMe.Application.Queries.User.GetUserByEmail;
 
 namespace ZaposliMe.WebAPI.Controllers
 {

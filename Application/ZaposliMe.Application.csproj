@@ -14,8 +14,4 @@
     <ProjectReference Include="..\ZaposliMe.Domain\ZaposliMe.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Common\" />
-  </ItemGroup>
-
 </Project>

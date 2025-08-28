@@ -79,10 +79,15 @@
     <Build Include="identity\Tables\AspNetUserLogins.sql" />
     <Build Include="identity\Tables\AspNetUserTokens.sql" />
     <Build Include="identity\Views\UserGridView.sql" />
+    <Build Include="zaposlime\Tables\Job.sql" />
+    <Build Include="zaposlime\Views\JobGridView.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ZaposliMe.Database.publish.xml" />
     <Build Include="Security\identity.sql" />
     <None Include="ZaposliMe.Database.Azure.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="ZaposliMe.Database.refactorlog" />
   </ItemGroup>
 </Project>

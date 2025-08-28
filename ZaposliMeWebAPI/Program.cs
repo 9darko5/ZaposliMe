@@ -1,15 +1,23 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using ZaposliMe.Application.Common.Interfaces;
-using ZaposliMe.Application.User.GetUserByEmail;
+using ZaposliMe.Application.Queries.User.GetUserByEmail;
 using ZaposliMe.Domain;
 using ZaposliMe.Domain.Entities.Identity;
 using ZaposliMe.Domain.Generic;
+using ZaposliMe.Domain.Interfaces;
 using ZaposliMe.Domain.Repository;
 using ZaposliMe.Persistance;
 
 var builder = WebApplication.CreateBuilder(args);
+Console.WriteLine("Final Connection String: " + builder.Configuration.GetConnectionString("ZaposliMeConnection"));
 
+foreach (var kv in builder.Configuration.AsEnumerable())
+{
+    if (kv.Key.Contains("ConnectionStrings"))
+    {
+        Console.WriteLine($"{kv.Key} = {kv.Value}");
+    }
+}
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -37,6 +45,9 @@ builder.Services.AddIdentityCore<User>()
     .AddEntityFrameworkStores<UserManagementDbContext>()
     .AddApiEndpoints();
 
+
+var dddd = builder.Environment.EnvironmentName;
+var ddd = builder.Configuration.GetConnectionString("ZaposliMeConnection");
 builder.Services.AddDbContext<UserManagementDbContext>(options =>
 {
     options.UseSqlServer(
@@ -51,23 +62,34 @@ builder.Services.AddDbContext<ZaposliMeDbContext>(options =>
         b => b.MigrationsAssembly("ZaposliMe.WebAPI"));
 });
 
+
+builder.Services.AddDbContext<ZaposliMeQueryDbContext>(options =>
+{
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("ZaposliMeConnection"),
+        b => b.MigrationsAssembly("ZaposliMe.WebAPI"));
+});
+
 builder.Services.AddMediatR(configuration =>
 {
     configuration.RegisterServicesFromAssemblies(typeof(Program).Assembly);
     configuration.RegisterServicesFromAssemblies(typeof(GetUserByEmailQuery).Assembly);
 });
 
+var frontendUrl = builder.Configuration.GetValue<string>("FrontendUrl") ?? "https://localhost:7005/";
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowBlazor",
         policy => policy
-            .WithOrigins("https://zaposlimefrontend-c8bxghhvaagfgza7.westeurope-01.azurewebsites.net") // your Blazor WASM client port
+            .WithOrigins(frontendUrl) // your Blazor WASM client port
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials()); // MUST for cookies
 });
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IJobRepository, JobRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();

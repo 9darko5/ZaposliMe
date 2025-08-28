@@ -1,24 +1,25 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage;
-using ZaposliMe.Application.Common.Interfaces;
+﻿using Microsoft.EntityFrameworkCore.Storage;
 using ZaposliMe.Domain.Generic;
+using ZaposliMe.Domain.Interfaces;
 using ZaposliMe.Persistance;
 
 namespace ZaposliMe.Domain
 { 
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly UserManagementDbContext _context;
+        private readonly ZaposliMeDbContext _context;
         private readonly Dictionary<Type, object> _repositories = new();
         private IDbContextTransaction? _currentTransaction;
 
         public IUserRepository Users;
+        public IJobRepository Jobs;
 
 
-        public UnitOfWork(UserManagementDbContext context, IUserRepository userRepository)
+        public UnitOfWork(ZaposliMeDbContext context, IUserRepository userRepository, IJobRepository jobs)
         {
             _context = context;
             Users = userRepository;
+            Jobs = jobs;
         }
 
 

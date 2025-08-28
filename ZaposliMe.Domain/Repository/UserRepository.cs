@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ZaposliMe.Application.Common.Interfaces;
 using ZaposliMe.Domain.Entities.Identity;
 using ZaposliMe.Domain.Generic;
+using ZaposliMe.Domain.Interfaces;
 using ZaposliMe.Persistance;
 
 namespace ZaposliMe.Domain.Repository

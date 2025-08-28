@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ZaposliMe.Application.WeatherForecast.DTOs;
+using ZaposliMe.Application.DTOs.WeatherForecast;
 
 namespace ZaposliMeWebAPI.Controllers
 {

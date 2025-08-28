@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using ZaposliMe.Application.Account.DTOs;
+using ZaposliMe.Application.DTOs.Account;
 using ZaposliMe.Domain.Entities.Identity;
 using ZaposliMe.WebAPI.Models.Account;
 

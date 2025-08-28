@@ -21,10 +21,12 @@ builder.Services.AddScoped<AuthenticationStateProvider, CookieAuthenticationStat
 builder.Services.AddScoped(
     sp => (IAccountManagement)sp.GetRequiredService<AuthenticationStateProvider>());
 
+var backendUrl = builder.Configuration.GetValue<string>("BackendUrl") ?? "https://localhost:7097/";
+
 // configure client for auth interactions
 builder.Services.AddHttpClient(
     "Backend",
-    opt => opt.BaseAddress = new Uri("https://zaposlimewebapi-fve6d0hpckb7fgep.westeurope-01.azurewebsites.net/"))
+    opt => opt.BaseAddress = new Uri(backendUrl))
     .AddHttpMessageHandler<CookieHandler>();
 
 builder.Services.AddScoped(sp =>

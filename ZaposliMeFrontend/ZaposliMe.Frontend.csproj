@@ -18,5 +18,12 @@
   <ItemGroup>
     <ProjectReference Include="..\Application\ZaposliMe.Application.csproj" />
   </ItemGroup>
+	
+  <ItemGroup>
+    <None Update="appsettings.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+     </None>
+   </ItemGroup>
 
 </Project>
