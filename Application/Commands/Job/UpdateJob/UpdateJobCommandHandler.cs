@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using ZaposliMe.Domain.Generic;
-using ZaposliMe.Domain.Entities;
 
 namespace ZaposliMe.Application.Commands.Job.UpdateJob
 {

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ZaposliMe.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d654661b124ddd37b1938a6268c9daf54295e8f3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dfd7205f3afcff9457b787f3b981818229aa74ca")]
 [assembly: System.Reflection.AssemblyProductAttribute("ZaposliMe.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ZaposliMe.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

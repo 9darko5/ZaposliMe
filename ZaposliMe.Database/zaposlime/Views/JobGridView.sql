@@ -3,5 +3,6 @@
 	Id,
 	Title,
 	Description,
-	NumberOfWorkers
+	NumberOfWorkers,
+	CreatedAt
 	FROM [Job]

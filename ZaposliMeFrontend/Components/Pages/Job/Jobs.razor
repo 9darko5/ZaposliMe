@@ -1,6 +1,8 @@
-﻿@page "/jobs"
+﻿@page "/"
 @using ZaposliMe.Application.DTOs.Job
 @inject HttpClient Http
+
+@attribute [Authorize]
 
 <h3 class="mb-4 d-flex justify-content-between align-items-center">
     Available Jobs
@@ -25,6 +27,7 @@ else
                     <div class="card-body">
                         <h3 class="card-title">@job.Title</h3>
                         <p class="card-text">@job.Description</p>
+                        <small class="text-muted">Created at: @job.CreatedAt</small>
                     </div>
                     <div class="card-footer d-flex justify-content-between">
                         <small class="text-muted">Workers needed: @job.NumberOfWorkers</small>
