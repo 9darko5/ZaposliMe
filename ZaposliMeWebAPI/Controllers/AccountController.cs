@@ -64,7 +64,7 @@ namespace ZaposliMe.WebAPI.Controllers
                 return BadRequest(result.Errors);
 
             // Optionally add to role
-            await _userManager.AddToRoleAsync(user, "User");
+            await _userManager.AddToRoleAsync(user, "Employee");
 
             //_userService.CreateUser(Guid.Parse(user.Id), model.FirstName, model.LastName, model.Age);
 

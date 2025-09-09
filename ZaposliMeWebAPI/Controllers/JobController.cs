@@ -20,7 +20,7 @@ namespace ZaposliMe.WebAPI.Controllers
         }
 
         [HttpPost("/create")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Employeer")]
         public async Task<IActionResult> CreateJob(JobDto model)
         {
             var createdJobCommand = new CreateJobCommand(model.Title, model.Description, model.NumberOfWorkers);
@@ -31,7 +31,7 @@ namespace ZaposliMe.WebAPI.Controllers
         }
 
         [HttpDelete("/delete/{id:guid}")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Employeer")]
         public async Task<IActionResult> DeleteJob(Guid id)
         {
             var deleteJobCommand = new DeleteJobCommand(id);
@@ -42,7 +42,7 @@ namespace ZaposliMe.WebAPI.Controllers
         }
 
         [HttpPut("/update")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Employeer")]
         public async Task<IActionResult> UpdateJob(JobDto model)
         {
             var updateJobCommand = new UpdateJobCommand(model.Id, model.Title, model.Description, model.NumberOfWorkers);
@@ -53,7 +53,7 @@ namespace ZaposliMe.WebAPI.Controllers
         }
 
         [HttpGet("/all")]
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public async Task<IActionResult> GetAllJobs()
         {
             var getAllJobsQuery = new GetAllJobsQuery();

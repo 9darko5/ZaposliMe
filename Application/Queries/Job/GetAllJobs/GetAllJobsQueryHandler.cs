@@ -16,7 +16,7 @@ namespace ZaposliMe.Application.Queries.Job.GetAllJobs
 
         public async Task<List<JobGridView>> Handle(GetAllJobsQuery request, CancellationToken cancellationToken)
         {
-            var jobs = await _context.JobGridViews.ToListAsync();
+            var jobs = await _context.JobGridViews.Where(x => x.NumberOfWorkers >= 1).ToListAsync();
             return jobs;
         }
     }

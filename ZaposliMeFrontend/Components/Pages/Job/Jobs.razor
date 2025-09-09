@@ -4,10 +4,13 @@
 
 @attribute [Authorize]
 
-<h3 class="mb-4 d-flex justify-content-between align-items-center">
-    Available Jobs
-    <button class="btn btn-success" @onclick="OpenAdd">+ Add Job</button>
-</h3>
+<AuthorizeView Roles="Employeer">
+    <h3 class="mb-4 d-flex justify-content-between align-items-center">
+        Available Jobs
+        <button class="btn btn-success" @onclick="OpenAdd">+ Add Job</button>
+    </h3>
+</AuthorizeView>
+
 
 @if (jobs == null)
 {
@@ -32,9 +35,13 @@ else
                     <div class="card-footer d-flex justify-content-between">
                         <small class="text-muted">Workers needed: @job.NumberOfWorkers</small>
                         <div>
-                            <button class="btn btn-sm btn-primary me-1">Apply</button>
-                            <button class="btn btn-sm btn-warning me-1" @onclick="() => OpenEdit(job)">Edit</button>
-                            <button class="btn btn-sm btn-danger" @onclick="() => OpenDelete(job)">Delete</button>
+                            <AuthorizeView Roles="Employee">
+                                <button class="btn btn-sm btn-primary me-1">Apply</button>
+                            </AuthorizeView>
+                            <AuthorizeView Roles="Admin,Employeer">
+                                <button class="btn btn-sm btn-warning me-1" @onclick="() => OpenEdit(job)">Edit</button>
+                                <button class="btn btn-sm btn-danger" @onclick="() => OpenDelete(job)">Delete</button>
+                            </AuthorizeView>
                         </div>
                     </div>
                 </div>
