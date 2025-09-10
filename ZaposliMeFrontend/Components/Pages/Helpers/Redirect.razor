@@ -1,0 +1,13 @@
+﻿@inject NavigationManager Nav
+@code {
+    [Parameter] public string To { get; set; } = "/";
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender && !string.IsNullOrWhiteSpace(To))
+        {
+            // replace avoids back-button loop; forceLoad supports external URLs if needed
+            Nav.NavigateTo(To, replace: true);
+        }
+    }
+}

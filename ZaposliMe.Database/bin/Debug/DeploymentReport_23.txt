@@ -1,0 +1,19 @@
+﻿** Highlights
+     Tables that will be recreated with data migrated
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [zaposlime].[Application] (Table)
+       [zaposlime].[Job] (Table)
+       [zaposlime].[FK_Application_Employee] (Foreign Key)
+       [zaposlime].[FK_Application_Job] (Foreign Key)
+       [zaposlime].[FK_Job_User] (Foreign Key)
+
+** Supporting actions

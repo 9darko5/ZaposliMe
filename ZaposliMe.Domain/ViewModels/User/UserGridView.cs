@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ZaposliMe.Domain.ViewModels
+namespace ZaposliMe.Domain.ViewModels.User
 {
     [Table("UserGridView", Schema = "identity")]
     public class UserGridView

@@ -239,6 +239,23 @@
           }
         }
       },
+      "Microsoft.AspNetCore.WebUtilities/8.0.19": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Net.Http.Headers": "8.0.19",
+          "System.IO.Pipelines": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.AspNetCore.WebUtilities.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.WebUtilities.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.EntityFrameworkCore/8.0.18": {
         "type": "package",
         "dependencies": {
@@ -825,6 +842,22 @@
         },
         "runtime": {
           "lib/net8.0/Microsoft.JSInterop.WebAssembly.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Net.Http.Headers/8.0.19": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Net.Http.Headers.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Net.Http.Headers.dll": {
             "related": ".xml"
           }
         }
@@ -1202,6 +1235,23 @@
           }
         }
       },
+      "Microsoft.AspNetCore.WebUtilities/8.0.19": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Net.Http.Headers": "8.0.19",
+          "System.IO.Pipelines": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.AspNetCore.WebUtilities.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.WebUtilities.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.EntityFrameworkCore/8.0.18": {
         "type": "package",
         "dependencies": {
@@ -1788,6 +1838,22 @@
         },
         "runtime": {
           "lib/net8.0/Microsoft.JSInterop.WebAssembly.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Net.Http.Headers/8.0.19": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Net.Http.Headers.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Net.Http.Headers.dll": {
             "related": ".xml"
           }
         }
@@ -2342,6 +2408,21 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.xml",
         "microsoft.aspnetcore.metadata.8.0.18.nupkg.sha512",
         "microsoft.aspnetcore.metadata.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.WebUtilities/8.0.19": {
+      "sha512": "fB3ikXAlz6yQuy029zDAS3J4qW3o6HQYL+kqsTjhiog1JwgpfkRTELCTGxMv7fL6VljFtfNJIQ/2684soCuI9A==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.webutilities/8.0.19",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net8.0/Microsoft.AspNetCore.WebUtilities.dll",
+        "lib/net8.0/Microsoft.AspNetCore.WebUtilities.xml",
+        "microsoft.aspnetcore.webutilities.8.0.19.nupkg.sha512",
+        "microsoft.aspnetcore.webutilities.nuspec"
       ]
     },
     "Microsoft.EntityFrameworkCore/8.0.18": {
@@ -3214,6 +3295,21 @@
         "microsoft.jsinterop.webassembly.nuspec"
       ]
     },
+    "Microsoft.Net.Http.Headers/8.0.19": {
+      "sha512": "f2hSRVq5rR97YlfGcScVMXJvQpNpbbpnZjwsZ4kmN5/T3xk9DBVt1SPZDJIPrp/sSfdjz8aQtD8jKLXHyoHVng==",
+      "type": "package",
+      "path": "microsoft.net.http.headers/8.0.19",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net8.0/Microsoft.Net.Http.Headers.dll",
+        "lib/net8.0/Microsoft.Net.Http.Headers.xml",
+        "microsoft.net.http.headers.8.0.19.nupkg.sha512",
+        "microsoft.net.http.headers.nuspec"
+      ]
+    },
     "Microsoft.NET.ILLink.Tasks/8.0.18": {
       "sha512": "OiXqr2YIBEV9dsAWEtasK470ALyJ0VxJ9k4MotOxlWV6HeEgrJKYMW4HHj1OCCXvqE0/A25wEKPkpfiBARgDZA==",
       "type": "package",
@@ -3510,6 +3606,7 @@
       "Microsoft.AspNetCore.Components.WebAssembly >= 8.0.2",
       "Microsoft.AspNetCore.Components.WebAssembly.Authentication >= 9.0.7",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 8.0.2",
+      "Microsoft.AspNetCore.WebUtilities >= 8.0.19",
       "Microsoft.Extensions.Http >= 9.0.7",
       "Microsoft.NET.ILLink.Tasks >= 8.0.18",
       "Microsoft.NET.Sdk.WebAssembly.Pack >= 9.0.7",
@@ -3587,6 +3684,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[8.0.2, )"
+          },
+          "Microsoft.AspNetCore.WebUtilities": {
+            "target": "Package",
+            "version": "[8.0.19, )"
           },
           "Microsoft.Extensions.Http": {
             "target": "Package",

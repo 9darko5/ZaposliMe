@@ -48,7 +48,7 @@ namespace ZaposliMe.Frontend.Identity
         /// <param name="password">The user's password.</param>
         /// <returns>The result serialized to a <see cref="FormResult"/>.
         /// </returns>
-        public async Task<FormResult> RegisterAsync(string firstName, string lastName, string email, string password, long? age, string? phoneNumber)
+        public async Task<FormResult> RegisterAsync(string firstName, string lastName, string email, string password, string role, long? age, string? phoneNumber)
         {
             string[] defaultDetail = ["An unknown error prevented registration from succeeding."];
 
@@ -56,12 +56,13 @@ namespace ZaposliMe.Frontend.Identity
             {
                 // make the request
                 var result = await httpClient.PostAsJsonAsync(
-                    "/register", new
+                    "/api/account/register", new
                     {
                         firstName,
                         lastName,
                         email,
                         password,
+                        role,
                         age,
                         phoneNumber
                     });
@@ -125,7 +126,7 @@ namespace ZaposliMe.Frontend.Identity
             {
                 // login with cookies
                 var result = await httpClient.PostAsJsonAsync(
-                    "/login?useCookies=true", new
+                    "/api/account/login?useCookies=true", new
                     {
                         email,
                         password
@@ -171,7 +172,7 @@ namespace ZaposliMe.Frontend.Identity
 
             try
             {
-                var userInfoResponse = await httpClient.GetAsync("/info");
+                var userInfoResponse = await httpClient.GetAsync("/api/account/info");
                 userInfoResponse.EnsureSuccessStatusCode();
 
                 var userInfoJson = await userInfoResponse.Content.ReadAsStringAsync();
@@ -221,7 +222,7 @@ namespace ZaposliMe.Frontend.Identity
         {
             const string Empty = "{}";
             var emptyContent = new StringContent(Empty, Encoding.UTF8, "application/json");
-            await httpClient.PostAsync("logout", emptyContent);
+            await httpClient.PostAsync("/api/account/logout", emptyContent);
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
         }
 

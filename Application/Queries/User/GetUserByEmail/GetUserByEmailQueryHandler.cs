@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using ZaposliMe.Domain.ViewModels;
+using ZaposliMe.Domain.ViewModels.User;
 using ZaposliMe.Persistance;
 
 namespace ZaposliMe.Application.Queries.User.GetUserByEmail

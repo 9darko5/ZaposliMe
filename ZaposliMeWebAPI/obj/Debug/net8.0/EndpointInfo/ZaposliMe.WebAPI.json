@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/user": {
+    "/api/Account/user": {
       "get": {
         "tags": [
           "Account"
@@ -17,7 +17,7 @@
         }
       }
     },
-    "/register": {
+    "/api/Account/register": {
       "post": {
         "tags": [
           "Account"
@@ -48,7 +48,7 @@
         }
       }
     },
-    "/login": {
+    "/api/Account/login": {
       "post": {
         "tags": [
           "Account"
@@ -79,7 +79,32 @@
         }
       }
     },
-    "/logout": {
+    "/api/Account/logout": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { }
+            },
+            "text/json": {
+              "schema": { }
+            },
+            "application/*+json": {
+              "schema": { }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Account/info": {
       "get": {
         "tags": [
           "Account"
@@ -91,19 +116,7 @@
         }
       }
     },
-    "/info": {
-      "get": {
-        "tags": [
-          "Account"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/create": {
+    "/api/Job/create": {
       "post": {
         "tags": [
           "Job"
@@ -134,7 +147,7 @@
         }
       }
     },
-    "/delete/{id}": {
+    "/api/Job/delete/{id}": {
       "delete": {
         "tags": [
           "Job"
@@ -157,7 +170,7 @@
         }
       }
     },
-    "/update": {
+    "/api/Job/update": {
       "put": {
         "tags": [
           "Job"
@@ -188,7 +201,7 @@
         }
       }
     },
-    "/all": {
+    "/api/Job/all": {
       "get": {
         "tags": [
           "Job"
@@ -200,7 +213,50 @@
         }
       }
     },
-    "/getUser": {
+    "/api/Job/apply": {
+      "post": {
+        "tags": [
+          "Job"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/JobDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Job/userapplications": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/getUser": {
       "get": {
         "tags": [
           "User"
@@ -373,6 +429,10 @@
             "nullable": true
           },
           "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
             "type": "string",
             "nullable": true
           }

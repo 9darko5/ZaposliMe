@@ -12,6 +12,7 @@ namespace ZaposliMe.Persistance
         }
 
         public DbSet<JobGridView> JobGridViews { get; set; }
+        public DbSet<UserApplicationView> UserApplicationViews { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

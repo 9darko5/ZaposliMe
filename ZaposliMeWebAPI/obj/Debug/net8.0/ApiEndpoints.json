@@ -1,66 +1,8 @@
 [
   {
-    "ContainingType": "ZaposliMe.WebAPI.Controllers.JobController",
-    "Method": "GetAllJobs",
-    "RelativePath": "all",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ZaposliMe.WebAPI.Controllers.JobController",
-    "Method": "CreateJob",
-    "RelativePath": "create",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "ZaposliMe.Application.DTOs.Job.JobDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ZaposliMe.WebAPI.Controllers.JobController",
-    "Method": "DeleteJob",
-    "RelativePath": "delete/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ZaposliMe.WebAPI.Controllers.UserController",
-    "Method": "GetUser",
-    "RelativePath": "getUser",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "email",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "ZaposliMe.WebAPI.Controllers.AccountController",
     "Method": "GetUserInfo",
-    "RelativePath": "info",
+    "RelativePath": "api/Account/info",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -70,7 +12,7 @@
   {
     "ContainingType": "ZaposliMe.WebAPI.Controllers.AccountController",
     "Method": "Login",
-    "RelativePath": "login",
+    "RelativePath": "api/Account/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -86,17 +28,23 @@
   {
     "ContainingType": "ZaposliMe.WebAPI.Controllers.AccountController",
     "Method": "Logout",
-    "RelativePath": "logout",
-    "HttpMethod": "GET",
+    "RelativePath": "api/Account/logout",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "System.Object",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
     "ContainingType": "ZaposliMe.WebAPI.Controllers.AccountController",
     "Method": "Register",
-    "RelativePath": "register",
+    "RelativePath": "api/Account/register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -110,9 +58,77 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "ZaposliMe.WebAPI.Controllers.AccountController",
+    "Method": "GetUser",
+    "RelativePath": "api/Account/user",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ZaposliMe.WebAPI.Controllers.JobController",
+    "Method": "GetAllJobs",
+    "RelativePath": "api/Job/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ZaposliMe.WebAPI.Controllers.JobController",
+    "Method": "ApplyJob",
+    "RelativePath": "api/Job/apply",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ZaposliMe.Application.DTOs.Job.JobDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ZaposliMe.WebAPI.Controllers.JobController",
+    "Method": "CreateJob",
+    "RelativePath": "api/Job/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ZaposliMe.Application.DTOs.Job.JobDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ZaposliMe.WebAPI.Controllers.JobController",
+    "Method": "DeleteJob",
+    "RelativePath": "api/Job/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ZaposliMe.WebAPI.Controllers.JobController",
     "Method": "UpdateJob",
-    "RelativePath": "update",
+    "RelativePath": "api/Job/update",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -126,13 +142,29 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "ZaposliMe.WebAPI.Controllers.AccountController",
-    "Method": "GetUser",
-    "RelativePath": "user",
+    "ContainingType": "ZaposliMe.WebAPI.Controllers.JobController",
+    "Method": "GetAllUserApplications",
+    "RelativePath": "api/Job/userapplications",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ZaposliMe.WebAPI.Controllers.UserController",
+    "Method": "GetUser",
+    "RelativePath": "api/User/getUser",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {

@@ -1,0 +1,52 @@
+﻿@using ZaposliMe.Application.DTOs.Job
+
+@if (Show && Job != null)
+{
+    <div class="modal fade show d-block" tabindex="-1" style="background-color: rgba(0,0,0,.5);">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Apply for "@Job.Title"</h5>
+                    <button type="button" class="btn-close" @onclick="OnClose"></button>
+                </div>
+
+                <div class="modal-body">
+                    @if (ShowError)
+                    {
+                        <div class="alert alert-danger">
+                            Applying is not possible at the moment. Please try again later.
+                        </div>
+                    }
+                    else if (Job.NumberOfWorkers < 1)
+                    {
+                        <div class="alert alert-danger mb-0">
+                            This job is already full. You cannot apply.
+                        </div>
+                    }
+                    else
+                    {
+                        <p>Do you want to apply to this job?</p>
+                    }
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" @onclick="OnClose">Close</button>
+                    <button class="btn btn-primary"
+                            disabled="@(Job.NumberOfWorkers < 1 || ShowError)"
+                            @onclick="() => OnConfirm.InvokeAsync(Job)">
+                        Yes, apply
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public JobDto? Job { get; set; }
+    [Parameter] public bool Show { get; set; }
+    [Parameter] public EventCallback OnClose { get; set; }
+    [Parameter] public EventCallback<JobDto> OnConfirm { get; set; }
+
+    [Parameter] public bool ShowError { get; set; }
+}

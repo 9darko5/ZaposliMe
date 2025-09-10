@@ -3,11 +3,11 @@
 @using Microsoft.AspNetCore.Components.Authorization
 @using ZaposliMe.Frontend.Identity
 @using ZaposliMe.Frontend.Identity.Models
+@using Microsoft.AspNetCore.WebUtilities
+@inject NavigationManager Nav
 @inject IAccountManagement Acct
 
 <PageTitle>Register</PageTitle>
-
-<h1>Register</h1>
 
 <AuthorizeView>
     <Authorized>
@@ -141,7 +141,22 @@
 
     public async Task RegisterUserAsync()
     {
-        formResult = await Acct.RegisterAsync(Input.FirstName, Input.LastName, Input.Email, Input.Password, Input.Age, Input.PhoneNumber);
+        formResult = await Acct.RegisterAsync(Input.FirstName, Input.LastName, Input.Email, Input.Password, Input.Role, Input.Age, Input.PhoneNumber);
+    }
+
+    protected override void OnInitialized()
+    {
+        // Keep default if you want (optional)
+        if (string.IsNullOrWhiteSpace(Input.Role))
+            Input.Role = "Employee";
+
+        var uri = Nav.ToAbsoluteUri(Nav.Uri);
+        if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("role", out var roleFromQuery))
+        {
+            var r = roleFromQuery.ToString();
+            if (r is "Employee" or "Employer")
+                Input.Role = r;
+        }
     }
 
     private sealed class InputModel
@@ -176,5 +191,9 @@
         [DataType(DataType.PhoneNumber)]
         [Display(Name = "PhoneNumber")]
         public string PhoneNumber { get; set; } = string.Empty;
+
+        [Required]
+        [Display(Name = "Role")]
+        public string Role { get; set; } = string.Empty;
     }
 }

@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using ZaposliMe.Domain.ViewModels;
+using ZaposliMe.Domain.ViewModels.User;
 
 namespace ZaposliMe.Application.Queries.User.GetUserByEmail
 {

@@ -56,8 +56,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEYXRhUHJvY2Vzc2luZy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/djuricd/Documents/GitHub/ZaposliMe/ZaposliMeFrontend/Components/Pages/Helpers/Redirect.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIZWxwZXJzXFJlZGlyZWN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/djuricd/Documents/GitHub/ZaposliMe/ZaposliMeFrontend/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/djuricd/Documents/GitHub/ZaposliMe/ZaposliMeFrontend/Components/Pages/Job/ApplyJobModal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xKb2JcQXBwbHlKb2JNb2RhbC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/djuricd/Documents/GitHub/ZaposliMe/ZaposliMeFrontend/Components/Pages/Job/DeleteJobModal.razor]
@@ -66,6 +74,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/djuricd/Documents/GitHub/ZaposliMe/ZaposliMeFrontend/Components/Pages/Job/EditJobModal.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xKb2JcRWRpdEpvYk1vZGFsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/djuricd/Documents/GitHub/ZaposliMe/ZaposliMeFrontend/Components/Pages/Job/EmployeeApplications.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xKb2JcRW1wbG95ZWVBcHBsaWNhdGlvbnMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/djuricd/Documents/GitHub/ZaposliMe/ZaposliMeFrontend/Components/Pages/Job/Jobs.razor]

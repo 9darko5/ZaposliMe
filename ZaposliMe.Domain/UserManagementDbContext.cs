@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ZaposliMe.Domain.Entities.Identity;
-using ZaposliMe.Domain.ViewModels;
+using ZaposliMe.Domain.ViewModels.User;
 
 namespace ZaposliMe.Persistance
 {

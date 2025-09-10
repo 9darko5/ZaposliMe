@@ -48,25 +48,6 @@
 					<Element Type="SqlIndexedColumnSpecification">
 						<Relationship Name="Column">
 							<Entry>
-								<References Name="[zaposlime].[Job].[Id]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[zaposlime].[Job]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="3" />
-		</Element>
-		<Element Type="SqlPrimaryKeyConstraint">
-			<Relationship Name="ColumnSpecifications">
-				<Entry>
-					<Element Type="SqlIndexedColumnSpecification">
-						<Relationship Name="Column">
-							<Entry>
 								<References Name="[identity].[AspNetRoles].[Id]" />
 							</Entry>
 						</Relationship>
@@ -78,7 +59,45 @@
 					<References Name="[identity].[AspNetRoles]" />
 				</Entry>
 			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="3" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[zaposlime].[Job].[Id]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[zaposlime].[Job]" />
+				</Entry>
+			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="4" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[zaposlime].[Application].[Id]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[zaposlime].[Application]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="5" />
 		</Element>
 		<Element Type="SqlSchema" Name="[identity]">
 			<Relationship Name="Authorizer">
@@ -162,8 +181,8 @@
 					<References Name="[identity]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="5" />
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="6" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="7" />
 		</Element>
 		<Element Type="SqlTable" Name="[identity].[AspNetRoles]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -183,7 +202,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="4" />
+						<AttachedAnnotation Disambiguator="3" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -316,8 +335,8 @@
 					<References Name="[identity]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="7" />
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="8" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="9" />
 		</Element>
 		<Element Type="SqlTable" Name="[identity].[AspNetUserLogins]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -395,8 +414,8 @@
 					<References Name="[identity]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="9" />
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="10" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="11" />
 		</Element>
 		<Element Type="SqlTable" Name="[identity].[AspNetUserRoles]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -441,9 +460,9 @@
 					<References Name="[identity]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="11" />
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="12" />
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="13" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="14" />
 		</Element>
 		<Element Type="SqlTable" Name="[identity].[AspNetUsers]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -761,7 +780,7 @@
 					<References Name="[identity]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="14" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="15" />
 		</Element>
 		<Element Type="SqlTable" Name="[identity].[AspNetUserTokens]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -839,8 +858,8 @@
 					<References Name="[identity]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="15" />
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="16" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="17" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[identity].[FK_AspNetRoleClaims_AspNetRoles_RoleId]">
 			<Property Name="OnDeleteAction" Value="1" />
@@ -864,7 +883,7 @@
 					<References Name="[identity].[AspNetRoles]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="6" />
+			<AttachedAnnotation Disambiguator="7" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[identity].[FK_AspNetUserTokens_AspNetUsers_UserId]">
 			<Property Name="OnDeleteAction" Value="1" />
@@ -888,7 +907,7 @@
 					<References Name="[identity].[AspNetUsers]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="16" />
+			<AttachedAnnotation Disambiguator="17" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[identity].[FK_user.AspNetUserClaims_user.AspNetUsers_UserId]">
 			<Property Name="OnDeleteAction" Value="1" />
@@ -912,7 +931,7 @@
 					<References Name="[identity].[AspNetUsers]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="8" />
+			<AttachedAnnotation Disambiguator="9" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[identity].[FK_user.AspNetUserLogins_user.AspNetUsers_UserId]">
 			<Property Name="OnDeleteAction" Value="1" />
@@ -936,7 +955,7 @@
 					<References Name="[identity].[AspNetUsers]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="10" />
+			<AttachedAnnotation Disambiguator="11" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[identity].[FK_user.AspNetUserRoles_user.AspNetRoles_RoleId]">
 			<Property Name="OnDeleteAction" Value="1" />
@@ -960,7 +979,7 @@
 					<References Name="[identity].[AspNetRoles]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="12" />
+			<AttachedAnnotation Disambiguator="13" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[identity].[FK_user.AspNetUserRoles_user.AspNetUsers_UserId]">
 			<Property Name="OnDeleteAction" Value="1" />
@@ -984,7 +1003,7 @@
 					<References Name="[identity].[AspNetUsers]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="13" />
+			<AttachedAnnotation Disambiguator="14" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[identity].[PK_AspNetRoleClaims]">
 			<Relationship Name="ColumnSpecifications">
@@ -1003,7 +1022,7 @@
 					<References Name="[identity].[AspNetRoleClaims]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="5" />
+			<AttachedAnnotation Disambiguator="6" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[identity].[PK_AspNetUserTokens]">
 			<Relationship Name="ColumnSpecifications">
@@ -1040,7 +1059,7 @@
 					<References Name="[identity].[AspNetUserTokens]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="15" />
+			<AttachedAnnotation Disambiguator="16" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[identity].[PK_user.AspNetUserClaims]">
 			<Relationship Name="ColumnSpecifications">
@@ -1059,7 +1078,7 @@
 					<References Name="[identity].[AspNetUserClaims]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="7" />
+			<AttachedAnnotation Disambiguator="8" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[identity].[PK_user.AspNetUserLogins]">
 			<Relationship Name="ColumnSpecifications">
@@ -1096,7 +1115,7 @@
 					<References Name="[identity].[AspNetUserLogins]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="9" />
+			<AttachedAnnotation Disambiguator="10" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[identity].[PK_user.AspNetUserRoles]">
 			<Relationship Name="ColumnSpecifications">
@@ -1124,7 +1143,7 @@
 					<References Name="[identity].[AspNetUserRoles]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="11" />
+			<AttachedAnnotation Disambiguator="12" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[identity].[PK_user.AspNetUsers]">
 			<Relationship Name="ColumnSpecifications">
@@ -1143,7 +1162,7 @@
 					<References Name="[identity].[AspNetUsers]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="14" />
+			<AttachedAnnotation Disambiguator="15" />
 		</Element>
 		<Element Type="SqlView" Name="[identity].[UserGridView]">
 			<Property Name="QueryScript">
@@ -1255,6 +1274,183 @@
 				</Entry>
 			</Relationship>
 		</Element>
+		<Element Type="SqlTable" Name="[zaposlime].[Application]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[zaposlime].[Application].[Id]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="5" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[zaposlime].[Application].[EmployeeId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="450" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[zaposlime].[Application].[JobId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[zaposlime].[Application].[Status]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[zaposlime].[Application].[AppliedAt]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[zaposlime].[Application].[StatusChangedAt]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References Name="[zaposlime]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="18" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="19" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint" Name="[zaposlime].[FK_Application_Employee]">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[zaposlime].[Application].[EmployeeId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[zaposlime].[Application]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[identity].[AspNetUsers].[Id]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[identity].[AspNetUsers]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="18" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint" Name="[zaposlime].[FK_Application_Job]">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[zaposlime].[Application].[JobId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[zaposlime].[Application]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[zaposlime].[Job].[Id]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[zaposlime].[Job]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="19" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint" Name="[zaposlime].[FK_Job_User]">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[zaposlime].[Job].[EmployerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[zaposlime].[Job]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[identity].[AspNetUsers].[Id]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[identity].[AspNetUsers]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="20" />
+		</Element>
 		<Element Type="SqlTable" Name="[zaposlime].[Job]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
 			<Relationship Name="Columns">
@@ -1272,7 +1468,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="3" />
+						<AttachedAnnotation Disambiguator="4" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -1312,6 +1508,23 @@
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
 									<Property Name="IsMax" Value="True" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[zaposlime].[Job].[EmployerId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="450" />
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
@@ -1388,6 +1601,7 @@
 					<References Name="[zaposlime]" />
 				</Entry>
 			</Relationship>
+			<AttachedAnnotation Disambiguator="20" />
 		</Element>
 		<Element Type="SqlView" Name="[zaposlime].[JobGridView]">
 			<Property Name="QueryScript">
@@ -1477,6 +1691,165 @@
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
 				<Property Name="HeaderContents" Value="CREATE VIEW [zaposlime].[JobGridView]&#xD;&#xA;&#x9;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlView" Name="[zaposlime].[UserApplicationView]">
+			<Property Name="QueryScript">
+				<Value><![CDATA[ SELECT  
+	a.Id,
+	a.EmployeeId,
+	a.JobId,
+	a.Status,
+	j.Title AS JobTitle,
+	j.Description AS JobDescription,
+	u.FirstName + ' ' + u.LastName AS EmployerFullName,
+	a.AppliedAt,
+	j.CreatedAt AS JobCreatedAt
+	FROM [zaposlime].[Application] a
+	LEFT JOIN [zaposlime].[Job] j ON a.JobId = j.Id
+	LEFT JOIN [identity].[AspNetUsers] u ON j.EmployerId = u.Id]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlComputedColumn" Name="[zaposlime].[UserApplicationView].[Id]">
+						<Relationship Name="ExpressionDependencies">
+							<Entry>
+								<References Name="[zaposlime].[Application].[Id]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlComputedColumn" Name="[zaposlime].[UserApplicationView].[EmployeeId]">
+						<Relationship Name="ExpressionDependencies">
+							<Entry>
+								<References Name="[zaposlime].[Application].[EmployeeId]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlComputedColumn" Name="[zaposlime].[UserApplicationView].[JobId]">
+						<Relationship Name="ExpressionDependencies">
+							<Entry>
+								<References Name="[zaposlime].[Application].[JobId]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlComputedColumn" Name="[zaposlime].[UserApplicationView].[Status]">
+						<Relationship Name="ExpressionDependencies">
+							<Entry>
+								<References Name="[zaposlime].[Application].[Status]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlComputedColumn" Name="[zaposlime].[UserApplicationView].[JobTitle]">
+						<Relationship Name="ExpressionDependencies">
+							<Entry>
+								<References Name="[zaposlime].[Job].[Title]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlComputedColumn" Name="[zaposlime].[UserApplicationView].[JobDescription]">
+						<Relationship Name="ExpressionDependencies">
+							<Entry>
+								<References Name="[zaposlime].[Job].[Description]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlComputedColumn" Name="[zaposlime].[UserApplicationView].[EmployerFullName]" />
+				</Entry>
+				<Entry>
+					<Element Type="SqlComputedColumn" Name="[zaposlime].[UserApplicationView].[AppliedAt]">
+						<Relationship Name="ExpressionDependencies">
+							<Entry>
+								<References Name="[zaposlime].[Application].[AppliedAt]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlComputedColumn" Name="[zaposlime].[UserApplicationView].[JobCreatedAt]">
+						<Relationship Name="ExpressionDependencies">
+							<Entry>
+								<References Name="[zaposlime].[Job].[CreatedAt]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="QueryDependencies">
+				<Entry>
+					<References Name="[zaposlime].[Application]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Job]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Application].[JobId]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Job].[Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[identity].[AspNetUsers]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Job].[EmployerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[identity].[AspNetUsers].[Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Application].[Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Application].[EmployeeId]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Application].[JobId]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Application].[Status]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Job].[Title]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Job].[Description]" />
+				</Entry>
+				<Entry>
+					<References Name="[identity].[AspNetUsers].[FirstName]" />
+				</Entry>
+				<Entry>
+					<References Name="[identity].[AspNetUsers].[LastName]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Application].[AppliedAt]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Job].[CreatedAt]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References Name="[zaposlime]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="410" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE VIEW [zaposlime].[UserApplicationView]&#xD;&#xA;&#x9;AS" />
 			</Annotation>
 		</Element>
 	</Model>

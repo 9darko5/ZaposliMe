@@ -14,4 +14,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="UpdatedAt" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="0e4f6d8f-e04e-41c5-9005-c5e94bba7798" ChangeDateTime="09/10/2025 09:19:34" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[zaposlime].[Application].[Emplo]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[zaposlime].[Application]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="EmployeId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="60dd8f62-b42c-437d-88a9-c46f72599567" ChangeDateTime="09/10/2025 09:19:57" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[zaposlime].[Application].[EmployeId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[zaposlime].[Application]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="EmployeeId" />
+  </Operation>
 </Operations>

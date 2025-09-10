@@ -9,7 +9,7 @@ using ZaposliMe.WebAPI.Models.Account;
 namespace ZaposliMe.WebAPI.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
 
@@ -24,7 +24,7 @@ namespace ZaposliMe.WebAPI.Controllers
             _signInManager = signInManager;
         }
 
-        [HttpGet("/user")]
+        [HttpGet("user")]
         public IActionResult GetUser()
         {
             if (!User.Identity.IsAuthenticated)
@@ -45,7 +45,7 @@ namespace ZaposliMe.WebAPI.Controllers
             return Ok(userInfo);
         }
 
-        [HttpPost("/register")]
+        [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterDto model)
         {
             var user = new User
@@ -63,15 +63,12 @@ namespace ZaposliMe.WebAPI.Controllers
             if (!result.Succeeded)
                 return BadRequest(result.Errors);
 
-            // Optionally add to role
-            await _userManager.AddToRoleAsync(user, "Employee");
-
-            //_userService.CreateUser(Guid.Parse(user.Id), model.FirstName, model.LastName, model.Age);
+            await _userManager.AddToRoleAsync(user, model.Role);
 
             return Ok("User registered");
         }
 
-        [HttpPost("/login")]
+        [HttpPost("login")]
         public async Task<IActionResult> Login(LoginDto model)
         {
             var result = await _signInManager.PasswordSignInAsync(
@@ -83,8 +80,8 @@ namespace ZaposliMe.WebAPI.Controllers
             return Ok("Login successful");
         }
 
-        [HttpGet("/logout")]
-        public async Task<IActionResult> Logout()
+        [HttpPost("logout")]
+        public async Task<IActionResult> Logout(object model)
         {
             await _signInManager.SignOutAsync();
 
@@ -92,7 +89,7 @@ namespace ZaposliMe.WebAPI.Controllers
         }
 
         [Authorize]
-        [HttpGet("/info")]
+        [HttpGet("info")]
         public async Task<IActionResult> GetUserInfo()
         {
             var user = await _userManager.GetUserAsync(User);

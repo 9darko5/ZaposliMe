@@ -18,6 +18,7 @@ namespace ZaposliMe.Application.Commands.Job.CreateJob
                 Title = request.Title,
                 Description = request.Description,
                 NumberOfWorkers = request.NumberOfWorkers,
+                EmployerId = request.employerId,
                 CreatedAt = DateTime.UtcNow
             };
 
