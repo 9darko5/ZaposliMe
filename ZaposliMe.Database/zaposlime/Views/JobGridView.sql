@@ -4,5 +4,6 @@
 	Title,
 	Description,
 	NumberOfWorkers,
+	EmployerId,
 	CreatedAt
 	FROM [Job]

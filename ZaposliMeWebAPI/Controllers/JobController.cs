@@ -59,12 +59,27 @@ namespace ZaposliMe.WebAPI.Controllers
         }
 
         [HttpGet("all")]
-        [Authorize]
+        [Authorize(Roles = "Admin,Employee")]
         public async Task<IActionResult> GetAllJobs()
         {
             var getAllJobsQuery = new GetAllJobsQuery();
 
             var jobs = await _sender.Send(getAllJobsQuery);
+
+            return Ok(jobs);
+        }
+
+        [HttpGet("employer/all")]
+        [Authorize(Roles = "Employer")]
+        public async Task<IActionResult> GetAllEmployerJobs()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId is null)
+                return Unauthorized();
+
+            var getAllEmployerJobsQuery = new GetAllEmployerJobsQuery(userId);
+
+            var jobs = await _sender.Send(getAllEmployerJobsQuery);
 
             return Ok(jobs);
         }

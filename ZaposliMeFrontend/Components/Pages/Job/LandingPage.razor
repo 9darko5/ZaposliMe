@@ -1,0 +1,100 @@
+﻿
+<div class="container py-5">
+
+    <!-- Hero -->
+    <div class="p-5 mb-5 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Find work. Hire talent.</h1>
+            <p class="col-md-8 fs-5">
+                Join our marketplace to connect employers with skilled people—fast.
+                Employees can browse and apply to jobs. Employers can create postings and manage applicants.
+                Getting started takes just a minute.
+            </p>
+            <div class="d-flex gap-2 flex-wrap">
+                <NavLink class="btn btn-primary btn-lg" href="/register?role=Employee">
+                    Register as Employee
+                </NavLink>
+                <NavLink class="btn btn-outline-primary btn-lg" href="/register?role=Employer">
+                    Register as Employer
+                </NavLink>
+            </div>
+            <div class="mt-3">
+                <span class="text-muted">Already have an account?</span>
+                <NavLink class="ms-1" href="/login">Sign in</NavLink>
+            </div>
+        </div>
+    </div>
+
+    <!-- Value props -->
+    <div class="row g-4 mb-5">
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Fast & simple</h5>
+                    <p class="card-text">
+                        Create an account in seconds and get instant access to jobs or candidates.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Built for both sides</h5>
+                    <p class="card-text">
+                        Employees track applications; employers publish roles and review applicants in one place.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Local-first</h5>
+                    <p class="card-text">
+                        Focused on nearby opportunities so hiring and onboarding are fast and personal.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dual CTAs -->
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <span class="badge bg-primary mb-2">For Employees</span>
+                    <h4 class="card-title">Start applying today</h4>
+                    <p class="card-text">
+                        Create your profile, browse openings, and apply with one click. Save favorites and get notified when new jobs match your skills.
+                    </p>
+                    <NavLink class="btn btn-primary" href="/register?role=Employee">
+                        Register as Employee
+                    </NavLink>
+                </div>
+                <div class="card-footer bg-white">
+                    <small class="text-muted">Free for job seekers</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <span class="badge bg-success mb-2">For Employers</span>
+                    <h4 class="card-title">Post a job in minutes</h4>
+                    <p class="card-text">
+                        Publish roles, receive applications, and manage your pipeline. Find the right person faster with filters and shortlists.
+                    </p>
+                    <NavLink class="btn btn-success" href="/register?role=Employer">
+                        Register as Employer
+                    </NavLink>
+                </div>
+                <div class="card-footer bg-white">
+                    <small class="text-muted">Create your first posting now</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

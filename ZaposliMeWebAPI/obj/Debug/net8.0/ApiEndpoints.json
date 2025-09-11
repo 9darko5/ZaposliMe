@@ -127,6 +127,16 @@
   },
   {
     "ContainingType": "ZaposliMe.WebAPI.Controllers.JobController",
+    "Method": "GetAllEmployerJobs",
+    "RelativePath": "api/Job/employer/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ZaposliMe.WebAPI.Controllers.JobController",
     "Method": "UpdateJob",
     "RelativePath": "api/Job/update",
     "HttpMethod": "PUT",

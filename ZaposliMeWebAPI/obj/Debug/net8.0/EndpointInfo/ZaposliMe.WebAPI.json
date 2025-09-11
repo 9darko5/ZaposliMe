@@ -213,6 +213,18 @@
         }
       }
     },
+    "/api/Job/employer/all": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Job/apply": {
       "post": {
         "tags": [
@@ -381,6 +393,10 @@
           "numberOfWorkers": {
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          },
+          "employerId": {
+            "type": "string",
             "nullable": true
           },
           "createdAt": {
