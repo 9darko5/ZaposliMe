@@ -3,7 +3,6 @@
 *.dll
 *.bin
 *.dbmdl
-ZaposliMe.Database/ZaposliMe.Database.jfm
+*.jfm
 /ZaposliMeFrontend/obj
 /ZaposliMeFrontend/bin
-/.vs
