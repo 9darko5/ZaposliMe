@@ -1,39 +1,56 @@
 ﻿<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">ZaposliMeFrontend</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+
+        <!-- Prevent double toggle via bubbling -->
+        <button title="Navigation menu"
+                class="navbar-toggler"
+                @onclick="ToggleNavMenu"
+                @onclick:stopPropagation="true">
             <span class="navbar-toggler-icon"></span>
         </button>
     </div>
 </div>
 
-<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
+<!-- Use Bootstrap collapse + conditional 'show'. d-md-block keeps it visible on desktop -->
+<div class="collapse d-md-block nav-scrollable @(isOpen ? "show" : null)">
     <nav class="flex-column">
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All" @onclick="CloseOnItemClick">
                 <span class="bi bi-house-door-fill-nav-menu" aria-hidden="false"></span> Home
             </NavLink>
         </div>
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="false"></span> Counter
+            <NavLink class="nav-link" href="jobs" @onclick="CloseOnItemClick">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="false"></span> Jobs
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="false"></span> Weather
-            </NavLink>
-        </div>
+        <AuthorizeView Roles="Employee">
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="employee/applications" @onclick="CloseOnItemClick">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="false"></span> Applications
+                </NavLink>
+            </div>
+        </AuthorizeView>
+        <AuthorizeView Roles="Employer">
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="employer/applications" @onclick="CloseOnItemClick">
+                    <span class="bi bi-list-nested-nav-menu" aria-hidden="false"></span> Applications
+                </NavLink>
+            </div>
+        </AuthorizeView>
     </nav>
 </div>
 
 @code {
-    private bool collapseNavMenu = true;
+    // Closed on mobile by default; visible on desktop via d-md-block
+    private bool isOpen = false;
 
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private void ToggleNavMenu() => isOpen = !isOpen;
 
-    private void ToggleNavMenu()
+    private void CloseOnItemClick()
     {
-        collapseNavMenu = !collapseNavMenu;
+        if (isOpen)
+            isOpen = false;
     }
 }
