@@ -2240,6 +2240,6 @@ C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\c
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\45s1ocmgbi-tb87e04ll6.gz
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\ofbz4h6mjo-i31d9ewhf1.gz
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\0ox0pmtfgb-dqn648cdt3.gz
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\uihesmjodk-htwhvbfn2a.gz
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\vamh2yex1y-sfoe0bhbov.gz
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\ndalbka7ju-tkghhtoker.gz
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\uihesmjodk-m8t7ar4pv9.gz
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\vamh2yex1y-j0vm2khafn.gz
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMeFrontend\obj\Debug\net8.0\compressed\ndalbka7ju-uslz7qgmx3.gz

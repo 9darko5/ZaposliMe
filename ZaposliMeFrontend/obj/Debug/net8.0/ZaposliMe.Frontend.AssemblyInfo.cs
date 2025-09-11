@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ZaposliMe.Frontend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5ae65c2bc492816da6dc3bbc219b43b8e9d69d7a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4c0923c27a37166971fc457bce48f86cbe46aff3")]
 [assembly: System.Reflection.AssemblyProductAttribute("ZaposliMe.Frontend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ZaposliMe.Frontend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
