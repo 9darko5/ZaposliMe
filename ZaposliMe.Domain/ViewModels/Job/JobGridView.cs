@@ -10,6 +10,7 @@ namespace ZaposliMe.Domain.ViewModels.Job
         public string? Description { get; set; }
         public int? NumberOfWorkers { get; set; }
         public string EmployerId { get; set; }
+        public string EmployerFullName { get; set; }
         public DateTime CreatedAt { get; set; }
     }
 }

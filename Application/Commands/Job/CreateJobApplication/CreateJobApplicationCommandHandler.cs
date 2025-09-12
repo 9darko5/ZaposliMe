@@ -23,9 +23,9 @@ namespace ZaposliMe.Application.Commands.Job.CreateJob
                 AppliedAt = DateTime.UtcNow
             };
 
-            job.Applications.Add(application);
+            job.Applications?.Add(application);
 
-            job.NumberOfWorkers -= 1;
+            //job.NumberOfWorkers -= 1;
 
             await _unitOfWork.BeginTransactionAsync(cancellationToken);
 

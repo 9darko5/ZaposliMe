@@ -30,7 +30,8 @@ else
                     <div class="card-body">
                         <h3 class="card-title">@job.Title</h3>
                         <p class="card-text">@job.Description</p>
-                        <small class="text-muted">Created at: @job.CreatedAt</small>
+                        <small class="text-muted">Created at: @job.CreatedAt</small><br/>
+                        <small class="text-muted">Created by: @job.EmployerFullName</small>
                     </div>
                     <div class="card-footer d-flex justify-content-between">
                         <small class="text-muted">Workers needed: @job.NumberOfWorkers</small>

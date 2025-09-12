@@ -1606,13 +1606,15 @@
 		<Element Type="SqlView" Name="[zaposlime].[JobGridView]">
 			<Property Name="QueryScript">
 				<Value><![CDATA[ SELECT 
-	Id,
-	Title,
-	Description,
-	NumberOfWorkers,
-	EmployerId,
-	CreatedAt
-	FROM [Job]]]></Value>
+	j.Id,
+	j.Title,
+	j.Description,
+	j.NumberOfWorkers,
+	j.EmployerId,
+	j.CreatedAt,
+	u.FirstName + ' ' + u.LastName AS EmployerFullName
+	FROM [zaposlime].[Job] j
+	LEFT JOIN [identity].[AspNetUsers] u ON u.Id = j.EmployerId]]></Value>
 			</Property>
 			<Property Name="IsAnsiNullsOn" Value="True" />
 			<Relationship Name="Columns">
@@ -1670,10 +1672,22 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlComputedColumn" Name="[zaposlime].[JobGridView].[EmployerFullName]" />
+				</Entry>
 			</Relationship>
 			<Relationship Name="QueryDependencies">
 				<Entry>
 					<References Name="[zaposlime].[Job]" />
+				</Entry>
+				<Entry>
+					<References Name="[identity].[AspNetUsers]" />
+				</Entry>
+				<Entry>
+					<References Name="[identity].[AspNetUsers].[Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Job].[EmployerId]" />
 				</Entry>
 				<Entry>
 					<References Name="[zaposlime].[Job].[Id]" />
@@ -1688,10 +1702,13 @@
 					<References Name="[zaposlime].[Job].[NumberOfWorkers]" />
 				</Entry>
 				<Entry>
-					<References Name="[zaposlime].[Job].[EmployerId]" />
+					<References Name="[zaposlime].[Job].[CreatedAt]" />
 				</Entry>
 				<Entry>
-					<References Name="[zaposlime].[Job].[CreatedAt]" />
+					<References Name="[identity].[AspNetUsers].[FirstName]" />
+				</Entry>
+				<Entry>
+					<References Name="[identity].[AspNetUsers].[LastName]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
@@ -1700,7 +1717,7 @@
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="138" />
+				<Property Name="Length" Value="280" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
 				<Property Name="HeaderContents" Value="CREATE VIEW [zaposlime].[JobGridView]&#xD;&#xA;&#x9;AS" />

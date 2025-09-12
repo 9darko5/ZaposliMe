@@ -399,6 +399,10 @@
             "type": "string",
             "nullable": true
           },
+          "employerFullName": {
+            "type": "string",
+            "nullable": true
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
