@@ -8,11 +8,11 @@
 			<Metadata Name="QuotedIdentifier" Value="True" />
 		</CustomData>
 		<CustomData Category="CompatibilityMode">
-			<Metadata Name="CompatibilityMode" Value="160" />
+			<Metadata Name="CompatibilityMode" Value="150" />
 		</CustomData>
 		<CustomData Category="Reference" Type="Assembly">
 			<Metadata Name="LogicalName" Value="ZaposliMe.Database.dll" />
-			<Metadata Name="FileName" Value="C:\USERS\DJURICD\DOCUMENTS\GITHUB\ZAPOSLIME\ZAPOSLIME.DATABASE\OBJ\DEBUG\ZAPOSLIME.DATABASE.DLL" />
+			<Metadata Name="FileName" Value="D:\PROJECTS\ZAPOSLIME\ZAPOSLIME.DATABASE\OBJ\DEBUG\ZAPOSLIME.DATABASE.DLL" />
 			<Metadata Name="AssemblyName" Value="ZaposliMe.Database" />
 			<Metadata Name="PermissionSet" Value="SAFE" />
 			<Metadata Name="Owner" Value="" />
@@ -20,7 +20,7 @@
 			<Metadata Name="IsVisible" Value="True" />
 			<Metadata Name="IsModelAware" Value="True" />
 			<Metadata Name="SkipCreationIfEmpty" Value="True" />
-			<Metadata Name="AssemblySymbolsName" Value="C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\obj\Debug\ZaposliMe.Database.pdb" />
+			<Metadata Name="AssemblySymbolsName" Value="D:\Projects\ZaposliMe\ZaposliMe.Database\obj\Debug\ZaposliMe.Database.pdb" />
 		</CustomData>
 		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
 	</Header>
@@ -37,6 +37,7 @@
 			<Property Name="PageVerifyMode" Value="3" />
 			<Property Name="DefaultLanguage" Value="" />
 			<Property Name="DefaultFullTextLanguage" Value="" />
+			<Property Name="QueryStoreDesiredState" Value="0" />
 			<Property Name="QueryStoreCaptureMode" Value="1" />
 			<Property Name="QueryStoreStaleQueryThreshold" Value="367" />
 			<Property Name="MaxDop" Value="0" />

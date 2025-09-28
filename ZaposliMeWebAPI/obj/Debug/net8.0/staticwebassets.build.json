@@ -1,1 +1,11 @@
-{"Version":1,"Hash":"aQdIGTal2SUe/KTin4JbUG/GSaU7H1ZQ+a/X2tugpno=","Source":"ZaposliMe.WebAPI","BasePath":"_content/ZaposliMe.WebAPI","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+{
+  "Version": 1,
+  "Hash": "vz8SRLNCgVGQCqKQFW6wLhwyJwU/gaCLUkRsLlfEAss=",
+  "Source": "ZaposliMe.WebAPI",
+  "BasePath": "_content/ZaposliMe.WebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

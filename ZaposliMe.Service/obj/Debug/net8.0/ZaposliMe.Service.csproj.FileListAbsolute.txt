@@ -31,3 +31,10 @@ C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Service\obj\Debug\net8.0\Z
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Service\obj\Debug\net8.0\refint\ZaposliMe.Service.dll
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Service\obj\Debug\net8.0\ZaposliMe.Service.pdb
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Service\obj\Debug\net8.0\ref\ZaposliMe.Service.dll
+D:\Projects\ZaposliMe\ZaposliMe.Service\bin\Debug\net8.0\ZaposliMe.Application.dll
+D:\Projects\ZaposliMe\ZaposliMe.Service\bin\Debug\net8.0\ZaposliMe.Domain.dll
+D:\Projects\ZaposliMe\ZaposliMe.Service\bin\Debug\net8.0\ZaposliMe.Persistance.dll
+D:\Projects\ZaposliMe\ZaposliMe.Service\bin\Debug\net8.0\ZaposliMe.Persistance.pdb
+D:\Projects\ZaposliMe\ZaposliMe.Service\bin\Debug\net8.0\ZaposliMe.Application.pdb
+D:\Projects\ZaposliMe\ZaposliMe.Service\bin\Debug\net8.0\ZaposliMe.Domain.pdb
+D:\Projects\ZaposliMe\ZaposliMe.Service\obj\Debug\net8.0\ZaposliM.4099D3A7.Up2Date

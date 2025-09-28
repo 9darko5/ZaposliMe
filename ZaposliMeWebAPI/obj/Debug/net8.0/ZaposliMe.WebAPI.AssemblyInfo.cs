@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ZaposliMe.WebAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8be417f0536bc70f0f63fc4b2fb19f153d3a7453")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9ef6d509c1f9fb7c310a6ddfbb541aa7013d8f3e")]
 [assembly: System.Reflection.AssemblyProductAttribute("ZaposliMe.WebAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ZaposliMe.WebAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
