@@ -18,6 +18,12 @@ namespace ZaposliMe.Persistance
             base.OnModelCreating(builder);
 
             builder.HasDefaultSchema(DefaultSchemaName);
+
+            builder.Entity<Job>()
+                .HasMany(j => j.Applications)
+                .WithOne(a => a.Job)
+                .HasForeignKey(a => a.JobId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

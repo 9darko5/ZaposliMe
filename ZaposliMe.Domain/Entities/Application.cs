@@ -12,5 +12,6 @@ namespace ZaposliMe.Domain.Entities
         public ApplicationStatus Status { get; set; }
         public DateTime? AppliedAt { get; set; }
         public DateTime? StatusChangedAt { get; set; }
+        public virtual Job Job { get; internal set; }
     }
 }

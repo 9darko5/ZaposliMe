@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using ZaposliMe.Domain.Generic;
 
 namespace ZaposliMe.Application.Commands.Job.DeleteJob
@@ -16,7 +17,8 @@ namespace ZaposliMe.Application.Commands.Job.DeleteJob
             try
             {
                 var job = (await _unitOfWork.Repository<Domain.Entities.Job>()
-                    .FindAsync(j => j.Id == request.Id))
+                    .FindAsync(j => j.Id == request.Id,
+                        include: q => q.Include(j => j.Applications)))
                     .FirstOrDefault();
 
                 if (job == null)
@@ -24,12 +26,12 @@ namespace ZaposliMe.Application.Commands.Job.DeleteJob
                     throw new KeyNotFoundException($"Job with id {request.Id} was not found.");
                 }
                 await _unitOfWork.BeginTransactionAsync(cancellationToken);
-
+                                
                 _unitOfWork.Repository<Domain.Entities.Job>().Remove(job);
 
                 await _unitOfWork.CommitTransactionAsync(cancellationToken);
             }
-            catch
+            catch(Exception ex)
             {
                 await _unitOfWork.RollbackTransactionAsync(cancellationToken);
                 throw; 
