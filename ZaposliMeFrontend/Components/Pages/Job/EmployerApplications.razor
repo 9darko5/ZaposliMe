@@ -22,9 +22,7 @@ else if (!string.IsNullOrWhiteSpace(errorMessage))
 }
 else if (apps is null || apps.Count == 0)
 {
-    <div class="alert alert-info">
-        You have no applications yet.
-    </div>
+    <div class="alert alert-info">You have no applications yet.</div>
 }
 else
 {
@@ -48,6 +46,7 @@ else
                         Job Created @SortIcon(nameof(EmployerApplicationDto.JobCreatedAt))
                     </th>
                     <th>Description</th>
+                    <th>Actions</th> @* 👈 new column *@
                 </tr>
             </thead>
             <tbody>
@@ -66,10 +65,71 @@ else
                             @a.JobCreatedAt.ToLocalTime().ToString("yyyy-MM-dd HH:mm")
                         </td>
                         <td>@Truncate(a.JobDescription, 140)</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-primary me-2"
+                                    @onclick='() => OpenModal(a, "details")'>
+                                Details
+                            </button>
+
+                            @if (a.Status == ApplicationStatus.InReview)
+                            {
+                                <button class="btn btn-sm btn-outline-success"
+                                        @onclick='() => OpenModal(a, "decision")'>
+                                    Approve / Reject
+                                </button>
+                            }
+                        </td>
+
                     </tr>
                 }
             </tbody>
         </table>
+    </div>
+}
+
+<!-- ✅ Modal -->
+@if (showModal && selectedApp is not null)
+{
+    <div class="modal fade show d-block" tabindex="-1" style="background-color: rgba(0,0,0,.5)">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        @if (modalType == "details")
+                        {
+                            <span>Application Details</span>
+                        }
+                        else
+                        {
+                            <span>Approve or Reject Application</span>
+                        }
+                    </h5>
+                    <button type="button" class="btn-close" @onclick="CloseModal"></button>
+                </div>
+                <div class="modal-body">
+                    @if (modalType == "details")
+                    {
+                        <p><strong>Job:</strong> @selectedApp.JobTitle</p>
+                        <p><strong>Applicant:</strong> @selectedApp.EmployeeFullName</p>
+                        <p><strong>Description:</strong> @selectedApp.JobDescription</p>
+                        <p><strong>Status:</strong> <span class="@StatusBadgeClass(selectedApp.Status)">@selectedApp.Status</span></p>
+                    }
+                    else if (modalType == "decision")
+                    {
+                        <p>
+                            Do you want to approve or reject <strong>@selectedApp.EmployeeFullName</strong> for
+                            <strong>@selectedApp.JobTitle</strong>?
+                        </p>
+
+                        <div class="d-flex justify-content-end mt-3">
+                            <button class="btn btn-success me-2" @onclick="() => Approve(selectedApp)">Approve</button>
+                            <button class="btn btn-danger me-2" @onclick="() => Reject(selectedApp)">Reject</button>
+                            <button class="btn btn-secondary" @onclick="CloseModal">Cancel</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
     </div>
 }
 
@@ -79,27 +139,29 @@ else
     private string? errorMessage;
     private string search = "";
 
-    // sorting
     private string sortBy = nameof(EmployerApplicationDto.AppliedAt);
     private bool sortAsc = false;
+
+    // ✅ Modal state
+    private bool showModal = false;
+    private EmployerApplicationDto? selectedApp;
+    private string? modalType; // "details" or "decision"
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            // Call API
             var resp = await Http.GetAsync("/api/job/employerapplications");
 
             if (!resp.IsSuccessStatusCode)
             {
-                // Friendly message without exposing server internals
                 errorMessage = "We couldn’t load your applications at the moment. Please try again later.";
                 return;
             }
 
             apps = await resp.Content.ReadFromJsonAsync<List<EmployerApplicationDto>>() ?? new();
         }
-        catch (Exception e)
+        catch
         {
             errorMessage = "A network or unexpected error occurred while loading applications.";
         }
@@ -111,8 +173,7 @@ else
 
     private IEnumerable<EmployerApplicationDto> FilteredAndSorted()
     {
-        if (apps is null)
-            yield break;
+        if (apps is null) yield break;
 
         IEnumerable<EmployerApplicationDto> q = apps;
 
@@ -131,23 +192,17 @@ else
         {
             (nameof(EmployerApplicationDto.JobTitle), true) => q.OrderBy(a => a.JobTitle),
             (nameof(EmployerApplicationDto.JobTitle), false) => q.OrderByDescending(a => a.JobTitle),
-
             (nameof(EmployerApplicationDto.EmployeeFullName), true) => q.OrderBy(a => a.EmployeeFullName),
             (nameof(EmployerApplicationDto.EmployeeFullName), false) => q.OrderByDescending(a => a.EmployeeFullName),
-
             (nameof(EmployerApplicationDto.Status), true) => q.OrderBy(a => a.Status),
             (nameof(EmployerApplicationDto.Status), false) => q.OrderByDescending(a => a.Status),
-
             (nameof(EmployerApplicationDto.JobCreatedAt), true) => q.OrderBy(a => a.JobCreatedAt),
             (nameof(EmployerApplicationDto.JobCreatedAt), false) => q.OrderByDescending(a => a.JobCreatedAt),
-
-            // Default: AppliedAt
             (_, true) => q.OrderBy(a => a.AppliedAt),
             (_, false) => q.OrderByDescending(a => a.AppliedAt),
         };
 
-        foreach (var item in q)
-            yield return item;
+        foreach (var item in q) yield return item;
     }
 
     private void SortBy(string column)
@@ -169,23 +224,52 @@ else
     };
 
     private static string Truncate(string? text, int max)
-    {
-        if (string.IsNullOrEmpty(text))
-            return "";
-
-        return text.Length <= max ? text : text.Substring(0, max) + "…";
-    }
+        => string.IsNullOrEmpty(text) ? "" : (text.Length <= max ? text : text[..max] + "…");
 
     private static string StatusBadgeClass(ApplicationStatus status) => status switch
     {
-        // dark backgrounds => make text white
         ApplicationStatus.InReview => "badge bg-secondary text-white",
         ApplicationStatus.Submitted => "badge bg-success text-white",
         ApplicationStatus.Rejected => "badge bg-danger text-white",
-
-        // warning is light => keep dark text
         ApplicationStatus.Withdrawn => "badge bg-warning text-dark",
-
         _ => "badge bg-light text-dark"
     };
+
+    // ✅ Modal methods
+    private void OpenModal(EmployerApplicationDto app, string type)
+    {
+        selectedApp = app;
+        modalType = type;
+        showModal = true;
+    }
+
+    private void CloseModal()
+    {
+        showModal = false;
+        selectedApp = null;
+        modalType = null;
+    }
+
+    private async Task Approve(EmployerApplicationDto app)
+    {
+        // Example API call (you can adjust endpoint)
+        var response = await Http.PostAsJsonAsync($"/api/job/approveapplication", new ApproveRejectApplicationDto { ApplicationId = app.Id, JobId = app.JobId });
+        if (response.IsSuccessStatusCode)
+        {
+            app.Status = ApplicationStatus.Submitted;
+        }
+
+        CloseModal();
+    }
+
+    private async Task Reject(EmployerApplicationDto app)
+    {
+        var response = await Http.PostAsJsonAsync($"/api/job/rejectapplication", new ApproveRejectApplicationDto { ApplicationId = app.Id, JobId = app.JobId });
+        if (response.IsSuccessStatusCode)
+        {
+            app.Status = ApplicationStatus.Rejected;
+        }
+
+        CloseModal();
+    }
 }

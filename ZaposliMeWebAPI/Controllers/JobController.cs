@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using ZaposliMe.Application.Commands.Job.ApproveApplication;
 using ZaposliMe.Application.Commands.Job.CreateJob;
 using ZaposliMe.Application.Commands.Job.DeleteJob;
 using ZaposliMe.Application.Commands.Job.UpdateJob;
@@ -129,6 +130,36 @@ namespace ZaposliMe.WebAPI.Controllers
             var applications = await _sender.Send(getEmployerApplicationsQuery);
 
             return Ok(applications.ToList());
+        }
+
+        [HttpPost("approveapplication")]
+        [Authorize(Roles = "Employer")]
+        public async Task<IActionResult> ApproveApplication(ApproveRejectApplicationDto model)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId is null)
+                return Unauthorized();
+
+            var approveApplicationCommand = new ApproveApplicationCommand(model.ApplicationId, model.JobId);
+
+            await _sender.Send(approveApplicationCommand);
+
+            return Ok();
+        }
+
+        [HttpPost("rejectapplication")]
+        [Authorize(Roles = "Employer")]
+        public async Task<IActionResult> RejectApplication(ApproveRejectApplicationDto model)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId is null)
+                return Unauthorized();
+
+            var rejectApplicationCommand = new RejectApplicationCommand(model.ApplicationId, model.JobId);
+
+            await _sender.Send(rejectApplicationCommand);
+
+            return Ok();
         }
     }
 }

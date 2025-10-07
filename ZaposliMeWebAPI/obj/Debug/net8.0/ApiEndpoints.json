@@ -95,6 +95,22 @@
   },
   {
     "ContainingType": "ZaposliMe.WebAPI.Controllers.JobController",
+    "Method": "ApproveApplication",
+    "RelativePath": "api/Job/approveapplication",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ZaposliMe.Application.DTOs.Job.ApproveRejectApplicationDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ZaposliMe.WebAPI.Controllers.JobController",
     "Method": "CreateJob",
     "RelativePath": "api/Job/create",
     "HttpMethod": "POST",
@@ -143,6 +159,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ZaposliMe.WebAPI.Controllers.JobController",
+    "Method": "RejectApplication",
+    "RelativePath": "api/Job/rejectapplication",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ZaposliMe.Application.DTOs.Job.ApproveRejectApplicationDto",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

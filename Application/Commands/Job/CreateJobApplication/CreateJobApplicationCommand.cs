@@ -2,7 +2,7 @@
 
 namespace ZaposliMe.Application.Commands.Job.CreateJob
 {
-    public record CreateJobApplicationCommand(string employeeId, Guid jobId) : IRequest<Guid>
+    public record CreateJobApplicationCommand(string EmployeeId, Guid JobId) : IRequest<Guid>
     {
     }
 }

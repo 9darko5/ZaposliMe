@@ -13,12 +13,12 @@ namespace ZaposliMe.Application.Commands.Job.CreateJob
         }
         public async Task<Guid> Handle(CreateJobApplicationCommand request, CancellationToken cancellationToken)
         {
-            var job = await _unitOfWork.Repository<Domain.Entities.Job>().GetByIdAsync(request.jobId);
+            var job = await _unitOfWork.Repository<Domain.Entities.Job>().GetByIdAsync(request.JobId);
 
             var application = new Domain.Entities.Application()
             {
-                JobId = request.jobId,
-                EmployeeId = request.employeeId,
+                JobId = request.JobId,
+                EmployeeId = request.EmployeeId,
                 Status = Domain.Enums.ApplicationStatus.InReview,
                 AppliedAt = DateTime.UtcNow
             };

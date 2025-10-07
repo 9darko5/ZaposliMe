@@ -3,7 +3,7 @@ using ZaposliMe.Domain.Generic;
 
 namespace ZaposliMe.Application.Commands.Job.DeleteJob
 {
-    internal class UpdateJobCommandHandler : IRequestHandler<DeleteJobCommand>
+    public class UpdateJobCommandHandler : IRequestHandler<DeleteJobCommand>
     {
         private readonly IUnitOfWork _unitOfWork;
 
