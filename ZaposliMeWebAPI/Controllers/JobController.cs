@@ -134,7 +134,7 @@ namespace ZaposliMe.WebAPI.Controllers
 
         [HttpPost("approveapplication")]
         [Authorize(Roles = "Employer")]
-        public async Task<IActionResult> ApproveApplication(ApproveRejectApplicationDto model)
+        public async Task<IActionResult> ApproveApplication(ChangeApplicationStatusDto model)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (userId is null)
@@ -149,7 +149,7 @@ namespace ZaposliMe.WebAPI.Controllers
 
         [HttpPost("rejectapplication")]
         [Authorize(Roles = "Employer")]
-        public async Task<IActionResult> RejectApplication(ApproveRejectApplicationDto model)
+        public async Task<IActionResult> RejectApplication(ChangeApplicationStatusDto model)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (userId is null)
@@ -158,6 +158,21 @@ namespace ZaposliMe.WebAPI.Controllers
             var rejectApplicationCommand = new RejectApplicationCommand(model.ApplicationId, model.JobId);
 
             await _sender.Send(rejectApplicationCommand);
+
+            return Ok();
+        }
+
+        [HttpPost("withdrawapplication")]
+        [Authorize(Roles = "Employee")]
+        public async Task<IActionResult> WithdrAwapplication(ChangeApplicationStatusDto model)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId is null)
+                return Unauthorized();
+
+            var withdrawApplicationCommand = new WithdrawApplicationCommand(model.ApplicationId, model.JobId);
+
+            await _sender.Send(withdrawApplicationCommand);
 
             return Ok();
         }

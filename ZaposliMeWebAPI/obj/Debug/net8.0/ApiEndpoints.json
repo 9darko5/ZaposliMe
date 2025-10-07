@@ -103,7 +103,7 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "ZaposliMe.Application.DTOs.Job.ApproveRejectApplicationDto",
+        "Type": "ZaposliMe.Application.DTOs.Job.ChangeApplicationStatusDto",
         "IsRequired": true
       }
     ],
@@ -171,7 +171,7 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "ZaposliMe.Application.DTOs.Job.ApproveRejectApplicationDto",
+        "Type": "ZaposliMe.Application.DTOs.Job.ChangeApplicationStatusDto",
         "IsRequired": true
       }
     ],
@@ -201,6 +201,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ZaposliMe.WebAPI.Controllers.JobController",
+    "Method": "WithdrAwapplication",
+    "RelativePath": "api/Job/withdrawapplication",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ZaposliMe.Application.DTOs.Job.ChangeApplicationStatusDto",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

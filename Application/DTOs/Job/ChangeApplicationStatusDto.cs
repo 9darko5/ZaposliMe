@@ -1,6 +1,6 @@
 ﻿namespace ZaposliMe.Application.DTOs.Job
 {
-    public class ApproveRejectApplicationDto
+    public class ChangeApplicationStatusDto
     {
         public Guid ApplicationId { get; set; }
         public Guid JobId { get; set; }

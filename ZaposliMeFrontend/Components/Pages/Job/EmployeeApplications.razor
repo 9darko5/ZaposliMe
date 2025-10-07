@@ -16,9 +16,7 @@
 }
 else if (!string.IsNullOrWhiteSpace(errorMessage))
 {
-    <div class="alert alert-warning" role="alert">
-        @errorMessage
-    </div>
+    <div class="alert alert-warning" role="alert">@errorMessage</div>
 }
 else if (apps is null || apps.Count == 0)
 {
@@ -46,6 +44,7 @@ else
                         Job Created @SortIcon(nameof(UserApplicationDto.JobCreatedAt))
                     </th>
                     <th>Description</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -57,7 +56,6 @@ else
                         <td>
                             <span class="@StatusBadgeClass(a.Status)">@a.Status</span>
                         </td>
-
                         <td title="@a.AppliedAt.ToString("u")">
                             @a.AppliedAt.ToLocalTime().ToString("yyyy-MM-dd HH:mm")
                         </td>
@@ -65,10 +63,48 @@ else
                             @a.JobCreatedAt.ToLocalTime().ToString("yyyy-MM-dd HH:mm")
                         </td>
                         <td>@Truncate(a.JobDescription, 140)</td>
+                        <td>
+                            @if (a.Status == ApplicationStatus.Submitted || a.Status == ApplicationStatus.InReview)
+                            {
+                                <button class="btn btn-sm btn-outline-danger"
+                                        @onclick="() => ConfirmWithdraw(a)">
+                                    Withdraw
+                                </button>
+                            }
+                            else
+                            {
+                                <button class="btn btn-sm btn-outline-secondary" disabled>Withdraw</button>
+                            }
+                        </td>
                     </tr>
                 }
             </tbody>
         </table>
+    </div>
+}
+
+<!-- Withdraw confirmation modal -->
+@if (showWithdrawModal && selectedApplication != null)
+{
+    <div class="modal fade show d-block" tabindex="-1" style="background-color: rgba(0,0,0,0.5);">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content shadow">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirm Withdraw</h5>
+                    <button type="button" class="btn-close" @onclick="CloseModal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Are you sure you want to withdraw your application for
+                        <strong>@selectedApplication.JobTitle</strong>?
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" @onclick="CloseModal">Cancel</button>
+                    <button class="btn btn-danger" @onclick="WithdrawApplication">Withdraw</button>
+                </div>
+            </div>
+        </div>
     </div>
 }
 
@@ -78,6 +114,9 @@ else
     private string? errorMessage;
     private string search = "";
 
+    private bool showWithdrawModal = false;
+    private UserApplicationDto? selectedApplication;
+
     // sorting
     private string sortBy = nameof(UserApplicationDto.AppliedAt);
     private bool sortAsc = false;
@@ -86,12 +125,10 @@ else
     {
         try
         {
-            // Call API
             var resp = await Http.GetAsync("/api/job/userapplications");
 
             if (!resp.IsSuccessStatusCode)
             {
-                // Friendly message without exposing server internals
                 errorMessage = "We couldn’t load your applications at the moment. Please try again later.";
                 return;
             }
@@ -105,6 +142,46 @@ else
         finally
         {
             loading = false;
+        }
+    }
+
+    private void ConfirmWithdraw(UserApplicationDto app)
+    {
+        selectedApplication = app;
+        showWithdrawModal = true;
+    }
+
+    private void CloseModal()
+    {
+        selectedApplication = null;
+        showWithdrawModal = false;
+    }
+
+    private async Task WithdrawApplication()
+    {
+        if (selectedApplication is null)
+            return;
+
+        try
+        {
+            var resp = await Http.PostAsJsonAsync($"/api/job/withdrawapplication", new ChangeApplicationStatusDto { ApplicationId = selectedApplication.Id, JobId = selectedApplication.JobId });
+            if (resp.IsSuccessStatusCode)
+            {
+                // Update local status so the UI refreshes immediately
+                selectedApplication.Status = ApplicationStatus.Withdrawn;
+            }
+            else
+            {
+                errorMessage = "Failed to withdraw application. Please try again.";
+            }
+        }
+        catch
+        {
+            errorMessage = "Network or server error occurred while withdrawing application.";
+        }
+        finally
+        {
+            CloseModal();
         }
     }
 
@@ -129,22 +206,18 @@ else
         {
             (nameof(UserApplicationDto.JobTitle), true) => q.OrderBy(a => a.JobTitle),
             (nameof(UserApplicationDto.JobTitle), false) => q.OrderByDescending(a => a.JobTitle),
-
             (nameof(UserApplicationDto.EmployerFullName), true) => q.OrderBy(a => a.EmployerFullName),
             (nameof(UserApplicationDto.EmployerFullName), false) => q.OrderByDescending(a => a.EmployerFullName),
-
             (nameof(UserApplicationDto.Status), true) => q.OrderBy(a => a.Status),
             (nameof(UserApplicationDto.Status), false) => q.OrderByDescending(a => a.Status),
-
             (nameof(UserApplicationDto.JobCreatedAt), true) => q.OrderBy(a => a.JobCreatedAt),
             (nameof(UserApplicationDto.JobCreatedAt), false) => q.OrderByDescending(a => a.JobCreatedAt),
-
-            // Default: AppliedAt
             (_, true) => q.OrderBy(a => a.AppliedAt),
             (_, false) => q.OrderByDescending(a => a.AppliedAt),
         };
 
-        foreach (var item in q) yield return item;
+        foreach (var item in q)
+            yield return item;
     }
 
     private void SortBy(string column)
@@ -173,14 +246,10 @@ else
 
     private static string StatusBadgeClass(ApplicationStatus status) => status switch
     {
-        // dark backgrounds => make text white
         ApplicationStatus.InReview => "badge bg-secondary text-white",
         ApplicationStatus.Submitted => "badge bg-success text-white",
         ApplicationStatus.Rejected => "badge bg-danger text-white",
-
-        // warning is light => keep dark text
         ApplicationStatus.Withdrawn => "badge bg-warning text-dark",
-
         _ => "badge bg-light text-dark"
     };
 }

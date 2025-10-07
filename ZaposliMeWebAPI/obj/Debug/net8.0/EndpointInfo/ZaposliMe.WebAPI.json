@@ -289,17 +289,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ApproveRejectApplicationDto"
+                "$ref": "#/components/schemas/ChangeApplicationStatusDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ApproveRejectApplicationDto"
+                "$ref": "#/components/schemas/ChangeApplicationStatusDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ApproveRejectApplicationDto"
+                "$ref": "#/components/schemas/ChangeApplicationStatusDto"
               }
             }
           }
@@ -320,17 +320,48 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ApproveRejectApplicationDto"
+                "$ref": "#/components/schemas/ChangeApplicationStatusDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ApproveRejectApplicationDto"
+                "$ref": "#/components/schemas/ChangeApplicationStatusDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ApproveRejectApplicationDto"
+                "$ref": "#/components/schemas/ChangeApplicationStatusDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Job/withdrawapplication": {
+      "post": {
+        "tags": [
+          "Job"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeApplicationStatusDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeApplicationStatusDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeApplicationStatusDto"
               }
             }
           }
@@ -405,7 +436,7 @@
   },
   "components": {
     "schemas": {
-      "ApproveRejectApplicationDto": {
+      "ChangeApplicationStatusDto": {
         "type": "object",
         "properties": {
           "applicationId": {

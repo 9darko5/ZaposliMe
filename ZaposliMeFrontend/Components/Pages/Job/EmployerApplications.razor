@@ -253,7 +253,7 @@ else
     private async Task Approve(EmployerApplicationDto app)
     {
         // Example API call (you can adjust endpoint)
-        var response = await Http.PostAsJsonAsync($"/api/job/approveapplication", new ApproveRejectApplicationDto { ApplicationId = app.Id, JobId = app.JobId });
+        var response = await Http.PostAsJsonAsync($"/api/job/approveapplication", new ChangeApplicationStatusDto { ApplicationId = app.Id, JobId = app.JobId });
         if (response.IsSuccessStatusCode)
         {
             app.Status = ApplicationStatus.Submitted;
@@ -264,7 +264,7 @@ else
 
     private async Task Reject(EmployerApplicationDto app)
     {
-        var response = await Http.PostAsJsonAsync($"/api/job/rejectapplication", new ApproveRejectApplicationDto { ApplicationId = app.Id, JobId = app.JobId });
+        var response = await Http.PostAsJsonAsync($"/api/job/rejectapplication", new ChangeApplicationStatusDto { ApplicationId = app.Id, JobId = app.JobId });
         if (response.IsSuccessStatusCode)
         {
             app.Status = ApplicationStatus.Rejected;
