@@ -114,5 +114,21 @@ namespace ZaposliMe.WebAPI.Controllers
 
             return Ok(applications);
         }
+
+        [HttpGet("employerapplications")]
+        [Authorize(Roles = "Employer")]
+        public async Task<IActionResult> GetAllEmployerApplications()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (userId is null)
+                return Unauthorized();
+
+            var getEmployerApplicationsQuery = new GetEmployerApplicationsQuery(userId);
+
+            var applications = await _sender.Send(getEmployerApplicationsQuery);
+
+            return Ok(applications.ToList());
+        }
     }
 }

@@ -81,6 +81,7 @@
     <Build Include="zaposlime\Views\JobGridView.sql" />
     <Build Include="zaposlime\Tables\Application.sql" />
     <Build Include="zaposlime\Views\UserApplicationView.sql" />
+    <Build Include="zaposlime\Views\EmployerApplicationView.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ZaposliMe.Database.publish.xml" />

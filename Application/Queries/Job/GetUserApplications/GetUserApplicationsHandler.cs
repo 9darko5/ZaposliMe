@@ -5,11 +5,11 @@ using ZaposliMe.Persistance;
 
 namespace ZaposliMe.Application.Queries.Job.GetAllJobs
 {
-    public class GetUserApplicationsyHandler : IRequestHandler<GetUserApplicationsQuery, List<UserApplicationView>>
+    public class GetUserApplicationsHandler : IRequestHandler<GetUserApplicationsQuery, List<UserApplicationView>>
     {
         private readonly ZaposliMeQueryDbContext _context;
 
-        public GetUserApplicationsyHandler(ZaposliMeQueryDbContext context)
+        public GetUserApplicationsHandler(ZaposliMeQueryDbContext context)
         {
             _context = context;
         }

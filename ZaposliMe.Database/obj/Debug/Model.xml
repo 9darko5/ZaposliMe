@@ -8,11 +8,11 @@
 			<Metadata Name="QuotedIdentifier" Value="True" />
 		</CustomData>
 		<CustomData Category="CompatibilityMode">
-			<Metadata Name="CompatibilityMode" Value="150" />
+			<Metadata Name="CompatibilityMode" Value="160" />
 		</CustomData>
 		<CustomData Category="Reference" Type="Assembly">
 			<Metadata Name="LogicalName" Value="ZaposliMe.Database.dll" />
-			<Metadata Name="FileName" Value="D:\PROJECTS\ZAPOSLIME\ZAPOSLIME.DATABASE\OBJ\DEBUG\ZAPOSLIME.DATABASE.DLL" />
+			<Metadata Name="FileName" Value="C:\USERS\DJURICD\DOCUMENTS\GITHUB\ZAPOSLIME\ZAPOSLIME.DATABASE\OBJ\DEBUG\ZAPOSLIME.DATABASE.DLL" />
 			<Metadata Name="AssemblyName" Value="ZaposliMe.Database" />
 			<Metadata Name="PermissionSet" Value="SAFE" />
 			<Metadata Name="Owner" Value="" />
@@ -20,7 +20,7 @@
 			<Metadata Name="IsVisible" Value="True" />
 			<Metadata Name="IsModelAware" Value="True" />
 			<Metadata Name="SkipCreationIfEmpty" Value="True" />
-			<Metadata Name="AssemblySymbolsName" Value="D:\Projects\ZaposliMe\ZaposliMe.Database\obj\Debug\ZaposliMe.Database.pdb" />
+			<Metadata Name="AssemblySymbolsName" Value="C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\obj\Debug\ZaposliMe.Database.pdb" />
 		</CustomData>
 		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
 	</Header>
@@ -37,7 +37,6 @@
 			<Property Name="PageVerifyMode" Value="3" />
 			<Property Name="DefaultLanguage" Value="" />
 			<Property Name="DefaultFullTextLanguage" Value="" />
-			<Property Name="QueryStoreDesiredState" Value="0" />
 			<Property Name="QueryStoreCaptureMode" Value="1" />
 			<Property Name="QueryStoreStaleQueryThreshold" Value="367" />
 			<Property Name="MaxDop" Value="0" />
@@ -1382,6 +1381,178 @@
 			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="18" />
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="19" />
+		</Element>
+		<Element Type="SqlView" Name="[zaposlime].[EmployerApplicationView]">
+			<Property Name="QueryScript">
+				<Value><![CDATA[ SELECT  
+	   a.[Id],
+       a.[JobId]
+      ,a.[Status]
+      ,a.[AppliedAt]
+	  ,j.Title AS JobTitle
+	  ,j.Description AS JobDescription
+      ,a.[StatusChangedAt]
+	  ,j.[EmployerId]
+	  ,u.FirstName + ' ' + u.LastName AS EmployeeFullName
+	  ,j.CreatedAt AS JobCreatedAt
+  FROM [zaposlime].[Application] a
+  LEFT JOIN [zaposlime].[Job] j ON J.Id = a.JobId
+  LEFT JOIN [identity].[AspNetUsers] u ON a.[EmployeeId] = u.Id]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlComputedColumn" Name="[zaposlime].[EmployerApplicationView].[Id]">
+						<Relationship Name="ExpressionDependencies">
+							<Entry>
+								<References Name="[zaposlime].[Application].[Id]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlComputedColumn" Name="[zaposlime].[EmployerApplicationView].[JobId]">
+						<Relationship Name="ExpressionDependencies">
+							<Entry>
+								<References Name="[zaposlime].[Application].[JobId]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlComputedColumn" Name="[zaposlime].[EmployerApplicationView].[Status]">
+						<Relationship Name="ExpressionDependencies">
+							<Entry>
+								<References Name="[zaposlime].[Application].[Status]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlComputedColumn" Name="[zaposlime].[EmployerApplicationView].[AppliedAt]">
+						<Relationship Name="ExpressionDependencies">
+							<Entry>
+								<References Name="[zaposlime].[Application].[AppliedAt]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlComputedColumn" Name="[zaposlime].[EmployerApplicationView].[JobTitle]">
+						<Relationship Name="ExpressionDependencies">
+							<Entry>
+								<References Name="[zaposlime].[Job].[Title]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlComputedColumn" Name="[zaposlime].[EmployerApplicationView].[JobDescription]">
+						<Relationship Name="ExpressionDependencies">
+							<Entry>
+								<References Name="[zaposlime].[Job].[Description]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlComputedColumn" Name="[zaposlime].[EmployerApplicationView].[StatusChangedAt]">
+						<Relationship Name="ExpressionDependencies">
+							<Entry>
+								<References Name="[zaposlime].[Application].[StatusChangedAt]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlComputedColumn" Name="[zaposlime].[EmployerApplicationView].[EmployerId]">
+						<Relationship Name="ExpressionDependencies">
+							<Entry>
+								<References Name="[zaposlime].[Job].[EmployerId]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlComputedColumn" Name="[zaposlime].[EmployerApplicationView].[EmployeeFullName]" />
+				</Entry>
+				<Entry>
+					<Element Type="SqlComputedColumn" Name="[zaposlime].[EmployerApplicationView].[JobCreatedAt]">
+						<Relationship Name="ExpressionDependencies">
+							<Entry>
+								<References Name="[zaposlime].[Job].[CreatedAt]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="QueryDependencies">
+				<Entry>
+					<References Name="[zaposlime].[Application]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Job]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Job].[Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Application].[JobId]" />
+				</Entry>
+				<Entry>
+					<References Name="[identity].[AspNetUsers]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Application].[EmployeeId]" />
+				</Entry>
+				<Entry>
+					<References Name="[identity].[AspNetUsers].[Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Application].[Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Application].[JobId]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Application].[Status]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Application].[AppliedAt]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Job].[Title]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Job].[Description]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Application].[StatusChangedAt]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Job].[EmployerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[identity].[AspNetUsers].[FirstName]" />
+				</Entry>
+				<Entry>
+					<References Name="[identity].[AspNetUsers].[LastName]" />
+				</Entry>
+				<Entry>
+					<References Name="[zaposlime].[Job].[CreatedAt]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References Name="[zaposlime]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="486" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE VIEW [zaposlime].[EmployerApplicationView]&#xD;&#xA;&#x9;AS" />
+			</Annotation>
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[zaposlime].[FK_Application_Employee]">
 			<Relationship Name="Columns">

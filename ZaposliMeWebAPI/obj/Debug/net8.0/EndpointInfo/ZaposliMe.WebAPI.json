@@ -268,6 +268,18 @@
         }
       }
     },
+    "/api/Job/employerapplications": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/User/getUser": {
       "get": {
         "tags": [

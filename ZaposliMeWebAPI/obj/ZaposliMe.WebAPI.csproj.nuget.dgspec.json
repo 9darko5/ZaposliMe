@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\ZaposliMe\\ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj": {}
+    "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\ZaposliMe\\Application\\ZaposliMe.Application.csproj": {
+    "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\Application\\ZaposliMe.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\ZaposliMe\\Application\\ZaposliMe.Application.csproj",
+        "projectUniqueName": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\Application\\ZaposliMe.Application.csproj",
         "projectName": "ZaposliMe.Application",
-        "projectPath": "D:\\Projects\\ZaposliMe\\Application\\ZaposliMe.Application.csproj",
-        "packagesPath": "C:\\Users\\Darko\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\ZaposliMe\\Application\\obj\\",
+        "projectPath": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\Application\\ZaposliMe.Application.csproj",
+        "packagesPath": "C:\\Users\\djuricd\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Darko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\djuricd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,16 +26,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\Evolis Avanasia\\evolis-sdk-csharp-wrapper\\csharp": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Projects\\ZaposliMe\\ZaposliMe.Domain\\ZaposliMe.Domain.csproj": {
-                "projectPath": "D:\\Projects\\ZaposliMe\\ZaposliMe.Domain\\ZaposliMe.Domain.csproj"
+              "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Domain\\ZaposliMe.Domain.csproj": {
+                "projectPath": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Domain\\ZaposliMe.Domain.csproj"
               }
             }
           }
@@ -45,7 +47,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -72,21 +75,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Projects\\ZaposliMe\\ZaposliMe.Domain\\ZaposliMe.Domain.csproj": {
+    "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Domain\\ZaposliMe.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\ZaposliMe\\ZaposliMe.Domain\\ZaposliMe.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Domain\\ZaposliMe.Domain.csproj",
         "projectName": "ZaposliMe.Domain",
-        "projectPath": "D:\\Projects\\ZaposliMe\\ZaposliMe.Domain\\ZaposliMe.Domain.csproj",
-        "packagesPath": "C:\\Users\\Darko\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\ZaposliMe\\ZaposliMe.Domain\\obj\\",
+        "projectPath": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Domain\\ZaposliMe.Domain.csproj",
+        "packagesPath": "C:\\Users\\djuricd\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Darko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\djuricd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -94,8 +101,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\Evolis Avanasia\\evolis-sdk-csharp-wrapper\\csharp": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -113,7 +118,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -144,21 +150,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Projects\\ZaposliMe\\ZaposliMe.Persistance\\ZaposliMe.Persistance.csproj": {
+    "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Persistance\\ZaposliMe.Persistance.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\ZaposliMe\\ZaposliMe.Persistance\\ZaposliMe.Persistance.csproj",
+        "projectUniqueName": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Persistance\\ZaposliMe.Persistance.csproj",
         "projectName": "ZaposliMe.Persistance",
-        "projectPath": "D:\\Projects\\ZaposliMe\\ZaposliMe.Persistance\\ZaposliMe.Persistance.csproj",
-        "packagesPath": "C:\\Users\\Darko\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\ZaposliMe\\ZaposliMe.Persistance\\obj\\",
+        "projectPath": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Persistance\\ZaposliMe.Persistance.csproj",
+        "packagesPath": "C:\\Users\\djuricd\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Persistance\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Darko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\djuricd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -166,19 +176,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\Evolis Avanasia\\evolis-sdk-csharp-wrapper\\csharp": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Projects\\ZaposliMe\\Application\\ZaposliMe.Application.csproj": {
-                "projectPath": "D:\\Projects\\ZaposliMe\\Application\\ZaposliMe.Application.csproj"
+              "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\Application\\ZaposliMe.Application.csproj": {
+                "projectPath": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\Application\\ZaposliMe.Application.csproj"
               },
-              "D:\\Projects\\ZaposliMe\\ZaposliMe.Domain\\ZaposliMe.Domain.csproj": {
-                "projectPath": "D:\\Projects\\ZaposliMe\\ZaposliMe.Domain\\ZaposliMe.Domain.csproj"
+              "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Domain\\ZaposliMe.Domain.csproj": {
+                "projectPath": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Domain\\ZaposliMe.Domain.csproj"
               }
             }
           }
@@ -192,7 +200,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -223,21 +232,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Projects\\ZaposliMe\\ZaposliMe.Service\\ZaposliMe.Service.csproj": {
+    "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Service\\ZaposliMe.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\ZaposliMe\\ZaposliMe.Service\\ZaposliMe.Service.csproj",
+        "projectUniqueName": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Service\\ZaposliMe.Service.csproj",
         "projectName": "ZaposliMe.Service",
-        "projectPath": "D:\\Projects\\ZaposliMe\\ZaposliMe.Service\\ZaposliMe.Service.csproj",
-        "packagesPath": "C:\\Users\\Darko\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\ZaposliMe\\ZaposliMe.Service\\obj\\",
+        "projectPath": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Service\\ZaposliMe.Service.csproj",
+        "packagesPath": "C:\\Users\\djuricd\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Service\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Darko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\djuricd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -245,16 +258,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\Evolis Avanasia\\evolis-sdk-csharp-wrapper\\csharp": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Projects\\ZaposliMe\\ZaposliMe.Persistance\\ZaposliMe.Persistance.csproj": {
-                "projectPath": "D:\\Projects\\ZaposliMe\\ZaposliMe.Persistance\\ZaposliMe.Persistance.csproj"
+              "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Persistance\\ZaposliMe.Persistance.csproj": {
+                "projectPath": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Persistance\\ZaposliMe.Persistance.csproj"
               }
             }
           }
@@ -268,7 +279,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -295,21 +307,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Projects\\ZaposliMe\\ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj": {
+    "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\ZaposliMe\\ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj",
         "projectName": "ZaposliMe.WebAPI",
-        "projectPath": "D:\\Projects\\ZaposliMe\\ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj",
-        "packagesPath": "C:\\Users\\Darko\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\ZaposliMe\\ZaposliMeWebAPI\\obj\\",
+        "projectPath": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\ZaposliMe.WebAPI.csproj",
+        "packagesPath": "C:\\Users\\djuricd\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMeWebAPI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Darko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\djuricd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -317,22 +333,20 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\Evolis Avanasia\\evolis-sdk-csharp-wrapper\\csharp": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Projects\\ZaposliMe\\Application\\ZaposliMe.Application.csproj": {
-                "projectPath": "D:\\Projects\\ZaposliMe\\Application\\ZaposliMe.Application.csproj"
+              "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\Application\\ZaposliMe.Application.csproj": {
+                "projectPath": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\Application\\ZaposliMe.Application.csproj"
               },
-              "D:\\Projects\\ZaposliMe\\ZaposliMe.Persistance\\ZaposliMe.Persistance.csproj": {
-                "projectPath": "D:\\Projects\\ZaposliMe\\ZaposliMe.Persistance\\ZaposliMe.Persistance.csproj"
+              "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Persistance\\ZaposliMe.Persistance.csproj": {
+                "projectPath": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Persistance\\ZaposliMe.Persistance.csproj"
               },
-              "D:\\Projects\\ZaposliMe\\ZaposliMe.Service\\ZaposliMe.Service.csproj": {
-                "projectPath": "D:\\Projects\\ZaposliMe\\ZaposliMe.Service\\ZaposliMe.Service.csproj"
+              "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Service\\ZaposliMe.Service.csproj": {
+                "projectPath": "C:\\Users\\djuricd\\Documents\\GitHub\\ZaposliMe\\ZaposliMe.Service\\ZaposliMe.Service.csproj"
               }
             }
           }
@@ -346,7 +360,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -396,7 +411,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
