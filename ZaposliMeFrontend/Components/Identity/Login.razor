@@ -8,65 +8,91 @@
 
 <PageTitle>Login</PageTitle>
 
-<h1>Login</h1>
+<h1 class="visually-hidden">Login</h1>
 
 <AuthorizeView>
     <Authorized>
-        <div class="alert alert-success">You're logged in as @context.User.Identity?.Name.</div>
-    </Authorized>
-    <NotAuthorized>
-        @foreach (var error in formResult.ErrorList)
-        {
-            <div class="alert alert-danger">@error</div>
-        }
-        <div class="row">
-            <div class="col">
-                <section>
-                    <EditForm Model="Input" method="post" OnValidSubmit="LoginUserAsync"
-                              FormName="login" Context="editform_context">
-                        <DataAnnotationsValidator />
-                        <h2>Use a local account to log in.</h2>
-                        <hr />
-                        <div class="form-floating mb-3">
-                            <InputText @bind-Value="Input.Email"
-                                       id="Input.Email"
-                                       class="form-control"
-                                       autocomplete="username"
-                                       aria-required="true"
-                                       placeholder="name@example.com" />
-                            <label for="Input.Email" class="form-label">
-                                Email
-                            </label>
-                            <ValidationMessage For="() => Input.Email"
-                                               class="text-danger" />
-                        </div>
-                        <div class="form-floating mb-3">
-                            <InputText type="password"
-                                       @bind-Value="Input.Password"
-                                       id="Input.Password"
-                                       class="form-control"
-                                       autocomplete="current-password"
-                                       aria-required="true"
-                                       placeholder="password" />
-                            <label for="Input.Password" class="form-label">
-                                Password
-                            </label>
-                            <ValidationMessage For="() => Input.Password"
-                                               class="text-danger" />
-                        </div>
-                        <div>
-                            <button type="submit" class="w-100 btn btn-lg btn-primary">
-                                Log in
-                            </button>
-                        </div>
-                        <div class="mt-3">
-                            <p>
-                                <a href="/">Register as a new user</a>
-                            </p>
-                        </div>
-                    </EditForm>
-                </section>
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-lg-5">
+                    <div class="alert alert-success mb-0" role="alert">
+                        You're logged in as @context.User.Identity?.Name.
+                    </div>
+                </div>
             </div>
+        </div>
+    </Authorized>
+
+    <NotAuthorized>
+        <div class="container py-5">
+
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-lg-5">
+                    @foreach (var error in formResult.ErrorList)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
+                            @error
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+
+                    <div class="card border-0 shadow rounded-4">
+                        <div class="card-body p-4 p-md-5">
+                            <h2 class="h3 mb-1 text-center">Welcome back</h2>
+                            <p class="text-muted text-center mb-4">Sign in to continue</p>
+
+                            <section>
+                                <EditForm Model="Input" method="post" OnValidSubmit="LoginUserAsync"
+                                          FormName="login" Context="editform_context">
+                                    <DataAnnotationsValidator />
+
+                                    <div class="form-floating mb-3">
+                                        <InputText @bind-Value="Input.Email"
+                                                   id="Input.Email"
+                                                   class="form-control"
+                                                   autocomplete="username"
+                                                   aria-required="true"
+                                                   placeholder="name@example.com" />
+                                        <label for="Input.Email" class="form-label">Email</label>
+                                        <ValidationMessage For="() => Input.Email" class="text-danger small" />
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <InputText type="password"
+                                                   @bind-Value="Input.Password"
+                                                   id="Input.Password"
+                                                   class="form-control"
+                                                   autocomplete="current-password"
+                                                   aria-required="true"
+                                                   placeholder="password" />
+                                        <label for="Input.Password" class="form-label">Password</label>
+                                        <ValidationMessage For="() => Input.Password" class="text-danger small" />
+                                    </div>
+
+                                    <div class="d-grid mb-2">
+                                        <button type="submit" class="btn btn-primary btn-lg">
+                                            Log in
+                                        </button>
+                                    </div>
+
+                                    <div class="text-center mt-3">
+                                        <span class="text-muted">Don’t have an account?</span>
+                                        <a class="ms-1" href="/">Register as a new user</a>
+                                    </div>
+                                </EditForm>
+                            </section>
+                        </div>
+
+                        <div class="card-footer bg-white border-0 text-center pb-4">
+                            <small class="text-muted">
+                                By continuing, you agree to our
+                                <a href="/terms">Terms</a> and <a href="/privacy">Privacy Policy</a>.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </NotAuthorized>
 </AuthorizeView>

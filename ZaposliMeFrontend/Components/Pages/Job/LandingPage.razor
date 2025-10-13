@@ -1,76 +1,84 @@
-﻿
-<div class="container py-5">
+﻿<div class="container py-5">
 
     <!-- Hero -->
-    <div class="p-5 mb-5 bg-light rounded-3">
-        <div class="container-fluid py-5">
-            <h1 class="display-5 fw-bold">Find work. Hire talent.</h1>
-            <p class="col-md-8 fs-5">
+    <section class="p-5 mb-5 bg-light rounded-4 border">
+        <div class="container-fluid">
+            <h1 class="display-5 fw-bold mb-3">Find work. Hire talent.</h1>
+            <p class="col-md-9 fs-5 mb-4">
                 Join our marketplace to connect employers with skilled people—fast.
-                Employees can browse and apply to jobs. Employers can create postings and manage applicants.
-                Getting started takes just a minute.
+                Workers browse and apply to jobs; employers post roles and manage applicants.
+                Getting started takes a minute.
             </p>
-            <div class="d-flex gap-2 flex-wrap">
-                <NavLink class="btn btn-primary btn-lg" href="/register?role=Employee">
-                    Register as Employee
+
+            <div class="d-flex gap-2 flex-wrap align-items-center">
+                <!-- UI says Worker, backend expects role=Employee -->
+                <NavLink class="btn btn-primary btn-lg" href="/register?role=Employee" aria-label="Register as Worker">
+                    Register as Worker
                 </NavLink>
-                <NavLink class="btn btn-outline-primary btn-lg" href="/register?role=Employer">
+                <NavLink class="btn btn-outline-secondary btn-lg" href="/register?role=Employer" aria-label="Register as Employer">
                     Register as Employer
                 </NavLink>
             </div>
+
             <div class="mt-3">
                 <span class="text-muted">Already have an account?</span>
                 <NavLink class="ms-1" href="/login">Sign in</NavLink>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Value props -->
-    <div class="row g-4 mb-5">
+    <section class="row g-4 mb-5" aria-label="Key benefits">
         <div class="col-md-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body">
-                    <h5 class="card-title">Fast & simple</h5>
-                    <p class="card-text">
-                        Create an account in seconds and get instant access to jobs or candidates.
+                    <h5 class="card-title mb-2">Fast & simple</h5>
+                    <p class="card-text mb-0">
+                        Create an account quickly and get instant access to jobs or candidates.
                     </p>
                 </div>
             </div>
         </div>
+
         <div class="col-md-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body">
-                    <h5 class="card-title">Built for both sides</h5>
-                    <p class="card-text">
-                        Employees track applications; employers publish roles and review applicants in one place.
+                    <h5 class="card-title mb-2">Made for everyone</h5>
+                    <p class="card-text mb-0">
+                        Workers track applications; employers publish roles and review applicants in one place.
                     </p>
                 </div>
             </div>
         </div>
+
         <div class="col-md-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body">
-                    <h5 class="card-title">Local-first</h5>
-                    <p class="card-text">
+                    <h5 class="card-title mb-2">Local-first</h5>
+                    <p class="card-text mb-0">
                         Focused on nearby opportunities so hiring and onboarding are fast and personal.
                     </p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Dual CTAs -->
-    <div class="row g-4">
+    <section class="row g-4" aria-label="Get started cards">
         <div class="col-lg-6">
             <div class="card h-100 border-0 shadow-sm">
                 <div class="card-body">
-                    <span class="badge bg-primary mb-2">For Employees</span>
-                    <h4 class="card-title">Start applying today</h4>
-                    <p class="card-text">
-                        Create your profile, browse openings, and apply with one click. Save favorites and get notified when new jobs match your skills.
-                    </p>
-                    <NavLink class="btn btn-primary" href="/register?role=Employee">
-                        Register as Employee
+                    <span class="badge bg-primary mb-2">For Workers</span>
+                    <h4 class="card-title mb-2">Start applying today</h4>
+                    <ul class="mb-3 ps-3">
+                        <li>Create a profile</li>
+                        <li>Browse openings and save favorites</li>
+                        <li>Apply with one click</li>
+                        <li>Get notified when new jobs match your skills</li>
+                    </ul>
+                    <!-- backend still expects Employee -->
+                    <NavLink class="btn btn-primary" href="/register?role=Employee" aria-label="Register as Worker">
+                        Register as Worker
                     </NavLink>
                 </div>
                 <div class="card-footer bg-white">
@@ -82,12 +90,15 @@
         <div class="col-lg-6">
             <div class="card h-100 border-0 shadow-sm">
                 <div class="card-body">
-                    <span class="badge bg-success mb-2">For Employers</span>
-                    <h4 class="card-title">Post a job in minutes</h4>
-                    <p class="card-text">
-                        Publish roles, receive applications, and manage your pipeline. Find the right person faster with filters and shortlists.
-                    </p>
-                    <NavLink class="btn btn-success" href="/register?role=Employer">
+                    <span class="badge bg-secondary mb-2">For Employers</span>
+                    <h4 class="card-title mb-2">Post a job in minutes</h4>
+                    <ul class="mb-3 ps-3">
+                        <li>Publish roles with clear requirements</li>
+                        <li>Receive and review applications</li>
+                        <li>Filter, shortlist, and contact candidates</li>
+                        <li>Track your pipeline in one place</li>
+                    </ul>
+                    <NavLink class="btn btn-secondary" href="/register?role=Employer" aria-label="Register as Employer">
                         Register as Employer
                     </NavLink>
                 </div>
@@ -96,5 +107,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
 </div>

@@ -1,25 +1,27 @@
 ﻿@page "/"
 @using ZaposliMe.Frontend.Components.Pages.Helpers
 @using ZaposliMe.Frontend.Components.Pages.Job
+@inject NavigationManager Nav
 
-<AuthorizeView Roles="Employer">
+<AuthorizeView Context="ctx">
     <Authorized>
-        <Redirect To="/employer/jobs" />
+        @if (ctx.User.IsInRole("Employer"))
+        {
+            Nav.NavigateTo("/employer/jobs", true);
+        }
+        else if (ctx.User.IsInRole("Admin") || ctx.User.IsInRole("Employee"))
+        {
+            Nav.NavigateTo("/jobs", true);
+        }
+        else
+        {
+            // Authenticated but has none of the roles → show landing or some message
+            <LandingPage />
+        }
     </Authorized>
     <NotAuthorized>
-        <LandingPage></LandingPage>
+        <LandingPage />
     </NotAuthorized>
 </AuthorizeView>
 
-
-<AuthorizeView Roles="Admin,Employee">
-    <Authorized>
-        <Redirect To="/jobs" />
-    </Authorized>
-    <NotAuthorized>
-        <LandingPage></LandingPage>
-    </NotAuthorized>
-</AuthorizeView>
 <PageTitle>Welcome · Job Marketplace</PageTitle>
-
-

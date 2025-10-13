@@ -1,0 +1,445 @@
+﻿/* ==========================================================================
+   theme-teal.css
+   Bootstrap 5.1 override theme (teal)
+   Load AFTER bootstrap.min.css
+   ========================================================================== */
+
+/* -----------------------------
+   1) Core palette & tokens
+   ----------------------------- */
+:root {
+    /* Brand color (primary) */
+    --bs-primary: #0ea5a5;
+    --bs-primary-rgb: 14,165,165;
+    /* Shades used for hover/active/tints */
+    --brand-teal-700: #0b8a8a;
+    --brand-teal-800: #0a7c7c;
+    --brand-teal-050: #e6f6f6;
+    /* App background intensity presets */
+    --app-bg-weak: #eaf7f7;
+    --app-bg-med: #d9f0f0; /* default */
+    --app-bg-bold: #c7ecec;
+    --app-bg-xbold: #bde5e5;
+    /* Pick which intensity drives the page background */
+    --app-bg: var(--app-bg-med);
+    /* Make Bootstrap “aware” of our page background & text contrast */
+    --bs-body-bg: var(--app-bg);
+    --bs-body-color: #1a1f23;
+
+    --nav-bg: var(--brand-teal-700); /* main bar background */
+    --nav-bg-hover: var(--brand-teal-800);
+    --nav-fg: rgba(255,255,255,.92); /* primary text */
+    --nav-fg-muted: rgba(255,255,255,.78); /* links idle */
+    --nav-fg-dim: rgba(255,255,255,.65); /* subtle text */
+    --nav-sep: rgba(255,255,255,.18); /* borders/lines */
+    --nav-active-bg: rgba(255,255,255,.14);
+}
+
+/* -----------------------------
+   2) Page background styling
+   ----------------------------- */
+body {
+    background-color: var(--app-bg);
+    /* subtle depth with fixed radial tints (keeps perf good) */
+    background-image: radial-gradient(40rem 40rem at 15% 10%, rgba(var(--bs-primary-rgb), .08), transparent 60%), radial-gradient(50rem 50rem at 85% 80%, rgba(var(--bs-primary-rgb), .06), transparent 60%);
+    background-attachment: fixed;
+    color: var(--bs-body-color);
+}
+
+/* Keep content surfaces crisp on the stronger background */
+.card, .modal-content, .offcanvas, .dropdown-menu, .toast, .accordion-item,
+.table, .list-group-item,
+.form-control, .form-select, .input-group-text {
+    background-color: #fff;
+}
+
+/* -----------------------------
+   3) Links
+   ----------------------------- */
+a {
+    color: var(--bs-primary);
+}
+
+    a:hover, a:focus {
+        color: var(--brand-teal-700);
+    }
+
+.btn-link {
+    color: var(--bs-primary);
+}
+
+    .btn-link:hover, .btn-link:focus {
+        color: var(--brand-teal-700);
+        text-decoration: underline;
+    }
+
+/* -----------------------------
+   4) Buttons (override 5.1 hexes)
+   ----------------------------- */
+.btn-primary {
+    color: #fff !important;
+    background-color: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
+}
+
+    .btn-primary:hover {
+        color: #fff !important;
+        background-color: var(--brand-teal-700) !important;
+        border-color: var(--brand-teal-700) !important;
+    }
+
+    .btn-primary:active,
+    .btn-primary.active,
+    .show > .btn-primary.dropdown-toggle {
+        color: #fff !important;
+        background-color: var(--brand-teal-800) !important;
+        border-color: var(--brand-teal-800) !important;
+    }
+
+        .btn-check:focus + .btn-primary,
+        .btn-primary:focus,
+        .btn-primary:active:focus,
+        .show > .btn-primary.dropdown-toggle:focus {
+            box-shadow: 0 0 0 .25rem rgba(var(--bs-primary-rgb), .5) !important;
+        }
+
+/* Outline variant */
+.btn-outline-primary {
+    color: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
+    background-color: transparent !important;
+}
+
+    .btn-outline-primary:hover,
+    .btn-outline-primary:focus {
+        color: #fff !important;
+        background-color: var(--bs-primary) !important;
+        border-color: var(--bs-primary) !important;
+    }
+
+    .btn-outline-primary:active,
+    .btn-outline-primary.active,
+    .show > .btn-outline-primary.dropdown-toggle {
+        color: #fff !important;
+        background-color: var(--brand-teal-700) !important;
+        border-color: var(--brand-teal-700) !important;
+    }
+
+/* -----------------------------
+   5) Forms & focus rings
+   ----------------------------- */
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus,
+.btn:focus {
+    border-color: rgba(var(--bs-primary-rgb), .5) !important;
+    box-shadow: 0 0 0 .25rem rgba(var(--bs-primary-rgb), .25) !important;
+}
+
+/* Switches & checks when checked */
+.form-check-input:checked {
+    background-color: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
+}
+
+/* Range thumbs */
+.form-range::-webkit-slider-thumb {
+    background-color: var(--bs-primary);
+}
+
+.form-range::-moz-range-thumb {
+    background-color: var(--bs-primary);
+}
+
+/* Floating label active states */
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label,
+.form-floating > .form-select ~ label {
+    opacity: .75;
+}
+
+/* -----------------------------
+   6) Navs, pills, pagination, badges
+   ----------------------------- */
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    background-color: var(--bs-primary) !important;
+}
+
+.nav-link {
+    color: var(--bs-primary);
+}
+
+    .nav-link:hover, .nav-link:focus {
+        color: var(--brand-teal-700);
+    }
+
+.page-item.active .page-link {
+    background-color: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
+    color: #fff !important;
+}
+
+.badge.bg-primary,
+.badge.text-bg-primary {
+    background-color: var(--bs-primary) !important;
+}
+
+/* -----------------------------
+   7) Utility color fixes
+   ----------------------------- */
+.bg-primary {
+    background-color: var(--bs-primary) !important;
+}
+
+.text-primary {
+    color: var(--bs-primary) !important;
+}
+
+.border-primary {
+    border-color: var(--bs-primary) !important;
+}
+
+.progress-bar {
+    background-color: var(--bs-primary) !important;
+}
+
+.link-primary {
+    color: var(--bs-primary) !important;
+}
+
+    .link-primary:hover {
+        color: var(--brand-teal-700) !important;
+    }
+
+/* -----------------------------
+   8) Accordions & alerts
+   ----------------------------- */
+.accordion-button:not(.collapsed) {
+    color: var(--brand-teal-800) !important;
+    background-color: var(--brand-teal-050) !important;
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 .25rem rgba(var(--bs-primary-rgb), .25) !important;
+}
+
+.alert-primary {
+    color: #064f4f !important;
+    background-color: #cff1f1 !important;
+    border-color: #b6e7e7 !important;
+}
+
+/* -----------------------------
+   9) Optional: stronger typography contrast on bg
+   ----------------------------- */
+.lead {
+    color: #182024;
+}
+
+small, .small {
+    color: #394148;
+}
+
+/* -----------------------------
+   10) Easy runtime intensity swap
+   (uncomment one if you want a fixed level without editing vars)
+   ----------------------------- */
+/* body{ --app-bg: var(--app-bg-weak); }   */
+/* body{ --app-bg: var(--app-bg-med); }    */
+/* body{ --app-bg: var(--app-bg-bold); }   */
+/* body{ --app-bg: var(--app-bg-xbold); }  */
+
+/* ===== Navbar (use: <nav class="navbar navbar-expand-lg navbar-teal">) */
+.navbar-teal {
+    background-color: var(--nav-bg) !important;
+    border-bottom: 1px solid var(--nav-sep);
+}
+
+    /* brand & plain text */
+    .navbar-teal .navbar-brand,
+    .navbar-teal .navbar-text {
+        color: var(--nav-fg) !important;
+    }
+
+    /* links */
+    .navbar-teal .navbar-nav .nav-link {
+        color: var(--nav-fg-muted) !important;
+    }
+
+        .navbar-teal .navbar-nav .nav-link:hover,
+        .navbar-teal .navbar-nav .nav-link:focus {
+            color: #fff !important;
+        }
+
+        /* active/current page */
+        .navbar-teal .navbar-nav .nav-link.active,
+        .navbar-teal .navbar-nav .show > .nav-link {
+            color: #fff !important;
+            background-color: var(--nav-active-bg);
+            border-radius: .375rem;
+        }
+
+        /* disabled */
+        .navbar-teal .navbar-nav .nav-link.disabled {
+            color: var(--nav-fg-dim) !important;
+        }
+
+    /* toggler */
+    .navbar-teal .navbar-toggler {
+        border-color: var(--nav-sep);
+    }
+
+        .navbar-teal .navbar-toggler:focus {
+            box-shadow: 0 0 0 .2rem rgba(255,255,255,.25);
+        }
+    /* white “hamburger” icon */
+    .navbar-teal .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    /* dropdowns inside teal navbar */
+    .navbar-teal .dropdown-menu {
+        background-color: #fff;
+        border-color: rgba(0,0,0,.08);
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.08);
+    }
+
+    .navbar-teal .dropdown-item {
+        color: #223;
+    }
+
+        .navbar-teal .dropdown-item:hover,
+        .navbar-teal .dropdown-item:focus {
+            background-color: var(--brand-teal-050);
+            color: #0b3f3f;
+        }
+
+        .navbar-teal .dropdown-item.active,
+        .navbar-teal .dropdown-item:active {
+            background-color: var(--bs-primary);
+            color: #fff;
+        }
+
+    /* optional hover darken for the whole bar (sticky headers) */
+    .navbar-teal:hover {
+        background-color: var(--nav-bg-hover) !important;
+    }
+
+/* ===== Sidebar (use on any vertical nav container)
+   Example markup:
+   <aside class="sidebar-teal">
+     <nav class="nav flex-column"> ... </nav>
+   </aside>
+*/
+.sidebar-teal {
+    background-color: var(--nav-bg);
+    color: var(--nav-fg);
+    min-height: 100vh;
+    border-right: 1px solid var(--nav-sep);
+    padding: .75rem;
+}
+
+    /* common vertical-nav patterns */
+    .sidebar-teal .nav-link,
+    .sidebar-teal .list-group-item {
+        color: var(--nav-fg-muted);
+        border: 0;
+        background: transparent;
+        border-radius: .5rem;
+        padding: .5rem .75rem;
+    }
+
+        .sidebar-teal .nav-link:hover,
+        .sidebar-teal .list-group-item:hover {
+            color: #fff;
+            background-color: var(--nav-active-bg);
+        }
+
+        .sidebar-teal .nav-link.active,
+        .sidebar-teal .list-group-item.active {
+            color: #fff;
+            background-color: var(--nav-active-bg);
+        }
+
+    /* separators / headings */
+    .sidebar-teal .nav-header,
+    .sidebar-teal .list-group .list-group-item + .list-group-item {
+        border-top: 1px solid var(--nav-sep);
+    }
+
+    .sidebar-teal .nav-header {
+        color: var(--nav-fg-dim);
+        text-transform: uppercase;
+        font-size: .75rem;
+        letter-spacing: .04em;
+        padding: .75rem .75rem .25rem;
+    }
+
+    /* icons inside sidebar links */
+    .sidebar-teal .nav-link .bi,
+    .sidebar-teal .nav-link .fa,
+    .sidebar-teal .nav-link .icon {
+        margin-right: .5rem;
+        opacity: .9;
+    }
+
+    /* active indicator bar (optional) */
+    .sidebar-teal .nav-link.active {
+        position: relative;
+    }
+
+        .sidebar-teal .nav-link.active::before {
+            content: "";
+            position: absolute;
+            left: -.75rem;
+            top: .4rem;
+            bottom: .4rem;
+            width: .25rem;
+            border-radius: .25rem;
+            background-color: #fff;
+            opacity: .9;
+        }
+
+/* Offcanvas as a sidebar */
+.offcanvas.sidebar-teal,
+.offcanvas-teal {
+    background-color: var(--nav-bg);
+    color: var(--nav-fg);
+    border-right: 1px solid var(--nav-sep);
+}
+
+    .offcanvas.sidebar-teal .btn-close,
+    .offcanvas-teal .btn-close {
+        filter: invert(1) grayscale(100%) brightness(200%);
+    }
+
+.auth-shell {
+    min-height: 100vh; /* center on screen */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: var(--bs-body-bg);
+}
+
+/* Wider & taller card */
+.auth-card {
+    width: 100%;
+    max-width: 900px; /* was ~420px; adjust to taste */
+
+}
+
+@media (min-width: 992px) {
+    .auth-card {
+        max-width: 640px;
+    }
+}
+
+/* Give the inside some height so it feels roomier */
+.auth-card .card-body {
+    min-height: 380px; /* adjust if you want taller */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

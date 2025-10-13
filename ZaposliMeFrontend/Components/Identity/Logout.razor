@@ -1,4 +1,4 @@
-@page "/logout"
+﻿@page "/logout"
 @using Microsoft.AspNetCore.Components.Authorization
 @using ZaposliMe.Frontend.Identity
 @inject IAccountManagement Acct
@@ -6,18 +6,41 @@
 
 <PageTitle>Logout</PageTitle>
 
-<h1>Logout</h1>
+<div class="auth-shell">
+    <div class="card shadow auth-card">
+        <div class="card-header text-center">
+            <h5 class="mb-0">Sign out</h5>
+        </div>
 
-<AuthorizeView @ref="authView">
-    <Authorized>
-        <div class="alert alert-info">Logging you out...</div>
-    </Authorized>
-    <NotAuthorized>
-        <div class="alert alert-success">You're logged out. <a href="/login">Log in.</a></div>
-    </NotAuthorized>
-</AuthorizeView>
+        <div class="card-body">
+            <AuthorizeView @ref="authView">
+                <Authorized>
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="spinner-border" role="status" aria-hidden="true"></div>
+                        <div>
+                            <div class="fw-semibold">Signing you out…</div>
+                            <small class="text-muted">Just a moment.</small>
+                        </div>
+                    </div>
+                </Authorized>
+
+                <NotAuthorized>
+                    <div class="alert alert-success mb-4" role="alert">
+                        You’re signed out.
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <a class="btn btn-primary" href="/login">Log in again</a>
+                        <a class="btn btn-outline-secondary" href="/">Back to home</a>
+                    </div>
+                </NotAuthorized>
+            </AuthorizeView>
+        </div>
+    </div>
+</div>
 
 @code {
+    // ⬇️ Your original C# kept intact
     private AuthorizeView? authView;
 
     protected override async Task OnInitializedAsync()

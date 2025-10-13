@@ -11,125 +11,153 @@
 
 <AuthorizeView>
     <Authorized>
-        <div class="alert alert-success">You're already logged in as @context.User.Identity?.Name.</div>
+        <div class="container py-4">
+            <div class="alert alert-success mb-0">You're already logged in as @context.User.Identity?.Name.</div>
+        </div>
     </Authorized>
+
     <NotAuthorized>
-        @if (formResult.Succeeded)
-        {
-            <div class="alert alert-success">
-                You successfully registered. Now you can <a href="login">login</a>.
-            </div>
-        }
-        else
-        {
-            @foreach (var error in formResult.ErrorList)
+        <div class="container py-5">
+            @if (formResult.Succeeded)
             {
-                <div class="alert alert-danger">@error</div>
-            }
-            <div class="row">
-                <div class="col">
-                    <section>
-                        <EditForm Model="Input" method="post" OnValidSubmit="RegisterUserAsync"
-                                  FormName="register" Context="editform_context">
-                            <DataAnnotationsValidator />
-                            <h2>Register as a new user.</h2>
-                            <hr />
-                            <div class="form-floating mb-3">
-                                <InputText @bind-Value="Input.FirstName"
-                                           id="Input.FirstName"
-                                           class="form-control"
-                                           aria-required="true"/>
-                                <label for="Input.FirstName" class="form-label">
-                                    First name
-                                </label>
-                                <ValidationMessage For="() => Input.FirstName"
-                                                   class="text-danger" />
-                            </div>
-                            <div class="form-floating mb-3">
-                                <InputText @bind-Value="Input.LastName"
-                                           id="Input.LastName"
-                                           class="form-control"
-                                           aria-required="true"/>
-                                <label for="Input.LastName" class="form-label">
-                                    Last name
-                                </label>
-                                <ValidationMessage For="() => Input.LastName"
-                                                   class="text-danger" />
-                            </div>
-                            <div class="form-floating mb-3">
-                                <InputText @bind-Value="Input.Email"
-                                           id="Input.Email"
-                                           class="form-control"
-                                           autocomplete="username"
-                                           aria-required="true"
-                                           placeholder="name@example.com" />
-                                <label for="Input.Email" class="form-label">
-                                    Email
-                                </label>
-                                <ValidationMessage For="() => Input.Email"
-                                                   class="text-danger" />
-                            </div>
-                            <div class="form-floating mb-3">
-                                <InputText type="password"
-                                           @bind-Value="Input.Password"
-                                           id="Input.Password"
-                                           class="form-control"
-                                           autocomplete="new-password"
-                                           aria-required="true"
-                                           placeholder="password" />
-                                <label for="Input.Password" class="form-label">
-                                    Password
-                                </label>
-                                <ValidationMessage For="() => Input.Password"
-                                                   class="text-danger" />
-                            </div>
-                            <div class="form-floating mb-3">
-                                <InputText type="password"
-                                           @bind-Value="Input.ConfirmPassword"
-                                           id="Input.ConfirmPassword"
-                                           class="form-control"
-                                           autocomplete="new-password"
-                                           aria-required="true"
-                                           placeholder="confirm password" />
-                                <label for="Input.ConfirmPassword" class="form-label">
-                                    Confirm Password
-                                </label>
-                                <ValidationMessage For="() => Input.ConfirmPassword"
-                                                   class="text-danger" />
-                            </div>
-                            <div class="form-floating mb-3">
-                                <InputNumber
-                                    @bind-Value="Input.Age"
-                                           id="Input.Age"
-                                           class="form-control"
-                                           aria-required="true"/>
-                                <label for="Input.Age" class="form-label">
-                                    Age
-                                </label>
-                                <ValidationMessage For="() => Input.Age"
-                                                   class="text-danger" />
-                            </div>
-                            <div class="form-floating mb-3">
-                                <InputText @bind-Value="Input.PhoneNumber"
-                                           id="Input.PhoneNumber"
-                                           class="form-control"
-                                           aria-required="true" />
-                                <label for="Input.PhoneNumber" class="form-label">
-                                    Phone number
-                                </label>
-                                <ValidationMessage For="() => Input.PhoneNumber"
-                                                   class="text-danger" />
-                            </div>
-                            <div>
-                                <button type="submit" class="w-100 btn btn-lg btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </EditForm>
-                    </section>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    You successfully registered. Now you can <a href="login" class="alert-link">login</a>.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-            </div>
-        }
+            }
+            else
+            {
+                @foreach (var error in formResult.ErrorList)
+                {
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        @error
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-7 col-xl-6">
+                        <div class="card border-0 shadow rounded-4">
+                            <div class="card-body p-4 p-md-5">
+                                <h1 class="h3 mb-1 text-center">Create your account</h1>
+                                <p class="text-muted text-center mb-4">Fill in your details to get started</p>
+
+                                <section>
+                                    <EditForm Model="Input" method="post" OnValidSubmit="RegisterUserAsync"
+                                              FormName="register" Context="editform_context">
+                                        <DataAnnotationsValidator />
+
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <InputText @bind-Value="Input.FirstName"
+                                                               id="Input.FirstName"
+                                                               class="form-control"
+                                                               aria-required="true" />
+                                                    <label for="Input.FirstName" class="form-label">First name</label>
+                                                    <ValidationMessage For="() => Input.FirstName" class="text-danger small" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <InputText @bind-Value="Input.LastName"
+                                                               id="Input.LastName"
+                                                               class="form-control"
+                                                               aria-required="true" />
+                                                    <label for="Input.LastName" class="form-label">Last name</label>
+                                                    <ValidationMessage For="() => Input.LastName" class="text-danger small" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <div class="form-floating">
+                                                    <InputText @bind-Value="Input.Email"
+                                                               id="Input.Email"
+                                                               class="form-control"
+                                                               autocomplete="username"
+                                                               aria-required="true"
+                                                               placeholder="name@example.com" />
+                                                    <label for="Input.Email" class="form-label">Email</label>
+                                                    <ValidationMessage For="() => Input.Email" class="text-danger small" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <InputText type="password"
+                                                               @bind-Value="Input.Password"
+                                                               id="Input.Password"
+                                                               class="form-control"
+                                                               autocomplete="new-password"
+                                                               aria-required="true"
+                                                               placeholder="password" />
+                                                    <label for="Input.Password" class="form-label">Password</label>
+                                                    <ValidationMessage For="() => Input.Password" class="text-danger small" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <InputText type="password"
+                                                               @bind-Value="Input.ConfirmPassword"
+                                                               id="Input.ConfirmPassword"
+                                                               class="form-control"
+                                                               autocomplete="new-password"
+                                                               aria-required="true"
+                                                               placeholder="confirm password" />
+                                                    <label for="Input.ConfirmPassword" class="form-label">Confirm password</label>
+                                                    <ValidationMessage For="() => Input.ConfirmPassword" class="text-danger small" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <InputNumber @bind-Value="Input.Age"
+                                                                 id="Input.Age"
+                                                                 class="form-control"
+                                                                 aria-required="true" />
+                                                    <label for="Input.Age" class="form-label">Age</label>
+                                                    <ValidationMessage For="() => Input.Age" class="text-danger small" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <InputText @bind-Value="Input.PhoneNumber"
+                                                               id="Input.PhoneNumber"
+                                                               class="form-control"
+                                                               aria-required="true" />
+                                                    <label for="Input.PhoneNumber" class="form-label">Phone number</label>
+                                                    <ValidationMessage For="() => Input.PhoneNumber" class="text-danger small" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-grid mt-4">
+                                            <button type="submit" class="btn btn-primary btn-lg">
+                                                Register
+                                            </button>
+                                        </div>
+
+                                        <div class="text-center mt-3">
+                                            <span class="text-muted">Already have an account?</span>
+                                            <a class="ms-1" href="/login">Sign in</a>
+                                        </div>
+                                    </EditForm>
+                                </section>
+                            </div>
+
+                            <div class="card-footer bg-white border-0 text-center pb-4">
+                                <small class="text-muted">
+                                    By continuing, you agree to our <a href="/terms">Terms</a> and <a href="/privacy">Privacy Policy</a>.
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
     </NotAuthorized>
 </AuthorizeView>
 
