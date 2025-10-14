@@ -3,12 +3,14 @@
 @using Microsoft.AspNetCore.Components.Authorization
 @using ZaposliMe.Frontend.Identity
 @using ZaposliMe.Frontend.Identity.Models
+@using Microsoft.Extensions.Localization
 @inject IAccountManagement Acct
 @inject NavigationManager Navigation
+@inject IStringLocalizer<ZaposliMe.Frontend.Resources.Resources> L
 
-<PageTitle>Login</PageTitle>
+<PageTitle>@L["Login"]</PageTitle>
 
-<h1 class="visually-hidden">Login</h1>
+<h1 class="visually-hidden">@L["Login"]</h1>
 
 <AuthorizeView>
     <Authorized>
@@ -16,7 +18,7 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-md-8 col-lg-5">
                     <div class="alert alert-success mb-0" role="alert">
-                        You're logged in as @context.User.Identity?.Name.
+                        @L["LoggedInAs"] @context.User.Identity?.Name.
                     </div>
                 </div>
             </div>
@@ -38,8 +40,8 @@
 
                     <div class="card border-0 shadow rounded-4">
                         <div class="card-body p-4 p-md-5">
-                            <h2 class="h3 mb-1 text-center">Welcome back</h2>
-                            <p class="text-muted text-center mb-4">Sign in to continue</p>
+                            <h2 class="h3 mb-1 text-center">@L["WelcomeBack"]</h2>
+                            <p class="text-muted text-center mb-4">@L["SignInToContinue"]</p>
 
                             <section>
                                 <EditForm Model="Input" method="post" OnValidSubmit="LoginUserAsync"
@@ -53,7 +55,7 @@
                                                    autocomplete="username"
                                                    aria-required="true"
                                                    placeholder="name@example.com" />
-                                        <label for="Input.Email" class="form-label">Email</label>
+                                        <label for="Input.Email" class="form-label">@L["Email"]</label>
                                         <ValidationMessage For="() => Input.Email" class="text-danger small" />
                                     </div>
 
@@ -65,19 +67,19 @@
                                                    autocomplete="current-password"
                                                    aria-required="true"
                                                    placeholder="password" />
-                                        <label for="Input.Password" class="form-label">Password</label>
+                                        <label for="Input.Password" class="form-label">@L["Password"]</label>
                                         <ValidationMessage For="() => Input.Password" class="text-danger small" />
                                     </div>
 
                                     <div class="d-grid mb-2">
                                         <button type="submit" class="btn btn-primary btn-lg">
-                                            Log in
+                                            @L["Login"]
                                         </button>
                                     </div>
 
                                     <div class="text-center mt-3">
-                                        <span class="text-muted">Don’t have an account?</span>
-                                        <a class="ms-1" href="/">Register as a new user</a>
+                                        <span class="text-muted">@L["DontHaveAccount"]</span>
+                                        <a class="ms-1" href="/">@L["RegisterAsNewUser"]</a>
                                     </div>
                                 </EditForm>
                             </section>
@@ -85,8 +87,8 @@
 
                         <div class="card-footer bg-white border-0 text-center pb-4">
                             <small class="text-muted">
-                                By continuing, you agree to our
-                                <a href="/terms">Terms</a> and <a href="/privacy">Privacy Policy</a>.
+                                @L["ByContinuingYouAgreeToOur"]
+                                <a href="/terms">@L["Terms"]</a> and <a href="/privacy">@L["PrivacyPolicy"]</a>.
                             </small>
                         </div>
                     </div>

@@ -1,4 +1,8 @@
-﻿@inherits LayoutComponentBase
+﻿@using ZaposliMe.Frontend.Components.Shared
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<ZaposliMe.Frontend.Resources.Resources> L
+@inherits LayoutComponentBase
+
 <div class="page">
     <AuthorizeView>
         <Authorized>
@@ -9,13 +13,21 @@
     </AuthorizeView>
 
     <main>
-        <AuthorizeView>
-            <Authorized>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end px-3">
-                    <a class="btn btn-outline-danger me-md-2" href="/logout">Logout</a>
-                </div>
-            </Authorized>
-        </AuthorizeView>
+
+        <!-- Top toolbar -->
+        <div class="d-flex justify-content-end align-items-center gap-2 px-3 py-2">
+
+            <!-- Language switcher is always visible -->
+            <LanguageSwitcher />
+
+            <!-- Show Logout only when authorized -->
+            <AuthorizeView>
+                <Authorized>
+                    <a class="btn btn-outline-danger" href="/logout">@L["Logout"]</a>
+                </Authorized>
+            </AuthorizeView>
+        </div>
+
         <article class="content px-4">
             @Body
         </article>

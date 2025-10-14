@@ -1,12 +1,18 @@
 ﻿using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Microsoft.JSInterop;
+using System.Globalization;
 using ZaposliMe.Frontend.Components;
-using ZaposliMe.Frontend.Identity;
+using ZaposliMe.Frontend.Identity;       
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
+
+//enable localization
+builder.Services.AddLocalization();
+
 
 // register the cookie handler
 builder.Services.AddTransient<CookieHandler>();
@@ -35,4 +41,15 @@ builder.Services.AddScoped(sp =>
     return factory.CreateClient("Backend");
 });
 
-await builder.Build().RunAsync();
+var host = builder.Build();
+var js = host.Services.GetRequiredService<IJSRuntime>();
+
+var saved = await js.InvokeAsync<string?>("localStorage.getItem", "culture");
+var cultureName = string.IsNullOrWhiteSpace(saved) ? "en" : saved;
+
+var culture = new CultureInfo(cultureName);
+CultureInfo.DefaultThreadCurrentCulture = culture;
+CultureInfo.DefaultThreadCurrentUICulture = culture;
+
+await js.InvokeVoidAsync("document.documentElement.setAttribute", "lang", culture.Name);
+await host.RunAsync();

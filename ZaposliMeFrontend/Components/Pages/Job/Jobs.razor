@@ -1,24 +1,26 @@
 ﻿@page "/jobs"
 @using ZaposliMe.Application.DTOs.Job
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<ZaposliMe.Frontend.Resources.Resources> L
 @inject HttpClient Http
 
 @attribute [Authorize]
 
 <AuthorizeView Roles="Employer">
     <h3 class="mb-4 d-flex justify-content-between align-items-center">
-        Available Jobs
-        <button class="btn btn-success" @onclick="OpenAdd">+ Add Job</button>
+        @L["AvailableJobs"]
+        <button class="btn btn-success" @onclick="OpenAdd">+ @L["AddJob"]</button>
     </h3>
 </AuthorizeView>
 
 
 @if (jobs == null)
 {
-    <p><em>Loading...</em></p>
+    <p><em>@L["Loading"]</em></p>
 }
 else if (!jobs.Any())
 {
-    <p>No jobs available.</p>
+    <p>@L["NoJobsAvailable"]</p>
 }
 else
 {
@@ -30,18 +32,18 @@ else
                     <div class="card-body">
                         <h3 class="card-title">@job.Title</h3>
                         <p class="card-text">@job.Description</p>
-                        <small class="text-muted">Created at: @job.CreatedAt</small><br/>
-                        <small class="text-muted">Created by: @job.EmployerFullName</small>
+                        <small class="text-muted">@L["CreatedAt"]: @job.CreatedAt</small><br/>
+                        <small class="text-muted">@L["CreatedBy"]: @job.EmployerFullName</small>
                     </div>
                     <div class="card-footer d-flex justify-content-between">
-                        <small class="text-muted">Workers needed: @job.NumberOfWorkers</small>
+                        <small class="text-muted">@L["WorkersNeeded"]: @job.NumberOfWorkers</small>
                         <div>
                             <AuthorizeView Roles="Employee">
-                                <button class="btn btn-sm btn-primary me-1" @onclick="() => OpenApply(job)">Apply</button>
+                                <button class="btn btn-sm btn-primary me-1" @onclick="() => OpenApply(job)">@L["Apply"]</button>
                             </AuthorizeView>
                             <AuthorizeView Roles="Admin,Employer">
-                                <button class="btn btn-sm btn-warning me-1" @onclick="() => OpenEdit(job)">Edit</button>
-                                <button class="btn btn-sm btn-danger" @onclick="() => OpenDelete(job)">Delete</button>
+                                <button class="btn btn-sm btn-warning me-1" @onclick="() => OpenEdit(job)">@L["Edit"]</button>
+                                <button class="btn btn-sm btn-danger" @onclick="() => OpenDelete(job)">@L["Delete"]</button>
                             </AuthorizeView>
                         </div>
                     </div>

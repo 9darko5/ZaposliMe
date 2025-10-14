@@ -1,0 +1,18 @@
+﻿@using System.Globalization
+@inject IJSRuntime JS
+
+<select class="form-select form-select-sm w-auto" value="@current" @onchange="Change">
+    <option value="en">English</option>
+    <option value="sr-Latn">Srpski (Latinica)</option>
+    <option value="sr-Cyrl">Српски (Ћирилица)</option>
+</select>
+
+@code {
+    private string current = CultureInfo.CurrentUICulture.Name;
+    private async Task Change(ChangeEventArgs e)
+    {
+        var value = e?.Value?.ToString() ?? "en";
+        await JS.InvokeVoidAsync("localStorage.setItem", "culture", value);
+        await JS.InvokeVoidAsync("location.reload"); 
+    }
+}
