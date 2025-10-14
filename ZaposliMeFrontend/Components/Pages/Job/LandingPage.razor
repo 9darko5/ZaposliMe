@@ -1,9 +1,62 @@
-﻿<div class="container py-5">
+﻿@using Microsoft.Extensions.Localization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Routing
+@using ZaposliMe.Frontend.Components.Shared
+@inject IStringLocalizer<ZaposliMe.Frontend.Resources.Resources> L
+
+<!-- PAGE-ONLY HEADER -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container-fluid px-3">
+
+        <!-- Brand (left) -->
+        <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="/">
+            <!-- Ako imaš logo, zamijeni tekst:
+            <img src="sljakomat-logo.png" alt="Šljakomat" style="height:40px;width:auto" />
+            -->
+            Šljakomat
+        </a>
+
+        <!-- Mobile toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#localHeader"
+                aria-controls="localHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible area -->
+        <div class="collapse navbar-collapse" id="localHeader">
+            <!-- Left nav -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-4 ms-lg-5">
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/jobs" Match="NavLinkMatch.Prefix">Jobs</NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/contact" Match="NavLinkMatch.Prefix">Contact</NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/about" Match="NavLinkMatch.Prefix">About</NavLink>
+                </li>
+            </ul>
+
+            <!-- Right actions -->
+            <div class="d-flex align-items-center gap-2">
+                <LanguageSwitcher />
+
+                <AuthorizeView>
+                    <Authorized>
+                        <a class="btn btn-outline-danger btn-sm" href="/logout">@L["Logout"]</a>
+                    </Authorized>
+                </AuthorizeView>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container py-5">
 
     <!-- Hero -->
     <section class="p-5 mb-5 bg-light rounded-4 border">
         <div class="container-fluid">
-            <h1 class="display-5 fw-bold mb-3">Find work. Hire talent.</h1>
+            <h1 class="display-5 fw-bold mb-3">Find work. Hire worker.</h1>
             <p class="col-md-9 fs-5 mb-4">
                 Join our marketplace to connect employers with skilled people—fast.
                 Workers browse and apply to jobs; employers post roles and manage applicants.
@@ -13,16 +66,16 @@
             <div class="d-flex gap-2 flex-wrap align-items-center">
                 <!-- UI says Worker, backend expects role=Employee -->
                 <NavLink class="btn btn-primary btn-lg" href="/register?role=Employee" aria-label="Register as Worker">
-                    Register as Worker
+                    @L["RegisterAsWorker"]
                 </NavLink>
                 <NavLink class="btn btn-outline-secondary btn-lg" href="/register?role=Employer" aria-label="Register as Employer">
-                    Register as Employer
+                    @L["RegisterAsEmployer"]
                 </NavLink>
             </div>
 
             <div class="mt-3">
-                <span class="text-muted">Already have an account?</span>
-                <NavLink class="ms-1" href="/login">Sign in</NavLink>
+                <span class="text-muted">@L["AlreadyHavaAnAccount"]</span>
+                <NavLink class="ms-1" href="/login">@L["Login"]</NavLink>
             </div>
         </div>
     </section>
@@ -32,9 +85,9 @@
         <div class="col-md-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body">
-                    <h5 class="card-title mb-2">Fast & simple</h5>
+                    <h5 class="card-title mb-2">@L["FastAndSimple"]</h5>
                     <p class="card-text mb-0">
-                        Create an account quickly and get instant access to jobs or candidates.
+                        @L["CreateAnAcountQuickly"]
                     </p>
                 </div>
             </div>
@@ -43,9 +96,9 @@
         <div class="col-md-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body">
-                    <h5 class="card-title mb-2">Made for everyone</h5>
+                    <h5 class="card-title mb-2">@L["MadeForEveryone"]</h5>
                     <p class="card-text mb-0">
-                        Workers track applications; employers publish roles and review applicants in one place.
+                        @L["WorkersAndEmployerInOnePlace"]
                     </p>
                 </div>
             </div>

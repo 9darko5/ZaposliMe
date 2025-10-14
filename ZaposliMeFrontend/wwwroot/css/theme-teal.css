@@ -325,7 +325,15 @@ small, .small {
     .navbar-teal:hover {
         background-color: var(--nav-bg-hover) !important;
     }
-
+.navbar.sticky-top {
+    min-height: 64px;
+}
+.navbar-brand {
+    font-family: "Montserrat", Arial, sans-serif;
+    font-weight: 1000; /* probaj 600 ili 800 */
+    font-size: 20px;
+    letter-spacing: -0.5px; /* blagi tracking kao na slici */
+}
 /* ===== Sidebar (use on any vertical nav container)
    Example markup:
    <aside class="sidebar-teal">

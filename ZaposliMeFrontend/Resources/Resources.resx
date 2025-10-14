@@ -120,6 +120,9 @@
   <data name="AddJob" xml:space="preserve">
     <value>Add Job</value>
   </data>
+  <data name="AlreadyHavaAnAccount" xml:space="preserve">
+    <value>Already have an account?</value>
+  </data>
   <data name="Applications" xml:space="preserve">
     <value>Applications</value>
   </data>
@@ -131,6 +134,9 @@
   </data>
   <data name="ByContinuingYouAgreeToOur" xml:space="preserve">
     <value>By continuing, you agree to our</value>
+  </data>
+  <data name="CreateAnAcountQuickly" xml:space="preserve">
+    <value>Create an account quickly and get instant access to jobs or candidates.</value>
   </data>
   <data name="CreatedAt" xml:space="preserve">
     <value>Created at</value>
@@ -150,6 +156,12 @@
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>
+  <data name="FastAndSimple" xml:space="preserve">
+    <value>Fast &amp; simple</value>
+  </data>
+  <data name="FinWorkHireWorker" xml:space="preserve">
+    <value>Find work. Hire worker.</value>
+  </data>
   <data name="Jobs" xml:space="preserve">
     <value>Jobs</value>
   </data>
@@ -165,6 +177,9 @@
   <data name="Logout" xml:space="preserve">
     <value>Logout</value>
   </data>
+  <data name="MadeForEveryone" xml:space="preserve">
+    <value>Made for everyone</value>
+  </data>
   <data name="NoJobsAvailable" xml:space="preserve">
     <value>No jobs available.</value>
   </data>
@@ -174,8 +189,14 @@
   <data name="PrivacyPolicy" xml:space="preserve">
     <value>Privacy policy</value>
   </data>
+  <data name="RegisterAsEmployer" xml:space="preserve">
+    <value>Register as Employer</value>
+  </data>
   <data name="RegisterAsNewUser" xml:space="preserve">
     <value>Register as a new user</value>
+  </data>
+  <data name="RegisterAsWorker" xml:space="preserve">
+    <value>Register as Worker</value>
   </data>
   <data name="SignInToContinue" xml:space="preserve">
     <value>Sign in to continue</value>
@@ -185,6 +206,9 @@
   </data>
   <data name="WelcomeBack" xml:space="preserve">
     <value>Welcome back</value>
+  </data>
+  <data name="WorkersAndEmployerInOnePlace" xml:space="preserve">
+    <value>Workers track applications; employers publish roles and review applicants in one place.</value>
   </data>
   <data name="WorkersNeeded" xml:space="preserve">
     <value>Workers needed</value>

@@ -17,12 +17,10 @@
         <!-- Top toolbar -->
         <div class="d-flex justify-content-end align-items-center gap-2 px-3 py-2">
 
-            <!-- Language switcher is always visible -->
-            <LanguageSwitcher />
-
             <!-- Show Logout only when authorized -->
             <AuthorizeView>
                 <Authorized>
+                    <LanguageSwitcher />
                     <a class="btn btn-outline-danger" href="/logout">@L["Logout"]</a>
                 </Authorized>
             </AuthorizeView>

@@ -120,6 +120,9 @@
   <data name="AddJob" xml:space="preserve">
     <value>Додај посао</value>
   </data>
+  <data name="AlreadyHavaAnAccount" xml:space="preserve">
+    <value>Већ сте се регистровали?</value>
+  </data>
   <data name="Applications" xml:space="preserve">
     <value>Апликације</value>
   </data>
@@ -131,6 +134,9 @@
   </data>
   <data name="ByContinuingYouAgreeToOur" xml:space="preserve">
     <value>Ако наставите слажете се са</value>
+  </data>
+  <data name="CreateAnAcountQuickly" xml:space="preserve">
+    <value>Креирај налог брзо и одмах погледај актуелне послове или кандидате</value>
   </data>
   <data name="CreatedAt" xml:space="preserve">
     <value>Креирано</value>
@@ -150,6 +156,12 @@
   <data name="Email" xml:space="preserve">
     <value>Е-маил</value>
   </data>
+  <data name="FastAndSimple" xml:space="preserve">
+    <value>Брзо и једноставно</value>
+  </data>
+  <data name="FinWorkHireWorker" xml:space="preserve">
+    <value>Пронађи посао. Пронађи радника.</value>
+  </data>
   <data name="Jobs" xml:space="preserve">
     <value>Послови</value>
   </data>
@@ -165,6 +177,9 @@
   <data name="Logout" xml:space="preserve">
     <value>Одјави се</value>
   </data>
+  <data name="MadeForEveryone" xml:space="preserve">
+    <value>Доступно свима</value>
+  </data>
   <data name="NoJobsAvailable" xml:space="preserve">
     <value>Нема послова.</value>
   </data>
@@ -174,8 +189,14 @@
   <data name="PrivacyPolicy" xml:space="preserve">
     <value>Приватност</value>
   </data>
+  <data name="RegisterAsEmployer" xml:space="preserve">
+    <value>Региструј се као послодавац</value>
+  </data>
   <data name="RegisterAsNewUser" xml:space="preserve">
     <value>Региструј се као нови корисник</value>
+  </data>
+  <data name="RegisterAsWorker" xml:space="preserve">
+    <value>Региструј се као радник</value>
   </data>
   <data name="SignInToContinue" xml:space="preserve">
     <value>Пријавите се да наставите</value>
@@ -185,6 +206,9 @@
   </data>
   <data name="WelcomeBack" xml:space="preserve">
     <value>Добродошли назад</value>
+  </data>
+  <data name="WorkersAndEmployerInOnePlace" xml:space="preserve">
+    <value>Радници апликацирају и прате статус апликације; послодавци управљају пристиглим апликацијама.</value>
   </data>
   <data name="WorkersNeeded" xml:space="preserve">
     <value>Потребно радника</value>
