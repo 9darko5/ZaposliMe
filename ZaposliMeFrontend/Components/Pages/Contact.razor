@@ -1,0 +1,238 @@
+﻿@page "/contact"
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<ZaposliMe.Frontend.Resources.Resources> L
+@inject HttpClient Http
+@inject IJSRuntime JS
+
+<PageTitle>Contact</PageTitle>
+
+<div class="container py-4">
+    <div class="row g-4">
+        <!-- Title & lead -->
+        <div class="col-12">
+            <div class="d-flex align-items-center gap-3">
+                <div class="rounded-circle bg-primary bg-opacity-10 p-3">
+                    <span class="bi bi-envelope fs-4 text-primary"></span>
+                </div>
+                <div>
+                    <h1 class="h3 mb-1">@L["ContactUs"]</h1>
+                    <p class="text-muted mb-0">@L["QuestionsFeedback"]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form -->
+        <div class="col-12 col-lg-7">
+            @if (success)
+            {
+                <div class="alert alert-success" role="alert">
+                    <div class="d-flex align-items-start gap-2">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <div>
+                            <strong>@L["Thanks"]!</strong> @L["YourMessageHasBeenSent"]
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (!string.IsNullOrWhiteSpace(error))
+            {
+                <div class="alert alert-danger" role="alert">
+                    <div class="d-flex align-items-start gap-2">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                        <div>@error</div>
+                    </div>
+                </div>
+            }
+
+            <EditForm Model="@model" OnValidSubmit="@HandleSubmit">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+
+                <!-- Honeypot (hidden from users, caught by bots) -->
+                <input class="d-none" autocomplete="off" @bind="model.Honeypot" />
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">@L["Name"]</label>
+                        <InputText class="form-control" @bind-Value="model.Name" />
+                        <ValidationMessage For="@(() => model.Name)" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">@L["Email"]</label>
+                        <InputText class="form-control" type="email" @bind-Value="model.Email" />
+                        <ValidationMessage For="@(() => model.Email)" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">@L["Phone"] @L["Optional"]</label>
+                        <InputText class="form-control" inputmode="tel" @bind-Value="model.Phone" />
+                        <ValidationMessage For="@(() => model.Phone)" />
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label">@L["Subject"]</label>
+                        <InputText class="form-control" @bind-Value="model.Subject" />
+                        <ValidationMessage For="@(() => model.Subject)" />
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label">@L["Message"]</label>
+                        <InputTextArea class="form-control" rows="6" @bind-Value="model.Message" />
+                        <ValidationMessage For="@(() => model.Message)" />
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-check">
+                            <InputCheckbox class="form-check-input" @bind-Value="model.Consent" />
+                            <label class="form-check-label">
+                                @L["AgreeThatMyDataWillBeUsed"]
+                            </label>
+                        </div>
+                        <ValidationMessage For="@(() => model.Consent)" />
+                    </div>
+
+                    <div class="col-12 d-grid d-sm-flex gap-2">
+                        <button type="submit" class="btn btn-primary" disabled="@loading">
+                            @if (loading)
+                            {
+                                <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                            }
+                            @L["SendMessage"]
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary" @onclick="Reset" disabled="@loading">
+                            @L["Reset"]
+                        </button>
+                    </div>
+                </div>
+            </EditForm>
+        </div>
+
+        <!-- Sidebar / Contact info -->
+        <div class="col-12 col-lg-5">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <h2 class="h5 mb-3">@L["ContactDetails"]</h2>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-2">
+                            <i class="bi bi-geo-alt me-2"></i>
+                            Sime Miljuša 15, Banja Luka
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-telephone me-2"></i>
+                            +387 51 000 000
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-envelope me-2"></i>
+                            support@sljakomat.com
+                        </li>
+                    </ul>
+                    <div class="ratio ratio-16x9 rounded overflow-hidden">
+                        <!-- Map placeholder (replace src with an embedded map if you want) -->
+                        <iframe title="Map" src="about:blank"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-info mt-3 mb-0" role="alert">
+                <i class="bi bi-shield-check me-2"></i>
+                @L["YourMessageIsTransmittedSecurelyOver HTTPS"]
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private ContactRequest model = new();
+    private bool loading;
+    private bool success;
+    private string? error;
+
+    // Flip this to true if you wire up the API endpoint below
+    private const bool UseApi = false;
+
+    private async Task HandleSubmit()
+    {
+        error = null;
+        success = false;
+
+        // basic spam check
+        if (!string.IsNullOrEmpty(model.Honeypot))
+        {
+            error = "Request blocked (spam detected).";
+            return;
+        }
+
+        loading = true;
+        StateHasChanged();
+
+        try
+        {
+            if (UseApi)
+            {
+                // Adjust the endpoint URL as needed
+                var resp = await Http.PostAsJsonAsync("api/contact", model);
+                if (!resp.IsSuccessStatusCode)
+                {
+                    error = "We couldn't send your message right now. Please try again.";
+                }
+                else
+                {
+                    success = true;
+                    model = new(); // reset model
+                    await JS.InvokeVoidAsync("window.scrollTo", new object[] { 0, 0 });
+                }
+            }
+            else
+            {
+                // Demo flow without an API
+                await Task.Delay(800);
+                success = true;
+                model = new();
+                await JS.InvokeVoidAsync("window.scrollTo", new object[] { 0, 0 });
+            }
+        }
+        catch (Exception)
+        {
+            error = "Unexpected error. Please try again.";
+        }
+        finally
+        {
+            loading = false;
+        }
+    }
+
+    private void Reset()
+    {
+        model = new();
+        error = null;
+        success = false;
+    }
+
+    // ViewModel with validation
+    public sealed class ContactRequest
+    {
+        [Required, StringLength(80, MinimumLength = 2)]
+        public string Name { get; set; } = string.Empty;
+
+        [Required, EmailAddress, StringLength(120)]
+        public string Email { get; set; } = string.Empty;
+
+        [Phone, StringLength(40)]
+        public string? Phone { get; set; }
+
+        [Required, StringLength(120)]
+        public string Subject { get; set; } = string.Empty;
+
+        [Required, StringLength(4000, MinimumLength = 10)]
+        public string Message { get; set; } = string.Empty;
+
+        [Range(typeof(bool), "true", "true", ErrorMessage = "You must agree before sending.")]
+        public bool Consent { get; set; }
+
+        // Honeypot field (should remain empty)
+        public string? Honeypot { get; set; }
+    }
+}

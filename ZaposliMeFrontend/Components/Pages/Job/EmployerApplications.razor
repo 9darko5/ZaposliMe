@@ -2,12 +2,14 @@
 @using System.Net.Http.Json
 @using ZaposliMe.Application.DTOs.Job
 @using ZaposliMe.Domain.Enums
-@attribute [Authorize(Roles = "Employer")]
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<ZaposliMe.Frontend.Resources.Resources> L
 @inject HttpClient Http
+@attribute [Authorize(Roles = "Employer")]
 
 <h3 class="mb-3 d-flex justify-content-between align-items-center">
-    My Applications
-    <input class="form-control w-auto" placeholder="Search..." @bind="search" @bind:event="oninput" />
+    @L["ApplicationsToMyJobs"]
+    <input class="form-control w-auto" placeholder="@L["Search"]" @bind="search" @bind:event="oninput" />
 </h3>
 
 @if (loading)
@@ -22,7 +24,7 @@ else if (!string.IsNullOrWhiteSpace(errorMessage))
 }
 else if (apps is null || apps.Count == 0)
 {
-    <div class="alert alert-info">You have no applications yet.</div>
+    <div class="alert alert-info">@L["YouHaveNoApplicationsYet"]</div>
 }
 else
 {
@@ -31,22 +33,22 @@ else
             <thead class="table-light">
                 <tr>
                     <th role="button" @onclick="() => SortBy(nameof(EmployerApplicationDto.JobTitle))">
-                        Job @SortIcon(nameof(EmployerApplicationDto.JobTitle))
+                        @L["Job"] @SortIcon(nameof(EmployerApplicationDto.JobTitle))
                     </th>
                     <th role="button" @onclick="() => SortBy(nameof(EmployerApplicationDto.EmployeeFullName))">
-                        Employee @SortIcon(nameof(EmployerApplicationDto.EmployeeFullName))
+                        @L["Worker"] @SortIcon(nameof(EmployerApplicationDto.EmployeeFullName))
                     </th>
                     <th role="button" @onclick="() => SortBy(nameof(EmployerApplicationDto.Status))">
-                        Status @SortIcon(nameof(EmployerApplicationDto.Status))
+                        @L["State"] @SortIcon(nameof(EmployerApplicationDto.Status))
                     </th>
                     <th role="button" @onclick="() => SortBy(nameof(EmployerApplicationDto.AppliedAt))">
-                        Applied @SortIcon(nameof(EmployerApplicationDto.AppliedAt))
+                        @L["Applied"] @SortIcon(nameof(EmployerApplicationDto.AppliedAt))
                     </th>
                     <th role="button" @onclick="() => SortBy(nameof(EmployerApplicationDto.JobCreatedAt))">
-                        Job Created @SortIcon(nameof(EmployerApplicationDto.JobCreatedAt))
+                        @L["JobCreated"] @SortIcon(nameof(EmployerApplicationDto.JobCreatedAt))
                     </th>
-                    <th>Description</th>
-                    <th>Actions</th> @* 👈 new column *@
+                    <th>@L["Description"]</th>
+                    <th>@L["Actions"]</th> 
                 </tr>
             </thead>
             <tbody>
@@ -68,14 +70,14 @@ else
                         <td>
                             <button class="btn btn-sm btn-outline-primary me-2"
                                     @onclick='() => OpenModal(a, "details")'>
-                                Details
+                                @L["Details"]
                             </button>
 
                             @if (a.Status == ApplicationStatus.InReview)
                             {
                                 <button class="btn btn-sm btn-outline-success"
                                         @onclick='() => OpenModal(a, "decision")'>
-                                    Approve / Reject
+                                    @L["ApproveReject"]
                                 </button>
                             }
                         </td>
@@ -97,11 +99,11 @@ else
                     <h5 class="modal-title">
                         @if (modalType == "details")
                         {
-                            <span>Application Details</span>
+                            <span>@L["ApplicationDetails"]</span>
                         }
                         else
                         {
-                            <span>Approve or Reject Application</span>
+                            <span>@L["ApproveOrRejectApplication"]</span>
                         }
                     </h5>
                     <button type="button" class="btn-close" @onclick="CloseModal"></button>
@@ -109,22 +111,22 @@ else
                 <div class="modal-body">
                     @if (modalType == "details")
                     {
-                        <p><strong>Job:</strong> @selectedApp.JobTitle</p>
-                        <p><strong>Applicant:</strong> @selectedApp.EmployeeFullName</p>
-                        <p><strong>Description:</strong> @selectedApp.JobDescription</p>
-                        <p><strong>Status:</strong> <span class="@StatusBadgeClass(selectedApp.Status)">@selectedApp.Status</span></p>
+                        <p><strong>@L["Job"]:</strong> @selectedApp.JobTitle</p>
+                        <p><strong>@L["Applicant"]:</strong> @selectedApp.EmployeeFullName</p>
+                        <p><strong>@L["Description"]:</strong> @selectedApp.JobDescription</p>
+                        <p><strong>@L["State"]:</strong> <span class="@StatusBadgeClass(selectedApp.Status)">@selectedApp.Status</span></p>
                     }
                     else if (modalType == "decision")
                     {
                         <p>
-                            Do you want to approve or reject <strong>@selectedApp.EmployeeFullName</strong> for
+                            @L["DoYou WantToApproveOrReject"] <strong>@selectedApp.EmployeeFullName</strong> @L["For"]
                             <strong>@selectedApp.JobTitle</strong>?
                         </p>
 
                         <div class="d-flex justify-content-end mt-3">
-                            <button class="btn btn-success me-2" @onclick="() => Approve(selectedApp)">Approve</button>
-                            <button class="btn btn-danger me-2" @onclick="() => Reject(selectedApp)">Reject</button>
-                            <button class="btn btn-secondary" @onclick="CloseModal">Cancel</button>
+                            <button class="btn btn-success me-2" @onclick="() => Approve(selectedApp)">@L["Approve"]</button>
+                            <button class="btn btn-danger me-2" @onclick="() => Reject(selectedApp)">@L["Reject"]</button>
+                            <button class="btn btn-secondary" @onclick="CloseModal">@L["Cancel"]</button>
                         </div>
                     }
                 </div>

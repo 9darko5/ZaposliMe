@@ -1,18 +1,13 @@
 ﻿@page "/jobs"
 @using ZaposliMe.Application.DTOs.Job
 @using Microsoft.Extensions.Localization
+@using ZaposliMe.Frontend.Components.Shared
 @inject IStringLocalizer<ZaposliMe.Frontend.Resources.Resources> L
 @inject HttpClient Http
 
-@attribute [Authorize]
-
-<AuthorizeView Roles="Employer">
-    <h3 class="mb-4 d-flex justify-content-between align-items-center">
-        @L["AvailableJobs"]
-        <button class="btn btn-success" @onclick="OpenAdd">+ @L["AddJob"]</button>
-    </h3>
-</AuthorizeView>
-
+<h3 class="mb-4 d-flex justify-content-between align-items-center">
+     @L["AvailableJobs"]
+</h3>
 
 @if (jobs == null)
 {

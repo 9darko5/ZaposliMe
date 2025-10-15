@@ -1,4 +1,5 @@
-﻿@using ZaposliMe.Application.DTOs.Job
+﻿@using ZaposliMe.Application.DTOs.Job @using Microsoft.Extensions.Localization
+@inject IStringLocalizer<ZaposliMe.Frontend.Resources.Resources> L
 
 @if (Show && Job != null)
 {
@@ -6,26 +7,26 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Edit Job</h5>
+                    <h5 class="modal-title">@L["FillOutTheForm"]</h5>
                     <button type="button" class="btn-close" @onclick="OnClose"></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label class="form-label">Title</label>
+                        <label class="form-label">@L["Title"]</label>
                         <input class="form-control" @bind="Job.Title" />
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Description</label>
+                        <label class="form-label">@L["Description"]</label>
                         <textarea class="form-control" @bind="Job.Description"></textarea>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Number of Workers</label>
+                        <label class="form-label">@L["NumberOfWorkers"]</label>
                         <input type="number" class="form-control" @bind="Job.NumberOfWorkers" />
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" @onclick="OnClose">Cancel</button>
-                    <button class="btn btn-success" @onclick="() => OnSave.InvokeAsync(Job)">Save</button>
+                    <button class="btn btn-secondary" @onclick="OnClose">@L["Cancel"]</button>
+                    <button class="btn btn-success" @onclick="() => OnSave.InvokeAsync(Job)">@L["Save"]</button>
                 </div>
             </div>
         </div>

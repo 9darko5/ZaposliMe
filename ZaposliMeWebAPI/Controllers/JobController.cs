@@ -60,7 +60,6 @@ namespace ZaposliMe.WebAPI.Controllers
         }
 
         [HttpGet("all")]
-        [Authorize(Roles = "Admin,Employee")]
         public async Task<IActionResult> GetAllJobs()
         {
             var getAllJobsQuery = new GetAllJobsQuery();

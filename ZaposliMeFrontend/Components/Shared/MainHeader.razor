@@ -1,0 +1,52 @@
+﻿@using Microsoft.Extensions.Localization
+@using ZaposliMe.Frontend.Components.Shared
+@inject IStringLocalizer<ZaposliMe.Frontend.Resources.Resources> L
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container-fluid px-3">
+
+        <!-- Brand (left) -->
+        <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="/">
+            <!-- Ako imaš logo, zamijeni tekst:
+            <img src="sljakomat-logo.png" alt="Šljakomat" style="height:40px;width:auto" />
+            -->
+            Šljakomat
+        </a>
+
+        <!-- Mobile toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#localHeader"
+                aria-controls="localHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible area -->
+        <div class="collapse navbar-collapse" id="localHeader">
+            <!-- Left nav -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-4 ms-lg-5">
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/jobs" Match="NavLinkMatch.Prefix">@L["Jobs"]</NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/about" Match="NavLinkMatch.Prefix">@L["About"]</NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/contact" Match="NavLinkMatch.Prefix">@L["Contact"]</NavLink>
+                </li>
+            </ul>
+
+            <!-- Right actions -->
+            <div class="d-flex align-items-center gap-2">
+                <LanguageSwitcher />
+
+                <AuthorizeView>
+                    <Authorized>
+                        <a class="btn btn-outline-danger btn-sm" href="/logout">@L["Logout"]</a>
+                    </Authorized>
+                    <NotAuthorized>
+                        <a class="btn btn-outline-info" href="/login">@L["Login"]</a>
+                    </NotAuthorized>
+                </AuthorizeView>
+            </div>
+        </div>
+    </div>
+</nav>

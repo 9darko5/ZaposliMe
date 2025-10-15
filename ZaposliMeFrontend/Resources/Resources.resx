@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
   <data name="AddJob" xml:space="preserve">
     <value>Add Job</value>
   </data>
@@ -129,11 +132,29 @@
   <data name="Apply" xml:space="preserve">
     <value>Apply</value>
   </data>
+  <data name="ApplyWithOneClick" xml:space="preserve">
+    <value>Apply with one click</value>
+  </data>
+  <data name="AreYouSureYouWantToDelete" xml:space="preserve">
+    <value>Are you sure you want to delete </value>
+  </data>
   <data name="AvailableJobs" xml:space="preserve">
     <value>Available Jobs</value>
   </data>
+  <data name="BrowseOpeningsAndSaveFavorites" xml:space="preserve">
+    <value>Browse openings and save favorites</value>
+  </data>
   <data name="ByContinuingYouAgreeToOur" xml:space="preserve">
     <value>By continuing, you agree to our</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ConfirmDelete" xml:space="preserve">
+    <value>Confirm Delete</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
   </data>
   <data name="CreateAnAcountQuickly" xml:space="preserve">
     <value>Create an account quickly and get instant access to jobs or candidates.</value>
@@ -144,8 +165,17 @@
   <data name="CreatedBy" xml:space="preserve">
     <value>Created by</value>
   </data>
+  <data name="CreateProfile" xml:space="preserve">
+    <value>Create a profile</value>
+  </data>
+  <data name="CreateYourFirstPostingNow" xml:space="preserve">
+    <value>Create your first posting now</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
   </data>
   <data name="DontHaveAccount" xml:space="preserve">
     <value>Don’t have an account?</value>
@@ -156,17 +186,47 @@
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>
+  <data name="Worker" xml:space="preserve">
+    <value>Worker</value>
+  </data>
   <data name="FastAndSimple" xml:space="preserve">
     <value>Fast &amp; simple</value>
   </data>
-  <data name="FinWorkHireWorker" xml:space="preserve">
+  <data name="FillOutTheForm" xml:space="preserve">
+    <value>Fill out the form</value>
+  </data>
+  <data name="FindWorkHireWorker" xml:space="preserve">
     <value>Find work. Hire worker.</value>
+  </data>
+  <data name="FocusedOnNearbyOpportunities" xml:space="preserve">
+    <value>Focused on nearby opportunities so hiring and onboarding are fast and personal.</value>
+  </data>
+  <data name="ForEmployers" xml:space="preserve">
+    <value>For Employers</value>
+  </data>
+  <data name="ForWorkers" xml:space="preserve">
+    <value>For Workers</value>
+  </data>
+  <data name="FreeForAll" xml:space="preserve">
+    <value>Free for all</value>
+  </data>
+  <data name="GettingStartedTakesAMinute" xml:space="preserve">
+    <value>Getting started takes a minute.</value>
+  </data>
+  <data name="Job" xml:space="preserve">
+    <value>Job</value>
   </data>
   <data name="Jobs" xml:space="preserve">
     <value>Jobs</value>
   </data>
+  <data name="JoinOurMarketplace" xml:space="preserve">
+    <value>Join our marketplace to connect employers with skilled people—fast.</value>
+  </data>
   <data name="Loading" xml:space="preserve">
     <value>Loading...</value>
+  </data>
+  <data name="LocalFirst" xml:space="preserve">
+    <value>Local-first</value>
   </data>
   <data name="LoggedInAs" xml:space="preserve">
     <value>You're logged in as </value>
@@ -183,11 +243,23 @@
   <data name="NoJobsAvailable" xml:space="preserve">
     <value>No jobs available.</value>
   </data>
+  <data name="NumberOfWorkers" xml:space="preserve">
+    <value>Number of Workers</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="PostAJobInMinutes" xml:space="preserve">
+    <value>Post a job in minutes</value>
+  </data>
   <data name="PrivacyPolicy" xml:space="preserve">
     <value>Privacy policy</value>
+  </data>
+  <data name="PublishRolesWithClearRequirements" xml:space="preserve">
+    <value>Publish roles with clear requirements</value>
+  </data>
+  <data name="ReceiveAndReviewApplications" xml:space="preserve">
+    <value>Receive and review applications</value>
   </data>
   <data name="RegisterAsEmployer" xml:space="preserve">
     <value>Register as Employer</value>
@@ -198,11 +270,29 @@
   <data name="RegisterAsWorker" xml:space="preserve">
     <value>Register as Worker</value>
   </data>
+  <data name="RegisterАsEmployer" xml:space="preserve">
+    <value>Register as Employer</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search...</value>
+  </data>
   <data name="SignInToContinue" xml:space="preserve">
     <value>Sign in to continue</value>
   </data>
+  <data name="StartApplyingToday" xml:space="preserve">
+    <value>Start applying today</value>
+  </data>
   <data name="Terms" xml:space="preserve">
     <value>Terms</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="TrackYourPipelineInOnePlace" xml:space="preserve">
+    <value>Track your pipeline in one place</value>
   </data>
   <data name="WelcomeBack" xml:space="preserve">
     <value>Welcome back</value>
@@ -210,7 +300,127 @@
   <data name="WorkersAndEmployerInOnePlace" xml:space="preserve">
     <value>Workers track applications; employers publish roles and review applicants in one place.</value>
   </data>
+  <data name="WorkersBrowseEmployersPostRoles" xml:space="preserve">
+    <value>Workers browse and apply to jobs; employers post roles and manage applicants.</value>
+  </data>
   <data name="WorkersNeeded" xml:space="preserve">
     <value>Workers needed</value>
+  </data>
+  <data name="YouHaveNoApplicationsYet" xml:space="preserve">
+    <value>You have no applications yet.</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="Applied" xml:space="preserve">
+    <value>Applied</value>
+  </data>
+  <data name="JobCreated" xml:space="preserve">
+    <value>Job Created</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="ApproveReject" xml:space="preserve">
+    <value>Approve / Reject</value>
+  </data>
+  <data name="ApplicationsToMyJobs" xml:space="preserve">
+    <value>Applications to my jobs</value>
+  </data>
+  <data name="MyApplications" xml:space="preserve">
+    <value>My Applications</value>
+  </data>
+  <data name="Employer" xml:space="preserve">
+    <value>Employer</value>
+  </data>
+  <data name="Withdraw" xml:space="preserve">
+    <value>Withdraw</value>
+  </data>
+  <data name="ConfirmWithdraw" xml:space="preserve">
+    <value>Confirm withdraw</value>
+  </data>
+  <data name="AreYouSureYouWantWithdrawApplication" xml:space="preserve">
+    <value>Are you sure you want to withdraw your application for</value>
+  </data>
+  <data name="ApplicationDetails" xml:space="preserve">
+    <value>Application Details</value>
+  </data>
+  <data name="ApproveOrRejectApplication" xml:space="preserve">
+    <value>Approve or Reject Application</value>
+  </data>
+  <data name="Applicant" xml:space="preserve">
+    <value>Applicant</value>
+  </data>
+  <data name="DoYou WantToApproveOrReject" xml:space="preserve">
+    <value>Do you want to approve or reject </value>
+  </data>
+  <data name="For" xml:space="preserve">
+    <value>for</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Approve</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Reject</value>
+  </data>
+  <data name="ApplyFor" xml:space="preserve">
+    <value>Apply for</value>
+  </data>
+  <data name="ApplyingIsNotPossibleAtTheMoment" xml:space="preserve">
+    <value>Applying is not possible at the moment. Please try again later.</value>
+  </data>
+  <data name="ThisJobIsAlreadyFull" xml:space="preserve">
+    <value>This job is already full. You cannot apply.</value>
+  </data>
+  <data name="DoYouWantToApplyToThisJob" xml:space="preserve">
+    <value>Do you want to apply to this job?</value>
+  </data>
+  <data name="YesApply" xml:space="preserve">
+    <value>Yes, apply</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Contact us</value>
+  </data>
+  <data name="QuestionsFeedback" xml:space="preserve">
+    <value>Questions or feedback? Send us a message.</value>
+  </data>
+  <data name="Thanks" xml:space="preserve">
+    <value>Thanks</value>
+  </data>
+  <data name="YourMessageHasBeenSent" xml:space="preserve">
+    <value>Your message has been sent. We’ll get back to you soon.</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="Optional" xml:space="preserve">
+    <value>(optional)</value>
+  </data>
+  <data name="Subject" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="AgreeThatMyDataWillBeUsed" xml:space="preserve">
+    <value>I agree that my data will be used to contact me regarding this request.</value>
+  </data>
+  <data name="SendMessage" xml:space="preserve">
+    <value>Send message</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="ContactDetails" xml:space="preserve">
+    <value>Contact details</value>
+  </data>
+  <data name="YourMessageIsTransmittedSecurelyOver HTTPS" xml:space="preserve">
+    <value>Your message is transmitted securely over HTTPS.</value>
   </data>
 </root>

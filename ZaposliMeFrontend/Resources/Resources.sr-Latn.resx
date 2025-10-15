@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>O nama</value>
+  </data>
   <data name="AddJob" xml:space="preserve">
     <value>Dodaj posao</value>
   </data>
@@ -129,11 +132,29 @@
   <data name="Apply" xml:space="preserve">
     <value>Apliciraj</value>
   </data>
+  <data name="ApplyWithOneClick" xml:space="preserve">
+    <value>Apliciraj jednim klikom</value>
+  </data>
+  <data name="AreYouSureYouWantToDelete" xml:space="preserve">
+    <value>Da li ste sigurni da želite obrisati </value>
+  </data>
   <data name="AvailableJobs" xml:space="preserve">
     <value>Aktuelni poslovi</value>
   </data>
+  <data name="BrowseOpeningsAndSaveFavorites" xml:space="preserve">
+    <value>Pronađi poslove i sačuvaj omiljene</value>
+  </data>
   <data name="ByContinuingYouAgreeToOur" xml:space="preserve">
     <value>Ako nastavite slažete se sa</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Otkaži</value>
+  </data>
+  <data name="ConfirmDelete" xml:space="preserve">
+    <value>Potvrdite brisanje</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Kontakt</value>
   </data>
   <data name="CreateAnAcountQuickly" xml:space="preserve">
     <value>Kreiraj nalog brzo i odmah pogledaj aktuelne poslove i kandidate</value>
@@ -144,8 +165,17 @@
   <data name="CreatedBy" xml:space="preserve">
     <value>Kreirao</value>
   </data>
+  <data name="CreateProfile" xml:space="preserve">
+    <value>Kreiraj profil</value>
+  </data>
+  <data name="CreateYourFirstPostingNow" xml:space="preserve">
+    <value>Kreiraj prvi posao odmah</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Izbriši</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Opis</value>
   </data>
   <data name="DontHaveAccount" xml:space="preserve">
     <value>Niste se registrovali?</value>
@@ -156,17 +186,47 @@
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>
+  <data name="Worker" xml:space="preserve">
+    <value>Radnik</value>
+  </data>
   <data name="FastAndSimple" xml:space="preserve">
     <value>Brzo i jednostavno</value>
   </data>
-  <data name="FinWorkHireWorker" xml:space="preserve">
+  <data name="FillOutTheForm" xml:space="preserve">
+    <value>Popunite formu</value>
+  </data>
+  <data name="FindWorkHireWorker" xml:space="preserve">
     <value>Pronađi posao. Pronađi radnika.</value>
+  </data>
+  <data name="FocusedOnNearbyOpportunities" xml:space="preserve">
+    <value>Lokacijski prilagođeno, tako da su zapošljavanje i uvođenje u posao brzi i personalizovani.</value>
+  </data>
+  <data name="ForEmployers" xml:space="preserve">
+    <value>Za poslodavce</value>
+  </data>
+  <data name="ForWorkers" xml:space="preserve">
+    <value>Za radnike</value>
+  </data>
+  <data name="FreeForAll" xml:space="preserve">
+    <value>Besplatno za sve</value>
+  </data>
+  <data name="GettingStartedTakesAMinute" xml:space="preserve">
+    <value>Pridružite nam se za minut.</value>
+  </data>
+  <data name="Job" xml:space="preserve">
+    <value>Posao</value>
   </data>
   <data name="Jobs" xml:space="preserve">
     <value>Poslovi</value>
   </data>
+  <data name="JoinOurMarketplace" xml:space="preserve">
+    <value>Pridružite nam se da biste brzo povezali poslodavce sa kvalifikovanim ljudima.</value>
+  </data>
   <data name="Loading" xml:space="preserve">
     <value>Učitavanje...</value>
+  </data>
+  <data name="LocalFirst" xml:space="preserve">
+    <value>Prilagođeno lokaciji</value>
   </data>
   <data name="LoggedInAs" xml:space="preserve">
     <value>Prijavljen si kao</value>
@@ -183,11 +243,23 @@
   <data name="NoJobsAvailable" xml:space="preserve">
     <value>Nema poslova.</value>
   </data>
+  <data name="NumberOfWorkers" xml:space="preserve">
+    <value>Broj radnika</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Lozinka</value>
   </data>
+  <data name="PostAJobInMinutes" xml:space="preserve">
+    <value>Objavi posao za par minuta</value>
+  </data>
   <data name="PrivacyPolicy" xml:space="preserve">
     <value>Privatnost</value>
+  </data>
+  <data name="PublishRolesWithClearRequirements" xml:space="preserve">
+    <value>Objavi posao sa jasnim zahtjevima</value>
+  </data>
+  <data name="ReceiveAndReviewApplications" xml:space="preserve">
+    <value>Upravljaj aplikacijama</value>
   </data>
   <data name="RegisterAsEmployer" xml:space="preserve">
     <value>Registruj se kao poslodavac</value>
@@ -198,11 +270,29 @@
   <data name="RegisterAsWorker" xml:space="preserve">
     <value>Registruj se kao radnik</value>
   </data>
+  <data name="RegisterАsEmployer" xml:space="preserve">
+    <value>Registruj se kao poslodavac</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Sačuvaj</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Pretraži...</value>
+  </data>
   <data name="SignInToContinue" xml:space="preserve">
     <value>Prijavite se da nastavite</value>
   </data>
+  <data name="StartApplyingToday" xml:space="preserve">
+    <value>Apliciraj za posao već danas</value>
+  </data>
   <data name="Terms" xml:space="preserve">
     <value>Uslovi korišćenja</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Naslov</value>
+  </data>
+  <data name="TrackYourPipelineInOnePlace" xml:space="preserve">
+    <value>Prati sve sa jednog mjesta</value>
   </data>
   <data name="WelcomeBack" xml:space="preserve">
     <value>Dobrodošli nazad</value>
@@ -210,7 +300,127 @@
   <data name="WorkersAndEmployerInOnePlace" xml:space="preserve">
     <value>Radnici aplikaciraju i prate status aplikacije; poslodavci upravljaju pristiglim aplikacijama.</value>
   </data>
+  <data name="WorkersBrowseEmployersPostRoles" xml:space="preserve">
+    <value>Radnici traže i apliciraju na poslove; poslodavci objavljuju poslove i upravljaju aplikacijama.</value>
+  </data>
   <data name="WorkersNeeded" xml:space="preserve">
     <value>Potrebno radnika</value>
+  </data>
+  <data name="YouHaveNoApplicationsYet" xml:space="preserve">
+    <value>Nemate aplikacija još uvijek</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Applied" xml:space="preserve">
+    <value>Aplicirano</value>
+  </data>
+  <data name="JobCreated" xml:space="preserve">
+    <value>Kreiran</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Akcije</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detalji</value>
+  </data>
+  <data name="ApproveReject" xml:space="preserve">
+    <value>Prihvati / Odbij</value>
+  </data>
+  <data name="ApplicationsToMyJobs" xml:space="preserve">
+    <value>Aplikacije za moje poslove</value>
+  </data>
+  <data name="MyApplications" xml:space="preserve">
+    <value>Moje aplikacije</value>
+  </data>
+  <data name="Employer" xml:space="preserve">
+    <value>Poslodavac</value>
+  </data>
+  <data name="Withdraw" xml:space="preserve">
+    <value>Povuci</value>
+  </data>
+  <data name="ConfirmWithdraw" xml:space="preserve">
+    <value>Potvrda povlačenja aplikacije</value>
+  </data>
+  <data name="AreYouSureYouWantWithdrawApplication" xml:space="preserve">
+    <value>Da li ste sigurni da želite povući aplikaciju za </value>
+  </data>
+  <data name="ApplicationDetails" xml:space="preserve">
+    <value>Detalji aplikacije</value>
+  </data>
+  <data name="ApproveOrRejectApplication" xml:space="preserve">
+    <value>Prihvati ili odbij aplikaciju</value>
+  </data>
+  <data name="Applicant" xml:space="preserve">
+    <value>Aplikant</value>
+  </data>
+  <data name="DoYou WantToApproveOrReject" xml:space="preserve">
+    <value>Da li želite da prihvatite ili odbijete</value>
+  </data>
+  <data name="For" xml:space="preserve">
+    <value>za</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Prihvati</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Odbij</value>
+  </data>
+  <data name="ApplyFor" xml:space="preserve">
+    <value>Apliciraj za</value>
+  </data>
+  <data name="ApplyingIsNotPossibleAtTheMoment" xml:space="preserve">
+    <value>Trenutno nije moguće aplicirati. Molimo pokušajte kanije.</value>
+  </data>
+  <data name="ThisJobIsAlreadyFull" xml:space="preserve">
+    <value>Ovaj posao je već popunjen. Nije moguće aplicirati.</value>
+  </data>
+  <data name="DoYouWantToApplyToThisJob" xml:space="preserve">
+    <value>Da li želite da aplicirate za ovaj posao?</value>
+  </data>
+  <data name="YesApply" xml:space="preserve">
+    <value>Da, apliciraj</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Kontaktirajte nas</value>
+  </data>
+  <data name="QuestionsFeedback" xml:space="preserve">
+    <value>Piitanje ili povratne informacije? Pošaljite nam poruku.</value>
+  </data>
+  <data name="Thanks" xml:space="preserve">
+    <value>Hvala</value>
+  </data>
+  <data name="YourMessageHasBeenSent" xml:space="preserve">
+    <value>Tvoja poruka je poslata.  Odgovorićemo u nakraćem roku.</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Ime</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="Optional" xml:space="preserve">
+    <value>(opciono)</value>
+  </data>
+  <data name="Subject" xml:space="preserve">
+    <value>Naslov</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Poruka</value>
+  </data>
+  <data name="AgreeThatMyDataWillBeUsed" xml:space="preserve">
+    <value>Slažem se da moji podaci budu korišteni kako bi stupili u kontakt.</value>
+  </data>
+  <data name="SendMessage" xml:space="preserve">
+    <value>Pošalji poruku</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Poništi</value>
+  </data>
+  <data name="ContactDetails" xml:space="preserve">
+    <value>Kontakt detalji</value>
+  </data>
+  <data name="YourMessageIsTransmittedSecurelyOver HTTPS" xml:space="preserve">
+    <value>Tvoja poruka je poslata preko sigurnog protokola.</value>
   </data>
 </root>
