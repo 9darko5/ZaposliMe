@@ -423,4 +423,34 @@
   <data name="YourMessageIsTransmittedSecurelyOver HTTPS" xml:space="preserve">
     <value>Tvoja poruka je poslata preko sigurnog protokola.</value>
   </data>
+  <data name="YouAreAlreadyLoggedInAs" xml:space="preserve">
+    <value>Već ste prijavljeni kao</value>
+  </data>
+  <data name="YouSuccessfullyRegisteredNowYouCan" xml:space="preserve">
+    <value>Uspješno ste se registrovali. Idi na</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Zatvori</value>
+  </data>
+  <data name="CreateYourAccount" xml:space="preserve">
+    <value>Napravite nalog</value>
+  </data>
+  <data name="FillInYourDetailsToGetStarted" xml:space="preserve">
+    <value>Popunite detalje da nastavite dalje</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Ime</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Prezime</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Potvrdite lozinku</value>
+  </data>
+  <data name="Age" xml:space="preserve">
+    <value>Starost</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registrujte se</value>
+  </data>
 </root>

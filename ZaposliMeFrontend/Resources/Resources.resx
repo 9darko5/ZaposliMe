@@ -423,4 +423,34 @@
   <data name="YourMessageIsTransmittedSecurelyOver HTTPS" xml:space="preserve">
     <value>Your message is transmitted securely over HTTPS.</value>
   </data>
+  <data name="YouAreAlreadyLoggedInAs" xml:space="preserve">
+    <value>You're already logged in as</value>
+  </data>
+  <data name="YouSuccessfullyRegisteredNowYouCan" xml:space="preserve">
+    <value>You successfully registered. Now you can</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="CreateYourAccount" xml:space="preserve">
+    <value>Create your account</value>
+  </data>
+  <data name="FillInYourDetailsToGetStarted" xml:space="preserve">
+    <value>Fill in your details to get started</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="Age" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
 </root>

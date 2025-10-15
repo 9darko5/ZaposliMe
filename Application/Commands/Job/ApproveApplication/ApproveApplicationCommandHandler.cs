@@ -35,7 +35,7 @@ namespace ZaposliMe.Application.Commands.Job.ApproveApplication
 
                 application.Status = Domain.Enums.ApplicationStatus.Submitted;
                 application.StatusChangedAt = DateTime.UtcNow;
-
+                --job.NumberOfWorkers;
                 _unitOfWork.Repository<Domain.Entities.Job>().Update(job);
 
                 await _unitOfWork.CommitTransactionAsync(cancellationToken);

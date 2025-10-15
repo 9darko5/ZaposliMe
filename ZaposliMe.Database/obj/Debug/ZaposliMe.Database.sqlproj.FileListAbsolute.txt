@@ -10,10 +10,6 @@ C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\bin\Debug\Zaposli
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\obj\Debug\ZaposliMe.Database.sqlproj.AssemblyReference.cache
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\obj\Debug\ZaposliMe.Database.dll
 C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\obj\Debug\ZaposliMe.Database.pdb
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\obj\Debug\Model.xml
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\obj\Debug\refactor.xml
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\obj\Debug\postdeploy.sql
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\obj\Debug\predeploy.sql
 D:\Projects\ZaposliMe\ZaposliMe.Database\obj\Debug\Model.xml
 D:\Projects\ZaposliMe\ZaposliMe.Database\obj\Debug\refactor.xml
 D:\Projects\ZaposliMe\ZaposliMe.Database\obj\Debug\postdeploy.sql

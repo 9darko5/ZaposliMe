@@ -4,6 +4,8 @@
 @using ZaposliMe.Frontend.Identity
 @using ZaposliMe.Frontend.Identity.Models
 @using Microsoft.AspNetCore.WebUtilities
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<ZaposliMe.Frontend.Resources.Resources> L
 @inject NavigationManager Nav
 @inject IAccountManagement Acct
 
@@ -12,7 +14,7 @@
 <AuthorizeView>
     <Authorized>
         <div class="container py-4">
-            <div class="alert alert-success mb-0">You're already logged in as @context.User.Identity?.Name.</div>
+            <div class="alert alert-success mb-0">@L["YouAreAlreadyLoggedInAs"] @context.User.Identity?.Name.</div>
         </div>
     </Authorized>
 
@@ -21,8 +23,8 @@
             @if (formResult.Succeeded)
             {
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    You successfully registered. Now you can <a href="login" class="alert-link">login</a>.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    @L["YouSuccessfullyRegisteredNowYouCan"] <a href="login" class="alert-link">@L["Login"]</a>.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@L["Close"]"></button>
                 </div>
             }
             else
@@ -31,7 +33,7 @@
                 {
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         @error
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@L["Close"]"></button>
                     </div>
                 }
 
@@ -39,8 +41,8 @@
                     <div class="col-12 col-md-10 col-lg-7 col-xl-6">
                         <div class="card border-0 shadow rounded-4">
                             <div class="card-body p-4 p-md-5">
-                                <h1 class="h3 mb-1 text-center">Create your account</h1>
-                                <p class="text-muted text-center mb-4">Fill in your details to get started</p>
+                                <h1 class="h3 mb-1 text-center">@L["CreateYourAccount"]</h1>
+                                <p class="text-muted text-center mb-4">@L["FillInYourDetailsToGetStarted"]</p>
 
                                 <section>
                                     <EditForm Model="Input" method="post" OnValidSubmit="RegisterUserAsync"
@@ -54,7 +56,7 @@
                                                                id="Input.FirstName"
                                                                class="form-control"
                                                                aria-required="true" />
-                                                    <label for="Input.FirstName" class="form-label">First name</label>
+                                                    <label for="Input.FirstName" class="form-label">@L["FirstName"]</label>
                                                     <ValidationMessage For="() => Input.FirstName" class="text-danger small" />
                                                 </div>
                                             </div>
@@ -65,7 +67,7 @@
                                                                id="Input.LastName"
                                                                class="form-control"
                                                                aria-required="true" />
-                                                    <label for="Input.LastName" class="form-label">Last name</label>
+                                                    <label for="Input.LastName" class="form-label">@L["LastName"]</label>
                                                     <ValidationMessage For="() => Input.LastName" class="text-danger small" />
                                                 </div>
                                             </div>
@@ -76,9 +78,8 @@
                                                                id="Input.Email"
                                                                class="form-control"
                                                                autocomplete="username"
-                                                               aria-required="true"
-                                                               placeholder="name@example.com" />
-                                                    <label for="Input.Email" class="form-label">Email</label>
+                                                               aria-required="true"/>
+                                                    <label for="Input.Email" class="form-label">@L["Email"]</label>
                                                     <ValidationMessage For="() => Input.Email" class="text-danger small" />
                                                 </div>
                                             </div>
@@ -90,9 +91,8 @@
                                                                id="Input.Password"
                                                                class="form-control"
                                                                autocomplete="new-password"
-                                                               aria-required="true"
-                                                               placeholder="password" />
-                                                    <label for="Input.Password" class="form-label">Password</label>
+                                                               aria-required="true" />
+                                                    <label for="Input.Password" class="form-label">@L["Password"]</label>
                                                     <ValidationMessage For="() => Input.Password" class="text-danger small" />
                                                 </div>
                                             </div>
@@ -104,9 +104,8 @@
                                                                id="Input.ConfirmPassword"
                                                                class="form-control"
                                                                autocomplete="new-password"
-                                                               aria-required="true"
-                                                               placeholder="confirm password" />
-                                                    <label for="Input.ConfirmPassword" class="form-label">Confirm password</label>
+                                                               aria-required="true" />
+                                                    <label for="Input.ConfirmPassword" class="form-label">@L["ConfirmPassword"]</label>
                                                     <ValidationMessage For="() => Input.ConfirmPassword" class="text-danger small" />
                                                 </div>
                                             </div>
@@ -117,7 +116,7 @@
                                                                  id="Input.Age"
                                                                  class="form-control"
                                                                  aria-required="true" />
-                                                    <label for="Input.Age" class="form-label">Age</label>
+                                                    <label for="Input.Age" class="form-label">@L["Age"]</label>
                                                     <ValidationMessage For="() => Input.Age" class="text-danger small" />
                                                 </div>
                                             </div>
@@ -128,7 +127,7 @@
                                                                id="Input.PhoneNumber"
                                                                class="form-control"
                                                                aria-required="true" />
-                                                    <label for="Input.PhoneNumber" class="form-label">Phone number</label>
+                                                    <label for="Input.PhoneNumber" class="form-label">@L["Phone"]</label>
                                                     <ValidationMessage For="() => Input.PhoneNumber" class="text-danger small" />
                                                 </div>
                                             </div>
@@ -136,13 +135,13 @@
 
                                         <div class="d-grid mt-4">
                                             <button type="submit" class="btn btn-primary btn-lg">
-                                                Register
+                                                @L["Register"]
                                             </button>
                                         </div>
 
                                         <div class="text-center mt-3">
-                                            <span class="text-muted">Already have an account?</span>
-                                            <a class="ms-1" href="/login">Sign in</a>
+                                            <span class="text-muted">@L["AlreadyHavaAnAccount"]</span>
+                                            <a class="ms-1" href="/login">@L["Login"]</a>
                                         </div>
                                     </EditForm>
                                 </section>
@@ -150,7 +149,7 @@
 
                             <div class="card-footer bg-white border-0 text-center pb-4">
                                 <small class="text-muted">
-                                    By continuing, you agree to our <a href="/terms">Terms</a> and <a href="/privacy">Privacy Policy</a>.
+                                    @L["ByContinuingYouAgreeToOur"] <a href="/terms">@L["Terms"]</a> and <a href="/privacy">@L["PrivacyPolicy"]</a>.
                                 </small>
                             </div>
                         </div>

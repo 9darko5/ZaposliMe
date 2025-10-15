@@ -423,4 +423,34 @@
   <data name="YourMessageIsTransmittedSecurelyOver HTTPS" xml:space="preserve">
     <value>Твоја порука је послата преко сигурног протокола.</value>
   </data>
+  <data name="YouAreAlreadyLoggedInAs" xml:space="preserve">
+    <value>Већ сте пријављену као</value>
+  </data>
+  <data name="YouSuccessfullyRegisteredNowYouCan" xml:space="preserve">
+    <value>Успјешно сте се регистровали. Иди на</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Затвори</value>
+  </data>
+  <data name="CreateYourAccount" xml:space="preserve">
+    <value>Направите налог</value>
+  </data>
+  <data name="FillInYourDetailsToGetStarted" xml:space="preserve">
+    <value>Попуните детаље да наставите даље</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Име</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Презиме</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Потврдите лозинку</value>
+  </data>
+  <data name="Age" xml:space="preserve">
+    <value>Старост</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Региструјте се</value>
+  </data>
 </root>
