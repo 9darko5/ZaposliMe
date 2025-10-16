@@ -60,12 +60,14 @@ namespace ZaposliMe.WebAPI.Controllers
         }
 
         [HttpGet("all")]
-        public async Task<IActionResult> GetAllJobs()
+        public async Task<IActionResult> GetAllJobs(
+        [FromQuery] Guid? cityId,
+        [FromQuery] DateOnly? from,
+        [FromQuery] DateOnly? to,
+        CancellationToken ct)
         {
-            var getAllJobsQuery = new GetAllJobsQuery();
-
-            var jobs = await _sender.Send(getAllJobsQuery);
-
+            var query = new GetAllJobsQuery(cityId, from, to);
+            var jobs = await _sender.Send(query, ct);
             return Ok(jobs);
         }
 

@@ -3,7 +3,7 @@ using ZaposliMe.Domain.ViewModels.Job;
 
 namespace ZaposliMe.Application.Queries.Job.GetAllJobs
 {
-    public record GetAllJobsQuery : IRequest<List<JobGridView>>
+    public record GetAllJobsQuery(Guid? CityId, DateOnly? From, DateOnly? To) : IRequest<List<JobGridView>>
     {
     }
 }

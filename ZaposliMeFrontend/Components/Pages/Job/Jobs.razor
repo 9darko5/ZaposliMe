@@ -1,22 +1,65 @@
 ﻿@page "/jobs"
+@using System.Globalization
+@using Microsoft.AspNetCore.WebUtilities
 @using ZaposliMe.Application.DTOs.Job
 @using Microsoft.Extensions.Localization
-@using ZaposliMe.Frontend.Components.Shared
 @inject NavigationManager Nav
 @inject IStringLocalizer<ZaposliMe.Frontend.Resources.Resources> L
 @inject HttpClient Http
 
-<h3 class="mb-4 d-flex justify-content-between align-items-center">
+<h3 class="mb-3 d-flex justify-content-between align-items-center">
     @L["AvailableJobs"]
 </h3>
 
-@if (jobs == null)
+<!-- FILTER BAR -->
+<div class="card mb-3">
+    <div class="card-body row g-2 align-items-end">
+        <div class="col-12 col-md-3">
+            <label class="form-label">@L["City"]</label>
+            <select class="form-select" @bind="filterCityIdStr">
+                <option value="">@L["All"]</option>
+                @if (cities is not null)
+                {
+                    @foreach (var c in cities)
+                    {
+                        <option value="@c.Id.ToString()">@c.Name (@c.ZIP)</option>
+                    }
+                }
+            </select>
+        </div>
+
+        <div class="col-6 col-md-3">
+            <label class="form-label">@L["CreatedFrom"]</label>
+            <input type="date"
+                   class="form-control"
+                   @bind-value="filterFrom"
+                   @bind-value:format="yyyy-MM-dd" />
+        </div>
+
+        <div class="col-6 col-md-3">
+            <label class="form-label">@L["CreatedTo"]</label>
+            <input type="date"
+                   class="form-control"
+                   @bind-value="filterTo"
+                   @bind-value:format="yyyy-MM-dd" />
+        </div>
+
+        <div class="col-12 col-md-3 d-flex gap-2">
+            <button class="btn btn-primary w-100" @onclick="ApplyFilters">@L["Filter"]</button>
+            <button class="btn btn-outline-secondary" title="@L["Clear"]" @onclick="ClearFilters">
+                @L["Clear"]
+            </button>
+        </div>
+    </div>
+</div>
+
+@if (loading)
 {
     <p><em>@L["Loading"]</em></p>
 }
-else if (!jobs.Any())
+else if (jobs is null || jobs.Count == 0)
 {
-    <p>@L["NoJobsAvailable"]</p>
+    <div class="alert alert-info">@L["NoJobsAvailable"]</div>
 }
 else
 {
@@ -37,19 +80,12 @@ else
                         <div>
                             <AuthorizeView Roles="Employee">
                                 <Authorized>
-                                    <button class="btn btn-sm btn-primary me-1"
-                                            @onclick="() => OpenApply(job)">
-                                        @L["Apply"]
-                                    </button>
+                                    <button class="btn btn-sm btn-primary me-1" @onclick="() => OpenApply(job)">@L["Apply"]</button>
                                 </Authorized>
                             </AuthorizeView>
-
                             <AuthorizeView>
                                 <NotAuthorized>
-                                    <button class="btn btn-sm btn-primary me-1"
-                                            @onclick="() => RedirectToLogin()">
-                                        @L["Apply"]
-                                    </button>
+                                    <button class="btn btn-sm btn-primary me-1" @onclick="RedirectToLogin">@L["Apply"]</button>
                                 </NotAuthorized>
                             </AuthorizeView>
                         </div>
@@ -64,32 +100,95 @@ else
 
 @code {
     private List<JobDto>? jobs;
+    private List<CityDto>? cities;
 
-    private JobDto? editingJob;
-    private JobDto? deletingJob;
+    // Filters
+    private string? filterCityIdStr;   // keep city as string for easy empty/null handling in <select>
+    private DateOnly? filterFrom;        // typed date
+    private DateOnly? filterTo;          // typed date
+
+    private bool loading;
     private JobDto? applyingJob;
-
-    private bool showEditModal = false;
-    private bool showDeleteModal = false;
-    private bool showApplyModal = false;
-    private bool isAdding = false;
+    private bool showApplyModal;
     private bool applyError;
 
     protected override async Task OnInitializedAsync()
     {
-        jobs = await Http.GetFromJsonAsync<List<JobDto>>("https://localhost:7097/api/job/all");
+        // Load cities for dropdown
+        cities = await Http.GetFromJsonAsync<List<CityDto>>("https://localhost:7097/api/city/all");
+
+        // Load filters from URL (deep-link/back support)
+        var uri = new Uri(Nav.Uri);
+        var dict = QueryHelpers.ParseQuery(uri.Query);
+
+        if (dict.TryGetValue("cityId", out var cityStr))
+            filterCityIdStr = string.IsNullOrWhiteSpace(cityStr) ? null : cityStr.ToString();
+
+        if (dict.TryGetValue("from", out var fromStr)
+            && DateOnly.TryParseExact(fromStr!, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out var f))
+            filterFrom = f;
+
+        if (dict.TryGetValue("to", out var toStr)
+            && DateOnly.TryParseExact(toStr!, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out var t))
+            filterTo = t;
+
+        await LoadJobs();
     }
 
-    private void OpenAdd()
+    private async Task LoadJobs()
     {
-        editingJob = new JobDto
-        {
-            // ensure CityId exists on DTO
-            CityId = null,
-            NumberOfWorkers = 1
-        };
-        isAdding = true;
-        showEditModal = true;
+        loading = true;
+        StateHasChanged();
+
+        var baseUrl = "https://localhost:7097/api/job/all";
+        var query = new Dictionary<string, string>();
+
+        if (!string.IsNullOrWhiteSpace(filterCityIdStr))
+            query["cityId"] = filterCityIdStr!;
+
+        if (filterFrom is DateOnly df)
+            query["from"] = df.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+
+        if (filterTo is DateOnly dt)
+            query["to"] = dt.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+
+        var url = query.Count > 0 ? QueryHelpers.AddQueryString(baseUrl, query) : baseUrl;
+
+        jobs = await Http.GetFromJsonAsync<List<JobDto>>(url);
+
+        loading = false;
+    }
+
+    private async Task ApplyFilters()
+    {
+        // Sync filters to page URL (shareable/bookmarkable)
+        var query = new Dictionary<string, string>();
+
+        if (!string.IsNullOrWhiteSpace(filterCityIdStr))
+            query["cityId"] = filterCityIdStr!;
+
+        if (filterFrom is DateOnly df)
+            query["from"] = df.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+
+        if (filterTo is DateOnly dt)
+            query["to"] = dt.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+
+        var newUri = query.Count > 0
+            ? QueryHelpers.AddQueryString("/jobs", query)
+            : "/jobs";
+
+        Nav.NavigateTo(newUri, forceLoad: false);
+        await LoadJobs();
+    }
+
+    private async Task ClearFilters()
+    {
+        filterCityIdStr = null;
+        filterFrom = null;
+        filterTo = null;
+
+        Nav.NavigateTo("/jobs", forceLoad: false);
+        await LoadJobs();
     }
 
     private void OpenApply(JobDto job)
@@ -111,7 +210,7 @@ else
 
         if (response.IsSuccessStatusCode)
         {
-            jobs = await Http.GetFromJsonAsync<List<JobDto>>("https://localhost:7097/api/job/all");
+            await LoadJobs(); // keep current filters
         }
         else
         {
