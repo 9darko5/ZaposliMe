@@ -19,6 +19,7 @@ namespace ZaposliMe.Application.Commands.Job.CreateJob
                 Description = request.Description,
                 NumberOfWorkers = request.NumberOfWorkers,
                 EmployerId = request.EmployerId,
+                CityId = request.CityId,
                 CreatedAt = DateTime.UtcNow
             };
 
@@ -26,7 +27,7 @@ namespace ZaposliMe.Application.Commands.Job.CreateJob
 
             try
             {
-                using var _ = _unitOfWork.Repository<Domain.Entities.Job>().AddAsync(job);
+                using var _ = _unitOfWork.Jobs.AddAsync(job);
 
                 await _unitOfWork.CommitTransactionAsync(cancellationToken);
 

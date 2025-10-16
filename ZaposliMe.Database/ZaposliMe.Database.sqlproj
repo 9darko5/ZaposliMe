@@ -66,6 +66,7 @@
     <Folder Include="identity\Stored Procedures" />
     <Folder Include="identity\Tables" />
     <Folder Include="identity\Views" />
+    <Folder Include="PrePostBuildScripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Security\zaposlime.sql" />
@@ -82,11 +83,15 @@
     <Build Include="zaposlime\Tables\Application.sql" />
     <Build Include="zaposlime\Views\UserApplicationView.sql" />
     <Build Include="zaposlime\Views\EmployerApplicationView.sql" />
+    <Build Include="zaposlime\Tables\City.sql" />
+    <Build Include="zaposlime\Views\CitiyView.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ZaposliMe.Database.publish.xml" />
     <Build Include="Security\identity.sql" />
     <None Include="ZaposliMe.Database.Azure.publish.xml" />
+    <None Include="PrePostBuildScripts\InsertRoles.sql" />
+    <None Include="PrePostBuildScripts\InsertCities.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ZaposliMe.Database.refactorlog" />

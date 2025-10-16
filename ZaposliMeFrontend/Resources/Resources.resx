@@ -453,4 +453,16 @@
   <data name="Register" xml:space="preserve">
     <value>Register</value>
   </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="PleaseSelectCity" xml:space="preserve">
+    <value>Please select city</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="SelectCity" xml:space="preserve">
+    <value>Select city</value>
+  </data>
 </root>

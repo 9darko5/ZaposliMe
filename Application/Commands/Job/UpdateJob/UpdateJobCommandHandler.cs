@@ -18,7 +18,7 @@ namespace ZaposliMe.Application.Commands.Job.UpdateJob
 
             try
             {
-                var job = (await _unitOfWork.Repository<Domain.Entities.Job>()
+                var job = (await _unitOfWork.Jobs
                     .FindAsync(j => j.Id == request.Id))
                     .FirstOrDefault();
 
@@ -28,8 +28,9 @@ namespace ZaposliMe.Application.Commands.Job.UpdateJob
                 job.Title = request.Title ?? job.Title;
                 job.Description = request.Description ?? job.Description;
                 job.NumberOfWorkers = request.NumberOfWorkers ?? job.NumberOfWorkers;
+                job.CityId = request.CityId;
 
-                _unitOfWork.Repository<Domain.Entities.Job>().Update(job);
+                _unitOfWork.Jobs.Update(job);
 
                 await _unitOfWork.CommitTransactionAsync(cancellationToken);
             }

@@ -12,7 +12,7 @@
 </h3>
 
 
-@if (jobs == null)
+@if (jobs == null || cities == null)
 {
     <p><em>@L["Loading"]</em></p>
 }
@@ -30,6 +30,7 @@ else
                     <div class="card-body">
                         <h3 class="card-title">@job.Title</h3>
                         <p class="card-text">@job.Description</p>
+                        <small class="text-muted">@L["Location"]: @job.CityName</small><br />
                         <small class="text-muted">@L["CreatedAt"]: @job.CreatedAt</small>
                     </div>
                     <div class="card-footer d-flex justify-content-between">
@@ -46,13 +47,18 @@ else
 }
 
 <!-- Modals -->
-<EditJobModal Job="editingJob" Show="showEditModal" OnClose="CloseEdit" OnSave="HandleSave" />
+<EditJobModal Job="editingJob"
+              Show="showEditModal"
+              OnClose="CloseEdit"
+              OnSave="HandleSave"
+              Cities="cities" />   
 <DeleteJobModal Job="deletingJob" Show="showDeleteModal" OnClose="CloseDelete" OnConfirm="HandleDelete" />
 
 @code {
     private List<JobDto>? jobs;
     private JobDto? editingJob;
     private JobDto? deletingJob;
+    private List<CityDto>? cities;          
 
     private bool showEditModal = false;
     private bool showDeleteModal = false;
@@ -60,7 +66,14 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        jobs = await Http.GetFromJsonAsync<List<JobDto>>("https://localhost:7097/api/job/employer/all");
+        // Load cities and jobs
+        var citiesTask = Http.GetFromJsonAsync<List<CityDto>>("https://localhost:7097/api/city/all");
+        var jobsTask = Http.GetFromJsonAsync<List<JobDto>>("https://localhost:7097/api/job/employer/all");
+
+        await Task.WhenAll(citiesTask!, jobsTask!);
+
+        cities = citiesTask!.Result?.OrderBy(c => c.Name).ToList();
+        jobs = jobsTask!.Result;
     }
 
     private void OpenAdd()
@@ -77,7 +90,10 @@ else
             Id = job.Id,
             Title = job.Title,
             Description = job.Description,
-            NumberOfWorkers = job.NumberOfWorkers
+            NumberOfWorkers = job.NumberOfWorkers,
+            CityId = job.CityId,           
+            CityName = job.CityName,
+            CreatedAt = job.CreatedAt
         };
         isAdding = false;
         showEditModal = true;
@@ -92,6 +108,10 @@ else
 
     private async Task HandleSave(JobDto job)
     {
+        if (cities is not null && job.CityId is Guid cid)
+        {
+            job.CityName = cities.FirstOrDefault(c => c.Id == cid)?.Name;
+        }
         if (isAdding)
         {
             // POST new job

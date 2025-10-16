@@ -1,0 +1,25 @@
+﻿** Highlights
+     Tables that will be recreated with data migrated
+       [zaposlime].[Job]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Recreate table
+       [zaposlime].[Job] (Table)
+     Create
+       [zaposlime].[City] (Table)
+       [zaposlime].[FK_Job_User] (Foreign Key)
+       [zaposlime].[FK_Job_City] (Foreign Key)
+       [zaposlime].[FK_Application_Job] (Foreign Key)
+       [zaposlime].[CityView] (View)
+
+** Supporting actions
+     Refresh
+       [zaposlime].[EmployerApplicationView] (View)
+       [zaposlime].[JobGridView] (View)
+       [zaposlime].[UserApplicationView] (View)

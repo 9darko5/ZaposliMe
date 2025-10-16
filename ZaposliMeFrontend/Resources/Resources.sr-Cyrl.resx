@@ -453,4 +453,16 @@
   <data name="Register" xml:space="preserve">
     <value>Региструјте се</value>
   </data>
+  <data name="Location" xml:space="preserve">
+    <value>Локација</value>
+  </data>
+  <data name="PleaseSelectCity" xml:space="preserve">
+    <value>Изаберите град</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>Град</value>
+  </data>
+  <data name="SelectCity" xml:space="preserve">
+    <value>Изаберите град</value>
+  </data>
 </root>

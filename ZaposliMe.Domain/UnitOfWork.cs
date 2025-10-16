@@ -11,8 +11,8 @@ namespace ZaposliMe.Domain
         private readonly Dictionary<Type, object> _repositories = new();
         private IDbContextTransaction? _currentTransaction;
 
-        public IUserRepository Users;
-        public IJobRepository Jobs;
+        public IUserRepository Users { get; }
+        public IJobRepository Jobs { get; }
 
 
         public UnitOfWork(ZaposliMeDbContext context, IUserRepository userRepository, IJobRepository jobs)

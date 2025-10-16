@@ -10,6 +10,7 @@ namespace ZaposliMe.Domain.Entities
         public string? Description { get; set; }
         public int? NumberOfWorkers { get; set; }
         public string EmployerId { get; set; }
+        public Guid CityId { get; set; }
 
         public ICollection<Application>? Applications { get; set; } = new List<Application>();
     }

@@ -2,11 +2,12 @@
 @using ZaposliMe.Application.DTOs.Job
 @using Microsoft.Extensions.Localization
 @using ZaposliMe.Frontend.Components.Shared
+@inject NavigationManager Nav
 @inject IStringLocalizer<ZaposliMe.Frontend.Resources.Resources> L
 @inject HttpClient Http
 
 <h3 class="mb-4 d-flex justify-content-between align-items-center">
-     @L["AvailableJobs"]
+    @L["AvailableJobs"]
 </h3>
 
 @if (jobs == null)
@@ -27,18 +28,29 @@ else
                     <div class="card-body">
                         <h3 class="card-title">@job.Title</h3>
                         <p class="card-text">@job.Description</p>
-                        <small class="text-muted">@L["CreatedAt"]: @job.CreatedAt</small><br/>
+                        <small class="text-muted">@L["Location"]: @job.CityName</small><br />
+                        <small class="text-muted">@L["CreatedAt"]: @job.CreatedAt</small><br />
                         <small class="text-muted">@L["CreatedBy"]: @job.EmployerFullName</small>
                     </div>
                     <div class="card-footer d-flex justify-content-between">
                         <small class="text-muted">@L["WorkersNeeded"]: @job.NumberOfWorkers</small>
                         <div>
                             <AuthorizeView Roles="Employee">
-                                <button class="btn btn-sm btn-primary me-1" @onclick="() => OpenApply(job)">@L["Apply"]</button>
+                                <Authorized>
+                                    <button class="btn btn-sm btn-primary me-1"
+                                            @onclick="() => OpenApply(job)">
+                                        @L["Apply"]
+                                    </button>
+                                </Authorized>
                             </AuthorizeView>
-                            <AuthorizeView Roles="Admin,Employer">
-                                <button class="btn btn-sm btn-warning me-1" @onclick="() => OpenEdit(job)">@L["Edit"]</button>
-                                <button class="btn btn-sm btn-danger" @onclick="() => OpenDelete(job)">@L["Delete"]</button>
+
+                            <AuthorizeView>
+                                <NotAuthorized>
+                                    <button class="btn btn-sm btn-primary me-1"
+                                            @onclick="() => RedirectToLogin()">
+                                        @L["Apply"]
+                                    </button>
+                                </NotAuthorized>
                             </AuthorizeView>
                         </div>
                     </div>
@@ -48,15 +60,13 @@ else
     </div>
 }
 
-<!-- Modals -->
-<EditJobModal Job="editingJob" Show="showEditModal" OnClose="CloseEdit" OnSave="HandleSave" />
-<DeleteJobModal Job="deletingJob" Show="showDeleteModal" OnClose="CloseDelete" OnConfirm="HandleDelete" />
 <ApplyJobModal Job="applyingJob" Show="showApplyModal" OnClose="CloseApply" OnConfirm="HandleApply" ShowError="applyError" />
 
 @code {
     private List<JobDto>? jobs;
+
     private JobDto? editingJob;
-    private JobDto? deletingJob; 
+    private JobDto? deletingJob;
     private JobDto? applyingJob;
 
     private bool showEditModal = false;
@@ -72,75 +82,14 @@ else
 
     private void OpenAdd()
     {
-        editingJob = new JobDto(); // empty model
-        isAdding = true;
-        showEditModal = true;
-    }
-
-    private void OpenEdit(JobDto job)
-    {
         editingJob = new JobDto
         {
-            Id = job.Id,
-            Title = job.Title,
-            Description = job.Description,
-            NumberOfWorkers = job.NumberOfWorkers
+            // ensure CityId exists on DTO
+            CityId = null,
+            NumberOfWorkers = 1
         };
-        isAdding = false;
+        isAdding = true;
         showEditModal = true;
-    }
-
-    private void CloseEdit()
-    {
-        showEditModal = false;
-        editingJob = null;
-        isAdding = false;
-    }
-
-    private async Task HandleSave(JobDto job)
-    {
-        if (isAdding)
-        {
-            // POST new job
-            var response = await Http.PostAsJsonAsync("https://localhost:7097/api/job/create", job);
-            if (response.IsSuccessStatusCode)
-            {
-                jobs = await Http.GetFromJsonAsync<List<JobDto>>("https://localhost:7097/api/job/all");
-            }
-        }
-        else
-        {
-            // PUT update job
-            var response = await Http.PutAsJsonAsync($"https://localhost:7097/api/job/update", job);
-            if (response.IsSuccessStatusCode)
-            {
-                var index = jobs!.FindIndex(j => j.Id == job.Id);
-                if (index >= 0) jobs[index] = job;
-            }
-        }
-        CloseEdit();
-    }
-
-    private void OpenDelete(JobDto job)
-    {
-        deletingJob = job;
-        showDeleteModal = true;
-    }
-
-    private void CloseDelete()
-    {
-        showDeleteModal = false;
-        deletingJob = null;
-    }
-
-    private async Task HandleDelete(Guid id)
-    {
-        var response = await Http.DeleteAsync($"https://localhost:7097/api/job/delete/{id}");
-        if (response.IsSuccessStatusCode)
-        {
-            jobs!.RemoveAll(j => j.Id == id);
-        }
-        CloseDelete();
     }
 
     private void OpenApply(JobDto job)
@@ -158,8 +107,6 @@ else
 
     private async Task HandleApply(JobDto job)
     {
-        // POST only jobId, as requested
-
         var response = await Http.PostAsJsonAsync("https://localhost:7097/api/job/apply", job);
 
         if (response.IsSuccessStatusCode)
@@ -173,5 +120,11 @@ else
         }
 
         CloseApply();
+    }
+
+    private void RedirectToLogin()
+    {
+        var returnUrl = Uri.EscapeDataString(Nav.Uri);
+        Nav.NavigateTo($"/login?returnUrl={returnUrl}", forceLoad: true);
     }
 }

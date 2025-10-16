@@ -1,0 +1,6 @@
+﻿CREATE TABLE [zaposlime].[City]
+(
+	[Id]       UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
+    [Name]     NVARCHAR(100) NULL, 
+    [ZIP]      NVARCHAR(100) NULL
+)

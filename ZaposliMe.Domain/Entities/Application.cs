@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using ZaposliMe.Domain.Enums;
+using ZaposliMe.Domain.Primitives;
 
 namespace ZaposliMe.Domain.Entities
 {
     [Table("Application", Schema = "zaposlime")]
-    public class Application
+    public class Application : Entity
     {
-        public Guid Id { get; set; }
         public Guid JobId { get; set; }
         public string EmployeeId { get; set; }
         public ApplicationStatus Status { get; set; }

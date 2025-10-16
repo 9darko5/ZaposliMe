@@ -68,6 +68,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "ZaposliMe.WebAPI.Controllers.CityController",
+    "Method": "GetAllCities",
+    "RelativePath": "api/City/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ZaposliMe.WebAPI.Controllers.JobController",
     "Method": "GetAllJobs",
     "RelativePath": "api/Job/all",

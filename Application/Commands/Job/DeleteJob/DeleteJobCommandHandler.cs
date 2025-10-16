@@ -16,7 +16,7 @@ namespace ZaposliMe.Application.Commands.Job.DeleteJob
         {
             try
             {
-                var job = (await _unitOfWork.Repository<Domain.Entities.Job>()
+                var job = (await _unitOfWork.Jobs
                     .FindAsync(j => j.Id == request.Id,
                         include: q => q.Include(j => j.Applications)))
                     .FirstOrDefault();
@@ -27,7 +27,7 @@ namespace ZaposliMe.Application.Commands.Job.DeleteJob
                 }
                 await _unitOfWork.BeginTransactionAsync(cancellationToken);
                                 
-                _unitOfWork.Repository<Domain.Entities.Job>().Remove(job);
+                _unitOfWork.Jobs.Remove(job);
 
                 await _unitOfWork.CommitTransactionAsync(cancellationToken);
             }

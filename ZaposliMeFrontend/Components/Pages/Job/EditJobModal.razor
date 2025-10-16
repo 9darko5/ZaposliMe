@@ -1,4 +1,5 @@
-﻿@using ZaposliMe.Application.DTOs.Job @using Microsoft.Extensions.Localization
+﻿@using ZaposliMe.Application.DTOs.Job
+@using Microsoft.Extensions.Localization
 @inject IStringLocalizer<ZaposliMe.Frontend.Resources.Resources> L
 
 @if (Show && Job != null)
@@ -11,22 +12,49 @@
                     <button type="button" class="btn-close" @onclick="OnClose"></button>
                 </div>
                 <div class="modal-body">
+
                     <div class="mb-3">
                         <label class="form-label">@L["Title"]</label>
                         <input class="form-control" @bind="Job.Title" />
                     </div>
+
                     <div class="mb-3">
                         <label class="form-label">@L["Description"]</label>
                         <textarea class="form-control" @bind="Job.Description"></textarea>
                     </div>
+
                     <div class="mb-3">
                         <label class="form-label">@L["NumberOfWorkers"]</label>
-                        <input type="number" class="form-control" @bind="Job.NumberOfWorkers" />
+                        <input type="number" class="form-control" @bind="Job.NumberOfWorkers" min="1" />
                     </div>
+
+                    <!-- City dropdown -->
+                    <div class="mb-3">
+                        <label class="form-label">@L["City"]</label>
+                        <select class="form-select" @bind="Job.CityId">
+                            <option value="">@L["SelectCity"]</option>
+                            @if (Cities != null)
+                            {
+                                @foreach (var c in Cities)
+                                {
+                                    <option value="@c.Id">@c.Name (@c.ZIP)</option>
+                                }
+                            }
+                        </select>
+                        @* @if (Job.CityId is null)
+                        {
+                            <small class="text-muted d-block mt-1">@L["PleaseSelectCity"]</small>
+                        } *@
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" @onclick="OnClose">@L["Cancel"]</button>
-                    <button class="btn btn-success" @onclick="() => OnSave.InvokeAsync(Job)">@L["Save"]</button>
+                    <button class="btn btn-success"
+                            disabled="@( !CanSave )"
+                            @onclick="SaveAndClose">
+                        @L["Save"]
+                    </button>
                 </div>
             </div>
         </div>
@@ -38,4 +66,24 @@
     [Parameter] public bool Show { get; set; }
     [Parameter] public EventCallback OnClose { get; set; }
     [Parameter] public EventCallback<JobDto> OnSave { get; set; }
+
+    // NEW: pass cities from parent
+    [Parameter] public List<CityDto>? Cities { get; set; }
+
+    private bool CanSave =>
+        Job is not null
+        && !string.IsNullOrWhiteSpace(Job.Title)
+        && Job.NumberOfWorkers > 0
+        && Job.CityId is Guid;
+
+    private async Task SaveAndClose()
+    {
+        if (Cities is not null && Job is not null && Job.CityId is Guid cid)
+        {
+            // set CityName for immediate UI
+            Job.CityName = Cities.FirstOrDefault(x => x.Id == cid)?.Name;
+        }
+
+        await OnSave.InvokeAsync(Job!);
+    }
 }

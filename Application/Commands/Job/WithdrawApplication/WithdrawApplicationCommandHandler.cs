@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
+using ZaposliMe.Domain.Enums;
 using ZaposliMe.Domain.Generic;
 
 namespace ZaposliMe.Application.Commands.Job.ApproveApplication
@@ -19,7 +20,7 @@ namespace ZaposliMe.Application.Commands.Job.ApproveApplication
 
             try
             {
-                var job = (await _unitOfWork.Repository<Domain.Entities.Job>()
+                var job = (await _unitOfWork.Jobs
                     .FindAsync(j => j.Id == request.JobId,
                         include: q => q.Include(j => j.Applications)))
                     .FirstOrDefault();
@@ -33,10 +34,13 @@ namespace ZaposliMe.Application.Commands.Job.ApproveApplication
                 if (application == null)
                     throw new KeyNotFoundException($"Application with Id {request.ApplicationId} not found.");
 
-                application.Status = Domain.Enums.ApplicationStatus.Withdrawn;
+                if (application.Status == ApplicationStatus.Submitted)
+                    ++job.NumberOfWorkers;
+
+                application.Status = ApplicationStatus.Withdrawn;
                 application.StatusChangedAt = DateTime.UtcNow;
 
-                _unitOfWork.Repository<Domain.Entities.Job>().Update(job);
+                _unitOfWork.Jobs.Update(job);
 
                 await _unitOfWork.CommitTransactionAsync(cancellationToken);
             }

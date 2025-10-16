@@ -53,8 +53,7 @@
                                                    id="Input.Email"
                                                    class="form-control"
                                                    autocomplete="username"
-                                                   aria-required="true"
-                                                   placeholder="name@example.com" />
+                                                   aria-required="true" />
                                         <label for="Input.Email" class="form-label">@L["Email"]</label>
                                         <ValidationMessage For="() => Input.Email" class="text-danger small" />
                                     </div>
@@ -65,8 +64,7 @@
                                                    id="Input.Password"
                                                    class="form-control"
                                                    autocomplete="current-password"
-                                                   aria-required="true"
-                                                   placeholder="password" />
+                                                   aria-required="true" />
                                         <label for="Input.Password" class="form-label">@L["Password"]</label>
                                         <ValidationMessage For="() => Input.Password" class="text-danger small" />
                                     </div>
@@ -127,7 +125,7 @@
             }
             else
             {
-                Navigation.NavigateTo("/", forceLoad: true); // fallback
+                Navigation.NavigateTo("/", forceLoad: true); 
             }
         }
     }

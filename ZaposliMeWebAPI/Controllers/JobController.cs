@@ -30,7 +30,7 @@ namespace ZaposliMe.WebAPI.Controllers
             if (userId is null)
                 return Unauthorized();
 
-            var createdJobCommand = new CreateJobCommand(userId, model.Title, model.Description, model.NumberOfWorkers);
+            var createdJobCommand = new CreateJobCommand(userId, model.Title, model.Description, model.NumberOfWorkers, model.CityId.GetValueOrDefault());
 
             var id = await _sender.Send(createdJobCommand);
 
@@ -52,7 +52,7 @@ namespace ZaposliMe.WebAPI.Controllers
         [Authorize(Roles = "Admin,Employer")]
         public async Task<IActionResult> UpdateJob(JobDto model)
         {
-            var updateJobCommand = new UpdateJobCommand(model.Id, model.Title, model.Description, model.NumberOfWorkers);
+            var updateJobCommand = new UpdateJobCommand(model.Id, model.Title, model.Description, model.NumberOfWorkers, model.CityId.GetValueOrDefault());
 
             await _sender.Send(updateJobCommand);
 

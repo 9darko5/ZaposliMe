@@ -116,6 +116,18 @@
         }
       }
     },
+    "/api/City/all": {
+      "get": {
+        "tags": [
+          "City"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Job/create": {
       "post": {
         "tags": [
@@ -519,6 +531,15 @@
             "nullable": true
           },
           "employerFullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "cityId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "cityName": {
             "type": "string",
             "nullable": true
           },

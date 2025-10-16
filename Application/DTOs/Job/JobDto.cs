@@ -8,6 +8,8 @@
         public int? NumberOfWorkers { get; set; }
         public string? EmployerId { get; set; }
         public string? EmployerFullName { get; set; }
+        public Guid? CityId { get; set; }
+        public string? CityName { get; set; }
         public DateTime CreatedAt { get; set; }
     }
 }

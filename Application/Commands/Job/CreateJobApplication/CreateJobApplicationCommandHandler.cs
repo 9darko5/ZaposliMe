@@ -1,47 +1,44 @@
 ﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
+using ZaposliMe.Application.Commands.Job.CreateJob;
+using ZaposliMe.Domain.Entities;
 using ZaposliMe.Domain.Generic;
+using ZaposliMe.Domain.Interfaces;
 
-namespace ZaposliMe.Application.Commands.Job.CreateJob
+public class CreateJobApplicationCommandHandler
+    : IRequestHandler<CreateJobApplicationCommand, Guid>
 {
-    public class CreateJobApplicationCommandHandler : IRequestHandler<CreateJobApplicationCommand, Guid>
+    private readonly IUnitOfWork _unitOfWork;
+
+    public CreateJobApplicationCommandHandler(IUnitOfWork unitOfWork)
     {
-        private readonly IUnitOfWork _unitOfWork;
+        _unitOfWork = unitOfWork;
+    }
 
-        public CreateJobApplicationCommandHandler(IUnitOfWork unitOfWork)
+    public async Task<Guid> Handle(CreateJobApplicationCommand request, CancellationToken ct)
+    {
+        await _unitOfWork.BeginTransactionAsync(ct);
+        try
         {
-            _unitOfWork = unitOfWork;
+            // If you want capacity logic, set reserveSlot:true
+            var app = await _unitOfWork.Jobs.AddApplicationAsync(
+                request.JobId,
+                request.EmployeeId,
+                cancellationToken: ct);
+
+            await _unitOfWork.CommitTransactionAsync(ct);
+
+            return app.Id;
         }
-        public async Task<Guid> Handle(CreateJobApplicationCommand request, CancellationToken cancellationToken)
+        catch (DbUpdateConcurrencyException)
         {
-            var job = await _unitOfWork.Repository<Domain.Entities.Job>().GetByIdAsync(request.JobId);
-
-            var application = new Domain.Entities.Application()
-            {
-                JobId = request.JobId,
-                EmployeeId = request.EmployeeId,
-                Status = Domain.Enums.ApplicationStatus.InReview,
-                AppliedAt = DateTime.UtcNow
-            };
-
-            job.Applications?.Add(application);
-
-            //job.NumberOfWorkers -= 1;
-
-            await _unitOfWork.BeginTransactionAsync(cancellationToken);
-
-            try
-            {
-                _unitOfWork.Repository<Domain.Entities.Job>().Update(job);
-
-                await _unitOfWork.CommitTransactionAsync(cancellationToken);
-
-                return application.Id;
-            }
-            catch
-            {
-                await _unitOfWork.RollbackTransactionAsync(cancellationToken);
-                throw;
-            }
+            await _unitOfWork.RollbackTransactionAsync(ct);
+            throw;
+        }
+        catch
+        {
+            await _unitOfWork.RollbackTransactionAsync(ct);
+            throw;
         }
     }
 }
