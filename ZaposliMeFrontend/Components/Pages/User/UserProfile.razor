@@ -1,0 +1,217 @@
+﻿@page "/profile"
+@using System.Net.Http.Json
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.WebUtilities
+@using ZaposliMe.Application.DTOs.User
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<ZaposliMe.Frontend.Resources.Resources> L
+
+@inject HttpClient Http
+
+<AuthorizeView>
+    <NotAuthorized>
+        <div class="alert alert-info d-flex align-items-center justify-content-between">
+            <div>@L["YouNeedToBeSignedInToViewProfile"]</div>
+            <a class="btn btn-primary" href="/login?returnUrl=/profile">@L["Login"]</a>
+        </div>
+    </NotAuthorized>
+
+    <Authorized>
+        @if (loading)
+        {
+            <div class="d-flex align-items-center gap-3">
+                <div class="spinner-border" role="status" aria-hidden="true"></div>
+                <div>@L["Loading"]</div>
+            </div>
+        }
+        else if (!string.IsNullOrWhiteSpace(errorMessage))
+        {
+            <div class="alert alert-warning" role="alert">@errorMessage</div>
+        }
+        else if (user is null)
+        {
+            <div class="alert alert-info" role="alert">@L["NoUserDataWasReturned"]</div>
+        }
+        else
+        {
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="row g-4 align-items-center">
+                        <!-- Avatar -->
+                        <div class="col-12 col-md-auto text-center">
+                            <div class="avatar rounded-circle border bg-body">
+                                <svg class="avatar-icon" xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 24 24" role="img" aria-label="User avatar">
+                                    <circle cx="12" cy="8" r="4" />
+                                    <path d="M4 20c0-4 4-6 8-6s8 2 8 6v1H4v-1z" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Details -->
+                        <div class="col">
+                            <div class="row g-3">
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label text-muted mb-0">@L["FirstName"]</label>
+                                    <div class="fw-semibold">@DisplayOrDash(user.FirstName)</div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label text-muted mb-0">@L["LastName"]</label>
+                                    <div class="fw-semibold">@DisplayOrDash(user.LastName)</div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label text-muted mb-0">@L["Email"]</label>
+                                    <div class="fw-semibold">
+                                        @if (!string.IsNullOrWhiteSpace(user.Email))
+                                        {
+                                            <a href="mailto:@user.Email">@user.Email</a>
+                                        }
+                                        else
+                                        {
+
+                                            @("-")
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label text-muted mb-0">@L["Phone"]</label>
+                                    <div class="fw-semibold">@DisplayOrDash(user.PhoneNumber)</div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label text-muted mb-0">@L["Age"]</label>
+                                    <div class="fw-semibold">@((user.Age is null) ? "-" : user.Age.ToString())</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-footer d-flex justify-content-end">
+                    <button class="btn btn-primary" @onclick="() => showEdit = true">@L["EditProfile"]</button>
+                </div>
+            </div>
+        }
+    </Authorized>
+</AuthorizeView>
+
+<!-- Modal component -->
+<EditUserProfileModal IsOpen="@showEdit"
+                      Value="@user"
+                      OnClose="@CloseEdit"
+                      OnSave="@SaveEditAsync"
+                      Saving="@saving"
+                      ErrorMessage="@saveErrorMessage" />
+
+@code {
+    [CascadingParameter] private Task<AuthenticationState>? AuthStateTask { get; set; }
+
+    private UserDetailsDto? user;
+    private bool loading = true;
+    private string? errorMessage;
+
+    // Modal state
+    private bool showEdit = false;
+    private bool saving = false;
+    private string? saveErrorMessage;
+
+    private string? email;
+    private bool isAuthenticated;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ResolveEmailFromClaims();
+        await LoadUser();
+    }
+
+    private async Task ResolveEmailFromClaims()
+    {
+        try
+        {
+            var authState = AuthStateTask is null ? null : await AuthStateTask;
+            var principal = authState?.User;
+
+            isAuthenticated = principal?.Identity?.IsAuthenticated == true;
+            if (!isAuthenticated) { email = null; return; }
+
+            email = principal?.FindFirst(ClaimTypes.Email)?.Value
+                 ?? principal?.FindFirst(ClaimTypes.Name)?.Value;
+
+            if (string.IsNullOrWhiteSpace(email))
+                errorMessage = "Signed in, but no email claim is present.";
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Failed to read authentication state: {ex.Message}";
+        }
+    }
+
+    private async Task LoadUser()
+    {
+        loading = true;
+        errorMessage = null;
+        try
+        {
+            if (!isAuthenticated || string.IsNullOrWhiteSpace(email))
+            {
+                user = null;
+                if (string.IsNullOrWhiteSpace(email))
+                    errorMessage ??= "Email is missing; cannot load profile.";
+                return;
+            }
+
+            var url = QueryHelpers.AddQueryString("/api/User/getUser", new Dictionary<string, string?> { ["email"] = email });
+            user = await Http.GetFromJsonAsync<UserDetailsDto>(url);
+            if (user is null) errorMessage = "Could not load user details (empty response).";
+        }
+        catch (HttpRequestException ex) { errorMessage = $"Network error while loading profile: {ex.Message}"; }
+        catch (NotSupportedException) { errorMessage = "The server returned data in an unexpected format."; }
+        catch (Exception ex) { errorMessage = $"Unexpected error: {ex.Message}"; }
+        finally
+        {
+            loading = false;
+            StateHasChanged();
+        }
+    }
+
+    private void CloseEdit()
+    {
+        showEdit = false;
+        saveErrorMessage = null;
+    }
+
+    private async Task SaveEditAsync(UserDetailsDto updated)
+    {
+        saving = true;
+        saveErrorMessage = null;
+
+        try
+        {
+            var response = await Http.PutAsJsonAsync("/api/User/updateUser", updated);
+
+            if (response.IsSuccessStatusCode)
+            {
+                // Update local view with what we saved (or re-fetch if you prefer strict read-after-write)
+                user = updated;
+                showEdit = false;
+            }
+            else
+            {
+                var text = await response.Content.ReadAsStringAsync();
+                saveErrorMessage = string.IsNullOrWhiteSpace(text)
+                    ? "Failed to save changes."
+                    : text;
+            }
+        }
+        catch (HttpRequestException ex) { saveErrorMessage = $"Network error: {ex.Message}"; }
+        catch (Exception ex) { saveErrorMessage = $"Unexpected error: {ex.Message}"; }
+        finally
+        {
+            saving = false;
+            StateHasChanged();
+        }
+    }
+
+    private static string DisplayOrDash(string? value) =>
+        string.IsNullOrWhiteSpace(value) ? "-" : value!.Trim();
+}

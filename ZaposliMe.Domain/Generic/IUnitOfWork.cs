@@ -5,8 +5,7 @@ namespace ZaposliMe.Domain.Generic
     public interface IUnitOfWork : IDisposable
     {
         IRepository<T> Repository<T>() where T : class; 
-        IJobRepository Jobs { get; }      
-        IUserRepository Users { get; }    
+        IJobRepository Jobs { get; }       
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 

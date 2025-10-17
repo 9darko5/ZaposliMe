@@ -31,7 +31,7 @@ else
                         <h3 class="card-title">@job.Title</h3>
                         <p class="card-text">@job.Description</p>
                         <small class="text-muted">@L["Location"]: @job.CityName</small><br />
-                        <small class="text-muted">@L["CreatedAt"]: @job.CreatedAt</small>
+                        <small class="text-muted">@L["CreatedAt"]: @job.CreatedAt.ToShortDateString()</small>
                     </div>
                     <div class="card-footer d-flex justify-content-between">
                         <small class="text-muted">@L["WorkersNeeded"]: @job.NumberOfWorkers</small>

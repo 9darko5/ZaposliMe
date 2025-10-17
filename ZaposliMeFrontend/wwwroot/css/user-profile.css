@@ -1,0 +1,29 @@
+﻿/* Avatar: fixed circle, never stretches */
+.avatar {
+    width: 128px;
+    height: 128px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background: #f8f9fa;
+    border-width: 2px !important;
+    border-radius: 9999px !important;
+}
+
+.avatar-icon {
+    width: 64px;
+    height: 64px;
+    display: block; /* avoids width:100% global rules */
+    flex: 0 0 auto;
+}
+
+.modal-backdrop-blazor {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 1040; 
+}
+
+.modal.d-block {
+    z-index: 1050;
+}

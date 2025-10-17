@@ -465,4 +465,28 @@
   <data name="SelectCity" xml:space="preserve">
     <value>Select city</value>
   </data>
+  <data name="PostedFrom" xml:space="preserve">
+    <value>Posted from</value>
+  </data>
+  <data name="PostedTo" xml:space="preserve">
+    <value>Posted to</value>
+  </data>
+  <data name="YouNeedToBeSignedInToViewProfile" xml:space="preserve">
+    <value>You need to be signed in to view your profile.</value>
+  </data>
+  <data name="NoUserDataWasReturned" xml:space="preserve">
+    <value>No user data was returned.</value>
+  </data>
+  <data name="EditProfile" xml:space="preserve">
+    <value>Edit Profile</value>
+  </data>
+  <data name="EmailIsUsedAsYouraccountIdentifier" xml:space="preserve">
+    <value>Email is used as your account identifier.</value>
+  </data>
+  <data name="SaveChanges" xml:space="preserve">
+    <value>Save changes</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
 </root>

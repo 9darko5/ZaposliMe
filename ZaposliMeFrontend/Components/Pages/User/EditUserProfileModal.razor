@@ -1,0 +1,138 @@
+﻿@using System.ComponentModel.DataAnnotations
+@using ZaposliMe.Application.DTOs.User
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<ZaposliMe.Frontend.Resources.Resources> L
+
+@if (IsOpen)
+{
+    <div class="modal-backdrop-blazor"></div>
+
+    <div class="modal d-block" tabindex="-1" role="dialog" aria-modal="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content shadow-lg">
+                <div class="modal-header">
+                    <h5 class="modal-title">@L["EditProfile"]</h5>
+                    <button type="button" class="btn-close" aria-label="Close" @onclick="OnCancel"></button>
+                </div>
+
+                <EditForm Model="@edit" OnValidSubmit="@HandleSave">
+                    <DataAnnotationsValidator />
+                    <div class="modal-body">
+                        @if (!string.IsNullOrWhiteSpace(ErrorMessage))
+                        {
+                            <div class="alert alert-warning py-2" role="alert">@ErrorMessage</div>
+                        }
+
+                        <div class="row g-3">
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">@L["FirstName"]</label>
+                                <InputText class="form-control" @bind-Value="edit.FirstName" />
+                                <ValidationMessage For="@(() => edit.FirstName)" />
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">@L["LastName"]</label>
+                                <InputText class="form-control" @bind-Value="edit.LastName" />
+                                <ValidationMessage For="@(() => edit.LastName)" />
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">@L["Email"]</label>
+                                <InputText class="form-control" @bind-Value="edit.Email" disabled />
+                                <small class="text-muted">@L["EmailIsUsedAsYouraccountIdentifier"]</small>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">@L["Phone"]</label>
+                                <InputText class="form-control" @bind-Value="edit.PhoneNumber" />
+                                <ValidationMessage For="@(() => edit.PhoneNumber)" />
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">@L["Age"]</label>
+                                <InputNumber class="form-control" @bind-Value="edit.Age" />
+                                <ValidationMessage For="@(() => edit.Age)" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" @onclick="OnCancel" disabled="@Saving">@L["Cancel"]</button>
+                        <button type="submit" class="btn btn-primary" disabled="@Saving">
+                            @if (Saving)
+                            {
+                                <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                            }
+                            @L["SaveChanges"]
+                        </button>
+                    </div>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public bool IsOpen { get; set; }
+    [Parameter] public UserDetailsDto? Value { get; set; }
+    [Parameter] public EventCallback OnClose { get; set; }
+    [Parameter] public EventCallback<UserDetailsDto> OnSave { get; set; }
+
+    [Parameter] public string? ErrorMessage { get; set; }   // optional external error
+    [Parameter] public bool Saving { get; set; }            // external saving flag (optional)
+
+    private EditModel edit = new();
+
+    protected override void OnParametersSet()
+    {
+        if (Value != null)
+        {
+            edit = new EditModel
+            {
+                Id = Value.Id,
+                FirstName = Value.FirstName,
+                LastName = Value.LastName,
+                Email = Value.Email,
+                PhoneNumber = Value.PhoneNumber,
+                Age = Value.Age
+            };
+        }
+    }
+
+    private async Task HandleSave()
+    {
+        var dto = new UserDetailsDto
+        {
+            Id = edit.Id,      
+            FirstName = edit.FirstName,
+            LastName = edit.LastName,
+            Email = edit.Email,
+            PhoneNumber = edit.PhoneNumber,
+            Age = edit.Age
+        };
+
+        await OnSave.InvokeAsync(dto);
+    }
+
+    private async Task OnCancel() => await OnClose.InvokeAsync();
+
+    private class EditModel
+    {
+        public string? Id { get; set; }           
+
+        [Required, StringLength(100)]
+        public string? FirstName { get; set; }
+
+        [Required, StringLength(100)]
+        public string? LastName { get; set; }
+
+        [Required, EmailAddress]
+        public string? Email { get; set; }
+
+        [StringLength(100)]
+        public string? PhoneNumber { get; set; }
+
+        [Range(0, 120, ErrorMessage = "Age must be between 0 and 120.")]
+        public long? Age { get; set; }
+    }
+}

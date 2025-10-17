@@ -465,4 +465,28 @@
   <data name="SelectCity" xml:space="preserve">
     <value>Изаберите град</value>
   </data>
+  <data name="PostedFrom" xml:space="preserve">
+    <value>Објављено од</value>
+  </data>
+  <data name="PostedTo" xml:space="preserve">
+    <value>Објављено до</value>
+  </data>
+  <data name="YouNeedToBeSignedInToViewProfile" xml:space="preserve">
+    <value>Морате бити пријављени да видите свој профил.</value>
+  </data>
+  <data name="NoUserDataWasReturned" xml:space="preserve">
+    <value>Нису пронађени подаци о кориснику.</value>
+  </data>
+  <data name="EditProfile" xml:space="preserve">
+    <value>Уреди профил</value>
+  </data>
+  <data name="EmailIsUsedAsYouraccountIdentifier" xml:space="preserve">
+    <value>Е-маил се користи као идентификатор налога.</value>
+  </data>
+  <data name="SaveChanges" xml:space="preserve">
+    <value>Сачувај измјене</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Профил</value>
+  </data>
 </root>

@@ -22,14 +22,14 @@
                 {
                     @foreach (var c in cities)
                     {
-                        <option value="@c.Id.ToString()">@c.Name (@c.ZIP)</option>
+                        <option value="@c.Id.ToString()">@c.Name</option>
                     }
                 }
             </select>
         </div>
 
         <div class="col-6 col-md-3">
-            <label class="form-label">@L["CreatedFrom"]</label>
+            <label class="form-label">@L["PostedFrom"]</label>
             <input type="date"
                    class="form-control"
                    @bind-value="filterFrom"
@@ -37,7 +37,7 @@
         </div>
 
         <div class="col-6 col-md-3">
-            <label class="form-label">@L["CreatedTo"]</label>
+            <label class="form-label">@L["PostedTo"]</label>
             <input type="date"
                    class="form-control"
                    @bind-value="filterTo"
