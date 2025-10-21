@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ZaposliMe.Domain.ViewModels.City;
 using ZaposliMe.Domain.ViewModels.Job;
+using ZaposliMe.Domain.ViewModels.User;
 
 namespace ZaposliMe.Persistance
 {
@@ -16,6 +17,8 @@ namespace ZaposliMe.Persistance
         public DbSet<UserApplicationView> UserApplicationViews { get; set; }
         public DbSet<EmployerApplicationView> EmployerApplicationViews { get; set; }
         public DbSet<CityView> CityViews { get; set; }
+        public DbSet<EmployerReviewGridView> EmployerReviewGridViews { get; set; }
+        public DbSet<EmployerReviewView> EmployerReviewViews { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

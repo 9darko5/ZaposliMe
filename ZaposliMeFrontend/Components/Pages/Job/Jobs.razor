@@ -73,8 +73,45 @@ else
                         <p class="card-text">@job.Description</p>
                         <small class="text-muted">@L["Location"]: @job.CityName</small><br />
                         <small class="text-muted">@L["CreatedAt"]: @job.CreatedAt</small><br />
-                        <small class="text-muted">@L["CreatedBy"]: @job.EmployerFullName</small>
+
+                        <!-- Employer full name opens details page in a NEW TAB + optional stars -->
+                        @if (!string.IsNullOrWhiteSpace(job.EmployerId))
+                        {
+                            <small class="text-muted">
+                                @L["CreatedBy"]:
+                                <a href="@($"/employerreviewsdetails/{Uri.EscapeDataString(job.EmployerId)}")"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="link-primary link-underline-opacity-0"
+                                   title="@L["OpenEmployerReviewsInNewTab"]">
+                                    @job.EmployerFullName
+                                </a>
+                                @if (job.EmployerRating is not null)
+                                {
+                                    <span class="ms-2 align-middle" title="@job.EmployerRating?.ToString("0.00")">
+                                        <span class="text-warning" style="line-height:1">
+                                            @((MarkupString)Stars(job.EmployerRating))
+                                        </span>
+                                    </span>
+                                }
+                            </small>
+                        }
+                        else
+                        {
+                            <small class="text-muted">
+                                @L["CreatedBy"]: @job.EmployerFullName
+                                @if (job.EmployerRating is not null)
+                                {
+                                    <span class="ms-2 align-middle" title="@job.EmployerRating?.ToString("0.00")">
+                                        <span class="text-warning" style="line-height:1">
+                                            @((MarkupString)Stars(job.EmployerRating))
+                                        </span>
+                                    </span>
+                                }
+                            </small>
+                        }
                     </div>
+
                     <div class="card-footer d-flex justify-content-between">
                         <small class="text-muted">@L["WorkersNeeded"]: @job.NumberOfWorkers</small>
                         <div>
@@ -103,9 +140,9 @@ else
     private List<CityDto>? cities;
 
     // Filters
-    private string? filterCityIdStr;   // keep city as string for easy empty/null handling in <select>
-    private DateOnly? filterFrom;        // typed date
-    private DateOnly? filterTo;          // typed date
+    private string? filterCityIdStr;
+    private DateOnly? filterFrom;
+    private DateOnly? filterTo;
 
     private bool loading;
     private JobDto? applyingJob;
@@ -225,5 +262,20 @@ else
     {
         var returnUrl = Uri.EscapeDataString(Nav.Uri);
         Nav.NavigateTo($"/login?returnUrl={returnUrl}", forceLoad: true);
+    }
+
+    // --- Stars helper ---
+    // Returns 5-star string (★/☆). If rating is null, you won't call it.
+    private string Stars(decimal? rating)
+    {
+        if (rating is null || rating.Value < 1) return string.Empty;
+        var r = (int)Math.Round((double)rating.Value);
+        if (r < 0) r = 0;
+        if (r > 5) r = 5;
+        var filled = new string('★', r);
+        var empty = new string('☆', 5 - r);
+        return (filled + empty)
+            .Replace("<", "&lt;")
+            .Replace(">", "&gt;");
     }
 }

@@ -247,6 +247,32 @@
   },
   {
     "ContainingType": "ZaposliMe.WebAPI.Controllers.UserController",
+    "Method": "GetAllEmployerReviews",
+    "RelativePath": "api/User/allEmployerReviews",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ZaposliMe.WebAPI.Controllers.UserController",
+    "Method": "GetAllEmployerReviewsById",
+    "RelativePath": "api/User/allEmployerReviewsById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employerId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ZaposliMe.WebAPI.Controllers.UserController",
     "Method": "GetUser",
     "RelativePath": "api/User/getUser",
     "HttpMethod": "GET",
@@ -257,6 +283,22 @@
         "Name": "email",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ZaposliMe.WebAPI.Controllers.UserController",
+    "Method": "LeaveEmployerReview",
+    "RelativePath": "api/User/leaveEmployerReview",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ZaposliMe.Application.DTOs.User.EmployerReviewDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

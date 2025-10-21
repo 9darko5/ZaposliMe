@@ -85,6 +85,10 @@
     <Build Include="zaposlime\Views\EmployerApplicationView.sql" />
     <Build Include="zaposlime\Tables\City.sql" />
     <Build Include="zaposlime\Views\CitiyView.sql" />
+    <Build Include="zaposlime\Tables\EmployerReview.sql" />
+    <Build Include="zaposlime\Tables\EmployeeReview.sql" />
+    <Build Include="zaposlime\Views\EmployerReviewGridView.sql" />
+    <Build Include="zaposlime\Views\EmployerReviewView.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ZaposliMe.Database.publish.xml" />

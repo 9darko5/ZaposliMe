@@ -489,4 +489,7 @@
   <data name="Profile" xml:space="preserve">
     <value>Профил</value>
   </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Филтрирај</value>
+  </data>
 </root>

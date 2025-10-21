@@ -1,0 +1,21 @@
+﻿** Highlights
+     Tables that will be recreated with data migrated
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [zaposlime].[EmployeeReview] (Table)
+       [zaposlime].[EmployerReview] (Table)
+       [zaposlime].[FK_Review_Employee] (Foreign Key)
+       [zaposlime].[FK_Review_Employer] (Foreign Key)
+       [zaposlime].[EmployerReviewGridView] (View)
+     Alter
+       [zaposlime].[JobGridView] (View)
+
+** Supporting actions

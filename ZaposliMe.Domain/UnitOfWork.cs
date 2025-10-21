@@ -12,12 +12,14 @@ namespace ZaposliMe.Domain
         private IDbContextTransaction? _currentTransaction;
 
         public IJobRepository Jobs { get; }
+        public IEmployerReviewRepository EmployerReviews { get; }
 
 
-        public UnitOfWork(ZaposliMeDbContext context, IJobRepository jobs)
+        public UnitOfWork(ZaposliMeDbContext context, IJobRepository jobs, IEmployerReviewRepository employerReviews)
         {
             _context = context;
             Jobs = jobs;
+            EmployerReviews = employerReviews;
         }
 
 

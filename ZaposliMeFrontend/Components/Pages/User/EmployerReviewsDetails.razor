@@ -1,0 +1,128 @@
+﻿@page "/employerreviewsdetails/{employerId}"
+@using System.Net.Http.Json
+@using ZaposliMe.Application.DTOs.User
+@inject HttpClient Http
+@inject NavigationManager Nav
+
+<PageTitle>Employer Reviews – Details</PageTitle>
+
+@if (isLoading)
+{
+    <div class="d-flex align-items-center gap-2">
+        <div class="spinner-border" role="status" aria-hidden="true"></div>
+        <span>Loading…</span>
+    </div>
+}
+else if (!string.IsNullOrWhiteSpace(error))
+{
+    <div class="alert alert-danger" role="alert">@error</div>
+}
+else if (data is null)
+{
+    <div class="alert alert-warning" role="alert">No data available.</div>
+}
+else
+{
+    <div class="d-flex align-items-center justify-content-between mb-3">
+        <h3 class="mb-0">@data.EmployerFullName</h3>
+        @* <button class="btn btn-outline-secondary" @onclick="() => Nav.NavigateTo("/employerreviews")">← Back</button> *@
+    </div>
+
+    <!-- Summary (no cards) -->
+    <section class="mb-4">
+        <div class="d-flex flex-wrap align-items-center gap-4 p-3 border rounded-3 bg-light">
+            <!-- Average rating highlighted -->
+            <div class="d-flex align-items-center gap-3">
+                <div class="display-5 fw-bold mb-0">@data.AverageRating.ToString("0.00")</div>
+                <div class="text-warning" style="font-size:1.6rem; line-height:1">
+                    @((MarkupString)Stars((int)Math.Round((double)data.AverageRating)))
+                </div>
+            </div>
+
+            <!-- Divider on larger screens -->
+            <div class="vr d-none d-md-block"></div>
+
+            <!-- Inline stats -->
+            <div class="d-flex flex-wrap align-items-center gap-3 text-muted">
+                <div><span class="fw-semibold">@data.TotalReviews</span> total reviews</div>
+                <div class="d-none d-md-inline">•</div>
+                <div><span class="fw-semibold">@data.CommentCount</span> comments</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews list -->
+    @if (data.Reviews is null || data.Reviews.Count == 0)
+    {
+        <div class="alert alert-info">This employer has no individual reviews yet.</div>
+    }
+    else
+    {
+        <div class="row row-cols-1 row-cols-md-2 g-3">
+            @foreach (var r in data.Reviews)
+            {
+                <div class="col">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <div class="text-warning" style="font-size:1.1rem">@((MarkupString)Stars(r.Rating))</div>
+                                <small class="text-muted">@r.CreatedAt.ToString("dd.MM.yyyy HH:mm")</small>
+                            </div>
+                            @if (!string.IsNullOrWhiteSpace(r.Comment))
+                            {
+                                <p class="mb-3">@r.Comment</p>
+                            }
+                            else
+                            {
+                                <p class="mb-3 text-muted fst-italic">No comment provided.</p>
+                            }
+                            <div class="mt-auto">
+                                <small class="text-muted">by @r.CreatedByFullName</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+}
+
+@code {
+    [Parameter] public string employerId { get; set; } = default!;
+
+    private EmployerReviewsDetailsDto? data;
+    private bool isLoading = true;
+    private string? error;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        isLoading = true;
+        error = null;
+
+        try
+        {
+            var url = $"api/user/allEmployerReviewsById?employerId={Uri.EscapeDataString(employerId)}";
+            data = await Http.GetFromJsonAsync<EmployerReviewsDetailsDto>(url);
+        }
+        catch (Exception ex)
+        {
+            error = $"Failed to load details: {ex.Message}";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    // Simple star renderer: filled ★ and empty ☆ (5 total)
+    private string Stars(int rating)
+    {
+        if (rating < 0) rating = 0;
+        if (rating > 5) rating = 5;
+        var filled = new string('★', rating);
+        var empty = new string('☆', 5 - rating);
+        return (filled + empty)
+            .Replace("<", "&lt;")
+            .Replace(">", "&gt;");
+    }
+}

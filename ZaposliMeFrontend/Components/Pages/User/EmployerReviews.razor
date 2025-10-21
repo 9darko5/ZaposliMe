@@ -1,0 +1,108 @@
+﻿@page "/employerreviews"
+@using System.Net.Http.Json
+@inject HttpClient Http
+@inject NavigationManager Nav
+
+<PageTitle>Employer Reviews</PageTitle>
+
+<h3 class="mb-3">Employer Reviews</h3>
+
+@if (isLoading)
+{
+    <div class="d-flex align-items-center gap-2">
+        <div class="spinner-border" role="status" aria-hidden="true"></div>
+        <span>Loading…</span>
+    </div>
+}
+else if (!string.IsNullOrWhiteSpace(error))
+{
+    <div class="alert alert-danger" role="alert">
+        @error
+    </div>
+}
+else if (items is null || items.Count == 0)
+{
+    <div class="alert alert-info" role="alert">
+        No reviews found.
+    </div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped table-hover align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Employer ID</th>
+                    <th>Employer Full Name</th>
+                    <th class="text-end">Total Reviews</th>
+                    <th class="text-end">Comment Count</th>
+                    <th class="text-end">Average Rating</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var r in items)
+                {
+                    <tr>
+                        <td class="text-monospace">@r.EmployerId</td>
+                        <td>@r.EmployerFullName</td>
+                        <td class="text-end">@r.TotalReviews</td>
+                        <td class="text-end">@r.CommentCount</td>
+                        <td class="text-end">@r.AverageRating.ToString("0.00")</td>
+                        <td>
+                            <button class="btn btn-sm btn-primary"
+                                    @onclick="() => GoToDetails(r.EmployerId)">
+                                Details
+                            </button>
+                            @* Alternatively, if you prefer a link:
+                           <a class="btn btn-sm btn-primary" href="@($"/employerreviewsdetails/{r.EmployerId}")">Details</a>
+                        *@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+@code {
+    // Mirror of the DTO you get from the API (or reference your shared DTO)
+    public class EmployerReviewGridReviewDto
+    {
+        public string EmployerId { get; set; }
+        public string EmployerFullName { get; set; }
+        public long TotalReviews { get; set; }
+        public long CommentCount { get; set; }
+        public decimal AverageRating { get; set; }
+    }
+
+    private List<EmployerReviewGridReviewDto>? items;
+    private bool isLoading = true;
+    private string? error;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            // Adjust base address if needed; Http.BaseAddress should already point to your API host
+            items = await Http.GetFromJsonAsync<List<EmployerReviewGridReviewDto>>(
+                "https://localhost:7097/api/user/allEmployerReviews");
+
+        }
+        catch (Exception ex)
+        {
+            error = $"Failed to load reviews: {ex.Message}";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private void GoToDetails(string employerId)
+    {
+        // Details page expected at /employerreviewsdetails/{EmployerId}
+        // If you use query string instead, do: Nav.NavigateTo($"/employerreviewsdetails?employerId={Uri.EscapeDataString(employerId)}");
+        Nav.NavigateTo($"/employerreviewsdetails/{Uri.EscapeDataString(employerId)}");
+    }
+}

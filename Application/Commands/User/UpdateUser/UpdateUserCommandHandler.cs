@@ -14,10 +14,8 @@ namespace ZaposliMe.Application.Commands.User.UpdateUser
 
         public async Task Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
-
             try
             {
-
                 var user = await _context.Users.FirstOrDefaultAsync(x => x.Id.Equals(request.Id));
 
                 if (user == null)
