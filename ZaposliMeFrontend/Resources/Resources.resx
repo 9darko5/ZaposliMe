@@ -513,4 +513,40 @@
   <data name="EmployerReviews" xml:space="preserve">
     <value>Employer Reviews</value>
   </data>
+  <data name="ClickStarToRate" xml:space="preserve">
+    <value>Click a star to rate (1–5).</value>
+  </data>
+  <data name="Rating" xml:space="preserve">
+    <value>Rating</value>
+  </data>
+  <data name="CommentOptional" xml:space="preserve">
+    <value>Comment (optional)</value>
+  </data>
+  <data name="ReviewSubmitted" xml:space="preserve">
+    <value>Review submitted.</value>
+  </data>
+  <data name="SubmitReview" xml:space="preserve">
+    <value>Submit review</value>
+  </data>
+  <data name="LeaveReview" xml:space="preserve">
+    <value>Leave a review</value>
+  </data>
+  <data name="NoDataAvailable" xml:space="preserve">
+    <value>No data available.</value>
+  </data>
+  <data name="RotalReviewsLower" xml:space="preserve">
+    <value>total reviews</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>comments</value>
+  </data>
+  <data name="ThisEmployerHasNoIndividualReviewsYet" xml:space="preserve">
+    <value>This employer has no individual reviews yet.</value>
+  </data>
+  <data name="NoComment" xml:space="preserve">
+    <value>No comment provided.</value>
+  </data>
+  <data name="By" xml:space="preserve">
+    <value>by</value>
+  </data>
 </root>

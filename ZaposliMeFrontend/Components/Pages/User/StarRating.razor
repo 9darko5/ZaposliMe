@@ -1,6 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<ZaposliMe.Frontend.Resources.Resources> L
 
-<fieldset class="star-rating" role="radiogroup" aria-label="Rating">
+<fieldset class="star-rating" role="radiogroup" aria-label="@L["Rating"]">
     <InputRadioGroup @bind-Value="CurrentValue" Name="@groupName">
         @for (var i = 1; i <= Max; i++)
         {

@@ -54,10 +54,10 @@ else
                         <td class="text-end">@r.AverageRating.ToString("0.0")</td>
                         <td class="d-flex gap-2">
                             <button class="btn btn-sm btn-primary" @onclick="() => GoToDetails(r.EmployerId)">
-                                Details
+                                @L["Details"]
                             </button>
                             <button class="btn btn-sm btn-secondary" @onclick="() => reviewModal.Open(r.EmployerId, r.EmployerFullName)">
-                                Leave review
+                                @L["LeaveReview"]
                             </button>
                         </td>
                     </tr>

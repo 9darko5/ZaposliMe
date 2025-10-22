@@ -513,4 +513,40 @@
   <data name="EmployerReviews" xml:space="preserve">
     <value>Оцјене послодаваца</value>
   </data>
+  <data name="ClickStarToRate" xml:space="preserve">
+    <value>Кликни на звјездицу да оцијениш (1-5).</value>
+  </data>
+  <data name="Rating" xml:space="preserve">
+    <value>Оцјена</value>
+  </data>
+  <data name="CommentOptional" xml:space="preserve">
+    <value>Коментар (опционо)</value>
+  </data>
+  <data name="ReviewSubmitted" xml:space="preserve">
+    <value>Оцјена послата.</value>
+  </data>
+  <data name="SubmitReview" xml:space="preserve">
+    <value>Пошаљи оцјену</value>
+  </data>
+  <data name="LeaveReview" xml:space="preserve">
+    <value>Остави оцјену</value>
+  </data>
+  <data name="NoDataAvailable" xml:space="preserve">
+    <value>Нема података.</value>
+  </data>
+  <data name="RotalReviewsLower" xml:space="preserve">
+    <value>укупно оцјена</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>коментара</value>
+  </data>
+  <data name="ThisEmployerHasNoIndividualReviewsYet" xml:space="preserve">
+    <value>Послодавац још увијек нема оцјена.</value>
+  </data>
+  <data name="NoComment" xml:space="preserve">
+    <value>Нема коментара.</value>
+  </data>
+  <data name="By" xml:space="preserve">
+    <value>поставио</value>
+  </data>
 </root>

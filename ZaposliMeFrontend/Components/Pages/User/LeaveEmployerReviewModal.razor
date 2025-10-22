@@ -1,5 +1,7 @@
 ﻿@using System.ComponentModel.DataAnnotations
 @using ZaposliMe.Application.DTOs.User
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<ZaposliMe.Frontend.Resources.Resources> L
 @inject HttpClient Http
 
 @if (showModal)
@@ -9,8 +11,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">
-                        Leave a review @if (!string.IsNullOrEmpty(EmployerFullName)) {
-                        <text>for @EmployerFullName</text>
+                        @L["LeaveReview"] @if (!string.IsNullOrEmpty(EmployerFullName)) {
+                        <text>@L["For"] @EmployerFullName</text>
                     }
                 </h5>
                 <button type="button" class="btn-close" aria-label="Close" @onclick="Close"></button>
@@ -22,14 +24,14 @@
 
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label class="form-label d-block">Rating</label>
+                        <label class="form-label d-block">@L["Rating"]</label>
                         <StarRating @bind-Value="form.Rating" Max="5" />
-                        <div class="form-text">Click a star to rate (1–5).</div>
+                        <div class="form-text">@L["ClickStarToRate"]</div>
                         <ValidationMessage For="@(() => form.Rating)" />
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Comment (optional)</label>
+                        <label class="form-label">@L["CommentOptional"]</label>
                         <InputTextArea class="form-control" @bind-Value="form.Comment" rows="4" maxlength="4000" />
                     </div>
 
@@ -39,18 +41,18 @@
                     }
                     @if (submitSuccess)
                     {
-                        <div class="alert alert-success" role="alert">Review submitted.</div>
+                        <div class="alert alert-success" role="alert">@L["ReviewSubmitted"]</div>
                     }
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary" @onclick="Close">Cancel</button>
+                    <button type="button" class="btn btn-outline-secondary" @onclick="Close">@L["Cancel"]</button>
                     <button type="submit" class="btn btn-success" disabled="@(submitting)">
                         @if (submitting)
                         {
                             <span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
                         }
-                        Submit review
+                        @L["SubmitReview"]
                     </button>
                 </div>
             </EditForm>
