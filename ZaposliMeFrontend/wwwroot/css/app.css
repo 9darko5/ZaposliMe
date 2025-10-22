@@ -106,3 +106,43 @@ code {
     min-height: 64px;
 }
 
+.star-rating {
+    display: inline-flex;
+    gap: .25rem;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+.sr-only {
+    position: absolute !important;
+    clip: rect(1px,1px,1px,1px);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.star-label {
+    font-size: 1.75rem;
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+    color: #adb5bd; 
+    transition: transform .05s ease-in-out;
+}
+
+    .star-label.on {
+        color: #ffc107;
+    }
+
+    .star-label:active {
+        transform: scale(0.95);
+    }
+
+    .star-label:focus {
+        outline: 2px solid #6c757d;
+        outline-offset: 2px;
+        border-radius: 4px;
+    }

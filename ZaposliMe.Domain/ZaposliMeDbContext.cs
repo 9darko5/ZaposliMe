@@ -12,6 +12,7 @@ namespace ZaposliMe.Persistance
         }
 
         public DbSet<Job> Jobs { get; set; }
+        public DbSet<EmployerReview> EmployerReviews { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -492,4 +492,25 @@
   <data name="Filter" xml:space="preserve">
     <value>Filtriraj</value>
   </data>
+  <data name="LeaveOrSeeReviews" xml:space="preserve">
+    <value>Ocijeni ili pogledaj ocjene</value>
+  </data>
+  <data name="AverageRating" xml:space="preserve">
+    <value>Prosječna ocjena</value>
+  </data>
+  <data name="CommentCount" xml:space="preserve">
+    <value>Broj komentara</value>
+  </data>
+  <data name="TotalReviews" xml:space="preserve">
+    <value>Ukupno ocjena</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Ime</value>
+  </data>
+  <data name="NoReviewsFound" xml:space="preserve">
+    <value>Nema ocjena.</value>
+  </data>
+  <data name="EmployerReviews" xml:space="preserve">
+    <value>Ocjene poslodavaca</value>
+  </data>
 </root>

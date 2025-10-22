@@ -291,7 +291,7 @@
     "ContainingType": "ZaposliMe.WebAPI.Controllers.UserController",
     "Method": "LeaveEmployerReview",
     "RelativePath": "api/User/leaveEmployerReview",
-    "HttpMethod": "PUT",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [

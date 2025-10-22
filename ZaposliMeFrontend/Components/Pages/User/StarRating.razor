@@ -1,0 +1,51 @@
+﻿@using Microsoft.AspNetCore.Components.Forms
+
+<fieldset class="star-rating" role="radiogroup" aria-label="Rating">
+    <InputRadioGroup @bind-Value="CurrentValue" Name="@groupName">
+        @for (var i = 1; i <= Max; i++)
+        {
+            var idx = i; // important: capture a local per iteration
+            var inputId = $"{uid}-star-{idx}";
+            var isOn = (hover > 0 ? hover : CurrentValue) >= idx;
+
+            <InputRadio TValue="int"
+                        Value="@idx"
+                        id="@inputId"
+                        class="star-input sr-only" />
+
+            <label for="@inputId"
+                   class="star-label @(isOn ? "on" : null)"
+                   @onmouseover="() => hover = idx"
+                   @onmouseout="() => hover = 0"
+                   aria-label="@($"{idx} star{(idx == 1 ? "" : "s")}")">
+                ★
+            </label>
+        }
+    </InputRadioGroup>
+</fieldset>
+
+@code {
+    [Parameter] public int Max { get; set; } = 5;
+
+    // Parent usage: <StarRating @bind-Value="form.Rating" />
+    [Parameter] public int Value { get; set; }
+    [Parameter] public EventCallback<int> ValueChanged { get; set; }
+
+    private int hover;
+    private readonly string uid = $"stars-{Guid.NewGuid():N}";
+    private readonly string groupName = $"group-{Guid.NewGuid():N}";
+
+    // Proxy used by InputRadioGroup binding; forwards changes to parent.
+    private int CurrentValue
+    {
+        get => Value;
+        set
+        {
+            if (Value != value)
+            {
+                Value = value;
+                _ = ValueChanged.InvokeAsync(value);
+            }
+        }
+    }
+}

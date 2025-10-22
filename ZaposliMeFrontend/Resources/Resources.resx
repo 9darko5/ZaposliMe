@@ -492,4 +492,25 @@
   <data name="Filter" xml:space="preserve">
     <value>Filter</value>
   </data>
+  <data name="LeaveOrSeeReviews" xml:space="preserve">
+    <value>Leave or see reviews</value>
+  </data>
+  <data name="AverageRating" xml:space="preserve">
+    <value>Average Rating</value>
+  </data>
+  <data name="CommentCount" xml:space="preserve">
+    <value>Comment Count</value>
+  </data>
+  <data name="TotalReviews" xml:space="preserve">
+    <value>Total Reviews</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Full name</value>
+  </data>
+  <data name="NoReviewsFound" xml:space="preserve">
+    <value>No reviews found.</value>
+  </data>
+  <data name="EmployerReviews" xml:space="preserve">
+    <value>Employer Reviews</value>
+  </data>
 </root>

@@ -1,0 +1,165 @@
+﻿@using System.ComponentModel.DataAnnotations
+@using ZaposliMe.Application.DTOs.User
+@inject HttpClient Http
+
+@if (showModal)
+{
+    <div class="modal fade show d-block" tabindex="-1" style="background-color: rgba(0,0,0,.5);" role="dialog" aria-modal="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        Leave a review @if (!string.IsNullOrEmpty(EmployerFullName)) {
+                        <text>for @EmployerFullName</text>
+                    }
+                </h5>
+                <button type="button" class="btn-close" aria-label="Close" @onclick="Close"></button>
+            </div>
+
+            <EditForm Model="form" OnValidSubmit="SubmitReview">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label d-block">Rating</label>
+                        <StarRating @bind-Value="form.Rating" Max="5" />
+                        <div class="form-text">Click a star to rate (1–5).</div>
+                        <ValidationMessage For="@(() => form.Rating)" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Comment (optional)</label>
+                        <InputTextArea class="form-control" @bind-Value="form.Comment" rows="4" maxlength="4000" />
+                    </div>
+
+                    @if (!string.IsNullOrWhiteSpace(submitError))
+                    {
+                        <div class="alert alert-danger" role="alert">@submitError</div>
+                    }
+                    @if (submitSuccess)
+                    {
+                        <div class="alert alert-success" role="alert">Review submitted.</div>
+                    }
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" @onclick="Close">Cancel</button>
+                    <button type="submit" class="btn btn-success" disabled="@(submitting)">
+                        @if (submitting)
+                        {
+                            <span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
+                        }
+                        Submit review
+                    </button>
+                </div>
+            </EditForm>
+        </div>
+    </div>
+</div>
+}
+
+@code {
+    // Public API (parent uses @ref to call Open/Close)
+    [Parameter] public EventCallback OnSubmitted { get; set; }
+    [Parameter] public string PostUrl { get; set; } = "api/user/leaveEmployerReview";
+
+    // Context shown in the modal header; set by Open()
+    public string EmployerId { get; private set; }
+    public string EmployerFullName { get; private set; }
+
+    // Modal state
+    private bool showModal;
+    private bool submitting;
+    private bool submitSuccess;
+    private string? submitError;
+
+    // Form model + validation
+    private ReviewForm form = new();
+
+    public void Open(string employerId, string employerFullName)
+    {
+        EmployerId = employerId;
+        EmployerFullName = employerFullName;
+
+        form = new ReviewForm
+        {
+            EmployerId = employerId,
+            Rating = 5,
+            Comment = null
+        };
+
+        submitError = null;
+        submitSuccess = false;
+        submitting = false;
+        showModal = true;
+        StateHasChanged();
+    }
+
+    public void Close()
+    {
+        showModal = false;
+        submitting = false;
+        submitError = null;
+        submitSuccess = false;
+        StateHasChanged();
+    }
+
+    private async Task SubmitReview()
+    {
+        submitting = true;
+        submitError = null;
+        submitSuccess = false;
+
+        try
+        {
+            // Map to server DTO
+            var payload = new EmployerReviewDto
+            {
+                EmployerId = form.EmployerId!,
+                Rating = form.Rating,
+                Comment = string.IsNullOrWhiteSpace(form.Comment) ? null : form.Comment
+                // Server typically fills Id, CreatedAt, CreatedBy, CreatedByFullName
+            };
+
+            var resp = await Http.PostAsJsonAsync("https://localhost:7097/" + PostUrl, payload);
+
+            if (!resp.IsSuccessStatusCode)
+            {
+                var msg = await resp.Content.ReadAsStringAsync();
+                submitError = $"Failed to submit review ({(int)resp.StatusCode}). {msg}";
+                return;
+            }
+
+            submitSuccess = true;
+
+            // Notify parent to refresh grid
+            if (OnSubmitted.HasDelegate)
+                await OnSubmitted.InvokeAsync();
+
+            // Close after success
+            Close();
+        }
+        catch (Exception ex)
+        {
+            submitError = $"Unexpected error: {ex.Message}";
+        }
+        finally
+        {
+            submitting = false;
+        }
+    }
+
+    // ====== Inner types ======
+    private class ReviewForm
+    {
+        [Required]
+        public string? EmployerId { get; set; }
+
+        [Range(1, 5, ErrorMessage = "Rating must be between 1 and 5.")]
+        public int Rating { get; set; } = 5;
+
+        [MaxLength(4000)]
+        public string? Comment { get; set; }
+    }
+}

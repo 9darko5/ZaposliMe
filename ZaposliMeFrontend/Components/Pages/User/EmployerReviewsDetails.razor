@@ -1,6 +1,8 @@
 ﻿@page "/employerreviewsdetails/{employerId}"
 @using System.Net.Http.Json
 @using ZaposliMe.Application.DTOs.User
+@inject NavigationManager Nav
+
 @inject HttpClient Http
 @inject NavigationManager Nav
 
@@ -25,7 +27,12 @@ else
 {
     <div class="d-flex align-items-center justify-content-between mb-3">
         <h3 class="mb-0">@data.EmployerFullName</h3>
-        @* <button class="btn btn-outline-secondary" @onclick="() => Nav.NavigateTo("/employerreviews")">← Back</button> *@
+
+        <div class="d-flex gap-2">
+            <button class="btn btn-secondary" @onclick="OpenReviewModal">
+                Leave review
+            </button>
+        </div>
     </div>
 
     <!-- Summary (no cards) -->
@@ -33,13 +40,12 @@ else
         <div class="d-flex flex-wrap align-items-center gap-4 p-3 border rounded-3 bg-light">
             <!-- Average rating highlighted -->
             <div class="d-flex align-items-center gap-3">
-                <div class="display-5 fw-bold mb-0">@data.AverageRating.ToString("0.00")</div>
+                <div class="display-5 fw-bold mb-0">@data.AverageRating.ToString("0.0")</div>
                 <div class="text-warning" style="font-size:1.6rem; line-height:1">
                     @((MarkupString)Stars((int)Math.Round((double)data.AverageRating)))
                 </div>
             </div>
 
-            <!-- Divider on larger screens -->
             <div class="vr d-none d-md-block"></div>
 
             <!-- Inline stats -->
@@ -66,7 +72,7 @@ else
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex align-items-center justify-content-between mb-2">
                                 <div class="text-warning" style="font-size:1.1rem">@((MarkupString)Stars(r.Rating))</div>
-                                <small class="text-muted">@r.CreatedAt.ToString("dd.MM.yyyy HH:mm")</small>
+                                <small class="text-muted">@r.CreatedAt?.ToString("dd.MM.yyyy HH:mm")</small>
                             </div>
                             @if (!string.IsNullOrWhiteSpace(r.Comment))
                             {
@@ -87,6 +93,11 @@ else
     }
 }
 
+/* ---- Reusable leave-review modal (opens on button above) ---- */
+<LeaveEmployerReviewModal @ref="reviewModal"
+                     PostUrl="api/user/leaveEmployerReview"
+                     OnSubmitted="RefreshDetails" />
+
 @code {
     [Parameter] public string employerId { get; set; } = default!;
 
@@ -94,7 +105,15 @@ else
     private bool isLoading = true;
     private string? error;
 
+    // reference to modal component
+    private LeaveEmployerReviewModal? reviewModal;
+
     protected override async Task OnParametersSetAsync()
+    {
+        await LoadDetailsAsync();
+    }
+
+    private async Task LoadDetailsAsync()
     {
         isLoading = true;
         error = null;
@@ -112,6 +131,14 @@ else
         {
             isLoading = false;
         }
+    }
+
+    private Task RefreshDetails() => LoadDetailsAsync();
+
+    private void OpenReviewModal()
+    {
+        var name = data?.EmployerFullName ?? "";
+        reviewModal?.Open(employerId, name);
     }
 
     // Simple star renderer: filled ★ and empty ☆ (5 total)

@@ -51,7 +51,7 @@ namespace ZaposliMe.WebAPI.Controllers
             return Ok();
         }
 
-        [HttpPut("leaveEmployerReview")]
+        [HttpPost("leaveEmployerReview")]
         [Authorize]
         public async Task<IActionResult> LeaveEmployerReview(EmployerReviewDto model)
         {

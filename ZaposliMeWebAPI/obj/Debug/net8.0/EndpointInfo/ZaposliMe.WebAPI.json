@@ -462,7 +462,7 @@
       }
     },
     "/api/User/leaveEmployerReview": {
-      "put": {
+      "post": {
         "tags": [
           "User"
         ],
@@ -630,7 +630,8 @@
         "properties": {
           "id": {
             "type": "string",
-            "format": "uuid"
+            "format": "uuid",
+            "nullable": true
           },
           "employerId": {
             "type": "string",
@@ -646,7 +647,8 @@
           },
           "createdAt": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "createdBy": {
             "type": "string",
