@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.RateLimiting;
 using ZaposliMe.Application.Queries.User.GetUserByEmail;
 using ZaposliMe.Domain;
 using ZaposliMe.Domain.Entities.Identity;
@@ -86,6 +87,25 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials()); // MUST for cookies
+});
+
+builder.Services.AddRateLimiter(opts =>
+{
+    opts.GlobalLimiter = PartitionedRateLimiter.Create<HttpContext, string>(ctx =>
+    {
+        var key = ctx.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+        return RateLimitPartition.GetFixedWindowLimiter(
+            partitionKey: key,
+            factory: _ => new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 100,              // 100 zahteva
+                Window = TimeSpan.FromMinutes(1),
+                QueueProcessingOrder = QueueProcessingOrder.OldestFirst,
+                QueueLimit = 0                  // bez čekanja
+            });
+    });
+
+    opts.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
 });
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
