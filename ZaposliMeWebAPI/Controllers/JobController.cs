@@ -66,7 +66,8 @@ namespace ZaposliMe.WebAPI.Controllers
         [FromQuery] DateOnly? to,
         CancellationToken ct)
         {
-            var query = new GetAllJobsQuery(cityId, from, to);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var query = new GetAllJobsQuery(cityId, from, to, userId);
             var jobs = await _sender.Send(query, ct);
             return Ok(jobs);
         }

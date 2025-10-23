@@ -549,4 +549,16 @@
   <data name="By" xml:space="preserve">
     <value>postavio</value>
   </data>
+  <data name="YouSuccessfullyAppliedForJob" xml:space="preserve">
+    <value>Uspješno ste aplicirali za posao</value>
+  </data>
+  <data name="YourApplicationCouldNotBeSubmitted" xml:space="preserve">
+    <value>Tvoja aplikacija ne može biti poslata.</value>
+  </data>
+  <data name="UnknownError" xml:space="preserve">
+    <value>Nepoznata greška</value>
+  </data>
+  <data name="AlreadyAppliedToThisJob" xml:space="preserve">
+    <value>Već ste aplicirali za ovaj posao.</value>
+  </data>
 </root>

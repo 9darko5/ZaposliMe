@@ -16,20 +16,17 @@ namespace ZaposliMe.Application.Queries.Job.GetAllJobs
 
         public async Task<List<JobGridView>> Handle(GetAllJobsQuery request, CancellationToken cancellationToken)
         {
-            // base query (only jobs with capacity)
             IQueryable<JobGridView> q = _context.JobGridViews
+                .AsNoTracking()
                 .Where(x => x.NumberOfWorkers >= 1);
 
-            // City filter
             if (request.CityId is Guid cid)
                 q = q.Where(x => x.CityId == cid);
 
-            // Date filters (CreatedAt assumed DateTime in the view)
-            // from: inclusive; to: inclusive (implemented as < next day)
             if (request.From is DateOnly from)
             {
-                var fromUtc = from.ToDateTime(TimeOnly.MinValue); // adjust if your CreatedAt is UTC/local
-                q = q.Where(x => x.CreatedAt >= fromUtc);
+                var fromDt = from.ToDateTime(TimeOnly.MinValue);
+                q = q.Where(x => x.CreatedAt >= fromDt);
             }
 
             if (request.To is DateOnly to)
@@ -38,7 +35,14 @@ namespace ZaposliMe.Application.Queries.Job.GetAllJobs
                 q = q.Where(x => x.CreatedAt < toExclusive);
             }
 
-            // Order newest first
+            if (!string.IsNullOrWhiteSpace(request.UserId))
+            {
+                var userId = request.UserId!;
+                q = q.Where(job => !_context.UserApplicationViews
+                    .AsNoTracking()
+                    .Any(a => a.JobId == job.Id && a.EmployeeId == userId));
+            }
+
             q = q.OrderByDescending(x => x.CreatedAt);
 
             return await q.ToListAsync(cancellationToken);

@@ -1,6 +1,7 @@
 ﻿@page "/jobs"
 @using System.Globalization
 @using Microsoft.AspNetCore.WebUtilities
+@using System.Text.Json
 @using ZaposliMe.Application.DTOs.Job
 @using Microsoft.Extensions.Localization
 @inject NavigationManager Nav
@@ -10,6 +11,15 @@
 <h3 class="mb-3 d-flex justify-content-between align-items-center">
     @L["AvailableJobs"]
 </h3>
+
+@if (_showSuccessBanner)
+{
+    <div class="alert alert-success alert-dismissible fade show position-fixed top-0 end-0 m-3 shadow"
+         role="alert" style="z-index:1080; min-width: 280px;">
+        @_successMessage
+        <button type="button" class="btn-close" aria-label="Close" @onclick="HideSuccessBanner"></button>
+    </div>
+}
 
 <!-- FILTER BAR -->
 <div class="card mb-3">
@@ -115,6 +125,10 @@ else
                     <div class="card-footer d-flex justify-content-between">
                         <small class="text-muted">@L["WorkersNeeded"]: @job.NumberOfWorkers</small>
                         <div>
+                            <button class="btn btn-sm btn-outline-secondary me-1" @onclick="() => OpenDetails(job)">
+                                @L["Details"]
+                            </button>
+
                             <AuthorizeView Roles="Employee">
                                 <Authorized>
                                     <button class="btn btn-sm btn-primary me-1" @onclick="() => OpenApply(job)">@L["Apply"]</button>
@@ -127,13 +141,28 @@ else
                             </AuthorizeView>
                         </div>
                     </div>
+
                 </div>
             </div>
         }
     </div>
 }
 
-<ApplyJobModal Job="applyingJob" Show="showApplyModal" OnClose="CloseApply" OnConfirm="HandleApply" ShowError="applyError" />
+<ApplyJobModal Job="@applyingJob"
+               Show="@showApplyModal"
+               OnClose="CloseApply"
+               OnConfirm="HandleApply"
+               ShowError="@applyError"
+               ErrorMessage="@applyErrorMessage" />
+
+
+<JobDetailsModal Job="selectedJob"
+                 Show="showDetailsModal"
+                 OnClose="CloseDetails"
+                 StarsFunc="Stars"
+                 OnApply="OpenApplyFromDetails" 
+                 OnRedirectToLogin="RedirectToLogin" />
+
 
 @code {
     private List<JobDto>? jobs;
@@ -148,13 +177,24 @@ else
     private JobDto? applyingJob;
     private bool showApplyModal;
     private bool applyError;
+    private string? applyErrorMessage;
+    private JobDto? selectedJob;
+    private bool showDetailsModal; 
+    
+    private bool _showSuccessBanner;
+    private string? _successMessage;
+
+    private void HideSuccessBanner()
+    {
+        _showSuccessBanner = false;
+        StateHasChanged();
+    }
 
     protected override async Task OnInitializedAsync()
     {
         // Load cities for dropdown
         cities = await Http.GetFromJsonAsync<List<CityDto>>("https://localhost:7097/api/city/all");
 
-        // Load filters from URL (deep-link/back support)
         var uri = new Uri(Nav.Uri);
         var dict = QueryHelpers.ParseQuery(uri.Query);
 
@@ -198,7 +238,6 @@ else
 
     private async Task ApplyFilters()
     {
-        // Sync filters to page URL (shareable/bookmarkable)
         var query = new Dictionary<string, string>();
 
         if (!string.IsNullOrWhiteSpace(filterCityIdStr))
@@ -231,6 +270,8 @@ else
     private void OpenApply(JobDto job)
     {
         applyingJob = job;
+        applyError = false;
+        applyErrorMessage = null;   
         showApplyModal = true;
     }
 
@@ -239,24 +280,39 @@ else
         showApplyModal = false;
         applyingJob = null;
         applyError = false;
+        applyErrorMessage = null;   
     }
+
 
     private async Task HandleApply(JobDto job)
     {
-        var response = await Http.PostAsJsonAsync("https://localhost:7097/api/job/apply", job);
+        try
+        {
+            var response = await Http.PostAsJsonAsync("https://localhost:7097/api/job/apply", job);
 
-        if (response.IsSuccessStatusCode)
-        {
-            await LoadJobs(); // keep current filters
-        }
-        else
-        {
+            if (response.IsSuccessStatusCode)
+            {
+                await LoadJobs(); 
+
+                CloseApply();       
+
+                await ShowSuccessBannerAsync(L["YouSuccessfullyAppliedForJob", job.Title]);     
+
+                return;
+            }
+
             applyError = true;
+            applyErrorMessage = L["ApplyingIsNotPossibleAtTheMoment"];
             StateHasChanged();
         }
-
-        CloseApply();
+        catch
+        {
+            applyError = true;
+            applyErrorMessage = L["ApplyingIsNotPossibleAtTheMoment"];
+            StateHasChanged();
+        }
     }
+
 
     private void RedirectToLogin()
     {
@@ -278,4 +334,40 @@ else
             .Replace("<", "&lt;")
             .Replace(">", "&gt;");
     }
+
+    private async Task ShowSuccessBannerAsync(string message, int milliseconds = 5000)
+    {
+        _successMessage = message;
+        _showSuccessBanner = true;
+        StateHasChanged();
+
+        try { await Task.Delay(milliseconds); }
+        catch { /* ignore */ }
+        finally
+        {
+            HideSuccessBanner();
+        }
+    }
+
+    private void OpenDetails(JobDto job)
+    {
+        selectedJob = job;
+        showDetailsModal = true;
+    }
+
+    private void CloseDetails()
+    {
+        showDetailsModal = false;
+        selectedJob = null;
+    }
+
+    private async Task OpenApplyFromDetails(JobDto job)
+    {
+        showDetailsModal = false;
+        StateHasChanged();          
+
+        await Task.Yield();        
+        OpenApply(job);             
+    }
+
 }

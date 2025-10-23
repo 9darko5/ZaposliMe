@@ -549,4 +549,16 @@
   <data name="By" xml:space="preserve">
     <value>by</value>
   </data>
+  <data name="YouSuccessfullyAppliedForJob" xml:space="preserve">
+    <value>You successfully applied for job</value>
+  </data>
+  <data name="YourApplicationCouldNotBeSubmitted" xml:space="preserve">
+    <value>Your application could not be submitted.</value>
+  </data>
+  <data name="UnknownError" xml:space="preserve">
+    <value>Unknown error</value>
+  </data>
+  <data name="AlreadyAppliedToThisJob" xml:space="preserve">
+    <value>You lready applied to this job.</value>
+  </data>
 </root>

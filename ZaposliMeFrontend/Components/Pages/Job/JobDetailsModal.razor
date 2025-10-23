@@ -1,0 +1,118 @@
+﻿@using ZaposliMe.Application.DTOs.Job
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<ZaposliMe.Frontend.Resources.Resources> L
+
+@if (Show && Job is not null)
+{
+    <!-- Backdrop -->
+    <div class="modal-backdrop fade show"></div>
+
+    <!-- Modal -->
+    <div class="modal fade show d-block" tabindex="-1" role="dialog" aria-modal="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content shadow">
+                <div class="modal-header">
+                    <h5 class="modal-title">@Job.Title</h5>
+                    <button type="button" class="btn-close" aria-label="Close" @onclick="OnClose" />
+                </div>
+
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <div class="small text-muted">@L["Description"]</div>
+                            <div>
+                                @if (!string.IsNullOrWhiteSpace(Job.Description))
+                                {
+                                    <p class="mb-3">@Job.Description</p>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <div class="small text-muted">@L["Location"]</div>
+                            <div>@Job.CityName</div>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <div class="small text-muted">@L["CreatedAt"]</div>
+                            <div>@Job.CreatedAt.ToString("dd.MM.yyyy HH:mm")</div>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <div class="small text-muted">@L["WorkersNeeded"]</div>
+                            <div>@Job.NumberOfWorkers</div>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <div class="small text-muted">@L["CreatedBy"]</div>
+                            <div>
+                                @if (!string.IsNullOrWhiteSpace(Job.EmployerId))
+                                {
+                                    <a href="@($"/employerreviewsdetails/{Uri.EscapeDataString(Job.EmployerId)}")"
+                                       target="_blank" rel="noopener noreferrer"
+                                       class="link-primary link-underline-opacity-0">
+                                        @Job.EmployerFullName
+                                    </a>
+                                }
+                                else
+                                {
+                                    @Job.EmployerFullName
+                                }
+
+                                @if (Job.EmployerRating is not null)
+                                {
+                                    <span class="ms-2 align-middle" title="@Job.EmployerRating?.ToString("0.00")">
+                                        <span class="text-warning" style="line-height:1">
+                                            @((MarkupString)StarsFunc?.Invoke(Job.EmployerRating)!)
+                                        </span>
+                                    </span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @onclick="OnClose">
+                        @L["Close"]
+                    </button>
+
+                    <!-- Apply button with same auth logic as cards -->
+                    <AuthorizeView Roles="Employee">
+                        <Authorized>
+                            <button type="button"
+                                    class="btn btn-primary"
+                                    disabled="@(Job.NumberOfWorkers < 1)"
+                                    @onclick="() => OnApply.InvokeAsync(Job)">
+                                @L["Apply"]
+                            </button>
+                        </Authorized>
+                    </AuthorizeView>
+
+                    <AuthorizeView>
+                        <NotAuthorized>
+                            <button type="button"
+                                    class="btn btn-primary"
+                                    @onclick="() => OnRedirectToLogin.InvokeAsync()">
+                                @L["Apply"]
+                            </button>
+                        </NotAuthorized>
+                    </AuthorizeView>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public JobDto? Job { get; set; }
+    [Parameter] public bool Show { get; set; }
+    [Parameter] public EventCallback OnClose { get; set; }
+
+    // Reuse your page helper to render stars:
+    [Parameter] public Func<decimal?, string>? StarsFunc { get; set; }
+
+    // NEW: callbacks
+    [Parameter] public EventCallback<JobDto> OnApply { get; set; }
+    [Parameter] public EventCallback OnRedirectToLogin { get; set; }
+}
