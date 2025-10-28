@@ -219,9 +219,6 @@
   <data name="Jobs" xml:space="preserve">
     <value>Послови</value>
   </data>
-  <data name="JoinOurMarketplace" xml:space="preserve">
-    <value>Придружите нам се да бисте брзо повезали послодавце са квалификованим људима.</value>
-  </data>
   <data name="Loading" xml:space="preserve">
     <value>Учитавање...</value>
   </data>
@@ -560,5 +557,8 @@
   </data>
   <data name="AlreadyAppliedToThisJob" xml:space="preserve">
     <value>Већ сте аплицирали за овај посао.</value>
+  </data>
+  <data name="AcceptApplicationToSeePhone" xml:space="preserve">
+    <value>Прихвати апликацију да видиш телефон</value>
   </data>
 </root>

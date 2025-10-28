@@ -11,6 +11,7 @@ namespace ZaposliMe.Application.DTOs.Job
         public string JobTitle { get; set; }
         public string JobDescription { get; set; }
         public string EmployeeFullName { get; set; }
+        public string EmployeePhone { get; set; }
         public DateTime? AppliedAt { get; set; }
         public DateTime? StatusChangedAt { get; set; }
         public DateTime JobCreatedAt { get; set; }

@@ -124,7 +124,7 @@
 					<Element Type="SqlIndexedColumnSpecification">
 						<Relationship Name="Column">
 							<Entry>
-								<References Name="[zaposlime].[Job].[Id]" />
+								<References Name="[identity].[AspNetRoles].[Id]" />
 							</Entry>
 						</Relationship>
 					</Element>
@@ -132,7 +132,7 @@
 			</Relationship>
 			<Relationship Name="DefiningTable">
 				<Entry>
-					<References Name="[zaposlime].[Job]" />
+					<References Name="[identity].[AspNetRoles]" />
 				</Entry>
 			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="7" />
@@ -143,7 +143,7 @@
 					<Element Type="SqlIndexedColumnSpecification">
 						<Relationship Name="Column">
 							<Entry>
-								<References Name="[identity].[AspNetRoles].[Id]" />
+								<References Name="[zaposlime].[Job].[Id]" />
 							</Entry>
 						</Relationship>
 					</Element>
@@ -151,7 +151,7 @@
 			</Relationship>
 			<Relationship Name="DefiningTable">
 				<Entry>
-					<References Name="[identity].[AspNetRoles]" />
+					<References Name="[zaposlime].[Job]" />
 				</Entry>
 			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="8" />
@@ -259,7 +259,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="8" />
+						<AttachedAnnotation Disambiguator="7" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -1711,6 +1711,7 @@
       ,a.[StatusChangedAt]
 	  ,j.[EmployerId]
 	  ,u.FirstName + ' ' + u.LastName AS EmployeeFullName
+	  ,u.PhoneNumber AS EmployeePhone
 	  ,j.CreatedAt AS JobCreatedAt
   FROM [zaposlime].[Application] a
   LEFT JOIN [zaposlime].[Job] j ON J.Id = a.JobId
@@ -1794,6 +1795,15 @@
 					<Element Type="SqlComputedColumn" Name="[zaposlime].[EmployerApplicationView].[EmployeeFullName]" />
 				</Entry>
 				<Entry>
+					<Element Type="SqlComputedColumn" Name="[zaposlime].[EmployerApplicationView].[EmployeePhone]">
+						<Relationship Name="ExpressionDependencies">
+							<Entry>
+								<References Name="[identity].[AspNetUsers].[PhoneNumber]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
 					<Element Type="SqlComputedColumn" Name="[zaposlime].[EmployerApplicationView].[JobCreatedAt]">
 						<Relationship Name="ExpressionDependencies">
 							<Entry>
@@ -1856,6 +1866,9 @@
 					<References Name="[identity].[AspNetUsers].[LastName]" />
 				</Entry>
 				<Entry>
+					<References Name="[identity].[AspNetUsers].[PhoneNumber]" />
+				</Entry>
+				<Entry>
 					<References Name="[zaposlime].[Job].[CreatedAt]" />
 				</Entry>
 			</Relationship>
@@ -1865,7 +1878,7 @@
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="486" />
+				<Property Name="Length" Value="522" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
 				<Property Name="HeaderContents" Value="CREATE VIEW [zaposlime].[EmployerApplicationView]&#xD;&#xA;&#x9;AS" />
@@ -2407,7 +2420,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="7" />
+						<AttachedAnnotation Disambiguator="8" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -2495,9 +2508,10 @@
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="450" />
 									<Relationship Name="Type">
 										<Entry>
-											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -2525,9 +2539,10 @@
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="450" />
 									<Relationship Name="Type">
 										<Entry>
-											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>

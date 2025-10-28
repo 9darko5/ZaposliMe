@@ -38,6 +38,9 @@ else
                     <th role="button" @onclick="() => SortBy(nameof(EmployerApplicationDto.EmployeeFullName))">
                         @L["Worker"] @SortIcon(nameof(EmployerApplicationDto.EmployeeFullName))
                     </th>
+                    <th role="button" @onclick="() => SortBy(nameof(EmployerApplicationDto.EmployeePhone))">
+                        @L["Phone"] @SortIcon(nameof(EmployerApplicationDto.EmployeePhone))
+                    </th>
                     <th role="button" @onclick="() => SortBy(nameof(EmployerApplicationDto.Status))">
                         @L["State"] @SortIcon(nameof(EmployerApplicationDto.Status))
                     </th>
@@ -57,6 +60,14 @@ else
                     <tr>
                         <td>@a.JobTitle</td>
                         <td>@a.EmployeeFullName</td>
+                        @if (a.Status.Equals(ApplicationStatus.Submitted))
+                        {
+                            <td>@a.EmployeePhone</td>
+                        }
+                        else
+                        {
+                            <td>@L["AcceptApplicationToSeePhone"]</td>
+                        }
                         <td>
                             <span class="@StatusBadgeClass(a.Status)">@a.Status</span>
                         </td>
@@ -113,6 +124,14 @@ else
                     {
                         <p><strong>@L["Job"]:</strong> @selectedApp.JobTitle</p>
                         <p><strong>@L["Applicant"]:</strong> @selectedApp.EmployeeFullName</p>
+                        @if (@selectedApp.Status.Equals(ApplicationStatus.Submitted))
+                        {
+                            <p><strong>@L["Phone"]:</strong> @selectedApp.EmployeePhone</p>
+                        }
+                        else
+                        {
+                            <p><strong>@L["Phone"]:</strong> @L["AcceptApplicationToSeePhone"]</p>
+                        }
                         <p><strong>@L["Description"]:</strong> @selectedApp.JobDescription</p>
                         <p><strong>@L["State"]:</strong> <span class="@StatusBadgeClass(selectedApp.Status)">@selectedApp.Status</span></p>
                     }

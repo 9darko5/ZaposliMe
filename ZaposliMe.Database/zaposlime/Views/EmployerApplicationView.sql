@@ -9,6 +9,7 @@
       ,a.[StatusChangedAt]
 	  ,j.[EmployerId]
 	  ,u.FirstName + ' ' + u.LastName AS EmployeeFullName
+	  ,u.PhoneNumber AS EmployeePhone
 	  ,j.CreatedAt AS JobCreatedAt
   FROM [zaposlime].[Application] a
   LEFT JOIN [zaposlime].[Job] j ON J.Id = a.JobId

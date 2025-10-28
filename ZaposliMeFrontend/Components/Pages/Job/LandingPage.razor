@@ -1,116 +1,223 @@
-﻿@using Microsoft.Extensions.Localization
-@using Microsoft.AspNetCore.Components.Authorization
+﻿@* ZaposliMe – Landing Page (from scratch, srpski tekst, bez @L[]) *@
 @using Microsoft.AspNetCore.Components.Routing
-@using ZaposliMe.Frontend.Components.Shared
-@inject IStringLocalizer<ZaposliMe.Frontend.Resources.Resources> L
 
-<div class="container py-5">
-
-    <!-- Hero -->
-    <section class="p-5 mb-5 bg-light rounded-4 border">
-        <div class="container-fluid">
-            <h1 class="display-5 fw-bold mb-3">@L["FindWorkHireWorker"]</h1>
-            <p class="col-md-9 fs-5 mb-4">
-                @L["JoinOurMarketplace"]<br />
-                @L["WorkersBrowseEmployersPostRoles"]<br />
-                @L["GettingStartedTakesAMinute"]<br />
-            </p>
-
-            <div class="d-flex gap-2 flex-wrap align-items-center">
-                <!-- UI says Worker, backend expects role=Employee -->
-                <NavLink class="btn btn-primary btn-lg" href="/register?role=Employee" aria-label="Register as Worker">
-                    @L["RegisterAsWorker"]
-                </NavLink>
-                <NavLink class="btn btn-outline-secondary btn-lg" href="/register?role=Employer" aria-label="Register as Employer">
-                    @L["RegisterAsEmployer"]
-                </NavLink>
-            </div>
-
-            <div class="mt-3">
-                <span class="text-muted">@L["AlreadyHavaAnAccount"]</span>
-                <NavLink class="ms-1" href="/login">@L["Login"]</NavLink>
-            </div>
-        </div>
-    </section>
-
-    <!-- Value props -->
-    <section class="row g-4 mb-5" aria-label="Key benefits">
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title mb-2">@L["FastAndSimple"]</h5>
-                    <p class="card-text mb-0">
-                        @L["CreateAnAcountQuickly"]
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title mb-2">@L["MadeForEveryone"]</h5>
-                    <p class="card-text mb-0">
-                        @L["WorkersAndEmployerInOnePlace"]
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title mb-2">@L["LocalFirst"]</h5>
-                    <p class="card-text mb-0">
-                        @L["FocusedOnNearbyOpportunities"]
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Dual CTAs -->
-    <section class="row g-4" aria-label="Get started cards">
-        <div class="col-lg-6">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body">
-                    <span class="badge bg-primary mb-2">@L["ForWorkers"]</span>
-                    <h4 class="card-title mb-2">@L["StartApplyingToday"]</h4>
-                    <ul class="mb-3 ps-3">
-                        <li>@L["CreateAProfile"]</li>
-                        <li>@L["BrowseOpeningsAndSaveFavorites"]</li>
-                        <li>@L["ApplyWithOneClick"]</li>
-                    </ul>
-                    <!-- backend still expects Employee -->
-                    <NavLink class="btn btn-primary" href="/register?role=Employee" aria-label="Register as Worker">
-                        @L["RegisterAsWorker"]
+<div class="landing-hero position-relative overflow-hidden py-5 py-md-6 mb-5 rounded-4">
+    <div class="container position-relative">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-7">
+                <h1 class="display-5 fw-bold lh-tight mb-3">Pronađi radnika ili zabodi šljaku</h1>
+                <p class="lead text-body-emphasis mb-4">
+                    Dosadilo ti je da vučeš za rukav i cimaš ljude da nađeš posao na dnevnicu? Zaboravi Viber grupe, zaboravi plaćanje zadruga — potpuno besplatno nađi posao na <strong>Šljakomatu</strong>.
+                    <br />
+                    Poslodavci: umorni ste od posrednika, dugih pregovora i sakrivenih provizija? <strong>Šljakomat</strong> spaja vas direktno sa ljudima koji znaju da zavrnu rukave i urade posao.
+                </p>
+                <div class="d-flex flex-wrap gap-2 align-items-center">
+                    <NavLink class="btn btn-primary btn-lg px-4" href="/register?role=Employee" aria-label="Registruj se kao radnik">
+                        <i class="bi bi-hammer me-2"></i> Registruj se kao radnik
                     </NavLink>
-                </div>
-                <div class="card-footer bg-white">
-                    <small class="text-muted">@L["FreeForAll"]</small>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-6">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body">
-                    <span class="badge bg-secondary mb-2">@L["ForEmployers"]</span>
-                    <h4 class="card-title mb-2">@L["PostAJobInMinutes"]</h4>
-                    <ul class="mb-3 ps-3">
-                        <li>@L["PublishRolesWithClearRequirements"]</li>
-                        <li>@L["ReceiveAndReviewApplications"]</li>
-                        <li>@L["TrackYourPipelineInOnePlace"]</li>
-                    </ul>
-                    <NavLink class="btn btn-secondary" href="/register?role=Employer" aria-label="Register as Employer">
-                        @L["RegisterАsEmployer"]
+                    <NavLink class="btn btn-secondary btn-lg px-4" href="/register?role=Employer" aria-label="Registruj se kao poslodavac">
+                        <i class="bi bi-building-gear me-2"></i> Registruj se kao poslodavac
                     </NavLink>
+                    <NavLink class="btn btn-link text-decoration-none" href="/jobs">Pretraži poslove →</NavLink>
                 </div>
-                <div class="card-footer bg-white">
-                    <small class="text-muted">@L["CreateYourFirstPostingNow"]</small>
+            </div>
+
+            <!-- Ilustrativna kartica / kratki sažetak benefita -->
+            <div class="col-lg-5">
+                <div class="card glass shadow-lg border-0">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-circle"><i class="bi bi-stars"></i></div>
+                            <div>
+                                <h5 class="mb-1">Bez posrednika. Bez provizija.</h5>
+                                <div class="text-body-secondary small">Direktna veza radnik ↔ poslodavac, na dnevnicu ili satnicu.</div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-circle"><i class="bi bi-lightning-charge"></i></div>
+                            <div>
+                                <h5 class="mb-1">Brzo i jednostavno</h5>
+                                <div class="text-body-secondary small">Registracija za minut, prijava na klik, kontakt bez čekanja.</div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="icon-circle"><i class="bi bi-geo-alt"></i></div>
+                            <div>
+                                <h5 class="mb-1">Lokalno prvo</h5>
+                                <div class="text-body-secondary small">Pronađi ljude u blizini ili objavi posao u svom kraju.</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
+    <!-- dekorativni elementi -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
 </div>
+
+<div class="container">
+    <!-- Uvod iz dva ugla -->
+    <section class="row g-4 mb-5" aria-label="Uvod iz dva ugla">
+        <div class="col-lg-6">
+            <div class="p-4 border rounded-4 h-100 shadow-sm">
+                <span class="bg-primary-subtle text-primary-emphasis mb-2"><i class="bi bi-person-badge me-1"></i> <strong>Iz ugla radnika</strong></span>
+                <p class="mb-0 text-body-secondary">
+                    Dosadilo ti je da moliš, zoveš i pitaš za “dnevnica ima li”? Dosta je improvizacije i lutanja po grupama. Na <strong>Šljakomatu</strong> napravi profil, izaberi kategoriju (fizički poslovi, ugostiteljstvo, dostava, pomoćni radovi…) i prijavi se na poslove bez ičije dozvole. Tvoj rad govori umjesto tebe.
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="p-4 border rounded-4 h-100 shadow-sm">
+                <span class="bg-secondary-subtle text-secondary-emphasis mb-2"><i class="bi bi-building me-1"></i> <strong>Iz ugla poslodavca</strong></span>
+                <p class="mb-0 text-body-secondary">
+                    Treba ti pomoć za vikend, sezonu ili “na brzaka”? Bez posrednika i skrivenih troškova — objavi oglas, primaj prijave i kontaktiraj ljude direktno. <strong>Šljakomat</strong> ti skraćuje put od potrebe do gotovog posla.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dvije kolone: koraci -->
+    <section class="row g-4 mb-5" aria-label="Koraci registracije i korišćenja">
+        <!-- Radnik -->
+        <div class="col-lg-6">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="steps-icon me-2"><i class="bi bi-hammer"></i></div>
+                        <h4 class="mb-0">Za radnika – kako funkcioniše</h4>
+                    </div>
+                    <ol class="mb-4 ps-3 text-body-secondary">
+                        <li class="mb-2">Registruj se</li>
+                        <li class="mb-2">Uloguj se</li>
+                        <li class="mb-2">Traži posao</li>
+                        <li class="mb-2">Apliciraj</li>
+                        <li class="mb-2">Prati aplikaciju</li>
+                        <li class="mb-2">Očekuj poziv poslodavca</li>
+                        <li class="mb-0"><em>Dodatna opcija:</em> Ocijeni poslodavca</li>
+                    </ol>
+                    <div class="d-flex gap-2">
+                        <NavLink class="btn btn-primary" href="/register?role=Employee">Registruj se kao radnik</NavLink>
+                        <NavLink class="btn btn-outline-secondary" href="/jobs">Pogledaj poslove</NavLink>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Poslodavac -->
+        <div class="col-lg-6">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="steps-icon me-2"><i class="bi bi-person-workspace"></i></div>
+                        <h4 class="mb-0">Za poslodavca – kako funkcioniše</h4>
+                    </div>
+                    <ol class="mb-4 ps-3 text-body-secondary">
+                        <li class="mb-2">Registruj se</li>
+                        <li class="mb-2">Uloguj se</li>
+                        <li class="mb-2">Kreiraj posao</li>
+                        <li class="mb-2">Prati aplikacije i upravljaj istima</li>
+                        <li class="mb-0">Kada prihvatiš aplikaciju videćeš kontakt detalje radnika i možeš odmah da stupiš u kontakt</li>
+                    </ol>
+                    <div class="d-flex gap-2">
+                        <NavLink class="btn btn-outline-primary" href="/register?role=Employer">Registruj se kao poslodavac</NavLink>
+                        @* <NavLink class="btn btn-outline-secondary" href="/employers/post-job">Objavi posao</NavLink> *@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA traka -->
+    <section class="cta-band text-center py-4 px-3 rounded-4 mb-5">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-3">
+                <div class="fw-semibold">Spremni? Bez provizija, bez čekanja — samo dogovor.</div>
+                <div class="d-flex gap-2">
+                    <NavLink class="btn btn-primary" href="/register?role=Employee"><i class="bi bi-emoji-sunglasses me-1"></i> Postani radnik</NavLink>
+                    <NavLink class="btn btn-outline-light" href="/register?role=Employer"><i class="bi bi-briefcase me-1"></i> Postani poslodavac</NavLink>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+    /* Hero gradient + suptilne mrlje */
+    .landing-hero {
+        background: radial-gradient(1200px 600px at -10% -10%, rgba(13,110,253,.18), transparent), radial-gradient(900px 500px at 110% 20%, rgba(111,66,193,.18), transparent), linear-gradient(135deg, #f8f9fa 0%, #eef2ff 100%);
+    }
+
+        .landing-hero .blob {
+            position: absolute;
+            filter: blur(42px);
+            opacity: .45;
+        }
+
+    .blob-1 {
+        width: 280px;
+        height: 280px;
+        background: #0d6efd;
+        border-radius: 50%;
+        top: -40px;
+        right: -60px;
+    }
+
+    .blob-2 {
+        width: 200px;
+        height: 200px;
+        background: #6f42c1;
+        border-radius: 50%;
+        bottom: -60px;
+        left: -40px;
+    }
+
+    .glass {
+        backdrop-filter: blur(6px);
+        background: rgba(255,255,255,.72);
+    }
+
+    .icon-circle {
+        width: 44px;
+        height: 44px;
+        border-radius: 999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f1f3f5;
+        flex: 0 0 44px;
+        font-size: 1.1rem;
+    }
+
+    .steps-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #eef2ff;
+        font-size: 1.1rem;
+        color: #4f46e5;
+    }
+
+    .cta-band {
+        background: linear-gradient(90deg, rgba(13,110,253,.85), rgba(111,66,193,.85));
+        color: #fff;
+    }
+
+    /* media (min-width: 992px) {
+        .py-md-6
+
+    {
+        padding-top: 5rem !important;
+        padding-bottom: 5rem !important;
+    }
+
+    } */
+</style>
+
+@* Napomena: Za ikonice dodaj u Layout (ako nema):*@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"> 

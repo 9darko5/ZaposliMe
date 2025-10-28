@@ -6,9 +6,9 @@
     [Description]                       NVARCHAR(MAX) NULL, 
     [EmployerId]                        NVARCHAR (450) NOT NULL,
     [CityId]                            UNIQUEIDENTIFIER NOT NULL, 
-    [CreatedBy]                         UNIQUEIDENTIFIER NULL, 
+    [CreatedBy]                         NVARCHAR (450) NULL,
     [CreatedAt]                         DATETIME NULL, 
-    [UpdatedBy]                         UNIQUEIDENTIFIER NULL, 
+    [UpdatedBy]                         NVARCHAR (450) NULL,
     [UpdatedAt]                         DATETIME NULL, 
     CONSTRAINT [FK_Job_User] FOREIGN KEY ([EmployerId]) REFERENCES [identity].[AspNetUsers]([Id]),
     CONSTRAINT [FK_Job_City] FOREIGN KEY ([CityId]) REFERENCES [zaposlime].[City]([Id])
