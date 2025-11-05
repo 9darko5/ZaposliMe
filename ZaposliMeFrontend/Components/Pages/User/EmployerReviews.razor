@@ -91,7 +91,7 @@ else
             error = null;
 
             items = await Http.GetFromJsonAsync<List<EmployerReviewGridReviewDto>>(
-                "https://localhost:7097/api/user/allEmployerReviews");
+                "api/user/allEmployerReviews");
         }
         catch (Exception ex)
         {

@@ -124,7 +124,7 @@
                 // Server typically fills Id, CreatedAt, CreatedBy, CreatedByFullName
             };
 
-            var resp = await Http.PostAsJsonAsync("https://localhost:7097/" + PostUrl, payload);
+            var resp = await Http.PostAsJsonAsync(PostUrl, payload);
 
             if (!resp.IsSuccessStatusCode)
             {

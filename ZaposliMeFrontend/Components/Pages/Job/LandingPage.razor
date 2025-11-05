@@ -1,22 +1,23 @@
-﻿@* ZaposliMe – Landing Page (from scratch, srpski tekst, bez @L[]) *@
+﻿@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<ZaposliMe.Frontend.Resources.Resources> L
 @using Microsoft.AspNetCore.Components.Routing
 
 <div class="landing-hero position-relative overflow-hidden py-5 py-md-6 mb-5 rounded-4">
     <div class="container position-relative">
         <div class="row align-items-center g-4">
             <div class="col-lg-7">
-                <h1 class="display-5 fw-bold lh-tight mb-3">Pronađi radnika ili zabodi šljaku</h1>
+                <h1 class="display-5 fw-bold lh-tight mb-3">@L["FindWorkHireWorker"]</h1>
                 <p class="lead text-body-emphasis mb-4">
-                    Dosadilo ti je da vučeš za rukav i cimaš ljude da nađeš posao na dnevnicu? Zaboravi Viber grupe, zaboravi plaćanje zadruga — potpuno besplatno nađi posao na <strong>Šljakomatu</strong>.
+                    @L["TiredOfScrollingThroughViberGroupsAndAskingAroundJustToFindDailyJob"] @L["ForgetMiddlemenAgenciesAndHiddenFees"] <strong>Šljakomatu</strong>.
                     <br />
-                    Poslodavci: umorni ste od posrednika, dugih pregovora i sakrivenih provizija? <strong>Šljakomat</strong> spaja vas direktno sa ljudima koji znaju da zavrnu rukave i urade posao.
+                    @L["EmployersSkipNegotiationsSkipSomeoneKnowsSomeonePhaseConnectStraight"]
                 </p>
                 <div class="d-flex flex-wrap gap-2 align-items-center">
-                    <NavLink class="btn btn-primary btn-lg px-4" href="/register?role=Employee" aria-label="Registruj se kao radnik">
-                        <i class="bi bi-hammer me-2"></i> Registruj se kao radnik
+                    <NavLink class="btn btn-primary btn-lg px-4" href="/register?role=Employee" aria-label="@L["RegisterAsEorker"]">
+                        <i class="bi bi-hammer me-2"></i> @L["RegisterAsWorker"]
                     </NavLink>
-                    <NavLink class="btn btn-secondary btn-lg px-4" href="/register?role=Employer" aria-label="Registruj se kao poslodavac">
-                        <i class="bi bi-building-gear me-2"></i> Registruj se kao poslodavac
+                    <NavLink class="btn btn-secondary btn-lg px-4" href="/register?role=Employer" aria-label="@L["RegisterAsEmployer"]">
+                        <i class="bi bi-building-gear me-2"></i> @L["RegisterAsEmployer"]
                     </NavLink>
                     <NavLink class="btn btn-link text-decoration-none" href="/jobs">Pretraži poslove →</NavLink>
                 </div>
@@ -29,22 +30,22 @@
                         <div class="d-flex align-items-center gap-3 mb-3">
                             <div class="icon-circle"><i class="bi bi-stars"></i></div>
                             <div>
-                                <h5 class="mb-1">Bez posrednika. Bez provizija.</h5>
-                                <div class="text-body-secondary small">Direktna veza radnik ↔ poslodavac, na dnevnicu ili satnicu.</div>
+                                <h5 class="mb-1">@L["NoMiddlemenNoFees"]</h5>
+                                <div class="text-body-secondary small">@L["DirectConnectionWorkerEmployerPerHourOrPerDay"]</div>
                             </div>
                         </div>
                         <div class="d-flex align-items-center gap-3 mb-3">
                             <div class="icon-circle"><i class="bi bi-lightning-charge"></i></div>
                             <div>
-                                <h5 class="mb-1">Brzo i jednostavno</h5>
-                                <div class="text-body-secondary small">Registracija za minut, prijava na klik, kontakt bez čekanja.</div>
+                                <h5 class="mb-1">@L["FastAndSimple"]</h5>
+                                <div class="text-body-secondary small">@L["SignUpInMinuteApplyWithOneClickGetContactedDirectly"]</div>
                             </div>
                         </div>
                         <div class="d-flex align-items-center gap-3">
                             <div class="icon-circle"><i class="bi bi-geo-alt"></i></div>
                             <div>
-                                <h5 class="mb-1">Lokalno prvo</h5>
-                                <div class="text-body-secondary small">Pronađi ljude u blizini ili objavi posao u svom kraju.</div>
+                                <h5 class="mb-1">@L["LocalFirst"]</h5>
+                                <div class="text-body-secondary small">@L["FindJobNearbyOrPostJobInYourArea"]</div>
                             </div>
                         </div>
                     </div>
@@ -60,47 +61,47 @@
 
 <div class="container">
     <!-- Uvod iz dva ugla -->
-    <section class="row g-4 mb-5" aria-label="Uvod iz dva ugla">
+    <section class="row g-4 mb-5" aria-label="Two perspectives">
         <div class="col-lg-6">
             <div class="p-4 border rounded-4 h-100 shadow-sm">
-                <span class="bg-primary-subtle text-primary-emphasis mb-2"><i class="bi bi-person-badge me-1"></i> <strong>Iz ugla radnika</strong></span>
+                <span class="bg-primary-subtle text-primary-emphasis mb-2"><i class="bi bi-person-badge me-1"></i> <strong>@L["ForWorkers"]</strong></span>
                 <p class="mb-0 text-body-secondary">
-                    Dosadilo ti je da moliš, zoveš i pitaš za “dnevnica ima li”? Dosta je improvizacije i lutanja po grupama. Na <strong>Šljakomatu</strong> napravi profil, izaberi kategoriju (fizički poslovi, ugostiteljstvo, dostava, pomoćni radovi…) i prijavi se na poslove bez ičije dozvole. Tvoj rad govori umjesto tebe.
+                    @L["NoMoreBeggingCallingAsking"]
                 </p>
             </div>
         </div>
         <div class="col-lg-6">
             <div class="p-4 border rounded-4 h-100 shadow-sm">
-                <span class="bg-secondary-subtle text-secondary-emphasis mb-2"><i class="bi bi-building me-1"></i> <strong>Iz ugla poslodavca</strong></span>
+                <span class="bg-secondary-subtle text-secondary-emphasis mb-2"><i class="bi bi-building me-1"></i> <strong>@L["ForEmployers"]</strong></span>
                 <p class="mb-0 text-body-secondary">
-                    Treba ti pomoć za vikend, sezonu ili “na brzaka”? Bez posrednika i skrivenih troškova — objavi oglas, primaj prijave i kontaktiraj ljude direktno. <strong>Šljakomat</strong> ti skraćuje put od potrebe do gotovog posla.
+                    @L["NeedHelpForThe weekendTheSeasonOrRigntNow"]
                 </p>
             </div>
         </div>
     </section>
 
     <!-- Dvije kolone: koraci -->
-    <section class="row g-4 mb-5" aria-label="Koraci registracije i korišćenja">
+    <section class="row g-4 mb-5" aria-label="Steps">
         <!-- Radnik -->
         <div class="col-lg-6">
             <div class="card h-100 border-0 shadow-sm">
                 <div class="card-body p-4">
                     <div class="d-flex align-items-center mb-3">
                         <div class="steps-icon me-2"><i class="bi bi-hammer"></i></div>
-                        <h4 class="mb-0">Za radnika – kako funkcioniše</h4>
+                        <h4 class="mb-0">@L["ForWorkersHowItWorks"]</h4>
                     </div>
                     <ol class="mb-4 ps-3 text-body-secondary">
-                        <li class="mb-2">Registruj se</li>
-                        <li class="mb-2">Uloguj se</li>
-                        <li class="mb-2">Traži posao</li>
-                        <li class="mb-2">Apliciraj</li>
-                        <li class="mb-2">Prati aplikaciju</li>
-                        <li class="mb-2">Očekuj poziv poslodavca</li>
-                        <li class="mb-0"><em>Dodatna opcija:</em> Ocijeni poslodavca</li>
+                        <li class="mb-2">@L["Register"]</li>
+                        <li class="mb-2">@L["Login"]</li>
+                        <li class="mb-2">@L["BrowseJobs"]</li>
+                        <li class="mb-2">@L["Apply"]</li>
+                        <li class="mb-2">@L["TrackApplicationStatus"]</li>
+                        <li class="mb-2">@L["ExpectCallFromEmployer"]</li>
+                        <li class="mb-0"><em>@L["OptionalOption"]:</em> @L["LeaveReview"]</li>
                     </ol>
                     <div class="d-flex gap-2">
-                        <NavLink class="btn btn-primary" href="/register?role=Employee">Registruj se kao radnik</NavLink>
-                        <NavLink class="btn btn-outline-secondary" href="/jobs">Pogledaj poslove</NavLink>
+                        <NavLink class="btn btn-primary" href="/register?role=Employee">@L["RegisterAsWorker"]</NavLink>
+                        <NavLink class="btn btn-outline-secondary" href="/jobs">@L["BrowseJobs"]</NavLink>
                     </div>
                 </div>
             </div>
@@ -112,17 +113,17 @@
                 <div class="card-body p-4">
                     <div class="d-flex align-items-center mb-3">
                         <div class="steps-icon me-2"><i class="bi bi-person-workspace"></i></div>
-                        <h4 class="mb-0">Za poslodavca – kako funkcioniše</h4>
+                        <h4 class="mb-0">@L["ForEmployersHowItWorks"]</h4>
                     </div>
                     <ol class="mb-4 ps-3 text-body-secondary">
-                        <li class="mb-2">Registruj se</li>
-                        <li class="mb-2">Uloguj se</li>
-                        <li class="mb-2">Kreiraj posao</li>
-                        <li class="mb-2">Prati aplikacije i upravljaj istima</li>
-                        <li class="mb-0">Kada prihvatiš aplikaciju videćeš kontakt detalje radnika i možeš odmah da stupiš u kontakt</li>
+                        <li class="mb-2">@L["Register"]</li>
+                        <li class="mb-2">@L["Login"]</li>
+                        <li class="mb-2">@L["CreateJobPost"]</li>
+                        <li class="mb-2">@L["TrackApplicationsAndManageThem"]</li>
+                        <li class="mb-0">@L["OnceYouAcceptAapplicationYouWllSeeTheWokersCntactDetails"]</li>
                     </ol>
                     <div class="d-flex gap-2">
-                        <NavLink class="btn btn-outline-primary" href="/register?role=Employer">Registruj se kao poslodavac</NavLink>
+                        <NavLink class="btn btn-outline-primary" href="/register?role=Employer">@L["RegisterAsEmployer"]</NavLink>
                         @* <NavLink class="btn btn-outline-secondary" href="/employers/post-job">Objavi posao</NavLink> *@
                     </div>
                 </div>
@@ -134,10 +135,10 @@
     <section class="cta-band text-center py-4 px-3 rounded-4 mb-5">
         <div class="container">
             <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-3">
-                <div class="fw-semibold">Spremni? Bez provizija, bez čekanja — samo dogovor.</div>
+                <div class="fw-semibold">@L["ReadyNoFeesNoWiting"]</div>
                 <div class="d-flex gap-2">
-                    <NavLink class="btn btn-primary" href="/register?role=Employee"><i class="bi bi-emoji-sunglasses me-1"></i> Postani radnik</NavLink>
-                    <NavLink class="btn btn-outline-light" href="/register?role=Employer"><i class="bi bi-briefcase me-1"></i> Postani poslodavac</NavLink>
+                    <NavLink class="btn btn-primary" href="/register?role=Employee"><i class="bi bi-emoji-sunglasses me-1"></i> @L["BecomeWorker"]</NavLink>
+                    <NavLink class="btn btn-outline-light" href="/register?role=Employer"><i class="bi bi-briefcase me-1"></i> @L["BecomeEmployer"]</NavLink>
                 </div>
             </div>
         </div>

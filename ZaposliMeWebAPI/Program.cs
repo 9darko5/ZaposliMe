@@ -32,7 +32,9 @@ builder.Services.AddAuthorization();
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.LoginPath = "/account/login"; // ✅ correct minimal API login endpoint
+    options.LoginPath = "/account/login"; 
+    //options.Cookie.SameSite = SameSiteMode.None;
+    //options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
     options.Events.OnRedirectToLogin = context =>
     {
         // Return 401 to Blazor instead of redirecting
@@ -77,7 +79,7 @@ builder.Services.AddMediatR(configuration =>
     configuration.RegisterServicesFromAssemblies(typeof(GetUserByEmailQuery).Assembly);
 });
 
-var frontendUrl = builder.Configuration.GetValue<string>("FrontendUrl") ?? "https://localhost:7005/";
+var frontendUrl = "https://sljakomat-frontend-aubvg2dyf8e5ewfa.westeurope-01.azurewebsites.net";
 
 builder.Services.AddCors(options =>
 {

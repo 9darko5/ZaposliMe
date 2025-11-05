@@ -196,7 +196,7 @@
     <value>Попуните форму</value>
   </data>
   <data name="FindWorkHireWorker" xml:space="preserve">
-    <value>Пронађи посао. Пронађи радника.</value>
+    <value>Пронађи радника или забоди шљаку</value>
   </data>
   <data name="FocusedOnNearbyOpportunities" xml:space="preserve">
     <value>Локацијски прилагођено, тако да су запошљавање и увођење у посао брзи и персонализовани.</value>
@@ -448,7 +448,7 @@
     <value>Старост</value>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>Региструјте се</value>
+    <value>Региструј се</value>
   </data>
   <data name="Location" xml:space="preserve">
     <value>Локација</value>
@@ -560,5 +560,68 @@
   </data>
   <data name="AcceptApplicationToSeePhone" xml:space="preserve">
     <value>Прихвати апликацију да видиш телефон</value>
+  </data>
+  <data name="TiredOfScrollingThroughViberGroupsAndAskingAroundJustToFindDailyJob" xml:space="preserve">
+    <value>Досадило ти је да вучеш за рукав и цимаш људе да нађеш посао на дневницу?</value>
+  </data>
+  <data name="ForgetMiddlemenAgenciesAndHiddenFees" xml:space="preserve">
+    <value>Заборави Вибер групе, заборави плаћање задруга — потпуно бесплатно нађи посао на</value>
+  </data>
+  <data name="EmployersSkipNegotiationsSkipSomeoneKnowsSomeonePhaseConnectStraight" xml:space="preserve">
+    <value>Послодавци: уморни сте од посредника, дугих преговора и сакривених провизија? Шљакомат спаја вас директно са људима који знају да заврну рукаве и ураде посао.</value>
+  </data>
+  <data name="NoMiddlemenNoFees" xml:space="preserve">
+    <value>Без посредника. Без провизија.</value>
+  </data>
+  <data name="DirectConnectionWorkerEmployerPerHourOrPerDay" xml:space="preserve">
+    <value>Директна веза радник ↔ послодавац, на дневницу или сатницу.</value>
+  </data>
+  <data name="SignUpInMinuteApplyWithOneClickGetContactedDirectly" xml:space="preserve">
+    <value>Регистрација за минут, пријава на клик, контакт без чекања.</value>
+  </data>
+  <data name="FindJobNearbyOrPostJobInYourArea" xml:space="preserve">
+    <value>Пронађи посао у близини или објави посао у свом крају.</value>
+  </data>
+  <data name="NoMoreBeggingCallingAsking" xml:space="preserve">
+    <value>Досадило ти је да молиш, зовеш и питаш за “дневница има ли”? Доста је импровизације и лутања по групама. На Шљакомату направи профил и пријави се на послове без ичије дозволе. Твој рад говори умјесто тебе.</value>
+  </data>
+  <data name="NeedHelpForThe weekendTheSeasonOrRigntNow" xml:space="preserve">
+    <value>Треба ти помоћ за викенд, сезону или “на брзака”? Без посредника и скривених трошкова — објави оглас, примај пријаве и контактирај људе директно. Шљакомат ти скраћује пут од потребе до готовог посла.</value>
+  </data>
+  <data name="ForWorkersHowItWorks" xml:space="preserve">
+    <value>За радника – како функционише</value>
+  </data>
+  <data name="BrowseJobs" xml:space="preserve">
+    <value>Тражи посао</value>
+  </data>
+  <data name="TrackApplicationStatus" xml:space="preserve">
+    <value>Прати статус апликације</value>
+  </data>
+  <data name="ExpectCallFromEmployer" xml:space="preserve">
+    <value>Очекуј позив послодавца</value>
+  </data>
+  <data name="OptionalOption" xml:space="preserve">
+    <value>Додатна опција</value>
+  </data>
+  <data name="ForEmployersHowItWorks" xml:space="preserve">
+    <value>За послодавца – како функционише</value>
+  </data>
+  <data name="CreateJobPost" xml:space="preserve">
+    <value>Креирај посао</value>
+  </data>
+  <data name="TrackApplicationsAndManageThem" xml:space="preserve">
+    <value>Прати апликације и управљај истима</value>
+  </data>
+  <data name="OnceYouAcceptAapplicationYouWllSeeTheWokersCntactDetails" xml:space="preserve">
+    <value>Када прихватиш апликацију видећеш контакт детаље радника и можеш одмах да ступиш у контакт</value>
+  </data>
+  <data name="ReadyNoFeesNoWiting" xml:space="preserve">
+    <value>Спремни? Без провизија, без чекања — само договор.</value>
+  </data>
+  <data name="BecomeWorker" xml:space="preserve">
+    <value>Постани радник</value>
+  </data>
+  <data name="BecomeEmployer" xml:space="preserve">
+    <value>Постани послодавац</value>
   </data>
 </root>

@@ -6,3 +6,5 @@
 *.jfm
 /ZaposliMeFrontend/obj
 /ZaposliMeFrontend/bin
+
+.env

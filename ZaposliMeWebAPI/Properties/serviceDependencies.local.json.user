@@ -2,24 +2,24 @@
   "dependencies": {
     "mssql1": {
       "restored": true,
-      "restoreTime": "2025-08-05T09:32:20.4199586Z"
+      "restoreTime": "2025-11-03T15:34:06.5089522Z"
     }
   },
   "parameters": {
     "mssql1.subscriptionId": {
       "Name": "mssql1.subscriptionId",
       "Type": "subscription",
-      "Value": "fa868a12-550c-4e63-8607-4250678f06de"
+      "Value": "c2f7e53e-3d1f-470f-9a9f-41bd69000ddd"
     },
     "mssql1.resourceGroupName": {
       "Name": "mssql1.resourceGroupName",
       "Type": "resourceGroup",
-      "Value": "zaposlime_db"
+      "Value": "rg-sljakomat"
     },
     "mssql1.serviceConnectorResourceGroupName": {
       "Name": "mssql1.serviceConnectorResourceGroupName",
       "Type": "resourceGroup",
-      "Value": "zaposlime_db"
+      "Value": "rg-sljakomat"
     }
   }
 }

@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "apis1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ApiManagement/service/ZaposliMeWebAPIapi/apis/ZaposliMeWebAPI",
+      "type": "apis.azure"
+    },
+    "mssql1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('serviceConnectorResourceGroupName')]/providers/Microsoft.Web/sites/sljakomat/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsZaposliMeConnection_3FB88B9F97",
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/sljakomatdbserver/databases/sljakomat",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:ZaposliMeConnection"
+    }
+  }
+}

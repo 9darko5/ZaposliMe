@@ -1,0 +1,697 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "ZaposliMe.WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Account/user": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Account/register": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RegisterDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Account/login": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/LoginDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Account/logout": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": { }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Account/info": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/City/all": {
+      "get": {
+        "tags": [
+          "City"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Job/create": {
+      "post": {
+        "tags": [
+          "Job"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/JobDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Job/delete/{id}": {
+      "delete": {
+        "tags": [
+          "Job"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Job/update": {
+      "put": {
+        "tags": [
+          "Job"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/JobDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Job/all": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cityId",
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "query",
+            "name": "from"
+          },
+          {
+            "in": "query",
+            "name": "to"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Job/employer/all": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Job/apply": {
+      "post": {
+        "tags": [
+          "Job"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/JobDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Job/userapplications": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Job/employerapplications": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Job/approveapplication": {
+      "post": {
+        "tags": [
+          "Job"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ChangeApplicationStatusDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Job/rejectapplication": {
+      "post": {
+        "tags": [
+          "Job"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ChangeApplicationStatusDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Job/withdrawapplication": {
+      "post": {
+        "tags": [
+          "Job"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ChangeApplicationStatusDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/getUser": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "email",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/updateUser": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UserDetailsDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/leaveEmployerReview": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/EmployerReviewDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/allEmployerReviews": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/allEmployerReviewsById": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "employerId",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/WeatherForecast": {
+      "get": {
+        "tags": [
+          "WeatherForecast"
+        ],
+        "operationId": "WeatherForecast",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WeatherForecast"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ChangeApplicationStatusDto": {
+      "type": "object",
+      "properties": {
+        "applicationId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "jobId": {
+          "format": "uuid",
+          "type": "string"
+        }
+      }
+    },
+    "DateOnly": {
+      "type": "object",
+      "properties": {
+        "year": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "month": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "day": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "dayOfWeek": {
+          "$ref": "#/definitions/DayOfWeek"
+        },
+        "dayOfYear": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "dayNumber": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        }
+      }
+    },
+    "DayOfWeek": {
+      "format": "int32",
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "type": "integer"
+    },
+    "EmployerReviewDto": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "employerId": {
+          "type": "string"
+        },
+        "rating": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "comment": {
+          "type": "string"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdByFullName": {
+          "type": "string"
+        }
+      }
+    },
+    "JobDto": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "numberOfWorkers": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "employerId": {
+          "type": "string"
+        },
+        "employerFullName": {
+          "type": "string"
+        },
+        "employerRating": {
+          "format": "double",
+          "type": "number"
+        },
+        "cityId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "cityName": {
+          "type": "string"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "LoginDto": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "RegisterDto": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "age": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        }
+      }
+    },
+    "UserDetailsDto": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "age": {
+          "format": "int64",
+          "type": "integer"
+        }
+      }
+    },
+    "WeatherForecast": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "$ref": "#/definitions/DateOnly"
+        },
+        "temperatureC": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "temperatureF": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "summary": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

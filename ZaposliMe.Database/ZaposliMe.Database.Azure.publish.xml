@@ -2,9 +2,9 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
-    <TargetDatabaseName>zaposlime</TargetDatabaseName>
+    <TargetDatabaseName>sljakomat</TargetDatabaseName>
     <DeployScriptFileName>ZaposliMe.Database.sql</DeployScriptFileName>
-    <TargetConnectionString>Data Source=zaposlimedbsrvr.database.windows.net;Persist Security Info=True;User ID=darko.djuric;Pooling=False;Multiple Active Result Sets=False;Connect Timeout=60;Encrypt=True;Trust Server Certificate=True;Command Timeout=0</TargetConnectionString>
+    <TargetConnectionString>Data Source=sljakomat.database.windows.net;Persist Security Info=True;User ID=darko;Pooling=False;Multiple Active Result Sets=False;Connect Timeout=60;Encrypt=False;Trust Server Certificate=False;Command Timeout=0</TargetConnectionString>
     <ProfileVersionNumber>1</ProfileVersionNumber>
   </PropertyGroup>
 </Project>

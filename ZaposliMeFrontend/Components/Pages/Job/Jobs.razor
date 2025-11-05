@@ -89,13 +89,19 @@ else
                         {
                             <small class="text-muted">
                                 @L["CreatedBy"]:
-                                <a href="@($"/employerreviewsdetails/{Uri.EscapeDataString(job.EmployerId)}")"
-                                   target="_blank"
-                                   rel="noopener noreferrer"
-                                   class="link-primary link-underline-opacity-0"
-                                   title="@L["LeaveOrSeeReviews"]">
-                                    @job.EmployerFullName
-                                </a>
+                                <AuthorizeView>
+                                    <Authorized>
+                                        <a href="@($"/employerreviewsdetails/{Uri.EscapeDataString(job.EmployerId)}")"
+                                           target="_blank"
+                                           rel="noopener noreferrer"
+                                           class="link-primary link-underline-opacity-0"
+                                           title="@L["LeaveOrSeeReviews"]">
+                                            @job.EmployerFullName
+                                        </a>
+                                    </Authorized>
+                                    <NotAuthorized>@job.EmployerFullName</NotAuthorized>
+                                </AuthorizeView>
+                                
                                 @if (job.EmployerRating is not null)
                                 {
                                     <span class="ms-2 align-middle" title="@job.EmployerRating?.ToString("0.00")">
@@ -193,7 +199,7 @@ else
     protected override async Task OnInitializedAsync()
     {
         // Load cities for dropdown
-        cities = await Http.GetFromJsonAsync<List<CityDto>>("https://localhost:7097/api/city/all");
+        cities = await Http.GetFromJsonAsync<List<CityDto>>("api/city/all");
 
         var uri = new Uri(Nav.Uri);
         var dict = QueryHelpers.ParseQuery(uri.Query);
@@ -217,7 +223,7 @@ else
         loading = true;
         StateHasChanged();
 
-        var baseUrl = "https://localhost:7097/api/job/all";
+        var baseUrl = "api/job/all";
         var query = new Dictionary<string, string>();
 
         if (!string.IsNullOrWhiteSpace(filterCityIdStr))
@@ -288,7 +294,7 @@ else
     {
         try
         {
-            var response = await Http.PostAsJsonAsync("https://localhost:7097/api/job/apply", job);
+            var response = await Http.PostAsJsonAsync("api/job/apply", job);
 
             if (response.IsSuccessStatusCode)
             {

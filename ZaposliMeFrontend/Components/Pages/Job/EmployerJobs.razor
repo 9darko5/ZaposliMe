@@ -67,8 +67,8 @@ else
     protected override async Task OnInitializedAsync()
     {
         // Load cities and jobs
-        var citiesTask = Http.GetFromJsonAsync<List<CityDto>>("https://localhost:7097/api/city/all");
-        var jobsTask = Http.GetFromJsonAsync<List<JobDto>>("https://localhost:7097/api/job/employer/all");
+        var citiesTask = Http.GetFromJsonAsync<List<CityDto>>("api/city/all");
+        var jobsTask = Http.GetFromJsonAsync<List<JobDto>>("api/job/employer/all");
 
         await Task.WhenAll(citiesTask!, jobsTask!);
 
@@ -115,16 +115,16 @@ else
         if (isAdding)
         {
             // POST new job
-            var response = await Http.PostAsJsonAsync("https://localhost:7097/api/job/create", job);
+            var response = await Http.PostAsJsonAsync("api/job/create", job);
             if (response.IsSuccessStatusCode)
             {
-                jobs = await Http.GetFromJsonAsync<List<JobDto>>("https://localhost:7097/api/job/employer/all");
+                jobs = await Http.GetFromJsonAsync<List<JobDto>>("api/job/employer/all");
             }
         }
         else
         {
             // PUT update job
-            var response = await Http.PutAsJsonAsync($"https://localhost:7097/api/job/update", job);
+            var response = await Http.PutAsJsonAsync("api/job/update", job);
             if (response.IsSuccessStatusCode)
             {
                 var index = jobs!.FindIndex(j => j.Id == job.Id);
@@ -148,7 +148,7 @@ else
 
     private async Task HandleDelete(Guid id)
     {
-        var response = await Http.DeleteAsync($"https://localhost:7097/api/job/delete/{id}");
+        var response = await Http.DeleteAsync($"api/job/delete/{id}");
         if (response.IsSuccessStatusCode)
         {
             jobs!.RemoveAll(j => j.Id == id);

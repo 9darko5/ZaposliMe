@@ -561,4 +561,67 @@
   <data name="AcceptApplicationToSeePhone" xml:space="preserve">
     <value>Accept application to see phone</value>
   </data>
+  <data name="TiredOfScrollingThroughViberGroupsAndAskingAroundJustToFindDailyJob" xml:space="preserve">
+    <value>Tired of scrolling through Viber groups and asking around just to find a daily job?</value>
+  </data>
+  <data name="ForgetMiddlemenAgenciesAndHiddenFees" xml:space="preserve">
+    <value>Forget middlemen, agencies and hidden fees — get a job or find workers directly on</value>
+  </data>
+  <data name="EmployersSkipNegotiationsSkipSomeoneKnowsSomeonePhaseConnectStraight" xml:space="preserve">
+    <value>Employers: skip negotiations, skip the “someone knows someone” phase — connect straight with people who are ready to work and get things done.</value>
+  </data>
+  <data name="NoMiddlemenNoFees" xml:space="preserve">
+    <value>No middlemen. No fees.</value>
+  </data>
+  <data name="DirectConnectionWorkerEmployerPerHourOrPerDay" xml:space="preserve">
+    <value>Direct connection worker ↔ employer, per hour or per day.</value>
+  </data>
+  <data name="SignUpInMinuteApplyWithOneClickGetContactedDirectly" xml:space="preserve">
+    <value>Sign up in a minute, apply with one click, get contacted directly.</value>
+  </data>
+  <data name="FindJobNearbyOrPostJobInYourArea" xml:space="preserve">
+    <value>Find job nearby or post a job in your area.</value>
+  </data>
+  <data name="NoMoreBeggingCallingAsking" xml:space="preserve">
+    <value>No more begging, calling, asking “is there a daily job available?”. Create a profile and apply without waiting for permission. Your work speaks for you.</value>
+  </data>
+  <data name="NeedHelpForThe weekendTheSeasonOrRigntNow" xml:space="preserve">
+    <value>Need help for the weekend, the season, or “right now”? Skip intermediaries and hidden costs — post a job, receive applications and contact people directly. Šljakomat shortens the path from need → completed task.</value>
+  </data>
+  <data name="ForWorkersHowItWorks" xml:space="preserve">
+    <value>For workers — how it works</value>
+  </data>
+  <data name="BrowseJobs" xml:space="preserve">
+    <value>Browse jobs</value>
+  </data>
+  <data name="TrackApplicationStatus" xml:space="preserve">
+    <value>Track application status</value>
+  </data>
+  <data name="ExpectCallFromEmployer" xml:space="preserve">
+    <value>Expect a call from the employer</value>
+  </data>
+  <data name="OptionalOption" xml:space="preserve">
+    <value>Optional</value>
+  </data>
+  <data name="ForEmployersHowItWorks" xml:space="preserve">
+    <value>For employers — how it works</value>
+  </data>
+  <data name="CreateJobPost" xml:space="preserve">
+    <value>Create a job post</value>
+  </data>
+  <data name="TrackApplicationsAndManageThem" xml:space="preserve">
+    <value>Track applications and manage them</value>
+  </data>
+  <data name="OnceYouAcceptAapplicationYouWllSeeTheWokersCntactDetails" xml:space="preserve">
+    <value>Once you accept an application, you'll see the worker’s contact details</value>
+  </data>
+  <data name="ReadyNoFeesNoWiting" xml:space="preserve">
+    <value>Ready? No fees, no waiting — just an agreement.</value>
+  </data>
+  <data name="BecomeWorker" xml:space="preserve">
+    <value>Become a worker</value>
+  </data>
+  <data name="BecomeEmployer" xml:space="preserve">
+    <value>Become an employer</value>
+  </data>
 </root>
