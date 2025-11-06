@@ -19,9 +19,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{5D76ACA0-105C-45AC-B9C0-C9F5D0BDC148}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZaposliMe.Persistance", "ZaposliMe.Persistance\ZaposliMe.Persistance.csproj", "{57E81EAF-9193-4E62-B266-43F804390E3D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZaposliMe.Application", "Application\ZaposliMe.Application.csproj", "{ED7FA0A7-FB45-443B-9B23-8392C9FB8B15}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,10 +54,6 @@ Global
 		{107A14A3-634D-4A5F-838B-6309D2CA5177}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{107A14A3-634D-4A5F-838B-6309D2CA5177}.Release|Any CPU.Build.0 = Release|Any CPU
 		{107A14A3-634D-4A5F-838B-6309D2CA5177}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{57E81EAF-9193-4E62-B266-43F804390E3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{57E81EAF-9193-4E62-B266-43F804390E3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{57E81EAF-9193-4E62-B266-43F804390E3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{57E81EAF-9193-4E62-B266-43F804390E3D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ED7FA0A7-FB45-443B-9B23-8392C9FB8B15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ED7FA0A7-FB45-443B-9B23-8392C9FB8B15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED7FA0A7-FB45-443B-9B23-8392C9FB8B15}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -69,7 +68,6 @@ Global
 		{851E2C61-C080-41EB-9660-60B14747B6FE} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{4AEA3F13-F224-4496-B6DD-8E4EFA17A71C} = {5D76ACA0-105C-45AC-B9C0-C9F5D0BDC148}
 		{107A14A3-634D-4A5F-838B-6309D2CA5177} = {5D76ACA0-105C-45AC-B9C0-C9F5D0BDC148}
-		{57E81EAF-9193-4E62-B266-43F804390E3D} = {5D76ACA0-105C-45AC-B9C0-C9F5D0BDC148}
 		{ED7FA0A7-FB45-443B-9B23-8392C9FB8B15} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

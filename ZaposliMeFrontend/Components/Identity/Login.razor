@@ -1,4 +1,4 @@
-@page "/login"
+﻿@page "/login"
 @using System.ComponentModel.DataAnnotations
 @using Microsoft.AspNetCore.Components.Authorization
 @using ZaposliMe.Frontend.Identity
@@ -70,8 +70,16 @@
                                     </div>
 
                                     <div class="d-grid mb-2">
-                                        <button type="submit" class="btn btn-primary btn-lg">
-                                            @L["Login"]
+                                        <button type="submit" class="btn btn-primary btn-lg" disabled="@isSubmitting">
+                                            @if (isSubmitting)
+                                            {
+                                                <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                                                @L["Loading"]  <!-- or just "Logging in..." -->
+                                            }
+                                            else
+                                            {
+                                                @L["Login"]
+                                            }
                                         </button>
                                     </div>
 
@@ -99,6 +107,7 @@
 
 @code {
     private FormResult formResult = new();
+    private bool isSubmitting;
 
     [SupplyParameterFromForm]
     private InputModel Input { get; set; } = new();
@@ -115,31 +124,54 @@
 
     public async Task LoginUserAsync()
     {
-        formResult = await Acct.LoginAsync(Input.Email, Input.Password);
+        if (isSubmitting) return;
 
-        if (formResult.Succeeded)
+        formResult = new FormResult(); // clear old errors
+        isSubmitting = true;
+        try
         {
-            if (!string.IsNullOrWhiteSpace(ReturnUrl))
+            var result = await Acct.LoginAsync(Input.Email, Input.Password);
+            formResult = result;
+
+            if (!result.Succeeded)
+                return;
+
+            // ✅ Token is stored and auth state updated by the provider at this point
+
+            var target = "/";
+            if (!string.IsNullOrWhiteSpace(ReturnUrl) && IsSafeLocalUrl(ReturnUrl))
             {
-                Navigation.NavigateTo(ReturnUrl!, forceLoad: true);
+                target = ReturnUrl!;
             }
-            else
-            {
-                Navigation.NavigateTo("/", forceLoad: true); 
-            }
+
+            // Force reload so top-level AuthorizeViews pick up the new auth state
+            Navigation.NavigateTo(target, forceLoad: true);
         }
+        finally
+        {
+            isSubmitting = false;
+            StateHasChanged();
+        }
+    }
+
+    // Accept only local, relative URLs like "/account" or "/jobs?id=1"
+    private bool IsSafeLocalUrl(string url)
+    {
+        // Reject schemed or protocol-relative URLs (http://, https://, //host)
+        if (url.StartsWith("http://", StringComparison.OrdinalIgnoreCase)) return false;
+        if (url.StartsWith("https://", StringComparison.OrdinalIgnoreCase)) return false;
+        if (url.StartsWith("//")) return false;
+
+        // Allow root-relative or relative paths
+        return url.StartsWith("/") || !url.StartsWith("\\");
     }
 
     private sealed class InputModel
     {
-        [Required]
-        [EmailAddress]
-        [Display(Name = "Email")]
+        [Required, EmailAddress, Display(Name = "Email")]
         public string Email { get; set; } = string.Empty;
 
-        [Required]
-        [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Required, DataType(DataType.Password), Display(Name = "Password")]
         public string Password { get; set; } = string.Empty;
     }
 }

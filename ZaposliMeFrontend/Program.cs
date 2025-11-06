@@ -15,31 +15,16 @@ builder.Services.AddLocalization();
 
 
 // register the cookie handler
-builder.Services.AddTransient<CookieHandler>();
-
-// set up authorization
 builder.Services.AddAuthorizationCore();
+builder.Services.AddTransient<JwtHandler>();
+builder.Services.AddScoped<AuthenticationStateProvider, TokenAuthenticationStateProvider>();
+builder.Services.AddScoped(sp => (IAccountManagement)sp.GetRequiredService<AuthenticationStateProvider>());
 
-// register the custom state provider
-builder.Services.AddScoped<AuthenticationStateProvider, CookieAuthenticationStateProvider>();
-
-// register the account management interface
-builder.Services.AddScoped(
-    sp => (IAccountManagement)sp.GetRequiredService<AuthenticationStateProvider>());
-
-var backendUrl = "https://sljakomat-dgg5dhh6djbygkcf.westeurope-01.azurewebsites.net";
+var backendUrl = "https://sljakomat-dgg5dhh6djbygkcf.westeurope-01.azurewebsites.net"; //"https://localhost:7097";
 
 // configure client for auth interactions
-builder.Services.AddHttpClient(
-    "Backend",
-    opt => opt.BaseAddress = new Uri(backendUrl))
-    .AddHttpMessageHandler<CookieHandler>();
-
-builder.Services.AddScoped(sp =>
-{
-    var factory = sp.GetRequiredService<IHttpClientFactory>();
-    return factory.CreateClient("Backend");
-});
+builder.Services.AddHttpClient("Backend", c => c.BaseAddress = new Uri(backendUrl)).AddHttpMessageHandler<JwtHandler>();
+builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("Backend"));
 
 var host = builder.Build();
 var js = host.Services.GetRequiredService<IJSRuntime>();

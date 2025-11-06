@@ -7,6 +7,10 @@
       "type": "mssql.azure",
       "connectionId": "ConnectionStrings:ZaposliMeConnection",
       "dynamicId": null
+    },
+    "secrets1": {
+      "type": "secrets.user",
+      "dynamicId": null
     }
   }
 }

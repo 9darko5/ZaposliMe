@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 using System.Threading.RateLimiting;
 using ZaposliMe.Application.Queries.User.GetUserByEmail;
 using ZaposliMe.Domain;
@@ -8,6 +9,11 @@ using ZaposliMe.Domain.Generic;
 using ZaposliMe.Domain.Interfaces;
 using ZaposliMe.Domain.Repository;
 using ZaposliMe.Persistance;
+using ZaposliMe.WebAPI.Controllers;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+
 
 var builder = WebApplication.CreateBuilder(args);
 Console.WriteLine("Final Connection String: " + builder.Configuration.GetConnectionString("ZaposliMeConnection"));
@@ -27,23 +33,33 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Add authentication and authorization
-builder.Services.AddAuthentication(IdentityConstants.ApplicationScheme).AddIdentityCookies();
-builder.Services.AddAuthorization();
-
-builder.Services.ConfigureApplicationCookie(options =>
+builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("JWT"));
+builder.Services.AddAuthentication(options =>
 {
-    options.LoginPath = "/account/login"; 
-    //options.Cookie.SameSite = SameSiteMode.None;
-    //options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-    options.Events.OnRedirectToLogin = context =>
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    var jwt = builder.Configuration.GetSection("JWT").Get<JwtOptions>() ?? new();
+    options.TokenValidationParameters = new TokenValidationParameters
     {
-        // Return 401 to Blazor instead of redirecting
-        context.Response.StatusCode = 401;
-        return Task.CompletedTask;
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateIssuerSigningKey = true,
+        ValidateLifetime = true,
+        ValidIssuer = jwt.Issuer,
+        ValidAudience = jwt.Audience,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt.Key)),
+        ClockSkew = TimeSpan.FromSeconds(30)
     };
 });
+builder.Services.AddAuthorization();
 
-builder.Services.AddIdentityCore<User>()
+builder.Services.AddIdentityCore<User>(options =>
+    {
+        options.ClaimsIdentity.UserIdClaimType = ClaimTypes.NameIdentifier;
+    })
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<UserManagementDbContext>()
     .AddApiEndpoints();
@@ -79,16 +95,15 @@ builder.Services.AddMediatR(configuration =>
     configuration.RegisterServicesFromAssemblies(typeof(GetUserByEmailQuery).Assembly);
 });
 
-var frontendUrl = "https://sljakomat-frontend-aubvg2dyf8e5ewfa.westeurope-01.azurewebsites.net";
+var frontendUrl = "https://thankful-bush-0edebdb03.3.azurestaticapps.net"; //"https://localhost:7005";"https://www.sljakomat.org";
 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowBlazor",
         policy => policy
-            .WithOrigins(frontendUrl) // your Blazor WASM client port
+            .WithOrigins(frontendUrl) 
             .AllowAnyHeader()
-            .AllowAnyMethod()
-            .AllowCredentials()); // MUST for cookies
+            .AllowAnyMethod()); 
 });
 
 builder.Services.AddRateLimiter(opts =>

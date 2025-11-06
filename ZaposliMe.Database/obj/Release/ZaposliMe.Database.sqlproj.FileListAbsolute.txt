@@ -1,6 +1,0 @@
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\bin\Release\ZaposliMe.Database.dacpac
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\bin\Release\ZaposliMe.Database.dll
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\bin\Release\ZaposliMe.Database.pdb
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\obj\Release\ZaposliMe.Database.sqlproj.AssemblyReference.cache
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\obj\Release\ZaposliMe.Database.dll
-C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Database\obj\Release\ZaposliMe.Database.pdb
