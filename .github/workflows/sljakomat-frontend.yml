@@ -27,11 +27,7 @@ jobs:
 
       - name: Publish (Blazor WASM)
         run: |
-          dotnet publish ZaposliMeFrontend/ZaposliMe.Frontend.csproj \
-            -c Release \
-            -o published \
-            /p:InvariantGlobalization=false \
-            /p:BlazorWebAssemblyLoadAllGlobalizationData=true
+          dotnet publish ZaposliMeFrontend/ZaposliMe.Frontend.csproj -c Release -o published/p:InvariantGlobalization=false /p:BlazorWebAssemblyLoadAllGlobalizationData=true
 
       # Upload the already-built static site (published/wwwroot)
       - name: Deploy to Azure Static Web Apps
