@@ -1,4 +1,4 @@
-name: Build & Deploy Blazor WASM to SWA (auto-build)
+name: Deploy Blazor WASM to Azure Static Web Apps
 
 on:
   push:
@@ -9,42 +9,47 @@ on:
 
 jobs:
   build_and_deploy:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write
+    # Build & deploy for normal pushes and open PRs
+    if: github.event_name != 'pull_request' || github.event.action != 'closed'
+    runs-on: windows-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Optional but recommended: Use consistent .NET SDK for local restores or generators (not required by the SWA action).
-      - name: Setup .NET
+      - name: Setup .NET 8 SDK
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.415'
 
-      # If you use workloads locally (WASM tools), you can restore to prevent surprises:
-      - name: Restore workloads (optional)
-        run: dotnet workload restore
+      - name: Restore
+        run: dotnet restore ZaposliMeFrontend/ZaposliMe.Frontend.csproj
 
-      # The SWA action will run the build using Oryx. We just point it to the app folder and output folder.
-      - name: Build & Deploy to Azure Static Web Apps
-        id: swa
+      - name: Publish (Blazor WASM)
+        run: |
+          dotnet publish ZaposliMeFrontend/ZaposliMe.Frontend.csproj \
+            -c Release \
+            -o published \
+            /p:InvariantGlobalization=false \
+            /p:BlazorWebAssemblyLoadAllGlobalizationData=true
+
+      # Upload the already-built static site (published/wwwroot)
+      - name: Deploy to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-          # The folder that contains your Blazor WASM project file
-          app_location: ZaposliMeFrontend
-          # The STATIC FILES output folder expected after build.
-          # For Blazor WASM, Oryx publishes to a 'wwwroot' output.
-          output_location: wwwroot
+          action: upload
+          app_location: published/wwwroot
+          skip_app_build: true
           production_branch: main
 
-      # Optional: add a comment with the deployed URL on PRs
-      - name: Comment deployment URL (PRs only)
-        if: ${{ github.event_name == 'pull_request' && steps.swa.outputs.static_web_app_url != '' }}
-        uses: mshick/add-pr-comment@v2
+  close_pr_environment:
+    # Clean up SWA preview environments when PRs close
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Close SWA PR environment
+        uses: Azure/static-web-apps-deploy@v1
         with:
-          message: |
-            Preview deployed: ${{ steps.swa.outputs.static_web_app_url }}
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          action: close
