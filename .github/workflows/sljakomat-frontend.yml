@@ -1,39 +1,54 @@
-name: Deploy Blazor WASM to Azure Static Web Apps
+name: Frontend - Deploy to Azure Static Web Apps
 
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'ZaposliMeFrontend/**'
+      - '.github/workflows/sljakomat-frontend.yml'
   pull_request:
-    types: [opened, synchronize, reopened, closed]
     branches: [ main ]
+    paths:
+      - 'ZaposliMeFrontend/**'
+      - '.github/workflows/sljakomat-frontend.yml'
+  workflow_dispatch:
 
 jobs:
   build_and_deploy:
+    # skip closing step for PRs that are closed
     if: github.event_name != 'pull_request' || github.event.action != 'closed'
-    runs-on: ubuntu-latest   # ubuntu-latest also works great
+    runs-on: ubuntu-latest   # SWA action runs in a container -> needs Linux
+
+    env:
+      DOTNET_VERSION: '8.0.415'
+      FRONTEND_CSPROJ: ZaposliMeFrontend/ZaposliMe.Frontend.csproj
+      PUBLISH_DIR: published
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup .NET 8 SDK
+      - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.415'
+          dotnet-version: ${{ env.DOTNET_VERSION }}
 
+      # Build Blazor and emit static files to published/wwwroot
       - name: Restore
-        run: dotnet restore ZaposliMeFrontend/ZaposliMe.Frontend.csproj
+        run: dotnet restore "${{ env.FRONTEND_CSPROJ }}"
 
-      - name: Publish (Blazor WASM)
+      - name: Publish Blazor (Release)
         run: |
-          dotnet publish ZaposliMeFrontend/ZaposliMe.Frontend.csproj -c Release -o published /p:InvariantGlobalization=false /p:BlazorWebAssemblyLoadAllGlobalizationData=true
+          dotnet publish "${{ env.FRONTEND_CSPROJ }}" -c Release -o "${{ env.PUBLISH_DIR }}" \
+            /p:InvariantGlobalization=false \
+            /p:BlazorWebAssemblyLoadAllGlobalizationData=true
 
+      # Upload the prebuilt static site
       - name: Deploy to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           action: upload
-          app_location: published/wwwroot
+          app_location: ${{ env.PUBLISH_DIR }}/wwwroot
           skip_app_build: true
           production_branch: main
 
