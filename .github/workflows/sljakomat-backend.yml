@@ -1,36 +1,46 @@
-name: Deploy WebAPI to Azure App Service
+name: API - Build & Deploy to Azure App Service
 
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'ZaposliMeWebAPI/**'
+      - '.github/workflows/sljakomat-backend.yml'
+  workflow_dispatch:
+
+env:
+  DOTNET_VERSION: '8.0.415'
+  PROJECT_FILE: ZaposliMeWebAPI/ZaposliMe.WebAPI.csproj
+  PUBLISH_DIR: publish
 
 jobs:
-  build-and-deploy-api:
-    runs-on: windows-latest
+  build-and-deploy:
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup .NET 8 SDK
+      - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.415'
+          dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: Restore
-        run: dotnet restore ZaposliMeWebAPI/ZaposliMe.WebAPI.csproj
+        run: dotnet restore "${{ env.PROJECT_FILE }}"
+
+      - name: Build (Release)
+        run: dotnet build "${{ env.PROJECT_FILE }}" -c Release --no-restore
 
       - name: Publish
-        run: dotnet publish ZaposliMeWebAPI/ZaposliMe.WebAPI.csproj -c Release -o ${{ github.workspace }}\api-publish
+        run: dotnet publish "${{ env.PROJECT_FILE }}" -c Release -o "${{ env.PUBLISH_DIR }}" /p:UseAppHost=false
 
-      - name: Zip package
-        shell: pwsh
-        run: Compress-Archive -Path $Env:GITHUB_WORKSPACE\api-publish\* -DestinationPath $Env:GITHUB_WORKSPACE\api.zip -Force
+      # Optional: tests
+      # - name: Test
+      #   run: dotnet test --configuration Release --no-build
 
-      - name: Deploy to App Service (ZipDeploy)
+      - name: Deploy to Azure App Service
         uses: azure/webapps-deploy@v3
         with:
           publish-profile: ${{ secrets.AZUREAPPSVC_PUBLISH_PROFILE }}
-          app-name: sljakomat-dgg5dhh6djbygkcf     # exact App Service name
-          # slot-name: staging                    # <- uncomment if deploying to a slot
-          package: ${{ github.workspace }}\api.zip
+          package: ${{ env.PUBLISH_DIR }}
+          # slot-name: staging   # <- uncomment if you deploy to a slot
