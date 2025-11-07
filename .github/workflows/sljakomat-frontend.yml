@@ -9,9 +9,8 @@ on:
 
 jobs:
   build_and_deploy:
-    # Build & deploy for normal pushes and open PRs
     if: github.event_name != 'pull_request' || github.event.action != 'closed'
-    runs-on: windows-latest
+    runs-on: windows-latest   # ubuntu-latest also works great
 
     steps:
       - name: Checkout
@@ -27,9 +26,8 @@ jobs:
 
       - name: Publish (Blazor WASM)
         run: |
-          dotnet publish ZaposliMeFrontend/ZaposliMe.Frontend.csproj -c Release -o published/p:InvariantGlobalization=false /p:BlazorWebAssemblyLoadAllGlobalizationData=true
+          dotnet publish ZaposliMeFrontend/ZaposliMe.Frontend.csproj -c Release -o published /p:InvariantGlobalization=false /p:BlazorWebAssemblyLoadAllGlobalizationData=true
 
-      # Upload the already-built static site (published/wwwroot)
       - name: Deploy to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1
         with:
@@ -40,7 +38,6 @@ jobs:
           production_branch: main
 
   close_pr_environment:
-    # Clean up SWA preview environments when PRs close
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
     steps:
