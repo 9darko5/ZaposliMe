@@ -95,7 +95,7 @@ builder.Services.AddMediatR(configuration =>
     configuration.RegisterServicesFromAssemblies(typeof(GetUserByEmailQuery).Assembly);
 });
 
-var frontendUrl = "https://thankful-bush-0edebdb03.3.azurestaticapps.net"; //"https://localhost:7005";"https://www.sljakomat.org";
+var frontendUrl = "https://www.sljakomat.org"; //"https://localhost:7005";"https://www.sljakomat.org";
 
 builder.Services.AddCors(options =>
 {

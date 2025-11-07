@@ -1,0 +1,16 @@
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Service\bin\Release\net8.0\publish\ZaposliMe.Service.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Service\bin\Release\net8.0\publish\ZaposliMe.Service.deps.json
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Service\bin\Release\net8.0\publish\ZaposliMe.Service.pdb
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Service\bin\Release\net8.0\publish\Microsoft.Extensions.Configuration.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Service\bin\Release\net8.0\publish\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Service\bin\Release\net8.0\publish\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Service\bin\Release\net8.0\publish\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Service\bin\Release\net8.0\publish\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Service\bin\Release\net8.0\publish\Microsoft.Extensions.Diagnostics.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Service\bin\Release\net8.0\publish\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Service\bin\Release\net8.0\publish\Microsoft.Extensions.Http.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Service\bin\Release\net8.0\publish\Microsoft.Extensions.Logging.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Service\bin\Release\net8.0\publish\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Service\bin\Release\net8.0\publish\Microsoft.Extensions.Options.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Service\bin\Release\net8.0\publish\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+C:\Users\djuricd\Documents\GitHub\ZaposliMe\ZaposliMe.Service\bin\Release\net8.0\publish\Microsoft.Extensions.Primitives.dll
