@@ -37,16 +37,16 @@ namespace ZaposliMe.WebAPI.Controllers
             return Ok(id);
         }
 
-        //[HttpDelete("delete/{id:guid}")]
-        //[Authorize(Roles = "Admin,Employer")]
-        //public async Task<IActionResult> DeleteJob(Guid id)
-        //{
-        //    var deleteJobCommand = new DeleteJobCommand(id);
+        [HttpDelete("delete/{id:guid}")]
+        [Authorize(Roles = "Admin,Employer")]
+        public async Task<IActionResult> DeleteJob(Guid id)
+        {
+            var deleteJobCommand = new DeleteJobCommand(id);
 
-        //    await _sender.Send(deleteJobCommand);
+            await _sender.Send(deleteJobCommand);
 
-        //    return Ok();
-        //}
+            return Ok();
+        }
 
         [HttpPut("update")]
         [Authorize(Roles = "Admin,Employer")]
