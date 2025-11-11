@@ -22,7 +22,7 @@ namespace ZaposliMe.Frontend.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
+    public partial class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
