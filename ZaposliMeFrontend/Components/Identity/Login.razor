@@ -168,10 +168,20 @@
 
     private sealed class InputModel
     {
-        [Required, EmailAddress, Display(Name = "Email")]
+        [Required(
+            ErrorMessageResourceType = typeof(Resources.Resources),
+            ErrorMessageResourceName = "EmailRequired")]
+        [EmailAddress(
+            ErrorMessageResourceType = typeof(Resources.Resources),
+            ErrorMessageResourceName = "EmailInvalid")]
+        [Display(Name = "Email", ResourceType = typeof(Resources.Resources))]
         public string Email { get; set; } = string.Empty;
 
-        [Required, DataType(DataType.Password), Display(Name = "Password")]
+        [Required(
+            ErrorMessageResourceType = typeof(Resources.Resources),
+            ErrorMessageResourceName = "PasswordRequired")]
+        [DataType(DataType.Password)]
+        [Display(Name = "Password", ResourceType = typeof(Resources.Resources))]
         public string Password { get; set; } = string.Empty;
     }
 }

@@ -666,4 +666,13 @@
   <data name="InvalidLogin" xml:space="preserve">
     <value>Унијели сте погрешан емаил или лозинку.</value>
   </data>
+  <data name="EmailNotConfirmed" xml:space="preserve">
+    <value>Морате потврдити адресу е-поште прије пријаве.</value>
+  </data>
+  <data name="UserLockedOut" xml:space="preserve">
+    <value>Ваш налог је закључан. Покушајте касније.</value>
+  </data>
+  <data name="RequiresTwoFactor" xml:space="preserve">
+    <value>Потребна је двофакторска аутентификација.</value>
+  </data>
 </root>

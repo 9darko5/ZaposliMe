@@ -666,4 +666,13 @@
   <data name="InvalidLogin" xml:space="preserve">
     <value>Invalid email or password.</value>
   </data>
+  <data name="EmailNotConfirmed" xml:space="preserve">
+    <value>You must confirm your email before signing in.</value>
+  </data>
+  <data name="UserLockedOut" xml:space="preserve">
+    <value>Your account is locked. Try again later.</value>
+  </data>
+  <data name="RequiresTwoFactor" xml:space="preserve">
+    <value>Two-factor authentication is required.</value>
+  </data>
 </root>
