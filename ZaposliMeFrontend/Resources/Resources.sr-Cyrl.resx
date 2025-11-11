@@ -663,7 +663,7 @@
   <data name="DuplicateEmail" xml:space="preserve">
     <value>Налог са овим е-маилом већ постоји.</value>
   </data>
-  <data name="InvalidLogin" xml:space="preserve">
+  <data name="IvalidLogin" xml:space="preserve">
     <value>Унијели сте погрешан емаил или лозинку.</value>
   </data>
 </root>

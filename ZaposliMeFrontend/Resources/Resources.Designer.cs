@@ -846,9 +846,9 @@ namespace ZaposliMe.Frontend.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Invalid email or password..
         /// </summary>
-        public static string InvalidLogin {
+        public static string IvalidLogin {
             get {
-                return ResourceManager.GetString("InvalidLogin", resourceCulture);
+                return ResourceManager.GetString("IvalidLogin", resourceCulture);
             }
         }
         
