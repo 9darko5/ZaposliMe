@@ -28,7 +28,7 @@ namespace ZaposliMe.Domain.Repository
             // 2) Duplicate guard (also add DB unique index on (JobId, EmployeeId))
             var alreadyApplied = await _context.Set<Application>()
                 .AsNoTracking()
-                .AnyAsync(a => a.JobId == jobId && a.EmployeeId == employeeId, ct);
+                .AnyAsync(a => a.JobId == jobId && a.EmployeeId == employeeId && !a.Status.Equals(ApplicationStatus.Withdrawn), ct);
             if (alreadyApplied)
                 throw new InvalidOperationException("Employee already applied to this job.");
 

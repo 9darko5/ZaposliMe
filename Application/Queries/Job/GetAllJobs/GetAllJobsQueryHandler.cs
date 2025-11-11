@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
+using ZaposliMe.Domain.Enums;
 using ZaposliMe.Domain.ViewModels.Job;
 using ZaposliMe.Persistance;
 
@@ -40,7 +41,7 @@ namespace ZaposliMe.Application.Queries.Job.GetAllJobs
                 var userId = request.UserId!;
                 q = q.Where(job => !_context.UserApplicationViews
                     .AsNoTracking()
-                    .Any(a => a.JobId == job.Id && a.EmployeeId == userId));
+                    .Any(a => a.JobId == job.Id && a.EmployeeId == userId && !a.Status.Equals(ApplicationStatus.Withdrawn)));
             }
 
             q = q.OrderByDescending(x => x.CreatedAt);

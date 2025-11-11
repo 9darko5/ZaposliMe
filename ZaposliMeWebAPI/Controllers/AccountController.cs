@@ -80,13 +80,13 @@ namespace ZaposliMe.WebAPI.Controllers
             }
 
             // Optional: prevent login if email not confirmed
-            if (_userManager.SupportsUserEmail && !_userManager.IsEmailConfirmedAsync(user).GetAwaiter().GetResult())
-            {
-                return Unauthorized(new[]
-                {
-                    new ValidationErrorDto { PropertyName = "Email", ErrorKey = "EmailNotConfirmed" }
-                });
-            }
+            //if (_userManager.SupportsUserEmail && !_userManager.IsEmailConfirmedAsync(user).GetAwaiter().GetResult())
+            //{
+            //    return Unauthorized(new[]
+            //    {
+            //        new ValidationErrorDto { PropertyName = "Email", ErrorKey = "EmailNotConfirmed" }
+            //    });
+            //}
 
             // 3) Password check
             var signIn = await _signInManager.CheckPasswordSignInAsync(user, model.Password, lockoutOnFailure: true);
