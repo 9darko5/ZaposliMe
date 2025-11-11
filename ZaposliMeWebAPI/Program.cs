@@ -98,7 +98,7 @@ builder.Services.AddMediatR(configuration =>
     configuration.RegisterServicesFromAssemblies(typeof(GetUserByEmailQuery).Assembly);
 });
 
-var frontendUrl = "https://www.sljakomat.org"; //"https://localhost:7005"; 
+var frontendUrl = "https://localhost:7005"; //"https://www.sljakomat.org"; 
 
 builder.Services.AddCors(options =>
 {

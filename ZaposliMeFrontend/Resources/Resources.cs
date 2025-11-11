@@ -1,6 +1,6 @@
 ﻿namespace ZaposliMe.Frontend.Resources
 {
-    public partial class Resources
+    public sealed class Resources
     {
     }
 }

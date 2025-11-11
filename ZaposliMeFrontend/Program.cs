@@ -20,7 +20,7 @@ builder.Services.AddTransient<JwtHandler>();
 builder.Services.AddScoped<AuthenticationStateProvider, TokenAuthenticationStateProvider>();
 builder.Services.AddScoped(sp => (IAccountManagement)sp.GetRequiredService<AuthenticationStateProvider>());
 
-var backendUrl = "https://sljakomat-dgg5dhh6djbygkcf.westeurope-01.azurewebsites.net"; //"https://localhost:7097"; 
+var backendUrl = "https://localhost:7097"; //"https://sljakomat-dgg5dhh6djbygkcf.westeurope-01.azurewebsites.net"; 
 
 // configure client for auth interactions
 builder.Services.AddHttpClient("Backend", c => c.BaseAddress = new Uri(backendUrl)).AddHttpMessageHandler<JwtHandler>();
