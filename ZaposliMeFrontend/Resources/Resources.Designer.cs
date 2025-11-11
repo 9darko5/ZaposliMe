@@ -403,6 +403,24 @@ namespace ZaposliMe.Frontend.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete your profile? This action cannot be undone..
+        /// </summary>
+        public static string ConfirmDeleteMessage {
+            get {
+                return ResourceManager.GetString("ConfirmDeleteMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete profile.
+        /// </summary>
+        public static string ConfirmDeleteTitle {
+            get {
+                return ResourceManager.GetString("ConfirmDeleteTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirm password.
         /// </summary>
         public static string ConfirmPassword {
@@ -624,6 +642,15 @@ namespace ZaposliMe.Frontend.Resources {
         public static string EmailInvalid {
             get {
                 return ResourceManager.GetString("EmailInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The email you entered is invalid or not allowed. Please contact support..
+        /// </summary>
+        public static string EmailInvalidOrForbiddenContactSupport {
+            get {
+                return ResourceManager.GetString("EmailInvalidOrForbiddenContactSupport", resourceCulture);
             }
         }
         
@@ -1659,6 +1686,15 @@ namespace ZaposliMe.Frontend.Resources {
         public static string YesApply {
             get {
                 return ResourceManager.GetString("YesApply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes, delete.
+        /// </summary>
+        public static string YesDelete {
+            get {
+                return ResourceManager.GetString("YesDelete", resourceCulture);
             }
         }
         

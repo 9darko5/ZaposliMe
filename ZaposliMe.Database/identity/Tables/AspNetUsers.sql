@@ -19,5 +19,6 @@
     [FirstName] NVARCHAR(50) NOT NULL,
 	[LastName] NVARCHAR(50) NOT NULL,
 	[Age] BIGINT NULL,
+    [IsDeleted] BIT NOT NULL DEFAULT 0, 
     CONSTRAINT [PK_user.AspNetUsers] PRIMARY KEY CLUSTERED ([Id] ASC)
 )

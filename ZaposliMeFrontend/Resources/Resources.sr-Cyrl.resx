@@ -675,4 +675,16 @@
   <data name="RequiresTwoFactor" xml:space="preserve">
     <value>Потребна је двофакторска аутентификација.</value>
   </data>
+  <data name="ConfirmDeleteTitle" xml:space="preserve">
+    <value>Обриши профил</value>
+  </data>
+  <data name="ConfirmDeleteMessage" xml:space="preserve">
+    <value>Да ли сте сигурни да желите обрисати свој профил? Ова радња се не може поништити.</value>
+  </data>
+  <data name="YesDelete" xml:space="preserve">
+    <value>Да, обриши</value>
+  </data>
+  <data name="EmailInvalidOrForbiddenContactSupport" xml:space="preserve">
+    <value>Унијели сте неважећи или забрањени имејл. Молимо контактирајте подршку.</value>
+  </data>
 </root>

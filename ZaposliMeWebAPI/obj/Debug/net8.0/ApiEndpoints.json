@@ -284,6 +284,22 @@
   },
   {
     "ContainingType": "ZaposliMe.WebAPI.Controllers.UserController",
+    "Method": "DeleteUser",
+    "RelativePath": "api/User/deleteUser",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ZaposliMe.WebAPI.Controllers.UserController",
     "Method": "GetUser",
     "RelativePath": "api/User/getUser",
     "HttpMethod": "GET",

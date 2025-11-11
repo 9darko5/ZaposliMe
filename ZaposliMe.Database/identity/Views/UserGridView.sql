@@ -5,5 +5,6 @@
 	u.LastName,
 	u.Email,
 	u.PhoneNumber,
-	u.Age
+	u.Age,
+	u.IsDeleted
 	FROM [identity].[AspNetUsers] u

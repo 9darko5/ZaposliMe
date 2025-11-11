@@ -459,6 +459,27 @@
         }
       }
     },
+    "/api/User/deleteUser": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/User/updateUser": {
       "put": {
         "tags": [

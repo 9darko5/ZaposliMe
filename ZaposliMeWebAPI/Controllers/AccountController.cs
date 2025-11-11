@@ -1,15 +1,17 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Security.Cryptography;
-using System.Text;
-using FluentValidation;
+﻿using FluentValidation;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
 using ZaposliMe.Application.DTOs;
 using ZaposliMe.Application.DTOs.Account;
+using ZaposliMe.Application.Queries.User.GetUserByEmail;
 using ZaposliMe.Domain.Entities.Identity;
 using ZaposliMe.WebAPI.Models.Account;
 
@@ -37,19 +39,22 @@ namespace ZaposliMe.WebAPI.Controllers
         private readonly JwtOptions _jwt;
         private readonly IValidator<RegisterDto> _registerValidator;
         private readonly IValidator<LoginDto> _loginValidator;
+        private readonly ISender _sender;
 
         public AccountController(
             UserManager<User> userManager,
             SignInManager<User> signInManager,
             IOptions<JwtOptions> jwtOptions,
             IValidator<RegisterDto> registerValidator,
-            IValidator<LoginDto> loginValidator)
+            IValidator<LoginDto> loginValidator,
+            ISender sender)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _jwt = jwtOptions.Value;
             _registerValidator = registerValidator; 
             _loginValidator = loginValidator;
+            _sender = sender;
         }
 
         // ---------- LOGIN (returns tokens) ----------
@@ -71,7 +76,7 @@ namespace ZaposliMe.WebAPI.Controllers
 
             // 2) Find user
             var user = await _userManager.FindByEmailAsync(model.Email);
-            if (user is null)
+            if (user is null || user.IsDeleted)
             {
                 return Unauthorized(new[]
                 {
@@ -262,6 +267,10 @@ namespace ZaposliMe.WebAPI.Controllers
                     else if (code.Contains("UserName", StringComparison.OrdinalIgnoreCase) ||
                              code.Contains("Email", StringComparison.OrdinalIgnoreCase))
                     {
+                        var user = _sender.Send(new GetUserByEmailQuery(model.Email)).Result;
+                        if (user is not null && user.IsDeleted)
+                            code = "EmailInvalidOrForbiddenContactSupport";
+
                         propertyName = "Email";
                     }
                     else
@@ -283,8 +292,6 @@ namespace ZaposliMe.WebAPI.Controllers
 
             return Ok("User registered");
         }
-
-
 
         // ---------- helpers ----------
         private (string token, DateTimeOffset expiresAt) CreateAccessToken(User user, IEnumerable<string> roles)

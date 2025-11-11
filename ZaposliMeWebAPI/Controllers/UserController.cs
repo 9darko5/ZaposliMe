@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using ZaposliMe.Application.Commands.User.DeleteUser;
 using ZaposliMe.Application.Commands.User.LeaveEmployerReview;
 using ZaposliMe.Application.Commands.User.UpdateUser;
 using ZaposliMe.Application.DTOs.User;
@@ -36,6 +37,19 @@ namespace ZaposliMe.WebAPI.Controllers
                 return Unauthorized();
 
             return Ok(user);
+        }
+
+        [HttpPut("deleteUser")]
+        [Authorize]
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId is null || !userId.Equals(id))
+                return Unauthorized();
+
+            await _sender.Send(new DeleteUserCommand(userId));
+
+            return Ok();
         }
 
         [HttpPut("updateUser")]

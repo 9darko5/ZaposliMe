@@ -675,4 +675,16 @@
   <data name="RequiresTwoFactor" xml:space="preserve">
     <value>Two-factor authentication is required.</value>
   </data>
+  <data name="ConfirmDeleteTitle" xml:space="preserve">
+    <value>Delete profile</value>
+  </data>
+  <data name="ConfirmDeleteMessage" xml:space="preserve">
+    <value>Are you sure you want to delete your profile? This action cannot be undone.</value>
+  </data>
+  <data name="YesDelete" xml:space="preserve">
+    <value>Yes, delete</value>
+  </data>
+  <data name="EmailInvalidOrForbiddenContactSupport" xml:space="preserve">
+    <value>The email you entered is invalid or not allowed. Please contact support.</value>
+  </data>
 </root>

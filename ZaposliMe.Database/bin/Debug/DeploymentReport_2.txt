@@ -1,0 +1,22 @@
+﻿** Highlights
+     Tables that will be recreated with data migrated
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Alter
+       [identity].[AspNetUsers] (Table)
+       [identity].[UserGridView] (View)
+
+** Supporting actions
+     Refresh
+       [zaposlime].[EmployerApplicationView] (View)
+       [zaposlime].[EmployerReviewGridView] (View)
+       [zaposlime].[EmployerReviewView] (View)
+       [zaposlime].[JobGridView] (View)
+       [zaposlime].[UserApplicationView] (View)

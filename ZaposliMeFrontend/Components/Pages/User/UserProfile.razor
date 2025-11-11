@@ -5,9 +5,11 @@
 @using Microsoft.AspNetCore.WebUtilities
 @using ZaposliMe.Application.DTOs.User
 @using Microsoft.Extensions.Localization
+@using ZaposliMe.Frontend.Identity
 @inject IStringLocalizer<ZaposliMe.Frontend.Resources.Resources> L
-
 @inject HttpClient Http
+@inject NavigationManager Nav
+@inject IAccountManagement Acct
 
 <AuthorizeView>
     <NotAuthorized>
@@ -69,7 +71,6 @@
                                         }
                                         else
                                         {
-
                                             @("-")
                                         }
                                     </div>
@@ -87,21 +88,35 @@
                     </div>
                 </div>
 
-                <div class="card-footer d-flex justify-content-end">
-                    <button class="btn btn-primary" @onclick="() => showEdit = true">@L["EditProfile"]</button>
+                <!-- Footer: Delete (left) / Edit (right) -->
+                <div class="card-footer d-flex justify-content-between">
+                    <button class="btn btn-outline-danger" @onclick="OpenDeleteModal">
+                        @L["Delete"]
+                    </button>
+
+                    <button class="btn btn-primary" @onclick="() => showEdit = true">
+                        @L["EditProfile"]
+                    </button>
                 </div>
             </div>
         }
     </Authorized>
 </AuthorizeView>
 
-<!-- Modal component -->
+<!-- Edit modal (existing) -->
 <EditUserProfileModal IsOpen="@showEdit"
                       Value="@user"
                       OnClose="@CloseEdit"
                       OnSave="@SaveEditAsync"
                       Saving="@saving"
                       ErrorMessage="@saveErrorMessage" />
+
+<!-- Delete modal (new component) -->
+<DeleteUserConfirmModal IsOpen="@showDelete"
+                        OnClose="@CloseDeleteModal"
+                        OnConfirm="@ConfirmDeleteAsync"
+                        Busy="@deleting"
+                        ErrorMessage="@deleteError" />
 
 @code {
     [CascadingParameter] private Task<AuthenticationState>? AuthStateTask { get; set; }
@@ -110,12 +125,19 @@
     private bool loading = true;
     private string? errorMessage;
 
-    // Modal state
+    // Edit modal state
     private bool showEdit = false;
     private bool saving = false;
     private string? saveErrorMessage;
 
+    // Delete modal state
+    private bool showDelete = false;
+    private bool deleting = false;
+    private string? deleteError;
+
+    // identity
     private string? email;
+    private string? userId; // ClaimTypes.NameIdentifier
     private bool isAuthenticated;
 
     protected override async Task OnInitializedAsync()
@@ -132,10 +154,12 @@
             var principal = authState?.User;
 
             isAuthenticated = principal?.Identity?.IsAuthenticated == true;
-            if (!isAuthenticated) { email = null; return; }
+            if (!isAuthenticated) { email = null; userId = null; return; }
 
             email = principal?.FindFirst(ClaimTypes.Email)?.Value
                  ?? principal?.FindFirst(ClaimTypes.Name)?.Value;
+
+            userId = principal?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
             if (string.IsNullOrWhiteSpace(email))
                 errorMessage = "Signed in, but no email claim is present.";
@@ -191,20 +215,19 @@
 
             if (response.IsSuccessStatusCode)
             {
-                // Update local view with what we saved (or re-fetch if you prefer strict read-after-write)
-                user = updated;
+                user = updated; // or re-fetch if needed
                 showEdit = false;
             }
             else
             {
                 var text = await response.Content.ReadAsStringAsync();
                 saveErrorMessage = string.IsNullOrWhiteSpace(text)
-                    ? "Failed to save changes."
+                    ? L["FailedToSaveChanges"]
                     : text;
             }
         }
-        catch (HttpRequestException ex) { saveErrorMessage = $"Network error: {ex.Message}"; }
-        catch (Exception ex) { saveErrorMessage = $"Unexpected error: {ex.Message}"; }
+        catch (HttpRequestException ex) { saveErrorMessage = $"{L["NetworkError"]} {ex.Message}"; }
+        catch (Exception ex) { saveErrorMessage = $"{L["UnexpectedError"]} {ex.Message}"; }
         finally
         {
             saving = false;
@@ -214,4 +237,64 @@
 
     private static string DisplayOrDash(string? value) =>
         string.IsNullOrWhiteSpace(value) ? "-" : value!.Trim();
+
+    // --- Delete flow ---
+    private void OpenDeleteModal()
+    {
+        deleteError = null;
+        showDelete = true;
+    }
+
+    private void CloseDeleteModal()
+    {
+        if (!deleting) showDelete = false;
+    }
+
+    private async Task ConfirmDeleteAsync()
+    {
+        if (deleting) return;
+
+        deleting = true;
+        deleteError = null;
+
+        try
+        {
+            // Prefer DTO Id if present; fallback to NameIdentifier claim
+            var id = (user?.Id?.ToString() ?? userId);
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                deleteError = L["ErrorDeleting"];
+                return;
+            }
+
+            // PUT /api/User/deleteUser?id=...
+            var url = QueryHelpers.AddQueryString("/api/User/deleteUser", new Dictionary<string, string?> { ["id"] = id });
+            using var empty = new StringContent("{}", System.Text.Encoding.UTF8, "application/json");
+            var res = await Http.PutAsync(url, empty);
+
+            if (res.IsSuccessStatusCode)
+            {
+                // Close modal
+                showDelete = false;
+
+                // Proactively log out client tokens and notify auth state,
+                // then redirect home.
+                await Acct.LogoutAsync();
+                Nav.NavigateTo("/", forceLoad: true);
+                return;
+            }
+            else
+            {
+                var txt = await res.Content.ReadAsStringAsync();
+                deleteError = string.IsNullOrWhiteSpace(txt) ? L["ErrorDeleting"] : txt;
+            }
+        }
+        catch (HttpRequestException ex) { deleteError = $"{L["ErrorDeleting"]} ({ex.Message})"; }
+        catch (Exception ex) { deleteError = $"{L["ErrorDeleting"]} ({ex.Message})"; }
+        finally
+        {
+            deleting = false;
+            StateHasChanged();
+        }
+    }
 }
