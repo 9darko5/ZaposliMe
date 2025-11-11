@@ -1,12 +1,13 @@
 ﻿// Frontend/Identity/TokenAuthenticationStateProvider.cs
+using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.Extensions.Logging;
+using Microsoft.JSInterop;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
-using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.JSInterop;
-using Microsoft.Extensions.Logging;
+using ZaposliMe.Application.DTOs;
 using ZaposliMe.Frontend.Identity.Models;
 
 namespace ZaposliMe.Frontend.Identity
@@ -60,9 +61,16 @@ namespace ZaposliMe.Frontend.Identity
         // ---------------- IAccountManagement ----------------
 
         public async Task<FormResult> RegisterAsync(
-            string firstName, string lastName, string email, string password, string role, long? age, string? phoneNumber)
+            string firstName, 
+            string lastName, 
+            string email, 
+            string password, 
+            string confirmPassword, 
+            string role, 
+            long? age, 
+            string? phoneNumber)
         {
-            string[] defaultDetail = ["An unknown error prevented registration from succeeding."];
+            var defaultError = "Registration failed.";
 
             try
             {
@@ -72,55 +80,113 @@ namespace ZaposliMe.Frontend.Identity
                     lastName,
                     email,
                     password,
+                    confirmPassword,
                     role,
                     age,
                     phoneNumber
                 }, _json);
 
-                if (res.IsSuccessStatusCode) return new FormResult { Succeeded = true };
+                if (res.IsSuccessStatusCode)
+                    return new FormResult { Succeeded = true };
 
-                var details = await ReadBodySafeAsync(res);
-                // Try to unpack ProblemDetails:errors[] if present
+                List<ValidationErrorDto>? apiErrors = null;
+
                 try
                 {
-                    using var doc = JsonDocument.Parse(details);
-                    if (doc.RootElement.TryGetProperty("errors", out var errorsEl))
-                    {
-                        var errors = new List<string>();
-                        foreach (var prop in errorsEl.EnumerateObject())
-                        {
-                            if (prop.Value.ValueKind == JsonValueKind.String)
-                                errors.Add(prop.Value.GetString() ?? string.Empty);
-                            else if (prop.Value.ValueKind == JsonValueKind.Array)
-                                errors.AddRange(prop.Value.EnumerateArray()
-                                    .Select(x => x.GetString() ?? string.Empty)
-                                    .Where(x => !string.IsNullOrWhiteSpace(x)));
-                        }
-                        if (errors.Count > 0)
-                            return new FormResult { Succeeded = false, ErrorList = [.. errors] };
-                    }
+                    apiErrors = await res.Content.ReadFromJsonAsync<List<ValidationErrorDto>>(_json);
                 }
-                catch { /* fall back to details string */ }
+                catch
+                {
+                    // ignore, we’ll fallback to text
+                }
 
-                return new FormResult { Succeeded = false, ErrorList = [string.IsNullOrWhiteSpace(details) ? defaultDetail[0] : details] };
+                if (apiErrors is { Count: > 0 })
+                {
+                    return new FormResult
+                    {
+                        Succeeded = false,
+                        ErrorList = apiErrors
+                    };
+                }
+
+                var bodyText = await ReadBodySafeAsync(res);
+
+                return new FormResult
+                {
+                    Succeeded = false,
+                    ErrorList =
+                    [
+                        new ValidationErrorDto
+                {
+                    PropertyName = string.Empty,
+                    ErrorKey = string.IsNullOrWhiteSpace(bodyText) ? "UnknownError" : bodyText
+                }
+                    ]
+                };
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Registration error");
-                return new FormResult { Succeeded = false, ErrorList = defaultDetail };
+
+                return new FormResult
+                {
+                    Succeeded = false,
+                    ErrorList =
+                    [
+                        new ValidationErrorDto
+                {
+                    PropertyName = string.Empty,
+                    ErrorKey = "UnknownError"
+                }
+                    ]
+                };
             }
         }
 
         public async Task<FormResult> LoginAsync(string email, string password)
         {
             var res = await Http.PostAsJsonAsync(LoginUrl, new { email, password }, _json);
+
             if (!res.IsSuccessStatusCode)
             {
-                var err = await ReadBodySafeAsync(res);
-                return new FormResult { Succeeded = false, ErrorList = [string.IsNullOrWhiteSpace(err) ? "Invalid email and/or password." : err] };
+                List<ValidationErrorDto>? apiErrors = null;
+                try
+                {
+                    apiErrors = await res.Content.ReadFromJsonAsync<List<ValidationErrorDto>>(_json);
+                }
+                catch
+                {
+                    // not JSON array of ValidationErrorDto, fall through
+                }
+
+                if (apiErrors is { Count: > 0 })
+                {
+                    return new FormResult
+                    {
+                        Succeeded = false,
+                        ErrorList = apiErrors
+                    };
+                }
+
+                // 2) Fallback: treat response body as text and wrap in a DTO
+                var body = await ReadBodySafeAsync(res);
+
+                return new FormResult
+                {
+                    Succeeded = false,
+                    ErrorList =
+                    [
+                        new ValidationErrorDto
+                {
+                    PropertyName = string.Empty,
+                    // if we got nothing meaningful, use the InvalidLogin code
+                    ErrorKey = string.IsNullOrWhiteSpace(body) ? "InvalidLogin" : body
+                }
+                    ]
+                };
             }
 
-            // Read raw JSON and parse case-insensitively
+            // ---- success path (unchanged) ----
             var payload = await res.Content.ReadAsStringAsync();
 
             using var doc = JsonDocument.Parse(payload);
@@ -131,7 +197,20 @@ namespace ZaposliMe.Frontend.Identity
             int? expiresIn = GetIntCI(root, "expires_in", "expiresIn");
 
             if (string.IsNullOrWhiteSpace(access))
-                return new FormResult { Succeeded = false, ErrorList = ["Login response missing access_token."] };
+            {
+                return new FormResult
+                {
+                    Succeeded = false,
+                    ErrorList =
+                    [
+                        new ValidationErrorDto
+                {
+                    PropertyName = string.Empty,
+                    ErrorKey = "LoginResponseMissingAccessToken" // add this key if you care
+                }
+                    ]
+                };
+            }
 
             await SetItemAsync(AccessTokenKey, access);
             if (!string.IsNullOrWhiteSpace(refresh))
@@ -144,8 +223,10 @@ namespace ZaposliMe.Frontend.Identity
                 new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", access);
 
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
+
             return new FormResult { Succeeded = true };
         }
+
 
         public async Task LogoutAsync()
         {

@@ -33,8 +33,8 @@
                     @foreach (var error in formResult.ErrorList)
                     {
                         <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
-                            @error
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            @L[error.ErrorKey]  
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@L["Close"]"></button>
                         </div>
                     }
 

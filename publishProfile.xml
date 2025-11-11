@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile profileName="sljakomat - Web Deploy" publishMethod="MSDeploy" publishUrl="sljakomat-dgg5dhh6djbygkcf.scm.westeurope-01.azurewebsites.net:443" msdeploySite="sljakomat" userName="REDACTED" userPWD="REDACTED" destinationAppUrl="https://sljakomat-dgg5dhh6djbygkcf.westeurope-01.azurewebsites.net" SQLServerDBConnectionString="REDACTED" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites" targetDatabaseEngineType="sqlazuredatabase" targetServerVersion="Version100">
+    <databases>
+      <add name="ZaposliMeConnection" connectionString="Server=tcp:sljakomatdbserver.database.windows.net;Authentication=Active Directory Default;Database=sljakomat;" providerName="System.Data.SqlClient" type="Sql" targetDatabaseEngineType="sqlazuredatabase" targetServerVersion="Version100" />
+      <add name="AZURE_SQL_CONNECTIONSTRING" connectionString="Data Source=sljakomatdbserver.database.windows.net,1433;Initial Catalog=sljakomat;Authentication=ActiveDirectoryManagedIdentity" providerName="System.Data.SqlClient" type="Sql" targetDatabaseEngineType="sqlazuredatabase" targetServerVersion="Version100" />
+    </databases>
+  </publishProfile>
+  <publishProfile profileName="sljakomat - FTP" publishMethod="FTP" publishUrl="ftps://waws-prod-am2-029.ftp.azurewebsites.windows.net/site/wwwroot" ftpPassiveMode="True" userName="REDACTED" userPWD="REDACTED" destinationAppUrl="https://sljakomat-dgg5dhh6djbygkcf.westeurope-01.azurewebsites.net" SQLServerDBConnectionString="REDACTED" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites" targetDatabaseEngineType="sqlazuredatabase" targetServerVersion="Version100">
+    <databases>
+      <add name="ZaposliMeConnection" connectionString="Server=tcp:sljakomatdbserver.database.windows.net;Authentication=Active Directory Default;Database=sljakomat;" providerName="System.Data.SqlClient" type="Sql" targetDatabaseEngineType="sqlazuredatabase" targetServerVersion="Version100" />
+      <add name="AZURE_SQL_CONNECTIONSTRING" connectionString="Data Source=sljakomatdbserver.database.windows.net,1433;Initial Catalog=sljakomat;Authentication=ActiveDirectoryManagedIdentity" providerName="System.Data.SqlClient" type="Sql" targetDatabaseEngineType="sqlazuredatabase" targetServerVersion="Version100" />
+    </databases>
+  </publishProfile>
+  <publishProfile profileName="sljakomat - Zip Deploy" publishMethod="ZipDeploy" publishUrl="sljakomat-dgg5dhh6djbygkcf.scm.westeurope-01.azurewebsites.net:443" userName="REDACTED" userPWD="REDACTED" destinationAppUrl="https://sljakomat-dgg5dhh6djbygkcf.westeurope-01.azurewebsites.net" SQLServerDBConnectionString="REDACTED" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites" targetDatabaseEngineType="sqlazuredatabase" targetServerVersion="Version100">
+    <databases>
+      <add name="ZaposliMeConnection" connectionString="Server=tcp:sljakomatdbserver.database.windows.net;Authentication=Active Directory Default;Database=sljakomat;" providerName="System.Data.SqlClient" type="Sql" targetDatabaseEngineType="sqlazuredatabase" targetServerVersion="Version100" />
+      <add name="AZURE_SQL_CONNECTIONSTRING" connectionString="Data Source=sljakomatdbserver.database.windows.net,1433;Initial Catalog=sljakomat;Authentication=ActiveDirectoryManagedIdentity" providerName="System.Data.SqlClient" type="Sql" targetDatabaseEngineType="sqlazuredatabase" targetServerVersion="Version100" />
+    </databases>
+  </publishProfile>
+</publishData>

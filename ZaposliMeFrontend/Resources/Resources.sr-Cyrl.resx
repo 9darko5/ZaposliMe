@@ -624,4 +624,46 @@
   <data name="BecomeEmployer" xml:space="preserve">
     <value>Постани послодавац</value>
   </data>
+  <data name="FirstNameRequired" xml:space="preserve">
+    <value>Име је обавезно.</value>
+  </data>
+  <data name="LastNameRequired" xml:space="preserve">
+    <value>Презиме је обавезно.</value>
+  </data>
+  <data name="EmailRequired" xml:space="preserve">
+    <value>Е-маил је обавезан.</value>
+  </data>
+  <data name="EmailInvalid" xml:space="preserve">
+    <value>Унесите исправну е-маил адресу.</value>
+  </data>
+  <data name="PasswordRequired" xml:space="preserve">
+    <value>Лозинка је обавезна.</value>
+  </data>
+  <data name="PasswordsDoNotMatch" xml:space="preserve">
+    <value>Лозинке се не поклапају.</value>
+  </data>
+  <data name="PasswordTooShort" xml:space="preserve">
+    <value>Лозинка мора имати најмање 6 карактера.</value>
+  </data>
+  <data name="PasswordRequiresNonAlphanumeric" xml:space="preserve">
+    <value>Лозинка мора садржати бар један специјалан знак.</value>
+  </data>
+  <data name="PasswordRequiresDigit" xml:space="preserve">
+    <value>Лозинка мора садржати бар једну цифру (0–9).</value>
+  </data>
+  <data name="PhoneRequired" xml:space="preserve">
+    <value>Телефон је обавезан.</value>
+  </data>
+  <data name="PasswordRequiresUpper" xml:space="preserve">
+    <value>Лозинка мора садржати бар једно велико слово.</value>
+  </data>
+  <data name="DuplicateUserName" xml:space="preserve">
+    <value>Налог са овим е-маилом већ постоји.</value>
+  </data>
+  <data name="DuplicateEmail" xml:space="preserve">
+    <value>Налог са овим е-маилом већ постоји.</value>
+  </data>
+  <data name="IvalidLogin" xml:space="preserve">
+    <value>Унијели сте погрешан емаил или лозинку.</value>
+  </data>
 </root>

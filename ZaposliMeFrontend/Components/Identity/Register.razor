@@ -5,6 +5,8 @@
 @using ZaposliMe.Frontend.Identity.Models
 @using Microsoft.AspNetCore.WebUtilities
 @using Microsoft.Extensions.Localization
+@using ZaposliMe.Frontend.Resources;
+@using ZaposliMe.Frontend.Validation
 @inject IStringLocalizer<ZaposliMe.Frontend.Resources.Resources> L
 @inject NavigationManager Nav
 @inject IAccountManagement Acct
@@ -12,13 +14,15 @@
 <PageTitle>Register</PageTitle>
 
 <AuthorizeView>
-    <Authorized>
+    <Authorized Context="auth">
         <div class="container py-4">
-            <div class="alert alert-success mb-0">@L["YouAreAlreadyLoggedInAs"] @context.User.Identity?.Name.</div>
+            <div class="alert alert-success mb-0">
+                @L["YouAreAlreadyLoggedInAs"] @auth.User.Identity?.Name.
+            </div>
         </div>
     </Authorized>
 
-    <NotAuthorized>
+    <NotAuthorized Context="authState">
         <div class="container py-5">
             @if (formResult.Succeeded)
             {
@@ -27,135 +31,125 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@L["Close"]"></button>
                 </div>
             }
-            else
-            {
-                @foreach (var error in formResult.ErrorList)
-                {
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        @error
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@L["Close"]"></button>
-                    </div>
-                }
 
-                <div class="row justify-content-center">
-                    <div class="col-12 col-md-10 col-lg-7 col-xl-6">
-                        <div class="card border-0 shadow rounded-4">
-                            <div class="card-body p-4 p-md-5">
-                                <h1 class="h3 mb-1 text-center">@L["CreateYourAccount"]</h1>
-                                <p class="text-muted text-center mb-4">@L["FillInYourDetailsToGetStarted"]</p>
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-7 col-xl-6">
+                    <div class="card border-0 shadow rounded-4">
+                        <div class="card-body p-4 p-md-5">
+                            <h1 class="h3 mb-1 text-center">@L["CreateYourAccount"]</h1>
+                            <p class="text-muted text-center mb-4">@L["FillInYourDetailsToGetStarted"]</p>
 
-                                <section>
-                                    <EditForm Model="Input" method="post" OnValidSubmit="RegisterUserAsync"
-                                              FormName="register" Context="editform_context">
-                                        <DataAnnotationsValidator />
+                            <section>
+                                <EditForm EditContext="_editContext" OnValidSubmit="RegisterUserAsync">
+                                    <DataAnnotationsValidator />
 
-                                        <div class="row g-3">
-                                            <div class="col-md-6">
-                                                <div class="form-floating">
-                                                    <InputText @bind-Value="Input.FirstName"
-                                                               id="Input.FirstName"
-                                                               class="form-control"
-                                                               aria-required="true" />
-                                                    <label for="Input.FirstName" class="form-label">@L["FirstName"]</label>
-                                                    <ValidationMessage For="() => Input.FirstName" class="text-danger small" />
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-6">
-                                                <div class="form-floating">
-                                                    <InputText @bind-Value="Input.LastName"
-                                                               id="Input.LastName"
-                                                               class="form-control"
-                                                               aria-required="true" />
-                                                    <label for="Input.LastName" class="form-label">@L["LastName"]</label>
-                                                    <ValidationMessage For="() => Input.LastName" class="text-danger small" />
-                                                </div>
-                                            </div>
-
-                                            <div class="col-12">
-                                                <div class="form-floating">
-                                                    <InputText @bind-Value="Input.Email"
-                                                               id="Input.Email"
-                                                               class="form-control"
-                                                               autocomplete="username"
-                                                               aria-required="true"/>
-                                                    <label for="Input.Email" class="form-label">@L["Email"]</label>
-                                                    <ValidationMessage For="() => Input.Email" class="text-danger small" />
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-6">
-                                                <div class="form-floating">
-                                                    <InputText type="password"
-                                                               @bind-Value="Input.Password"
-                                                               id="Input.Password"
-                                                               class="form-control"
-                                                               autocomplete="new-password"
-                                                               aria-required="true" />
-                                                    <label for="Input.Password" class="form-label">@L["Password"]</label>
-                                                    <ValidationMessage For="() => Input.Password" class="text-danger small" />
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-6">
-                                                <div class="form-floating">
-                                                    <InputText type="password"
-                                                               @bind-Value="Input.ConfirmPassword"
-                                                               id="Input.ConfirmPassword"
-                                                               class="form-control"
-                                                               autocomplete="new-password"
-                                                               aria-required="true" />
-                                                    <label for="Input.ConfirmPassword" class="form-label">@L["ConfirmPassword"]</label>
-                                                    <ValidationMessage For="() => Input.ConfirmPassword" class="text-danger small" />
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-6">
-                                                <div class="form-floating">
-                                                    <InputNumber @bind-Value="Input.Age"
-                                                                 id="Input.Age"
-                                                                 class="form-control"
-                                                                 aria-required="true" />
-                                                    <label for="Input.Age" class="form-label">@L["Age"]</label>
-                                                    <ValidationMessage For="() => Input.Age" class="text-danger small" />
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-6">
-                                                <div class="form-floating">
-                                                    <InputText @bind-Value="Input.PhoneNumber"
-                                                               id="Input.PhoneNumber"
-                                                               class="form-control"
-                                                               aria-required="true" />
-                                                    <label for="Input.PhoneNumber" class="form-label">@L["Phone"]</label>
-                                                    <ValidationMessage For="() => Input.PhoneNumber" class="text-danger small" />
-                                                </div>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <InputText @bind-Value="Input.FirstName"
+                                                           id="Input.FirstName"
+                                                           class="form-control"
+                                                           aria-required="true" />
+                                                <label for="Input.FirstName" class="form-label">@L["FirstName"]</label>
+                                                <ValidationMessage For="() => Input.FirstName" class="text-danger small" />
                                             </div>
                                         </div>
 
-                                        <div class="d-grid mt-4">
-                                            <button type="submit" class="btn btn-primary btn-lg">
-                                                @L["Register"]
-                                            </button>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <InputText @bind-Value="Input.LastName"
+                                                           id="Input.LastName"
+                                                           class="form-control"
+                                                           aria-required="true" />
+                                                <label for="Input.LastName" class="form-label">@L["LastName"]</label>
+                                                <ValidationMessage For="() => Input.LastName" class="text-danger small" />
+                                            </div>
                                         </div>
 
-                                        <div class="text-center mt-3">
-                                            <span class="text-muted">@L["AlreadyHavaAnAccount"]</span>
-                                            <a class="ms-1" href="/login">@L["Login"]</a>
+                                        <div class="col-12">
+                                            <div class="form-floating">
+                                                <InputText @bind-Value="Input.Email"
+                                                           id="Input.Email"
+                                                           class="form-control"
+                                                           autocomplete="username"
+                                                           aria-required="true" />
+                                                <label for="Input.Email" class="form-label">@L["Email"]</label>
+                                                <ValidationMessage For="() => Input.Email" class="text-danger small" />
+                                            </div>
                                         </div>
-                                    </EditForm>
-                                </section>
-                            </div>
 
-                            <div class="card-footer bg-white border-0 text-center pb-4">
-                                <small class="text-muted">
-                                    @L["ByContinuingYouAgreeToOur"] <a href="/terms">@L["Terms"]</a> and <a href="/privacy">@L["PrivacyPolicy"]</a>.
-                                </small>
-                            </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <InputText type="password"
+                                                           @bind-Value="Input.Password"
+                                                           id="Input.Password"
+                                                           class="form-control"
+                                                           autocomplete="new-password"
+                                                           aria-required="true" />
+                                                <label for="Input.Password" class="form-label">@L["Password"]</label>
+                                                <ValidationMessage For="() => Input.Password" class="text-danger small" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <InputText type="password"
+                                                           @bind-Value="Input.ConfirmPassword"
+                                                           id="Input.ConfirmPassword"
+                                                           class="form-control"
+                                                           autocomplete="new-password"
+                                                           aria-required="true" />
+                                                <label for="Input.ConfirmPassword" class="form-label">@L["ConfirmPassword"]</label>
+                                                <ValidationMessage For="() => Input.ConfirmPassword" class="text-danger small" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <InputText @bind-Value="Input.PhoneNumber"
+                                                           id="Input.PhoneNumber"
+                                                           class="form-control"
+                                                           aria-required="true" />
+                                                <label for="Input.PhoneNumber" class="form-label">@L["Phone"]</label>
+                                                <ValidationMessage For="() => Input.PhoneNumber" class="text-danger small" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <InputNumber @bind-Value="Input.Age"
+                                                             id="Input.Age"
+                                                             class="form-control"
+                                                             aria-required="true" />
+                                                <label for="Input.Age" class="form-label">@L["Age"]</label>
+                                                <ValidationMessage For="() => Input.Age" class="text-danger small" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-grid mt-4">
+                                        <button type="submit" class="btn btn-primary btn-lg">
+                                            @L["Register"]
+                                        </button>
+                                    </div>
+
+                                    <div class="text-center mt-3">
+                                        <span class="text-muted">@L["AlreadyHavaAnAccount"]</span>
+                                        <a class="ms-1" href="/login">@L["Login"]</a>
+                                    </div>
+                                </EditForm>
+                            </section>
+                        </div>
+
+                        <div class="card-footer bg-white border-0 text-center pb-4">
+                            <small class="text-muted">
+                                @L["ByContinuingYouAgreeToOur"] <a href="/terms">@L["Terms"]</a> and <a href="/privacy">@L["PrivacyPolicy"]</a>.
+                            </small>
                         </div>
                     </div>
                 </div>
-            }
+            </div>
+
         </div>
     </NotAuthorized>
 </AuthorizeView>
@@ -166,14 +160,20 @@
     [SupplyParameterFromForm]
     private InputModel Input { get; set; } = new();
 
-    public async Task RegisterUserAsync()
-    {
-        formResult = await Acct.RegisterAsync(Input.FirstName, Input.LastName, Input.Email, Input.Password, Input.Role, Input.Age, Input.PhoneNumber);
-    }
+    private EditContext? _editContext;
+    private ValidationMessageStore? _serverMessages;
 
     protected override void OnInitialized()
     {
-        // Keep default if you want (optional)
+        // Create EditContext for Input model
+        _editContext = new EditContext(Input);
+        _serverMessages = new ValidationMessageStore(_editContext);
+
+        // Clear server errors when user re-validates / changes fields
+        _editContext.OnValidationRequested += (s, e) => _serverMessages.Clear();
+        _editContext.OnFieldChanged += (s, e) => _serverMessages.Clear(e.FieldIdentifier);
+
+        // Role logic (unchanged)
         if (string.IsNullOrWhiteSpace(Input.Role))
             Input.Role = "Employee";
 
@@ -186,41 +186,108 @@
         }
     }
 
-    private sealed class InputModel
+    public async Task RegisterUserAsync()
     {
-        [Required]
-        [Display(Name = "FirstName")]
-        public string FirstName { get; set; } = string.Empty;
+        if (_editContext is null || _serverMessages is null)
+            return;
 
-        [Required]
-        [Display(Name = "LastName")]
-        public string LastName { get; set; } = string.Empty;
+        // clear previous server-side messages
+        _serverMessages.Clear();
 
-        [Required]
-        [EmailAddress]
-        [Display(Name = "Email")]
-        public string Email { get; set; } = string.Empty;
+        formResult = await Acct.RegisterAsync(
+            Input.FirstName,
+            Input.LastName,
+            Input.Email,
+            Input.Password,
+            Input.ConfirmPassword,
+            Input.Role,
+            Input.Age,
+            Input.PhoneNumber);
 
-        [Required]
+        if (!formResult.Succeeded)
+        {
+            // Map server ValidationErrorDto -> field-level messages
+            foreach (var err in formResult.ErrorList)
+            {
+                if (string.IsNullOrWhiteSpace(err.PropertyName))
+                {
+                    // General error – attach to Password or some global field if you want
+                    var field = new FieldIdentifier(Input, nameof(Input.Password));
+                    _serverMessages.Add(field, L[err.ErrorKey]);
+                }
+                else
+                {
+                    var field = new FieldIdentifier(Input, err.PropertyName);
+                    _serverMessages.Add(field, L[err.ErrorKey]);
+                }
+            }
+
+            _editContext.NotifyValidationStateChanged();
+            return;
+        }
+
+        // On success you might want to clear validation messages
+        _editContext.NotifyValidationStateChanged();
+    }
+
+
+private sealed class InputModel
+{
+    [Required(
+        ErrorMessageResourceType = typeof(Resources),
+        ErrorMessageResourceName = "FirstNameRequired")]
+    [Display(Name = "FirstName", ResourceType = typeof(Resources))]
+    public string FirstName { get; set; } = string.Empty;
+
+    [Required(
+        ErrorMessageResourceType = typeof(Resources),
+        ErrorMessageResourceName = "LastNameRequired")]
+    [Display(Name = "LastName", ResourceType = typeof(Resources))]
+    public string LastName { get; set; } = string.Empty;
+
+    [Required(
+        ErrorMessageResourceType = typeof(Resources),
+        ErrorMessageResourceName = "EmailRequired")]
+    [EmailAddress(
+        ErrorMessageResourceType = typeof(Resources),
+        ErrorMessageResourceName = "EmailInvalid")]
+    [Display(Name = "Email", ResourceType = typeof(Resources))]
+    public string Email { get; set; } = string.Empty;
+        [Required(
+            ErrorMessageResourceType = typeof(Resources),
+            ErrorMessageResourceName = "PasswordRequired")]
+        [MinLength(6,
+            ErrorMessageResourceType = typeof(Resources),
+            ErrorMessageResourceName = "PasswordTooShort")]
+        [PasswordRequiresDigit]              
+        [PasswordRequiresNonAlphanumeric]
+        [PasswordRequiresUpper]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Password", ResourceType = typeof(Resources))]
         public string Password { get; set; } = string.Empty;
 
-        [Required]
+        [Required(
+    ErrorMessageResourceType = typeof(Resources),
+    ErrorMessageResourceName = "PasswordRequired")]
         [DataType(DataType.Password)]
-        [Compare("Password")]
-        [Display(Name = "Confirm Password")]
+        [Compare("Password",
+    ErrorMessageResourceType = typeof(Resources),
+    ErrorMessageResourceName = "PasswordsDoNotMatch")]
+        [Display(Name = "ConfirmPassword", ResourceType = typeof(Resources))]
         public string ConfirmPassword { get; set; } = string.Empty;
 
-        [Display(Name = "Age")]
-        public long Age { get; set; }
+    [Display(Name = "Age", ResourceType = typeof(Resources))]
+    public long Age { get; set; }
 
-        [DataType(DataType.PhoneNumber)]
-        [Display(Name = "PhoneNumber")]
-        public string PhoneNumber { get; set; } = string.Empty;
+    [DataType(DataType.PhoneNumber)]
+    [Display(Name = "PhoneNumber", ResourceType = typeof(Resources))]
+    public string PhoneNumber { get; set; } = string.Empty;
 
-        [Required]
-        [Display(Name = "Role")]
-        public string Role { get; set; } = string.Empty;
-    }
+    [Required(
+        ErrorMessageResourceType = typeof(Resources),
+        ErrorMessageResourceName = "RoleRequired")]
+    [Display(Name = "Role", ResourceType = typeof(Resources))]
+    public string Role { get; set; } = string.Empty;
+}
+
 }

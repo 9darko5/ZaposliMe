@@ -1,7 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using FluentValidation;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
+using System.Text;
 using System.Threading.RateLimiting;
+using ZaposliMe.Application.DTOs.Account;
 using ZaposliMe.Application.Queries.User.GetUserByEmail;
 using ZaposliMe.Domain;
 using ZaposliMe.Domain.Entities.Identity;
@@ -10,13 +15,10 @@ using ZaposliMe.Domain.Interfaces;
 using ZaposliMe.Domain.Repository;
 using ZaposliMe.Persistance;
 using ZaposliMe.WebAPI.Controllers;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
+using ZaposliMe.WebAPI.Validators;
 
 
 var builder = WebApplication.CreateBuilder(args);
-Console.WriteLine("Final Connection String: " + builder.Configuration.GetConnectionString("ZaposliMeConnection"));
 
 foreach (var kv in builder.Configuration.AsEnumerable())
 {
@@ -26,6 +28,7 @@ foreach (var kv in builder.Configuration.AsEnumerable())
     }
 }
 // Add services to the container.
+builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -95,7 +98,7 @@ builder.Services.AddMediatR(configuration =>
     configuration.RegisterServicesFromAssemblies(typeof(GetUserByEmailQuery).Assembly);
 });
 
-var frontendUrl = "https://www.sljakomat.org"; //"https://localhost:7005";"https://www.sljakomat.org";
+var frontendUrl = "https://www.sljakomat.org"; //"https://localhost:7005"; 
 
 builder.Services.AddCors(options =>
 {
@@ -115,10 +118,10 @@ builder.Services.AddRateLimiter(opts =>
             partitionKey: key,
             factory: _ => new FixedWindowRateLimiterOptions
             {
-                PermitLimit = 100,              // 100 zahteva
+                PermitLimit = 100,              
                 Window = TimeSpan.FromMinutes(1),
                 QueueProcessingOrder = QueueProcessingOrder.OldestFirst,
-                QueueLimit = 0                  // bez čekanja
+                QueueLimit = 0                  
             });
     });
 
@@ -129,6 +132,9 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IJobRepository, JobRepository>();
 builder.Services.AddScoped<IEmployerReviewRepository, EmployerReviewRepository>();
+
+//validators
+builder.Services.AddScoped<IValidator<RegisterDto>, RegisterDtoValidator>();
 
 var app = builder.Build();
 

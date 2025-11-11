@@ -2,11 +2,13 @@
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using ZaposliMe.Application.DTOs;
 using ZaposliMe.Application.DTOs.Account;
 using ZaposliMe.Domain.Entities.Identity;
 using ZaposliMe.WebAPI.Models.Account;
@@ -33,34 +35,57 @@ namespace ZaposliMe.WebAPI.Controllers
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly JwtOptions _jwt;
+        private readonly IValidator<RegisterDto> _validator;
 
         public AccountController(
             UserManager<User> userManager,
             SignInManager<User> signInManager,
-            IOptions<JwtOptions> jwtOptions)
+            IOptions<JwtOptions> jwtOptions,
+            IValidator<RegisterDto> validator)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _jwt = jwtOptions.Value;
+            _validator = validator; 
         }
 
         // ---------- LOGIN (returns tokens) ----------
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDto model, [FromQuery] bool useCookies = false)
         {
-            // We ignore useCookies here and always issue tokens (frontend passes useCookies=false)
             var user = await _userManager.FindByEmailAsync(model.Email);
             if (user is null)
-                return Unauthorized("Invalid login");
+            {
+                return Unauthorized(new[]
+                {
+                    new ValidationErrorDto
+                    {
+                        PropertyName = string.Empty,
+                        ErrorKey = "InvalidLogin"     
+                    }
+                });
+            }
 
-            var pwdOk = await _signInManager.CheckPasswordSignInAsync(user, model.Password, lockoutOnFailure: true);
+            var pwdOk = await _signInManager.CheckPasswordSignInAsync(
+                user,
+                model.Password,
+                lockoutOnFailure: true);
+
             if (!pwdOk.Succeeded)
-                return Unauthorized("Invalid login");
+            {
+                return Unauthorized(new[]
+                {
+                    new ValidationErrorDto
+                    {
+                        PropertyName = string.Empty,
+                        ErrorKey = "InvalidLogin"     
+                    }
+                });
+            }
 
             var roles = await _userManager.GetRolesAsync(user);
             var (access, expiresAt) = CreateAccessToken(user, roles);
 
-            // Create and store refresh token (AspNetUserTokens)
             var refresh = CreateRefreshToken();
             await _userManager.SetAuthenticationTokenAsync(user, RefreshProvider, RefreshName, refresh);
             var refreshExpiry = DateTimeOffset.UtcNow.AddDays(_jwt.RefreshTokenDays).ToUnixTimeSeconds().ToString();
@@ -74,6 +99,7 @@ namespace ZaposliMe.WebAPI.Controllers
                 refresh_token = refresh
             });
         }
+
 
         // ---------- LOGOUT (revoke refresh token) ----------
         [Authorize]
@@ -162,6 +188,19 @@ namespace ZaposliMe.WebAPI.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterDto model)
         {
+            var validationResult = await _validator.ValidateAsync(model);
+
+            if (!validationResult.IsValid)
+            {
+                var fvErrors = validationResult.Errors.Select(e => new ValidationErrorDto
+                {
+                    PropertyName = e.PropertyName,
+                    ErrorKey = e.ErrorMessage              
+                }).ToList();
+
+                return BadRequest(fvErrors);
+            }
+
             var user = new User
             {
                 UserName = model.Email,
@@ -170,17 +209,49 @@ namespace ZaposliMe.WebAPI.Controllers
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 Age = model.Age,
-                Initials = $"{model.FirstName[0].ToString()}.{model.LastName[0].ToString()}."
+                Initials = $"{model.FirstName[0]}.{model.LastName[0]}."
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
+
             if (!result.Succeeded)
-                return BadRequest(result.Errors);
+            {
+                var idErrors = result.Errors.Select(e =>
+                {
+                    var code = e.Code ?? string.Empty;
+
+                    string propertyName;
+
+                    if (code.StartsWith("Password", StringComparison.OrdinalIgnoreCase))
+                    {
+                        propertyName = "Password";
+                    }
+                    else if (code.Contains("UserName", StringComparison.OrdinalIgnoreCase) ||
+                             code.Contains("Email", StringComparison.OrdinalIgnoreCase))
+                    {
+                        propertyName = "Email";
+                    }
+                    else
+                    {
+                        propertyName = string.Empty;
+                    }
+
+                    return new ValidationErrorDto
+                    {
+                        PropertyName = propertyName,
+                        ErrorKey = code  
+                    };
+                }).ToList();
+
+                return BadRequest(idErrors);
+            }
 
             await _userManager.AddToRoleAsync(user, model.Role);
 
             return Ok("User registered");
         }
+
+
 
         // ---------- helpers ----------
         private (string token, DateTimeOffset expiresAt) CreateAccessToken(User user, IEnumerable<string> roles)
