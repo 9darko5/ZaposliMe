@@ -687,4 +687,16 @@
   <data name="EmailInvalidOrForbiddenContactSupport" xml:space="preserve">
     <value>The email you entered is invalid or not allowed. Please contact support.</value>
   </data>
+  <data name="FieldRequired" xml:space="preserve">
+    <value>This field is required.</value>
+  </data>
+  <data name="JobTitleMaxLength" xml:space="preserve">
+    <value>Title must be at most 100 characters.</value>
+  </data>
+  <data name="JobDescriptionMaxLength" xml:space="preserve">
+    <value>Description must be at most 1000 characters.</value>
+  </data>
+  <data name="JobNumberOfWorkersRange" xml:space="preserve">
+    <value>Number of workers must be between 1 and 1000.</value>
+  </data>
 </root>

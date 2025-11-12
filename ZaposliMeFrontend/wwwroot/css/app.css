@@ -219,3 +219,22 @@ body:has(.toast.show) {
         padding-bottom: 5rem !important;
     }
 }
+.job-card {
+    width: 100%;
+}
+    /* cap width and fill up to the cap */
+
+
+    .job-card .card-title,
+    .job-card .card-text {
+        overflow-wrap: anywhere; /* break very long words/tokens */
+        word-break: break-word; /* fallback for older engines */
+    }
+
+/* Optional: clamp description to 4 lines with ellipsis */
+.line-clamp-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

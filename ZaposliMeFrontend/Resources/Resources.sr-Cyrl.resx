@@ -687,4 +687,16 @@
   <data name="EmailInvalidOrForbiddenContactSupport" xml:space="preserve">
     <value>Унијели сте неважећи или забрањени имејл. Молимо контактирајте подршку.</value>
   </data>
+  <data name="FieldRequired" xml:space="preserve">
+    <value>Ово поље је обавезно.</value>
+  </data>
+  <data name="JobTitleMaxLength" xml:space="preserve">
+    <value>Наслов може имати највише 100 карактера.</value>
+  </data>
+  <data name="JobDescriptionMaxLength" xml:space="preserve">
+    <value>Опис може имати највише 1000 карактера.</value>
+  </data>
+  <data name="JobNumberOfWorkersRange" xml:space="preserve">
+    <value>Број радника мора бити између 1 и 1000.</value>
+  </data>
 </root>

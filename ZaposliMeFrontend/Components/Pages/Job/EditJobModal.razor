@@ -1,8 +1,11 @@
-﻿@using ZaposliMe.Application.DTOs.Job
+﻿@using Microsoft.AspNetCore.Components.Forms
 @using Microsoft.Extensions.Localization
+@using System.ComponentModel.DataAnnotations
+@using ZaposliMe.Application.DTOs
+@using ZaposliMe.Application.DTOs.Job
 @inject IStringLocalizer<ZaposliMe.Frontend.Resources.Resources> L
 
-@if (Show && Job != null)
+@if (Show)
 {
     <div class="modal fade show d-block" tabindex="-1" style="background-color: rgba(0,0,0,.5);">
         <div class="modal-dialog">
@@ -11,50 +14,47 @@
                     <h5 class="modal-title">@L["FillOutTheForm"]</h5>
                     <button type="button" class="btn-close" @onclick="OnClose"></button>
                 </div>
+
                 <div class="modal-body">
+                    <EditForm EditContext="_editContext" OnValidSubmit="Save">
+                        <DataAnnotationsValidator />
+                        <ValidationSummary />
 
-                    <div class="mb-3">
-                        <label class="form-label">@L["Title"]</label>
-                        <input class="form-control" @bind="Job.Title" />
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label">@L["Title"]</label>
+                            <InputText class="form-control" @bind-Value="Input.Title" maxlength="100" />
+                            <ValidationMessage For="() => Input.Title" class="text-danger small" />
+                        </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">@L["Description"]</label>
-                        <textarea class="form-control" @bind="Job.Description"></textarea>
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label">@L["Description"]</label>
+                            <InputTextArea class="form-control" @bind-Value="Input.Description" maxlength="1000" />
+                            <ValidationMessage For="() => Input.Description" class="text-danger small" />
+                        </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">@L["NumberOfWorkers"]</label>
-                        <input type="number" class="form-control" @bind="Job.NumberOfWorkers" min="1" />
-                    </div>
+                        <div class="mb-3">
+                            <label class="form-label">@L["NumberOfWorkers"]</label>
+                            <InputNumber class="form-control" @bind-Value="Input.NumberOfWorkers" min="1" max="1000" />
+                            <ValidationMessage For="() => Input.NumberOfWorkers" class="text-danger small" />
+                        </div>
 
-                    <!-- City dropdown -->
-                    <div class="mb-3">
-                        <label class="form-label">@L["City"]</label>
-                        <select class="form-select" @bind="Job.CityId">
-                            <option value="">@L["SelectCity"]</option>
-                            @if (Cities != null)
-                            {
+                        <div class="mb-3">
+                            <label class="form-label">@L["City"]</label>
+                            <InputSelect class="form-select" @bind-Value="Input.CityId">
+                                <option value="">@L["SelectCity"]</option>
                                 @foreach (var c in Cities)
                                 {
                                     <option value="@c.Id">@c.Name (@c.ZIP)</option>
                                 }
-                            }
-                        </select>
-                        @* @if (Job.CityId is null)
-                        {
-                            <small class="text-muted d-block mt-1">@L["PleaseSelectCity"]</small>
-                        } *@
-                    </div>
+                            </InputSelect>
+                            <ValidationMessage For="() => Input.CityId" class="text-danger small" />
+                        </div>
 
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" @onclick="OnClose">@L["Cancel"]</button>
-                    <button class="btn btn-success"
-                            disabled="@( !CanSave )"
-                            @onclick="SaveAndClose">
-                        @L["Save"]
-                    </button>
+                        <div class="modal-footer px-0">
+                            <button type="button" class="btn btn-secondary" @onclick="OnClose">@L["Cancel"]</button>
+                            <button type="submit" class="btn btn-success">@L["Save"]</button>
+                        </div>
+                    </EditForm>
                 </div>
             </div>
         </div>
@@ -62,28 +62,101 @@
 }
 
 @code {
+    // parameters
     [Parameter] public JobDto? Job { get; set; }
     [Parameter] public bool Show { get; set; }
     [Parameter] public EventCallback OnClose { get; set; }
     [Parameter] public EventCallback<JobDto> OnSave { get; set; }
+    [Parameter] public List<CityDto> Cities { get; set; } = new();
+    [Parameter] public List<ValidationErrorDto>? Errors { get; set; }
 
-    // NEW: pass cities from parent
-    [Parameter] public List<CityDto>? Cities { get; set; }
+    // local form model, not JobDto (like Register InputModel)
+    private InputModel Input { get; set; } = new();
 
-    private bool CanSave =>
-        Job is not null
-        && !string.IsNullOrWhiteSpace(Job.Title)
-        && Job.NumberOfWorkers > 0
-        && Job.CityId is Guid;
+    private EditContext? _editContext;
+    private ValidationMessageStore? _serverMessages;
 
-    private async Task SaveAndClose()
+    protected override void OnParametersSet()
     {
-        if (Cities is not null && Job is not null && Job.CityId is Guid cid)
+        if (Show)
         {
-            // set CityName for immediate UI
-            Job.CityName = Cities.FirstOrDefault(x => x.Id == cid)?.Name;
-        }
+            Input = new InputModel
+            {
+                Id = Job?.Id ?? Guid.Empty,
+                Title = Job?.Title ?? "",
+                Description = Job?.Description ?? "",
+                NumberOfWorkers = Job?.NumberOfWorkers,
+                CityId = Job?.CityId
+            };
 
-        await OnSave.InvokeAsync(Job!);
+            _editContext = new EditContext(Input);
+            _serverMessages = new ValidationMessageStore(_editContext);
+
+            _editContext.OnValidationRequested += (_, __) => _serverMessages!.Clear();
+            _editContext.OnFieldChanged += (_, e) => _serverMessages!.Clear(e.FieldIdentifier);
+
+            if (Errors is not null)
+            {
+                foreach (var error in Errors)
+                {
+                    var field = new FieldIdentifier(Input, error.PropertyName);
+                    _serverMessages.Add(field, L[error.ErrorKey]);
+                }
+                _editContext.NotifyValidationStateChanged();
+            }
+        }
+    }
+
+    private async Task Save()
+    {
+        // convert InputModel → JobDto
+        JobDto dto = new()
+        {
+            Id = Input.Id,
+            Title = Input.Title,
+            Description = Input.Description,
+            NumberOfWorkers = Input.NumberOfWorkers,
+            CityId = Input.CityId
+        };
+
+        await OnSave.InvokeAsync(dto);
+    }
+
+    public class InputModel
+    {
+        public Guid Id { get; set; }
+
+        [Required(
+            ErrorMessageResourceType = typeof(Resources.Resources),
+            ErrorMessageResourceName = "FieldRequired")]
+        [MaxLength(100,
+            ErrorMessageResourceType = typeof(Resources.Resources),
+            ErrorMessageResourceName = "JobTitleMaxLength")]
+        [Display(Name = "Title", ResourceType = typeof(Resources.Resources))]
+        public string? Title { get; set; }
+
+        [Required(
+            ErrorMessageResourceType = typeof(Resources.Resources),
+            ErrorMessageResourceName = "FieldRequired")]
+        [MaxLength(1000,
+            ErrorMessageResourceType = typeof(Resources.Resources),
+            ErrorMessageResourceName = "JobDescriptionMaxLength")]
+        [Display(Name = "Description", ResourceType = typeof(Resources.Resources))]
+        public string? Description { get; set; }
+
+        [Required(
+            ErrorMessageResourceType = typeof(Resources.Resources),
+            ErrorMessageResourceName = "FieldRequired")]
+        [Range(1, 1000,
+            ErrorMessageResourceType = typeof(Resources.Resources),
+            ErrorMessageResourceName = "JobNumberOfWorkersRange")]
+        [Display(Name = "NumberOfWorkers", ResourceType = typeof(Resources.Resources))]
+        public int? NumberOfWorkers { get; set; }
+
+        [Required(
+            ErrorMessageResourceType = typeof(Resources.Resources),
+            ErrorMessageResourceName = "FieldRequired")]
+        [Display(Name = "City", ResourceType = typeof(Resources.Resources))]
+        public Guid? CityId { get; set; }
     }
 }

@@ -7,6 +7,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.RateLimiting;
 using ZaposliMe.Application.DTOs.Account;
+using ZaposliMe.Application.DTOs.Job;
 using ZaposliMe.Application.Queries.User.GetUserByEmail;
 using ZaposliMe.Domain;
 using ZaposliMe.Domain.Entities.Identity;
@@ -98,7 +99,7 @@ builder.Services.AddMediatR(configuration =>
     configuration.RegisterServicesFromAssemblies(typeof(GetUserByEmailQuery).Assembly);
 });
 
-var frontendUrl = "https://www.sljakomat.org"; //"https://localhost:7005"; 
+var frontendUrl = "https://www.sljakomat.org"; //"https://localhost:7005"; //
 
 builder.Services.AddCors(options =>
 {
@@ -135,6 +136,7 @@ builder.Services.AddScoped<IEmployerReviewRepository, EmployerReviewRepository>(
 
 //validators
 builder.Services.AddScoped<IValidator<RegisterDto>, RegisterDtoValidator>();
+builder.Services.AddScoped<IValidator<JobDto>, JobDtoValidator>();
 
 var app = builder.Build();
 

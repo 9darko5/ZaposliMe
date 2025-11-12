@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -6,6 +7,7 @@ using ZaposliMe.Application.Commands.Job.ApproveApplication;
 using ZaposliMe.Application.Commands.Job.CreateJob;
 using ZaposliMe.Application.Commands.Job.DeleteJob;
 using ZaposliMe.Application.Commands.Job.UpdateJob;
+using ZaposliMe.Application.DTOs;
 using ZaposliMe.Application.DTOs.Job;
 using ZaposliMe.Application.Queries.Job.GetAllJobs;
 
@@ -16,24 +18,33 @@ namespace ZaposliMe.WebAPI.Controllers
     public class JobController : ControllerBase
     {
         private readonly ISender _sender;
-        public JobController(ISender sender)
+        private readonly IValidator<JobDto> _jobValidator;
+
+        public JobController(ISender sender, IValidator<JobDto> jobValidator)
         {
             _sender = sender;
+            _jobValidator = jobValidator;
         }
 
         [HttpPost("create")]
         [Authorize(Roles = "Employer")]
-        public async Task<IActionResult> CreateJob(JobDto model)
+        public async Task<IActionResult> CreateJob([FromBody] JobDto model, CancellationToken ct)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId is null) return Unauthorized();
 
-            if (userId is null)
-                return Unauthorized();
+            var result = await _jobValidator.ValidateAsync(model, ct);
+            if (!result.IsValid)
+                return BadRequest(result.Errors.Select(e => new ValidationErrorDto { PropertyName = e.PropertyName, ErrorKey = e.ErrorMessage }));
 
-            var createdJobCommand = new CreateJobCommand(userId, model.Title, model.Description, model.NumberOfWorkers, model.CityId.GetValueOrDefault());
+            var cmd = new CreateJobCommand(
+                userId,
+                model.Title!,
+                model.Description!,
+                model.NumberOfWorkers!.Value,
+                model.CityId!.Value);
 
-            var id = await _sender.Send(createdJobCommand);
-
+            var id = await _sender.Send(cmd, ct);
             return Ok(id);
         }
 
@@ -50,12 +61,20 @@ namespace ZaposliMe.WebAPI.Controllers
 
         [HttpPut("update")]
         [Authorize(Roles = "Admin,Employer")]
-        public async Task<IActionResult> UpdateJob(JobDto model)
+        public async Task<IActionResult> UpdateJob([FromBody] JobDto model, CancellationToken ct)
         {
-            var updateJobCommand = new UpdateJobCommand(model.Id, model.Title, model.Description, model.NumberOfWorkers, model.CityId.GetValueOrDefault());
+            var result = await _jobValidator.ValidateAsync(model, ct);
+            if (!result.IsValid)
+                return BadRequest(result.Errors.Select(e => new ValidationErrorDto { PropertyName = e.PropertyName, ErrorKey = e.ErrorMessage }));
 
-            await _sender.Send(updateJobCommand);
+            var cmd = new UpdateJobCommand(
+                model.Id,
+                model.Title!,
+                model.Description!,
+                model.NumberOfWorkers!.Value,
+                model.CityId!.Value);
 
+            await _sender.Send(cmd, ct);
             return Ok();
         }
 

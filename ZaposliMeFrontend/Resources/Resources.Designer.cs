@@ -727,6 +727,15 @@ namespace ZaposliMe.Frontend.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This field is required..
+        /// </summary>
+        public static string FieldRequired {
+            get {
+                return ResourceManager.GetString("FieldRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fill in your details to get started.
         /// </summary>
         public static string FillInYourDetailsToGetStarted {
@@ -907,11 +916,38 @@ namespace ZaposliMe.Frontend.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Description must be at most 1000 characters..
+        /// </summary>
+        public static string JobDescriptionMaxLength {
+            get {
+                return ResourceManager.GetString("JobDescriptionMaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of workers must be between 1 and 1000..
+        /// </summary>
+        public static string JobNumberOfWorkersRange {
+            get {
+                return ResourceManager.GetString("JobNumberOfWorkersRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Jobs.
         /// </summary>
         public static string Jobs {
             get {
                 return ResourceManager.GetString("Jobs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title must be at most 100 characters..
+        /// </summary>
+        public static string JobTitleMaxLength {
+            get {
+                return ResourceManager.GetString("JobTitleMaxLength", resourceCulture);
             }
         }
         
